@@ -1,0 +1,25 @@
+{
+  "name": "mei-cat",
+  "workspaces": [
+    "client",
+    "server",
+    "libs/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "check": "turbo run check",
+    "docker:up": "docker compose -f docker/docker-compose.yml up -d",
+    "docker:down": "docker compose -f docker/docker-compose.yml down",
+    "docker:logs": "docker compose -f docker/docker-compose.yml logs -f"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4"
+  },
+  "trustedDependencies": [
+    "@biomejs/biome"
+  ],
+  "dependencies": {
+    "turbo": "^2.5.4"
+  },
+  "packageManager": "bun@1.1.18"
+}

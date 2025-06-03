@@ -1,2 +1,1 @@
-export { meiXmlToJson } from "./src/meiToJSON";
-export { MEIBiblioSchema, type MEIBiblio } from "./src/schema";
+export { meiXmlToJson, meiXmlTo51 } from "./src/meiToJSON";

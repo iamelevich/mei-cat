@@ -1,24 +1,61 @@
-import { Value } from "@sinclair/typebox/value";
+import { $ } from "bun";
 import { XMLParser } from "fast-xml-parser";
-import {
-	type MEIBiblio,
-	type MEIBiblioManifestation,
-	ManifestationSchema,
-	type PhysLoc,
-	PhysLocSchema,
-} from "./schema";
 
 /**
- * Transforms MEI XML string into normalized JSON matching MEIBiblioSchema.
+ * Transforms MEI XML string to JSON.
  * @param xml - MEI XML as string
- * @returns Normalized MEI bibliographic/manifestation JSON
+ * @returns JSON representation of MEI XML
  */
-export function meiXmlToJson(xml: string): MEIBiblio {
+export function meiXmlToJson(xml: string) {
 	const parser = new XMLParser({
-		ignoreAttributes: ["xml:id"],
+		// ignoreAttributes: (attrName: string, jPath: string) => {
+		// 	if (attrName === "xml:id") {
+		// 		console.log(`Ignoring attribute ${attrName} in ${jPath}`);
+		// 		return true;
+		// 	}
+		// 	return false;
+		// },
+		ignoreAttributes: false,
 		attributeNamePrefix: "",
 	});
 	const doc = parser.parse(xml);
 
 	return doc;
+}
+
+/**
+ * Transforms MEI XML string to MEI 5.1 XML string.
+ * @param xml - MEI XML as string
+ * @returns MEI 5.1 XML as string
+ */
+export async function meiXmlTo51(xml: string): Promise<string> {
+	const meiXmlVersion = xml.match(/meiversion="(\d+\.\d+\.\d+)"/)?.[1];
+	if (!meiXmlVersion) {
+		throw new Error("MEI XML version not found");
+	}
+
+	console.log(`MEI XML version: ${meiXmlVersion}`);
+
+	const encodingToolsDir = `${__dirname}/../encoding-tools`;
+	let xsltFileName = `${encodingToolsDir}/mei50To51/mei50To51.xsl`;
+	if (meiXmlVersion.startsWith("2")) {
+		xsltFileName = `${encodingToolsDir}/mei21To30/mei21To30.xsl`;
+	} else if (meiXmlVersion.startsWith("3")) {
+		xsltFileName = `${encodingToolsDir}/mei30To40/mei30To40.xsl`;
+	} else if (meiXmlVersion.startsWith("4")) {
+		xsltFileName = `${encodingToolsDir}/mei40To51/mei40To51.xsl`;
+	}
+
+	const inputFile = `/tmp/mei-input-${Date.now()}.xml`;
+	const outputFile = `/tmp/mei-output-${Date.now()}.xml`;
+
+	await Bun.write(inputFile, xml);
+	await $`bunx xslt3 -xsl:${xsltFileName} -s:${inputFile} -o:${outputFile}`;
+	const output = await Bun.file(outputFile).text();
+
+	// Delete tmp files
+	await Bun.file(inputFile).delete();
+	await Bun.file(outputFile).delete();
+
+	return output;
 }

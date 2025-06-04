@@ -1,9 +1,6 @@
-import { migrate } from "drizzle-orm/node-postgres/migrator";
+import { migrateDB } from "../src/db/migrate";
 
-import config from "../drizzle.config";
-import { db } from "../src/db";
-
-migrate(db, { migrationsFolder: config.out! })
+migrateDB()
 	.then(() => {
 		console.log("Migration successful");
 		process.exit(0);

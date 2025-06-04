@@ -1,0 +1,183 @@
+import { beforeAll, describe, expect, it } from "bun:test";
+import { join } from "node:path";
+import { treaty } from "@elysiajs/eden";
+import { seed } from "drizzle-seed";
+import { rimraf } from "rimraf";
+import { db } from "../db";
+import { migrateDB } from "../db/migrate";
+import { meiFiles } from "../db/schema";
+import { env } from "../env";
+import { meiRoutes } from "./mei";
+
+// Run migrations before all tests to ensure the database is in a clean state
+beforeAll(async (done) => {
+	// Migrate and reset the database before all tests
+	await migrateDB(true);
+
+	// Clean up storage before all tests
+	console.log(`Cleaning storage ${env.STORAGE_PATH}`);
+	await rimraf(env.STORAGE_PATH);
+
+	done();
+});
+
+const api = treaty(meiRoutes);
+
+describe("meiFilesRoutes", () => {
+	it("should be defined", () => {
+		expect(meiRoutes).toBeDefined();
+		expect(api).toBeDefined();
+	});
+
+	it("should get all mei files", async () => {
+		await seed(
+			db,
+			{
+				meiFiles,
+			},
+			{
+				count: 2,
+			},
+		);
+
+		const response = await api.mei.get();
+
+		expect(response.data).not.toBeNull();
+		expect(response.status).toBe(200);
+
+		expect(response.data!.length).toBeGreaterThanOrEqual(2);
+	});
+
+	it("should return 404 if the mei file does not exist", async () => {
+		const response = await api
+			.mei({
+				id: "test1",
+			})
+			.get();
+		expect(response.status).toBe(404);
+		expect(response.data).toBeNull();
+	});
+
+	it("should get a mei file by id", async () => {
+		await seed(
+			db,
+			{
+				meiFiles,
+			},
+			{
+				count: 1,
+			},
+		).refine((funcs) => ({
+			meiFiles: {
+				columns: {
+					id: funcs.valuesFromArray({
+						values: ["test1"],
+					}),
+				},
+			},
+		}));
+
+		const response = await api
+			.mei({
+				id: "test1",
+			})
+			.get();
+
+		expect(response.data).toBeDefined();
+		expect(response.status).toBe(200);
+	});
+
+	it("should create a mei file from a URL", async () => {
+		const inputFilePath = join(
+			__dirname,
+			"..",
+			"..",
+			"test",
+			"test-v4-valid.xml",
+		);
+
+		const response = await api.mei.post({
+			url: Bun.pathToFileURL(inputFilePath).toString(),
+		});
+
+		expect(response.data).not.toBeNull();
+		expect(response.status).toBe(200);
+
+		expect(response.data).toEqual({
+			convertedFileName: "mei_idm139988010758416.mei51.xml",
+			id: "mei_idm139988010758416",
+			language: "da",
+			originalFileName: "mei_idm139988010758416.xml",
+			originalMeiVersion: "4.0.1",
+			storagePath: env.STORAGE_PATH,
+			storageType: env.STORAGE_TYPE,
+			title: "Maskarade",
+			createdAt: expect.any(String),
+			updatedAt: expect.any(String),
+		});
+
+		const inputFile = Bun.file(inputFilePath);
+		const outputFile = Bun.file(
+			join(env.STORAGE_PATH, response.data!.originalFileName),
+		);
+		expect(await outputFile.exists()).toBe(true);
+		expect(await inputFile.exists()).toBe(true);
+
+		// Read contents of input and output files
+		const inputContent = await inputFile.text();
+		const outputContent = await outputFile.text();
+
+		// Compute hashes (using Bun's built-in hash function)
+		const inputHash = Bun.hash(inputContent);
+		const outputHash = Bun.hash(outputContent);
+
+		// Check if the hashes are the same
+		expect(inputHash).toBe(outputHash);
+	});
+
+	it("should return 422 if the url is invalid", async () => {
+		const response = await api.mei.post({
+			url: "invalid-url",
+		});
+		expect(response.status).toBe(422);
+		expect(response.error).toBeDefined();
+		expect(response.error!.value).toEqual(
+			expect.objectContaining({
+				type: "validation",
+				message: "Expected string to match 'uri' format",
+			}),
+		);
+	});
+
+	it("should return 400 if cant download the mei file", async () => {
+		const response = await api.mei.post({
+			url: "https://invalid-url.invalid",
+		});
+		expect(response.error!.value).toEqual({
+			error: "Failed to download MEI file",
+			cause: {
+				code: "ConnectionRefused",
+				errno: 0,
+				path: "https://invalid-url.invalid/",
+			},
+		});
+		expect(response.status).toBe(400);
+	});
+
+	it("should return 400 if the mei file is invalid", async () => {
+		const response = await api.mei.post({
+			url: Bun.pathToFileURL(
+				join(__dirname, "..", "..", "test", "invalid-file.json"),
+			).toString(),
+		});
+		expect(response.error!.value).toEqual({
+			error: "Failed to process MEI file",
+			cause: {
+				name: "MeiFileInvalidContentTypeError",
+				message:
+					"Invalid content type. Expected application/xml, but got application/json;charset=utf-8",
+			},
+		});
+		expect(response.status).toBe(500);
+	});
+});

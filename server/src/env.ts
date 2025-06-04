@@ -1,3 +1,4 @@
+import path from "node:path";
 import { type Static, type TObject, Type } from "@sinclair/typebox";
 import { Value } from "@sinclair/typebox/value";
 
@@ -24,11 +25,19 @@ function parseEnv<T extends TObject>(
 	return converted;
 }
 
+function transformEnv(value: Static<typeof EnvDTO>) {
+	if (value.STORAGE_PATH.startsWith("./")) {
+		value.STORAGE_PATH = path.join(__dirname, "..", "..", value.STORAGE_PATH);
+	}
+	return value;
+}
+
 const EnvDTO = Type.Object({
 	NODE_ENV: Type.Enum(
 		{
 			development: "development",
 			production: "production",
+			test: "test",
 		},
 		{ default: "development" },
 	),
@@ -38,7 +47,16 @@ const EnvDTO = Type.Object({
 		default: "postgres://mei-cat:mypassword@localhost:5432/mei-cat",
 	}),
 	DATABASE_AUTH_TOKEN: Type.Optional(Type.String()),
+	STORAGE_TYPE: Type.Enum(
+		{
+			local: "local",
+			s3: "s3",
+		},
+		{ default: "local" },
+	),
+	STORAGE_PATH: Type.String({ default: "./storage" }),
+	MEI_FILE_DOWNLOAD_TIMEOUT: Type.Number({ default: 5000 }),
 });
 
 export const isProd = process.env.NODE_ENV === "production";
-export const env = parseEnv(EnvDTO, process.env);
+export const env = transformEnv(parseEnv(EnvDTO, process.env));

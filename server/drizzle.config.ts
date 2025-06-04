@@ -7,7 +7,7 @@ export default defineConfig({
 	dbCredentials: {
 		url: env.DATABASE_URL,
 	},
-	out: "./drizzle",
+	out: "./src/db/migrations",
 	breakpoints: true,
 	schema: "./src/db/schema.ts",
 });

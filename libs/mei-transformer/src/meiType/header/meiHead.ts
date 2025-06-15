@@ -1,0 +1,80 @@
+import { type Static, Type } from "@sinclair/typebox";
+import {
+	AttrBasicSchema,
+	AttrBiblSchema,
+	AttrLabeledSchema,
+	AttrLangSchema,
+	AttrMeiVersionSchema,
+	AttrResponsibilitySchema,
+} from "../attributes";
+import { NotImplementedTagSchema, StandardTagSchema } from "../common";
+import { FileDescSchema } from "./fileDesc";
+
+/**
+ * Supplies the descriptive and declarative metadata prefixed to every MEI-conformant text.
+ * @see https://music-encoding.org/guidelines/v5/elements/meiHead.html
+ */
+export const MeiHeadSchema = Type.Composite([
+	StandardTagSchema,
+	AttrBasicSchema,
+	AttrMeiVersionSchema,
+	AttrResponsibilitySchema,
+	AttrLangSchema,
+	AttrLabeledSchema,
+	AttrBiblSchema,
+	Type.Object({
+		/**
+		 * Specifies the kind of document to which the header is attached, for example whether it is a corpus or individual text.
+		 * Allowed values are:
+		 *   "music" (Header is attached to a music document.),
+		 *   "corpus" (Header is attached to a corpus.),
+		 *   "independent" (Header is independent; not attached to either a music or a corpus document.)
+		 */
+		"@type": Type.Optional(
+			Type.Union([
+				Type.Literal("music"),
+				Type.Literal("corpus"),
+				Type.Literal("independent"),
+			]),
+		),
+		/**
+		 * A container for the descriptions of physical embodiments of an expression of a work.
+		 * @see https://music-encoding.org/guidelines/v5/elements/manifestationList.html
+		 */
+		manifestationList: NotImplementedTagSchema,
+		/**
+		 * May contain a bibliographic identifier that does not fit within the meiHead element's id attribute,
+		 * for example because the identifier does not fit the definition of an XML id or because multiple identifiers are needed.
+		 * @see https://music-encoding.org/guidelines/v5/elements/altId.html
+		 */
+		altId: Type.Optional(NotImplementedTagSchema),
+		/**
+		 * Contains a full bibliographic description of the MEI file.
+		 * @see https://music-encoding.org/guidelines/v5/elements/fileDesc.html
+		 */
+		fileDesc: FileDescSchema,
+		/**
+		 * Documents the relationship between an electronic file and the source or sources from which it was derived as well
+		 * as applications used in the encoding/editing process.
+		 * @see https://music-encoding.org/guidelines/v5/elements/encodingDesc.html
+		 */
+		encodingDesc: Type.Optional(NotImplementedTagSchema),
+		/**
+		 * Grouping mechanism for information describing non-bibliographic aspects of a text.
+		 * @see https://music-encoding.org/guidelines/v5/elements/workList.html
+		 */
+		workList: Type.Optional(NotImplementedTagSchema),
+		/**
+		 * Container for information about alterations that have been made to an MEI file.
+		 * @see https://music-encoding.org/guidelines/v5/elements/revisionDesc.html
+		 */
+		revisionDesc: Type.Optional(NotImplementedTagSchema),
+		/**
+		 * Provides a container element for non-MEI metadata formats.
+		 * @see https://music-encoding.org/guidelines/v5/elements/extMeta.html
+		 */
+		extMeta: Type.Optional(NotImplementedTagSchema),
+	}),
+]);
+
+export type MeiHead = Static<typeof MeiHeadSchema>;

@@ -1,5 +1,5 @@
 import { type Static, Type } from "@sinclair/typebox";
-import { MeiSchema } from "./mei";
+import { MeiSchema } from "./shared/mei";
 
 export const MeiJSONSchema = Type.Object({
 	mei: MeiSchema,

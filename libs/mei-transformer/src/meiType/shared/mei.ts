@@ -3,9 +3,9 @@ import {
 	AttrIdSchema,
 	AttrMeiVersionSchema,
 	AttrResponsibilitySchema,
-} from "./attributes";
-import { StandardTagSchema } from "./common";
-import { MeiHeadSchema } from "./header";
+} from "../attributes";
+import { StandardTagSchema } from "../common";
+import { MeiHeadSchema } from "../header/meiHead";
 import { MusicSchema } from "./music";
 
 /**

@@ -1,8 +1,3 @@
-/**
- * Component declarations that are shared between two or more modules.
- * @see https://music-encoding.org/guidelines/v5/modules/MEI.shared.html
- */
-
 import { Type } from "@sinclair/typebox";
 import type { Static } from "@sinclair/typebox";
 import {
@@ -17,8 +12,8 @@ import {
 	AttrLinkingSchema,
 	AttrNNumberLikeSchema,
 	AttrResponsibilitySchema,
-} from "./attributes";
-import { NotImplementedTagSchema, StandardTagSchema } from "./common";
+} from "../attributes";
+import { NotImplementedTagSchema, StandardTagSchema } from "../common";
 
 /**
  * Title of a bibliographic entity.

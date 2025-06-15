@@ -1,6 +1,15 @@
-import { describe, it } from "bun:test";
-import { expectType } from "ts-expect";
-import type { TitleStmt } from "./header";
+import { describe, expect, it } from "bun:test";
+import { Value, type ValueError } from "@sinclair/typebox/value";
+import { type TitleStmt, TitleStmtSchema } from "./header";
+
+// Helper function to format validation errors for clear test output
+function formatErrors(errors: Iterable<ValueError>): string {
+	const errorMessages = [...errors].map(
+		(error) =>
+			`  - Path: ${error.path || "root"}\n    Message: ${error.message}\n    Value: ${JSON.stringify(error.value)}`,
+	);
+	return `Schema validation failed with ${errorMessages.length} errors:\n${errorMessages.join("\n")}`;
+}
 
 describe("MEI.header", () => {
 	describe("<titleStmt>", () => {
@@ -26,7 +35,8 @@ describe("MEI.header", () => {
 					},
 				},
 			};
-			expectType<TitleStmt>(titleStmt);
+			const errors = Value.Errors(TitleStmtSchema, titleStmt);
+			expect(formatErrors(errors)).toMatchSnapshot();
 		});
 
 		it("should work for Bach-JS_Hilf_Herr_Jesu_BWV344", () => {
@@ -65,7 +75,9 @@ describe("MEI.header", () => {
 					],
 				},
 			};
-			expectType<TitleStmt>(titleStmt);
+
+			const errors = Value.Errors(TitleStmtSchema, titleStmt);
+			expect(formatErrors(errors)).toMatchSnapshot();
 		});
 
 		it("should work for example of of a header including FRBR", () => {
@@ -87,7 +99,9 @@ describe("MEI.header", () => {
 					},
 				},
 			};
-			expectType<TitleStmt>(titleStmt);
+
+			const errors = Value.Errors(TitleStmtSchema, titleStmt);
+			expect(formatErrors(errors)).toMatchSnapshot();
 		});
 	});
 });

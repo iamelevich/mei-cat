@@ -1,5 +1,8 @@
-import type { Mei } from "./mei";
+import { type Static, Type } from "@sinclair/typebox";
+import { MeiSchema } from "./mei";
 
-export type MeiJSON = {
-	mei: Mei;
-};
+export const MeiJSONSchema = Type.Object({
+	mei: MeiSchema,
+});
+
+export type MeiJSON = Static<typeof MeiJSONSchema>;

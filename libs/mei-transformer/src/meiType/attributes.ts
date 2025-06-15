@@ -23,18 +23,20 @@ export const AttrIdSchema = Type.Object(
  */
 export type AttrId = Static<typeof AttrIdSchema>;
 
-export const AttrBasicSchema = Type.Object(
-	{
-		/**
-		 * Provides a base URI reference with which applications can resolve relative URI references into absolute URI references.
-		 * Value conforms to data.URI.
-		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.basic.html
-		 */
-		"@xml:base": Type.Optional(Type.String()),
-		...AttrIdSchema.properties,
-	},
-	{ additionalProperties: false },
-);
+export const AttrBasicSchema = Type.Composite([
+	Type.Object(
+		{
+			/**
+			 * Provides a base URI reference with which applications can resolve relative URI references into absolute URI references.
+			 * Value conforms to data.URI.
+			 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.basic.html
+			 */
+			"@xml:base": Type.Optional(Type.String()),
+		},
+		{ additionalProperties: false },
+	),
+	AttrIdSchema,
+]);
 
 /**
  * Attributes that form the basis of the att.common class.
@@ -134,230 +136,310 @@ export type AttrLang = Static<typeof AttrLangSchema>;
  * Attributes used to supply a label for an element.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.labeled.html
  */
-export type AttrLabeled = {
-	/**
-	 * Captures text to be used to generate a label for the element to which it's attached, a "tool tip" or prefatory text, for example.
-	 * Should not be used to record document content. Value is plain text.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.labeled.html
-	 */
-	"@label"?: string;
-};
+export const AttrLabeledSchema = Type.Object(
+	{
+		/**
+		 * Captures text to be used to generate a label for the element to which it's attached, a "tool tip" or prefatory text, for example.
+		 * Should not be used to record document content. Value is plain text.
+		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.labeled.html
+		 */
+		"@label": Type.Optional(Type.String()),
+	},
+	{ additionalProperties: false },
+);
+
+export type AttrLabeled = Static<typeof AttrLabeledSchema>;
 
 /**
  * Attributes used to supply a bibliographic reference to an element.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.bibl.html
  */
-export type AttrBibl = {
-	/**
-	 * Contains a reference to a field or element in another descriptive encoding system to which this MEI element is comparable. Value is plain text.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.bibl.html
-	 */
-	"@analog"?: string;
-};
+export const AttrBiblSchema = Type.Object(
+	{
+		/**
+		 * Contains a reference to a field or element in another descriptive encoding system to which this MEI element is comparable. Value is plain text.
+		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.bibl.html
+		 */
+		"@analog": Type.Optional(Type.String()),
+	},
+	{ additionalProperties: false },
+);
+
+export type AttrBibl = Static<typeof AttrBiblSchema>;
 
 /**
  * Attributes that specify element-to-element relationships.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.linking.html
  */
-export type AttrLinking = {
-	/**
-	 * Points to an element of which the current element is a copy. Value conforms to data.URI.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.linking.html
-	 */
-	"@copyof"?: string;
-	/**
-	 * Used to point to other elements that correspond to this one in a generic fashion. One or more values from data.URI, separated by spaces.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.linking.html
-	 */
-	"@corresp"?: string;
-	/**
-	 * points to one or more events in a user-defined collection that are known to be predecessors of the current element. One or more values from data.URI, separated by spaces.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.linking.html
-	 */
-	"@follows"?: string;
-	/**
-	 * Used to point to the next event(s) in a user-defined collection. One or more values from data.URI, separated by spaces.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.linking.html
-	 */
-	"@next"?: string;
-	/**
-	 * Points to one or more events in a user-defined collection that are known to be successors of the current element. One or more values from data.URI, separated by spaces.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.linking.html
-	 */
-	"@precedes"?: string;
-	/**
-	 * Points to the previous event(s) in a user-defined collection. One or more values from data.URI, separated by spaces.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.linking.html
-	 */
-	"@prev"?: string;
-	/**
-	 * Points to an element that is the same as the current element but is not a literal copy of the current element. One or more values from data.URI, separated by spaces.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.linking.html
-	 */
-	"@sameas"?: string;
-	/**
-	 * Points to elements that are synchronous with the current element. One or more values from data.URI, separated by spaces.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.linking.html
-	 */
-	"@synch"?: string;
-};
+export const AttrLinkingSchema = Type.Object(
+	{
+		/**
+		 * Points to an element of which the current element is a copy. Value conforms to data.URI.
+		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.linking.html
+		 */
+		"@copyof": Type.Optional(Type.String()),
+		/**
+		 * Used to point to other elements that correspond to this one in a generic fashion. One or more values from data.URI, separated by spaces.
+		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.linking.html
+		 */
+		"@corresp": Type.Optional(Type.String()),
+		/**
+		 * points to one or more events in a user-defined collection that are known to be predecessors of the current element. One or more values from data.URI, separated by spaces.
+		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.linking.html
+		 */
+		"@follows": Type.Optional(Type.String()),
+		/**
+		 * Used to point to the next event(s) in a user-defined collection. One or more values from data.URI, separated by spaces.
+		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.linking.html
+		 */
+		"@next": Type.Optional(Type.String()),
+		/**
+		 * Points to one or more events in a user-defined collection that are known to be successors of the current element. One or more values from data.URI, separated by spaces.
+		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.linking.html
+		 */
+		"@precedes": Type.Optional(Type.String()),
+		/**
+		 * Points to the previous event(s) in a user-defined collection. One or more values from data.URI, separated by spaces.
+		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.linking.html
+		 */
+		"@prev": Type.Optional(Type.String()),
+		/**
+		 * Points to an element that is the same as the current element but is not a literal copy of the current element. One or more values from data.URI, separated by spaces.
+		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.linking.html
+		 */
+		"@sameas": Type.Optional(Type.String()),
+		/**
+		 * Points to elements that are synchronous with the current element. One or more values from data.URI, separated by spaces.
+		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.linking.html
+		 */
+		"@synch": Type.Optional(Type.String()),
+	},
+	{ additionalProperties: false },
+);
+
+export type AttrLinking = Static<typeof AttrLinkingSchema>;
 
 /**
  * Attributes used to supply a number-like designation for an element.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.nNumberLike.html
  */
-export type AttrNNumberLike = {
-	/**
-	 * Provides a number-like designation that indicates an element's position in a sequence of similar elements. May not contain space characters. Value conforms to data.WORD.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.nNumberLike.html
-	 */
-	"@n"?: string;
-};
+export const AttrNNumberLikeSchema = Type.Object(
+	{
+		/**
+		 * Provides a number-like designation that indicates an element's position in a sequence of similar elements. May not contain space characters. Value conforms to data.WORD.
+		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.nNumberLike.html
+		 */
+		"@n": Type.Optional(Type.String()),
+	},
+	{ additionalProperties: false },
+);
+
+export type AttrNNumberLike = Static<typeof AttrNNumberLikeSchema>;
 
 /**
  * Attributes which can be used to classify features.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.classed.html
  */
-export type AttrClassed = {
-	/**
-	 * Contains one or more URIs which denote classification terms that apply to the entity bearing this attribute.
-	 * One or more values from data.URI, separated by spaces.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.classed.html
-	 */
-	"@class"?: string;
-};
+export const AttrClassedSchema = Type.Object(
+	{
+		/**
+		 * Contains one or more URIs which denote classification terms that apply to the entity bearing this attribute.
+		 * One or more values from data.URI, separated by spaces.
+		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.classed.html
+		 */
+		"@class": Type.Optional(Type.String()),
+	},
+	{ additionalProperties: false },
+);
+
+export type AttrClassed = Static<typeof AttrClassedSchema>;
 
 /**
  * Attributes which can be used to classify features.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.typed.html
  */
-export type AttrTyped = {
-	/**
-	 * Designation which characterizes the element in some sense, using any convenient classification scheme or typology that employs single-token labels.
-	 * One or more values of datatype NMTOKEN, separated by spaces.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.typed.html
-	 * @see https://www.w3.org/TR/xmlschema11-2/#NMTOKEN
-	 */
-	"@type"?: string;
-} & AttrClassed;
+export const AttrTypedSchema = Type.Intersect([
+	Type.Object(
+		{
+			/**
+			 * Designation which characterizes the element in some sense, using any convenient classification scheme or typology that employs single-token labels.
+			 * One or more values of datatype NMTOKEN, separated by spaces.
+			 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.typed.html
+			 * @see https://www.w3.org/TR/xmlschema11-2/#NMTOKEN
+			 */
+			"@type": Type.Optional(Type.String()),
+		},
+		{ additionalProperties: false },
+	),
+	AttrClassedSchema,
+]);
+
+export type AttrTyped = Static<typeof AttrTypedSchema>;
 
 /**
  * Attributes common to many elements.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.common.html
  */
-export type AttrCommon = AttrBasic &
-	AttrLabeled &
-	AttrLinking &
-	AttrNNumberLike &
-	AttrResponsibility &
-	AttrTyped &
-	AttrBibl;
+export const AttrCommonSchema = Type.Composite([
+	AttrBasicSchema,
+	AttrLabeledSchema,
+	AttrLinkingSchema,
+	AttrNNumberLikeSchema,
+	AttrResponsibilitySchema,
+	AttrTypedSchema,
+	AttrBiblSchema,
+]);
+
+export type AttrCommon = Static<typeof AttrCommonSchema>;
 
 /**
  * Attributes that can be used to associate a representation such as a name or title with canonical information about the object being named or referenced.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.canonical.html
  */
-export type AttrCanonical = {
-	/**
-	 * A value that represents or identifies other data.
-	 * Often, it is a primary key in the database or a unique value in the coded list identified by the auth or auth.uri attributes.
-	 * One or more values of datatype NMTOKEN, separated by spaces.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.canonical.html
-	 * @see https://www.w3.org/TR/xmlschema11-2/#NMTOKEN
-	 */
-	"@codedval"?: string;
-};
+export const AttrCanonicalSchema = Type.Object(
+	{
+		/**
+		 * A value that represents or identifies other data.
+		 * Often, it is a primary key in the database or a unique value in the coded list identified by the auth or auth.uri attributes.
+		 * One or more values of datatype NMTOKEN, separated by spaces.
+		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.canonical.html
+		 * @see https://www.w3.org/TR/xmlschema11-2/#NMTOKEN
+		 */
+		"@codedval": Type.Optional(Type.String()),
+	},
+	{ additionalProperties: false },
+);
+
+export type AttrCanonical = Static<typeof AttrCanonicalSchema>;
 
 /**
  * Attributes that describe the source of a controlled value.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.authorized.html
  */
-export type AttrAuthorized = {
-	/**
-	 * A name or label associated with a controlled vocabulary or other authoritative source for this element or its content. Value is plain text.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.authorized.html
-	 */
-	"@auth"?: string;
-	/**
-	 * A web-accessible location of the controlled vocabulary or other authoritative source of identification or definition for this element or its content.
-	 * This attribute may contain a complete URI or a partial URI which is completed by the value of the codedval attribute.
-	 * Value conforms to data.URI.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.authorized.html
-	 */
-	"@auth.uri"?: string;
-} & AttrCanonical;
+export const AttrAuthorizedSchema = Type.Composite([
+	Type.Object(
+		{
+			/**
+			 * A name or label associated with a controlled vocabulary or other authoritative source for this element or its content. Value is plain text.
+			 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.authorized.html
+			 */
+			"@auth": Type.Optional(Type.String()),
+			/**
+			 * A web-accessible location of the controlled vocabulary or other authoritative source of identification or definition for this element or its content.
+			 * This attribute may contain a complete URI or a partial URI which is completed by the value of the codedval attribute.
+			 * Value conforms to data.URI.
+			 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.authorized.html
+			 */
+			"@auth.uri": Type.Optional(Type.String()),
+		},
+		{ additionalProperties: false },
+	),
+	AttrCanonicalSchema,
+]);
+
+export type AttrAuthorized = Static<typeof AttrAuthorizedSchema>;
 
 /**
  * Attributes that associate a feature corresponding with all or part of an image.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.facsimile.html
  */
-export type AttrFacsimile = {
-	/**
-	 * Points to one or more images, portions of an image, or surfaces which correspond to the current element. One or more values from data.URI, separated by spaces.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.facsimile.html
-	 */
-	"@facs"?: string;
-};
+export const AttrFacsimileSchema = Type.Object(
+	{
+		/**
+		 * Points to one or more images, portions of an image, or surfaces which correspond to the current element. One or more values from data.URI, separated by spaces.
+		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.facsimile.html
+		 */
+		"@facs": Type.Optional(Type.String()),
+	},
+	{ additionalProperties: false },
+);
+
+export type AttrFacsimile = Static<typeof AttrFacsimileSchema>;
 
 /**
  * Attributes that deal with string filing characteristics.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.filing.html
  */
-export type AttrFiling = {
-	/**
-	 * Holds the number of initial characters (such as those constituting an article or preposition) that should not be used for sorting a title or name.
-	 * Value is a positive integer.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.filing.html
-	 */
-	"@nonfiling"?: number;
-};
+export const AttrFilingSchema = Type.Object(
+	{
+		/**
+		 * Holds the number of initial characters (such as those constituting an article or preposition) that should not be used for sorting a title or name.
+		 * Value is a positive integer.
+		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.filing.html
+		 */
+		"@nonfiling": Type.Optional(Type.Number()),
+	},
+	{ additionalProperties: false },
+);
+
+export type AttrFiling = Static<typeof AttrFilingSchema>;
 
 /**
  * Attributes that record the number of dots of augmentation.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.augmentDots.html
  */
-export type AttrAugmentDots = {
-	/**
-	 * Records the number of augmentation dots required by a written dotted duration. Value conforms to data.AUGMENTDOT
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.augmentDots.html
-	 * @see https://music-encoding.org/guidelines/v5/data-types/data.AUGMENTDOT.html
-	 */
-	"@dots"?: string;
-};
+export const AttrAugmentDotsSchema = Type.Object(
+	{
+		/**
+		 * Records the number of augmentation dots required by a written dotted duration. Value conforms to data.AUGMENTDOT
+		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.augmentDots.html
+		 * @see https://music-encoding.org/guidelines/v5/data-types/data.AUGMENTDOT.html
+		 */
+		"@dots": Type.Optional(Type.String()),
+	},
+	{ additionalProperties: false },
+);
+
+export type AttrAugmentDots = Static<typeof AttrAugmentDotsSchema>;
 
 /**
  * Attributes that provide information about a measure's conformance to the prevailing meter.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.meterConformance.bar.html
  */
-export type AttrMeterConformanceBar = {
-	/**
-	 * Indicates the relationship between the content of a measure and the prevailing meter.
-	 * Value conforms to data.BOOLEAN.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.meterConformance.bar.html
-	 * @see https://music-encoding.org/guidelines/v5/data-types/data.BOOLEAN.html
-	 */
-	"@metcon"?: boolean;
-	/**
-	 * Indicates whether or not a bar line is "controlling"; that is, if it indicates a point of alignment across all the parts.
-	 * Bar lines within a score are usually controlling; that is, they "line up".
-	 * Bar lines within parts may or may not be controlling.
-	 * When applied to measure, this attribute indicates the nature of the right bar line but not the left.
-	 * Value conforms to data.BOOLEAN.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.meterConformance.bar.html
-	 * @see https://music-encoding.org/guidelines/v5/data-types/data.BOOLEAN.html
-	 */
-	"@control"?: boolean;
-};
+export const AttrMeterConformanceBarSchema = Type.Object(
+	{
+		/**
+		 * Indicates the relationship between the content of a measure and the prevailing meter.
+		 * Value conforms to data.BOOLEAN.
+		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.meterConformance.bar.html
+		 * @see https://music-encoding.org/guidelines/v5/data-types/data.BOOLEAN.html
+		 */
+		"@metcon": Type.Optional(Type.Boolean()),
+		/**
+		 * Indicates whether or not a bar line is "controlling"; that is, if it indicates a point of alignment across all the parts.
+		 * Bar lines within a score are usually controlling; that is, they "line up".
+		 * Bar lines within parts may or may not be controlling.
+		 * When applied to measure, this attribute indicates the nature of the right bar line but not the left.
+		 * Value conforms to data.BOOLEAN.
+		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.meterConformance.bar.html
+		 * @see https://music-encoding.org/guidelines/v5/data-types/data.BOOLEAN.html
+		 */
+		"@control": Type.Optional(Type.Boolean()),
+	},
+	{ additionalProperties: false },
+);
+
+export type AttrMeterConformanceBar = Static<
+	typeof AttrMeterConformanceBarSchema
+>;
 
 /**
  * Attributes for bar lines.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.barLine.log.html
  */
-export type AttrBarLineLog = {
-	/**
-	 * Records the appearance and usually the function of the bar line. Value conforms to data.BARRENDITION.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.barLine.log.html
-	 * @see https://music-encoding.org/guidelines/v5/data-types/data.BARRENDITION.html
-	 */
-	"@form"?: string;
-} & AttrMeterConformanceBar;
+export const AttrBarLineLogSchema = Type.Composite([
+	Type.Object(
+		{
+			/**
+			 * Records the appearance and usually the function of the bar line. Value conforms to data.BARRENDITION.
+			 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.barLine.log.html
+			 * @see https://music-encoding.org/guidelines/v5/data-types/data.BARRENDITION.html
+			 */
+			"@form": Type.Optional(Type.String()),
+		},
+		{ additionalProperties: false },
+	),
+	AttrMeterConformanceBarSchema,
+]);
+
+export type AttrBarLineLog = Static<typeof AttrBarLineLogSchema>;

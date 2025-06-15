@@ -1,2 +1,2 @@
 export { meiXmlToJson, meiXmlTo51, getMeiXmlVersion } from "./src/meiToJSON";
-export type { MeiJSON } from "./src/meiType";
+export { MeiJSONSchema, type MeiJSON } from "./src/meiType";

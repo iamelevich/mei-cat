@@ -17,9 +17,9 @@ export function meiXmlToJson(xml: string): MeiJSON {
 		// 	return false;
 		// },
 		ignoreAttributes: false,
-		attributeNamePrefix: "",
+		attributeNamePrefix: "@",
 	});
-	const doc = parser.parse(xml);
+	const doc = parser.parse(xml) as unknown as MeiJSON;
 
 	return doc;
 }
@@ -47,6 +47,11 @@ export async function meiXmlTo51(
 	version?: string,
 ): Promise<string> {
 	const meiXmlVersion = version ?? getMeiXmlVersion(xml);
+
+	// If the MEI XML version is 5.1, return the XML as is
+	if (meiXmlVersion === "5.1") {
+		return xml;
+	}
 
 	// console.log(`MEI XML version: ${meiXmlVersion}`);
 

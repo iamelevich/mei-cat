@@ -16,7 +16,7 @@ import type {
 	AttrNNumberLike,
 	AttrResponsibility,
 } from "./attributes";
-import type { StandardTag } from "./common";
+import type { NotImplementedTag, StandardTag } from "./common";
 
 /**
  * Title of a bibliographic entity.
@@ -46,7 +46,7 @@ export type Title = StandardTag &
 		 *  "u" (Unpublished (including theses and dissertations unless published by a commercial press).)
 		 * @see https://music-encoding.org/guidelines/v5/elements/title.html
 		 */
-		level?: "a" | "c" | "d" | "i" | "m" | "j" | "s" | "u";
+		"@level"?: "a" | "c" | "d" | "i" | "m" | "j" | "s" | "u";
 		/**
 		 * Characterizes the title in some sense, using any convenient classification scheme or typology that employs single-token labels.
 		 * Suggested values are:
@@ -59,12 +59,54 @@ export type Title = StandardTag &
 		 *  "desc" (Descriptive paraphrase of the work.)
 		 * @see https://music-encoding.org/guidelines/v5/elements/title.html
 		 */
-		type?:
-			| "main"
-			| "subordinate"
-			| "abbreviated"
-			| "alternative"
-			| "translated"
-			| "uniform"
-			| "desc";
+		"@type"?: string;
+
+		abbr?: NotImplementedTag;
+		add?: NotImplementedTag;
+		address?: NotImplementedTag;
+		annot?: NotImplementedTag;
+		bibl?: NotImplementedTag;
+		biblStruct?: NotImplementedTag;
+		bloc?: NotImplementedTag;
+		choice?: NotImplementedTag;
+		corpName?: NotImplementedTag;
+		corr?: NotImplementedTag;
+		country?: NotImplementedTag;
+		damage?: NotImplementedTag;
+		date?: NotImplementedTag;
+		del?: NotImplementedTag;
+		district?: NotImplementedTag;
+		expan?: NotImplementedTag;
+		fig?: NotImplementedTag;
+		gap?: NotImplementedTag;
+		geogFeat?: NotImplementedTag;
+		geogName?: NotImplementedTag;
+		handShift?: NotImplementedTag;
+		identifier?: NotImplementedTag;
+		lb?: NotImplementedTag;
+		name?: NotImplementedTag;
+		num?: NotImplementedTag;
+		orig?: NotImplementedTag;
+		pb?: NotImplementedTag;
+		periodName?: NotImplementedTag;
+		persName?: NotImplementedTag;
+		postBox?: NotImplementedTag;
+		postCode?: NotImplementedTag;
+		ptr?: NotImplementedTag;
+		ref?: NotImplementedTag;
+		reg?: NotImplementedTag;
+		region?: NotImplementedTag;
+		rend?: NotImplementedTag;
+		repository?: NotImplementedTag;
+		restore?: NotImplementedTag;
+		settlement?: NotImplementedTag;
+		sic?: NotImplementedTag;
+		stack?: NotImplementedTag;
+		street?: NotImplementedTag;
+		styleName?: NotImplementedTag;
+		subst?: NotImplementedTag;
+		supplied?: NotImplementedTag;
+		symbol?: NotImplementedTag;
+		titlePart?: NotImplementedTag;
+		unclear?: NotImplementedTag;
 	};

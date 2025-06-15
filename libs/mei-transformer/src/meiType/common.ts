@@ -1,6 +1,8 @@
-export type StandardTag = {
-	"#text"?: string;
-};
+export type StandardTag =
+	| {
+			"#text"?: string;
+	  }
+	| string;
 
 export type AnythingObject = Record<string, any>;
 

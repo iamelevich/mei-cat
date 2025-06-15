@@ -1,3 +1,7 @@
+/**
+ * @fileoverview Metadata header component declarations.
+ * @see https://music-encoding.org/guidelines/v5/modules/MEI.header.html
+ */
 import type {
 	AttrBasic,
 	AttrBibl,
@@ -29,12 +33,43 @@ export type MeiHead = StandardTag &
 		 *   "independent" (Header is independent; not attached to either a music or a corpus document.)
 		 */
 		"@type"?: "music" | "corpus" | "independent";
+
+		/**
+		 * A container for the descriptions of physical embodiments of an expression of a work.
+		 * @see https://music-encoding.org/guidelines/v5/elements/manifestationList.html
+		 */
 		manifestationList: NotImplementedTag;
+		/**
+		 * May contain a bibliographic identifier that does not fit within the meiHead element's id attribute,
+		 * for example because the identifier does not fit the definition of an XML id or because multiple identifiers are needed.
+		 * @see https://music-encoding.org/guidelines/v5/elements/altId.html
+		 */
 		altId?: NotImplementedTag;
+		/**
+		 * Contains a full bibliographic description of the MEI file.
+		 * @see https://music-encoding.org/guidelines/v5/elements/fileDesc.html
+		 */
 		fileDesc: FileDesc;
+		/**
+		 * Documents the relationship between an electronic file and the source or sources from which it was derived as well
+		 * as applications used in the encoding/editing process.
+		 * @see https://music-encoding.org/guidelines/v5/elements/encodingDesc.html
+		 */
 		encodingDesc?: NotImplementedTag;
+		/**
+		 * Grouping mechanism for information describing non-bibliographic aspects of a text.
+		 * @see https://music-encoding.org/guidelines/v5/elements/workList.html
+		 */
 		workList?: NotImplementedTag;
+		/**
+		 * Container for information about alterations that have been made to an MEI file.
+		 * @see https://music-encoding.org/guidelines/v5/elements/revisionDesc.html
+		 */
 		revisionDesc?: NotImplementedTag;
+		/**
+		 * Provides a container element for non-MEI metadata formats.
+		 * @see https://music-encoding.org/guidelines/v5/elements/extMeta.html
+		 */
 		extMeta?: NotImplementedTag;
 	};
 

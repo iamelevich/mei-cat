@@ -1,3 +1,6 @@
 [submodule "libs/mei-transformer/encoding-tools"]
 	path = libs/mei-transformer/encoding-tools
 	url = https://github.com/music-encoding/encoding-tools
+[submodule "libs/mei-transformer/sample-encodings"]
+	path = libs/mei-transformer/sample-encodings
+	url = https://github.com/music-encoding/sample-encodings

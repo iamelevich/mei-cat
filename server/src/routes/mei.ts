@@ -50,8 +50,8 @@ export const meiRoutes = new Elysia({ prefix: ROUTE_PREFIX })
 				let title = "Untitled";
 				let language = "und";
 				try {
-					const mei = json.mei || {};
-					const titleNode = mei.meiHead?.fileDesc?.titleStmt?.title;
+					const mei = json.mei;
+					const titleNode = mei.meiHead.fileDesc.titleStmt.title;
 					title = titleNode["#text"] ?? "Untitled";
 					language = titleNode["xml:lang"] ?? "und";
 				} catch (error) {

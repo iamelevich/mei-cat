@@ -1,13 +1,13 @@
 import { $ } from "bun";
 import { XMLParser } from "fast-xml-parser";
-import type { MeiJson } from "./types";
+import type { MeiJSON } from "./meiType";
 
 /**
  * Transforms MEI XML string to JSON.
  * @param xml - MEI XML as string
  * @returns JSON representation of MEI XML
  */
-export function meiXmlToJson(xml: string): MeiJson {
+export function meiXmlToJson(xml: string): MeiJSON {
 	const parser = new XMLParser({
 		// ignoreAttributes: (attrName: string, jPath: string) => {
 		// 	if (attrName === "xml:id") {

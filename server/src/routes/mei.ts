@@ -51,9 +51,12 @@ export const meiRoutes = new Elysia({ prefix: ROUTE_PREFIX })
 				let language = "und";
 				try {
 					const mei = json.mei;
-					const titleNode = mei.meiHead.fileDesc.titleStmt.title;
+					let titleNode = mei.meiHead.fileDesc.titleStmt.title;
+					if (Array.isArray(titleNode)) {
+						titleNode = titleNode[0];
+					}
 					title = titleNode["#text"] ?? "Untitled";
-					language = titleNode["xml:lang"] ?? "und";
+					language = titleNode["@xml:lang"] ?? "und";
 				} catch (error) {
 					console.error("Failed to extract metadata from MEI file", error);
 				}

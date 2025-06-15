@@ -1,6 +1,6 @@
 import { join } from "node:path";
 import {
-	type MeiJson,
+	type MeiJSON,
 	getMeiXmlVersion,
 	meiXmlTo51,
 	meiXmlToJson,
@@ -75,7 +75,7 @@ export class MeiFile {
 	/** The converted MEI 5.1 XML as string. */
 	#convertedMei51: string | null = null;
 	/** The converted MEI JSON as object. */
-	#convertedJson: MeiJson | null = null;
+	#convertedJson: MeiJSON | null = null;
 
 	/**
 	 * @param xml - MEI XML as string
@@ -98,7 +98,7 @@ export class MeiFile {
 	/**
 	 * The converted MEI JSON as object.
 	 */
-	get json(): Promise<MeiJson> {
+	get json(): Promise<MeiJSON> {
 		if (this.#convertedJson) return Promise.resolve(this.#convertedJson);
 		return this.mei51.then((xml) => {
 			this.#convertedJson = meiXmlToJson(xml);
@@ -111,7 +111,7 @@ export class MeiFile {
 	 */
 	get id() {
 		if (!this.#convertedJson) throw new Error("MEI JSON not converted");
-		const id = this.#convertedJson.mei["xml:id"];
+		const id = this.#convertedJson.mei["@xml:id"];
 		if (!id) throw new Error("MEI XML ID not found");
 		return id;
 	}

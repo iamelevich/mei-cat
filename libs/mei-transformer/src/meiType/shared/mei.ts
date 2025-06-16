@@ -10,7 +10,7 @@ import { MusicSchema } from "./music";
  * Contains a single MEI-conformant document, consisting of an MEI header and a musical text, either in isolation or as part of an meiCorpus element.
  * @see https://music-encoding.org/guidelines/v5/elements/mei.html
  */
-export const MeiSchema = Type.Composite([
+export const MeiSchema = Type.Intersect([
 	StandardTagSchema,
 	AttrIdSchema,
 	AttrMeiVersionSchema,

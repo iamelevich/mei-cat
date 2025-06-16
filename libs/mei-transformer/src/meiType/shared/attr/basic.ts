@@ -6,7 +6,7 @@ import { AttrIdSchema } from "./id";
  * Attributes that form the basis of the att.common class.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.basic.html
  */
-export const AttrBasicSchema = Type.Composite([
+export const AttrBasicSchema = Type.Intersect([
 	Type.Object(
 		{
 			/**

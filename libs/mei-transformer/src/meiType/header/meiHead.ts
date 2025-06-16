@@ -12,7 +12,7 @@ import { FileDescSchema } from "./fileDesc";
  * Supplies the descriptive and declarative metadata prefixed to every MEI-conformant text.
  * @see https://music-encoding.org/guidelines/v5/elements/meiHead.html
  */
-export const MeiHeadSchema = Type.Composite([
+export const MeiHeadSchema = Type.Intersect([
 	StandardTagSchema,
 	AttrBasicSchema,
 	AttrMeiVersionSchema,

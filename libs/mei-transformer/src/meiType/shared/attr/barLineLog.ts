@@ -6,7 +6,7 @@ import { AttrMeterConformanceBarSchema } from "./meterConformanceBar";
  * Attributes for bar lines.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.barLine.log.html
  */
-export const AttrBarLineLogSchema = Type.Composite([
+export const AttrBarLineLogSchema = Type.Intersect([
 	Type.Object(
 		{
 			/**

@@ -6,7 +6,7 @@ import { AttrCanonicalSchema } from "./canonical";
  * Attributes that describe the source of a controlled value.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.authorized.html
  */
-export const AttrAuthorizedSchema = Type.Composite([
+export const AttrAuthorizedSchema = Type.Intersect([
 	Type.Object(
 		{
 			/**

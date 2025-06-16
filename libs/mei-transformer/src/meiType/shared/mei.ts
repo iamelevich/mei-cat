@@ -1,11 +1,9 @@
 import { type Static, Type } from "@sinclair/typebox";
-import {
-	AttrIdSchema,
-	AttrMeiVersionSchema,
-	AttrResponsibilitySchema,
-} from "../attributes";
 import { StandardTagSchema } from "../common";
 import { MeiHeadSchema } from "../header/meiHead";
+import { AttrIdSchema } from "./attr/id";
+import { AttrMeiVersionSchema } from "./attr/meiVersion";
+import { AttrResponsibilitySchema } from "./attr/responsibility";
 import { MusicSchema } from "./music";
 
 /**

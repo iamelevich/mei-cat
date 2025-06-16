@@ -1,19 +1,17 @@
 import { Type } from "@sinclair/typebox";
 import type { Static } from "@sinclair/typebox";
-import {
-	AttrAuthorizedSchema,
-	AttrBasicSchema,
-	AttrBiblSchema,
-	AttrClassedSchema,
-	AttrFacsimileSchema,
-	AttrFilingSchema,
-	AttrLabeledSchema,
-	AttrLangSchema,
-	AttrLinkingSchema,
-	AttrNNumberLikeSchema,
-	AttrResponsibilitySchema,
-} from "../attributes";
 import { NotImplementedTagSchema, StandardTagSchema } from "../common";
+import { AttrFacsimileSchema } from "../facsimile/attr/facsimile";
+import { AttrAuthorizedSchema } from "./attr/authorized";
+import { AttrBasicSchema } from "./attr/basic";
+import { AttrBiblSchema } from "./attr/bibl";
+import { AttrClassedSchema } from "./attr/classed";
+import { AttrFilingSchema } from "./attr/filing";
+import { AttrLabelledSchema } from "./attr/labelled";
+import { AttrLangSchema } from "./attr/lang";
+import { AttrLinkingSchema } from "./attr/linking";
+import { AttrNNumberLikeSchema } from "./attr/nNumberLike";
+import { AttrResponsibilitySchema } from "./attr/responsibility";
 
 /**
  * Title of a bibliographic entity.
@@ -29,7 +27,7 @@ export const TitleSchema = Type.Union([
 		AttrClassedSchema,
 		AttrFilingSchema,
 		AttrFacsimileSchema,
-		AttrLabeledSchema,
+		AttrLabelledSchema,
 		AttrLangSchema,
 		AttrLinkingSchema,
 		AttrNNumberLikeSchema,

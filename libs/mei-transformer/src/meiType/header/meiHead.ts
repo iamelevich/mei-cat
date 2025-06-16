@@ -1,13 +1,11 @@
 import { type Static, Type } from "@sinclair/typebox";
-import {
-	AttrBasicSchema,
-	AttrBiblSchema,
-	AttrLabeledSchema,
-	AttrLangSchema,
-	AttrMeiVersionSchema,
-	AttrResponsibilitySchema,
-} from "../attributes";
 import { NotImplementedTagSchema, StandardTagSchema } from "../common";
+import { AttrBasicSchema } from "../shared/attr/basic";
+import { AttrBiblSchema } from "../shared/attr/bibl";
+import { AttrLabelledSchema } from "../shared/attr/labelled";
+import { AttrLangSchema } from "../shared/attr/lang";
+import { AttrMeiVersionSchema } from "../shared/attr/meiVersion";
+import { AttrResponsibilitySchema } from "../shared/attr/responsibility";
 import { FileDescSchema } from "./fileDesc";
 
 /**
@@ -20,7 +18,7 @@ export const MeiHeadSchema = Type.Composite([
 	AttrMeiVersionSchema,
 	AttrResponsibilitySchema,
 	AttrLangSchema,
-	AttrLabeledSchema,
+	AttrLabelledSchema,
 	AttrBiblSchema,
 	Type.Object({
 		/**

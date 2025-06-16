@@ -1,6 +1,6 @@
 import { type Static, Type } from "@sinclair/typebox";
-import { AttrCommonSchema } from "../attributes";
 import { NotImplementedTagSchema, StandardTagSchema } from "../common";
+import { AttrCommonSchema } from "../shared/attr/common";
 import { TitleSchema } from "../shared/title";
 
 /**

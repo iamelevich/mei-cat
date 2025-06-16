@@ -14,7 +14,11 @@ export const AttrBasicSchema = Type.Composite([
 			 * Value conforms to data.URI.
 			 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.basic.html
 			 */
-			"@xml:base": Type.Optional(Type.String()),
+			"@xml:base": Type.Optional(
+				Type.String({
+					format: "uri",
+				}),
+			),
 		},
 		{ additionalProperties: false },
 	),

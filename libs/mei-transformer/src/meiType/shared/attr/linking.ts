@@ -8,10 +8,15 @@ import { Type } from "@sinclair/typebox";
 export const AttrLinkingSchema = Type.Object(
 	{
 		/**
-		 * Points to an element of which the current element is a copy. Value conforms to data.URI.
+		 * Points to an element of which the current element is a copy.
+		 * Value conforms to data.URI.
 		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.linking.html
 		 */
-		"@copyof": Type.Optional(Type.String()),
+		"@copyof": Type.Optional(
+			Type.String({
+				format: "uri",
+			}),
+		),
 		/**
 		 * Used to point to other elements that correspond to this one in a generic fashion. One or more values from data.URI, separated by spaces.
 		 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.linking.html

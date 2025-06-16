@@ -20,7 +20,11 @@ export const AttrAuthorizedSchema = Type.Composite([
 			 * Value conforms to data.URI.
 			 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.authorized.html
 			 */
-			"@auth.uri": Type.Optional(Type.String()),
+			"@auth.uri": Type.Optional(
+				Type.String({
+					format: "uri",
+				}),
+			),
 		},
 		{ additionalProperties: false },
 	),

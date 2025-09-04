@@ -49,7 +49,7 @@ export async function meiXmlTo51(
 	const meiXmlVersion = version ?? getMeiXmlVersion(xml);
 
 	// If the MEI XML version is 5.1, return the XML as is
-	if (meiXmlVersion === "5.1") {
+	if (meiXmlVersion.startsWith("5.1")) {
 		return xml;
 	}
 
@@ -69,10 +69,10 @@ export async function meiXmlTo51(
 	const outputFile = `/tmp/mei-output-${Date.now()}.xml`;
 
 	await Bun.write(inputFile, xml);
-	const transformOutput =
+	const _transformOutput =
 		await $`bunx xslt3 -xsl:${xsltFileName} -s:${inputFile} -o:${outputFile}`.text();
 
-	// console.log(transformOutput);
+	// console.log(_transformOutput);
 
 	const output = await Bun.file(outputFile).text();
 

@@ -1,4 +1,3 @@
-import { sql } from "drizzle-orm";
 import { pgEnum, pgTable, text, timestamp } from "drizzle-orm/pg-core";
 
 export const storageTypeEnum = pgEnum("storage_type", ["local", "s3"]);

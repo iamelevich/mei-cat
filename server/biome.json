@@ -1,10 +1,11 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "extends": ["../biome.json"],
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true
-    }
-  }
+	"root": false,
+	"$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
+	"extends": ["../biome.json"],
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true
+		}
+	}
 }

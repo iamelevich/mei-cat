@@ -45,7 +45,7 @@ describe("meiFilesRoutes", () => {
 		expect(response.data).not.toBeNull();
 		expect(response.status).toBe(200);
 
-		expect(response.data!.length).toBeGreaterThanOrEqual(2);
+		expect(response.data?.length).toBeGreaterThanOrEqual(2);
 	});
 
 	it("should return 404 if the mei file does not exist", async () => {
@@ -118,7 +118,7 @@ describe("meiFilesRoutes", () => {
 
 		const inputFile = Bun.file(inputFilePath);
 		const outputFile = Bun.file(
-			join(env.STORAGE_PATH, response.data!.originalFileName),
+			join(env.STORAGE_PATH, response.data?.originalFileName ?? ""),
 		);
 		expect(await outputFile.exists()).toBe(true);
 		expect(await inputFile.exists()).toBe(true);
@@ -141,7 +141,7 @@ describe("meiFilesRoutes", () => {
 		});
 		expect(response.status).toBe(422);
 		expect(response.error).toBeDefined();
-		expect(response.error!.value).toEqual(
+		expect(response.error?.value).toEqual(
 			expect.objectContaining({
 				type: "validation",
 				message: "Expected string to match 'uri' format",
@@ -153,7 +153,7 @@ describe("meiFilesRoutes", () => {
 		const response = await api.mei.post({
 			url: "https://invalid-url.invalid",
 		});
-		expect(response.error!.value).toEqual({
+		expect(response.error?.value).toEqual({
 			error: "Failed to download MEI file",
 			cause: {
 				code: "ConnectionRefused",
@@ -170,7 +170,7 @@ describe("meiFilesRoutes", () => {
 				join(__dirname, "..", "..", "test", "invalid-file.json"),
 			).toString(),
 		});
-		expect(response.error!.value).toEqual({
+		expect(response.error?.value).toEqual({
 			error: "Failed to process MEI file",
 			cause: {
 				name: "MeiFileInvalidContentTypeError",

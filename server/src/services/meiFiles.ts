@@ -1,7 +1,6 @@
-import { join } from "node:path";
 import {
-	type MeiJSON,
 	getMeiXmlVersion,
+	type MeiJSON,
 	meiXmlTo51,
 	meiXmlToJson,
 } from "@mei-cat/mei-transformer";

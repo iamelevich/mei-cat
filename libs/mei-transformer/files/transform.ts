@@ -5,7 +5,7 @@ import {
 	rmSync,
 	writeFileSync,
 } from "node:fs";
-import { basename, extname, join, relative } from "node:path";
+import { extname, join, relative } from "node:path";
 import { meiXmlTo51, meiXmlToJson } from "../src/meiToJSON";
 
 const inputs: [string, string][] = [

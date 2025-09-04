@@ -1,104 +1,101 @@
 {
-  "id": "0b064e7c-e2fd-4256-a4c3-c6661295019b",
-  "prevId": "00000000-0000-0000-0000-000000000000",
-  "version": "7",
-  "dialect": "postgresql",
-  "tables": {
-    "public.mei_files": {
-      "name": "mei_files",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "text",
-          "primaryKey": true,
-          "notNull": true
-        },
-        "original_file_name": {
-          "name": "original_file_name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "original_mei_version": {
-          "name": "original_mei_version",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "converted_file_name": {
-          "name": "converted_file_name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "storage_type": {
-          "name": "storage_type",
-          "type": "storage_type",
-          "typeSchema": "public",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "storage_path": {
-          "name": "storage_path",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "title": {
-          "name": "title",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "language": {
-          "name": "language",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "timestamp",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        },
-        "updated_at": {
-          "name": "updated_at",
-          "type": "timestamp",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    }
-  },
-  "enums": {
-    "public.storage_type": {
-      "name": "storage_type",
-      "schema": "public",
-      "values": [
-        "local",
-        "s3"
-      ]
-    }
-  },
-  "schemas": {},
-  "sequences": {},
-  "roles": {},
-  "policies": {},
-  "views": {},
-  "_meta": {
-    "columns": {},
-    "schemas": {},
-    "tables": {}
-  }
+	"id": "0b064e7c-e2fd-4256-a4c3-c6661295019b",
+	"prevId": "00000000-0000-0000-0000-000000000000",
+	"version": "7",
+	"dialect": "postgresql",
+	"tables": {
+		"public.mei_files": {
+			"name": "mei_files",
+			"schema": "",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "text",
+					"primaryKey": true,
+					"notNull": true
+				},
+				"original_file_name": {
+					"name": "original_file_name",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"original_mei_version": {
+					"name": "original_mei_version",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"converted_file_name": {
+					"name": "converted_file_name",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"storage_type": {
+					"name": "storage_type",
+					"type": "storage_type",
+					"typeSchema": "public",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"storage_path": {
+					"name": "storage_path",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"title": {
+					"name": "title",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"language": {
+					"name": "language",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"created_at": {
+					"name": "created_at",
+					"type": "timestamp",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				},
+				"updated_at": {
+					"name": "updated_at",
+					"type": "timestamp",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				}
+			},
+			"indexes": {},
+			"foreignKeys": {},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		}
+	},
+	"enums": {
+		"public.storage_type": {
+			"name": "storage_type",
+			"schema": "public",
+			"values": ["local", "s3"]
+		}
+	},
+	"schemas": {},
+	"sequences": {},
+	"roles": {},
+	"policies": {},
+	"views": {},
+	"_meta": {
+		"columns": {},
+		"schemas": {},
+		"tables": {}
+	}
 }

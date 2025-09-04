@@ -1,6 +1,5 @@
 import { Type } from "@sinclair/typebox";
-import { StandardTagSchema } from "../common";
-import { NotImplementedTagSchema } from "../common";
+import { NotImplementedTagSchema, StandardTagSchema } from "../common";
 import { AttrBiblSchema } from "../shared/attr/bibl";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrDatableSchema } from "../shared/attr/datable";

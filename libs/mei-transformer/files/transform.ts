@@ -1,7 +1,7 @@
 import {
 	mkdirSync,
-	readFileSync,
 	readdirSync,
+	readFileSync,
 	rmSync,
 	writeFileSync,
 } from "node:fs";
@@ -75,9 +75,9 @@ for (const [path, newName] of files) {
 		const xmlPath = path;
 		const xmlContent = readFileSync(xmlPath, "utf-8");
 		const mei51 = await meiXmlTo51(xmlContent);
-		writeFileSync(join(resultDir, newName + ".mei51.xml"), mei51, "utf-8");
+		writeFileSync(join(resultDir, `${newName}.mei51.xml`), mei51, "utf-8");
 		const json = meiXmlToJson(mei51);
-		const jsonPath = join(resultDir, newName + ".json");
+		const jsonPath = join(resultDir, `${newName}.json`);
 		writeFileSync(jsonPath, JSON.stringify(json, null, 2), "utf-8");
 		console.log(`Converted ${relativePath} -> result/${newName}.json`);
 	} catch (err) {

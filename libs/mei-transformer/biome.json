@@ -1,14 +1,14 @@
 {
 	"root": false,
 	"$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
-	"extends": ["./../../biome.json"],
-  "files": {
-    "includes": ["**", "!**/files/result", "!**/sample-encodings", "!**/files/input", "!**/encoding-tools"]
-  },
-	"linter": {
-		"enabled": true,
-		"rules": {
-			"recommended": true
-		}
+	"extends": "//",
+	"files": {
+		"includes": [
+			"**",
+			"!**/files/result",
+			"!**/sample-encodings",
+			"!**/files/input",
+			"!**/encoding-tools"
+		]
 	}
 }

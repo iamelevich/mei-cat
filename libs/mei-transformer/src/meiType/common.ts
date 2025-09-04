@@ -1,5 +1,5 @@
-import { Type } from "@sinclair/typebox";
 import type { Static } from "@sinclair/typebox";
+import { Type } from "@sinclair/typebox";
 
 /**
  * StandardTag represents either an object with optional #text or a string.

@@ -1,12 +1,15 @@
 {
 	"$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
 	"formatter": {
-    "enabled": false
+    "enabled": true
   },
   "linter": {
-    "enabled": false
-  },
+		"enabled": true,
+		"rules": {
+			"recommended": true
+		}
+	},
   "assist": {
-    "enabled": false
+    "enabled": true
   }
 }

@@ -1,5 +1,5 @@
-import { Type } from "@sinclair/typebox";
 import type { Static } from "@sinclair/typebox";
+import { Type } from "@sinclair/typebox";
 import { NotImplementedTagSchema, StandardTagSchema } from "../common";
 import { AttrFacsimileSchema } from "../facsimile/attr/facsimile";
 import { AttrAuthorizedSchema } from "./attr/authorized";

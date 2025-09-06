@@ -4,9 +4,9 @@ import { AttrBiblSchema } from "../shared/attr/bibl";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrDataPointingSchema } from "../shared/attr/dataPointing";
 import { AttrLangSchema } from "../shared/attr/lang";
-// import { AttrRegularMethodSchema } from "../shared/attr/regularMethod";
 import { HeadSchema } from "../shared/head";
 import { PSchema } from "../shared/p";
+import { AttrRegularMethodSchema } from "./attr/regularMethod";
 
 /**
  * States how and under what circumstances corrections have been made in the text.
@@ -18,7 +18,7 @@ export const CorrectionSchema = Type.Intersect([
 	AttrBiblSchema,
 	AttrDataPointingSchema,
 	AttrLangSchema,
-	// AttrRegularMethodSchema,
+	AttrRegularMethodSchema,
 	Type.Object(
 		{
 			/**
@@ -37,13 +37,6 @@ export const CorrectionSchema = Type.Intersect([
 					Type.Literal("low"),
 					Type.Literal("unknown"),
 				]),
-			),
-			/**
-			 * Indicates the method employed to mark corrections and normalizations.
-			 * @see https://music-encoding.org/guidelines/v5/elements/correction.html#method
-			 */
-			method: Type.Optional(
-				Type.Union([Type.Literal("silent"), Type.Literal("tags")]),
 			),
 			/**
 			 * Contains any heading, for example, the title of a section of text, or the heading of a list.

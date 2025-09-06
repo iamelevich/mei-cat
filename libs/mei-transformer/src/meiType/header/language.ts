@@ -47,6 +47,7 @@ import { LbSchema } from "../shared/lb";
 import { NameSchema } from "../shared/name";
 import { NumSchema } from "../shared/num";
 import { RelationSchema } from "../shared/relation";
+import { RelationListSchema } from "../shared/relationList";
 import { RendSchema } from "../shared/rend";
 import { RepositorySchema } from "../shared/repository";
 import { StackSchema } from "../shared/stack";
@@ -56,7 +57,6 @@ import { TitleSchema } from "../shared/title";
 import { WidthSchema } from "../shared/width";
 import { QSchema } from "../text/q";
 import { SegSchema } from "../text/seg";
-import { RelationListSchema } from "./relationList";
 
 /**
  * Description of a language used in the document.

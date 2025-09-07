@@ -1,7 +1,8 @@
 import { type Static, Type } from "@sinclair/typebox";
-import { NotImplementedTagSchema, StandardTagSchema } from "../common";
+import { StandardTagSchema } from "../common";
 import { AttrBiblSchema } from "../shared/attr/bibl";
 import { AttrCommonSchema } from "../shared/attr/common";
+import { ExtentSchema } from "../shared/extent";
 import { EditionStmtSchema } from "./editionStmt";
 import { NotesStmtSchema } from "./notesStmt";
 import { PubStmtSchema } from "./pubStmt";
@@ -31,9 +32,10 @@ export const FileDescSchema = Type.Intersect([
 			editionStmt: Type.Optional(EditionStmtSchema),
 			/**
 			 * Used to express size in terms other than physical dimensions, such as number of pages, records, bytes, physical components, etc.
+			 * In this context represents file size.
 			 * @see https://music-encoding.org/guidelines/v5/elements/extent.html
 			 */
-			extent: Type.Optional(NotImplementedTagSchema),
+			extent: Type.Optional(ExtentSchema),
 			/**
 			 * Container for information regarding the publication or distribution of a bibliographic item, including the publisher's name and address, the date of publication, and other relevant details.
 			 * @see https://music-encoding.org/guidelines/v5/elements/pubStmt.html

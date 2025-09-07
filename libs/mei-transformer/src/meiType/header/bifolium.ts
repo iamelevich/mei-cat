@@ -9,7 +9,6 @@ import { AttrBifoliumSurfacesSchema } from "../shared/attr/bifoliumSurfaces";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrDimensionsSchema } from "../shared/attr/dimensions";
 import { AttrMeasurementSchema } from "../shared/attr/measurement";
-// import { BifoliumSchema } from "./bifolium"; // Will use recursive type instead
 import { CutoutSchema } from "./cutout";
 import { FoliumSchema } from "./folium";
 import { PatchSchema } from "./patch";
@@ -18,7 +17,7 @@ import { PatchSchema } from "./patch";
  * Describes a folded sheet of paper.
  * @see https://music-encoding.org/guidelines/v5/elements/bifolium.html
  */
-export const BifoliumSchema = Type.Recursive((ThisSchema) =>
+export const BifoliumSchema = Type.Recursive((Self) =>
 	Type.Intersect([
 		StandardTagSchema,
 		AttrCommonSchema,
@@ -36,9 +35,7 @@ export const BifoliumSchema = Type.Recursive((ThisSchema) =>
 				 * Describes a folded sheet of paper.
 				 * @see https://music-encoding.org/guidelines/v5/elements/bifolium.html
 				 */
-				bifolium: Type.Optional(
-					Type.Union([ThisSchema, Type.Array(ThisSchema)]),
-				),
+				bifolium: Type.Optional(Type.Union([Self, Type.Array(Self)])),
 				/**
 				 * A cutout is a section of a document sheet that has been removed and is now missing.
 				 * @see https://music-encoding.org/guidelines/v5/elements/cutout.html

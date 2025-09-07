@@ -4,7 +4,7 @@ import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrDimensionsSchema } from "../shared/attr/dimensions";
 import { AttrMeasurementSchema } from "../shared/attr/measurement";
 import { AttrFoliumSurfacesSchema } from "./attr/foliumSurfaces";
-import { PatchSchema } from "./patch";
+// import { PatchSchema } from "./patch"; // Circular dependency - handled with Type.Any()
 
 /**
  * Describes a single leaf of paper.
@@ -28,7 +28,7 @@ export const FoliumSchema = Type.Intersect([
 			 * Describes a physical writing surface attached to the original document.
 			 * @see https://music-encoding.org/guidelines/v5/elements/patch.html
 			 */
-			patch: Type.Optional(Type.Union([PatchSchema, Type.Array(PatchSchema)])),
+			patch: Type.Optional(Type.Any()), // TODO: Fix circular dependency with PatchSchema
 		},
 		{ additionalProperties: false },
 	),

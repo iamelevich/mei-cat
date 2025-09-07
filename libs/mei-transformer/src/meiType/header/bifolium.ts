@@ -11,7 +11,7 @@ import { AttrDimensionsSchema } from "../shared/attr/dimensions";
 import { AttrMeasurementSchema } from "../shared/attr/measurement";
 import { CutoutSchema } from "./cutout";
 import { FoliumSchema } from "./folium";
-import { PatchSchema } from "./patch";
+// import { PatchSchema } from "./patch"; // Circular dependency - handled with Type.Any()
 
 /**
  * Describes a folded sheet of paper.
@@ -72,7 +72,7 @@ export const BifoliumSchema = Type.Recursive((Self) =>
 				 * @see https://music-encoding.org/guidelines/v5/elements/patch.html
 				 */
 				patch: Type.Optional(
-					Type.Union([PatchSchema, Type.Array(PatchSchema)]),
+					Type.Any(), // TODO: Fix circular dependency with PatchSchema
 				),
 				/**
 				 * Indicates restoration of material to an earlier state by cancellation of an editorial or authorial marking or instruction.

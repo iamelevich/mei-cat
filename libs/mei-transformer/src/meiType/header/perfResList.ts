@@ -6,9 +6,9 @@ import { AttrBiblSchema } from "../shared/attr/bibl";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrEditSchema } from "../shared/attr/edit";
 import { AttrLangSchema } from "../shared/attr/lang";
-import { AttrPerfResBasicSchema } from "../shared/attr/perfRes";
+import { AttrPerfResBasicSchema } from "../shared/attr/perfResBasic";
 import { HeadSchema } from "../shared/head";
-import { PerfResSchema } from "../shared/perfRes";
+import { PerfResSchema } from "./perfRes";
 
 /**
  * Several instrumental or vocal resources treated as a group.

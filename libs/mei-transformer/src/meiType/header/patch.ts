@@ -1,9 +1,9 @@
 import { type Static, Type } from "@sinclair/typebox";
 import { StandardTagSchema } from "../common";
+import { AttrTransSchema } from "../edittrans/attr/trans";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrEvidenceSchema } from "../shared/attr/evidence";
 import { AttrMeasurementSchema } from "../shared/attr/measurement";
-import { AttrTransSchema } from "../shared/attr/trans";
 import { AttrXySchema } from "../shared/attr/xy";
 import { BifoliumSchema } from "./bifolium";
 import { FoliumSchema } from "./folium";

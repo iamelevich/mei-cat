@@ -1,0 +1,576 @@
+import { type Static, Type } from "@sinclair/typebox";
+import { StandardTagSchema } from "../common";
+import { AddSchema } from "../edittrans/add";
+import { ChoiceSchema } from "../edittrans/choice";
+import { CorrSchema } from "../edittrans/corr";
+import { DamageSchema } from "../edittrans/damage";
+import { DelSchema } from "../edittrans/del";
+import { ExpanSchema } from "../edittrans/expan";
+import { GapSchema } from "../edittrans/gap";
+import { HandShiftSchema } from "../edittrans/handShift";
+import { OrigSchema } from "../edittrans/orig";
+import { RegSchema } from "../edittrans/reg";
+import { RestoreSchema } from "../edittrans/restore";
+import { SicSchema } from "../edittrans/sic";
+import { SubstSchema } from "../edittrans/subst";
+import { SuppliedSchema } from "../edittrans/supplied";
+import { UnclearSchema } from "../edittrans/unclear";
+import { FigSchema } from "../figtable/fig";
+import { WatermarkSchema } from "../header/watermark";
+import { PtrSchema } from "../ptrref/ptr";
+import { RefSchema } from "../ptrref/ref";
+import { AddressSchema } from "../shared/address";
+import { AnnotSchema } from "../shared/annot";
+import { AttrBiblSchema } from "../shared/attr/bibl";
+import { AttrCommonSchema } from "../shared/attr/common";
+import { AttrFacsimileSchema } from "../shared/attr/facsimile";
+import { AttrLangSchema } from "../shared/attr/lang";
+import { BiblSchema } from "../shared/bibl";
+import { BiblStructSchema } from "../shared/biblStruct";
+import { DateSchema } from "../shared/date";
+import { DedicSchema } from "../shared/dedic";
+import { DepthSchema } from "../shared/depth";
+import { DimSchema } from "../shared/dim";
+import { DimensionsSchema } from "../shared/dimensions";
+import { ExtentSchema } from "../shared/extent";
+import { HeightSchema } from "../shared/height";
+import { IdentifierSchema } from "../shared/identifier";
+import { LbSchema } from "../shared/lb";
+import { NameSchema } from "../shared/name";
+import { NumSchema } from "../shared/num";
+import { PbSchema } from "../shared/pb";
+import { RelationSchema } from "../shared/relation";
+import { RelationListSchema } from "../shared/relationList";
+import { RendSchema } from "../shared/rend";
+import { RepositorySchema } from "../shared/repository";
+import { StackSchema } from "../shared/stack";
+import { SymbolSchema } from "../shared/symbol";
+import { TermSchema } from "../shared/term";
+import { TitleSchema } from "../shared/title";
+import { WidthSchema } from "../shared/width";
+import { QSchema } from "../text/q";
+import { SegSchema } from "../text/seg";
+import { CatchwordsSchema } from "./catchwords";
+import { CorpNameSchema } from "./corpName";
+import { CountrySchema } from "./country";
+import { DistrictSchema } from "./district";
+import { GeogFeatSchema } from "./geogFeat";
+import { GeogNameSchema } from "./geogName";
+import { HeraldrySchema } from "./heraldry";
+import { LocusSchema } from "./locus";
+import { LocusGrpSchema } from "./locusGrp";
+import { PeriodNameSchema } from "./periodName";
+import { PersNameSchema } from "./persName";
+import { PostBoxSchema } from "./postBox";
+import { PostCodeSchema } from "./postCode";
+import { RegionSchema } from "./region";
+import { SecFolioSchema } from "./secFolio";
+import { SettlementSchema } from "./settlement";
+import { SignaturesSchema } from "./signatures";
+import { StampSchema } from "./stamp";
+import { StreetSchema } from "./street";
+import { StyleNameSchema } from "./styleName";
+
+/**
+ * Contains the name of a geopolitical unit consisting of two or more nation states or countries.
+ * @see https://music-encoding.org/guidelines/v5/elements/bloc.html
+ */
+export const BlocSchema = Type.Intersect([
+	StandardTagSchema,
+	AttrCommonSchema,
+	AttrBiblSchema,
+	AttrFacsimileSchema,
+	AttrLangSchema,
+	Type.Object(
+		{
+			// Content model according to MEI spec:
+			// rng:zeroOrMore - choice of text OR model.textPhraseLike OR model.editLike OR model.transcriptionLike
+			// Text content is handled by Type.String() in the schema
+
+			// model.textPhraseLike elements
+			/**
+			 * A generic element for 1) a shortened form of a word, including an acronym or 2) a shorthand notation.
+			 * @see https://music-encoding.org/guidelines/v5/elements/abbr.html
+			 */
+			abbr: Type.Optional(
+				Type.Union([Type.String(), Type.Array(Type.String())]),
+			),
+
+			/**
+			 * Provides a statement explaining the text or indicating the basis for an assertion.
+			 * @see https://music-encoding.org/guidelines/v5/elements/annot.html
+			 */
+			annot: Type.Optional(Type.Union([AnnotSchema, Type.Array(AnnotSchema)])),
+
+			/**
+			 * An empty formatting element that forces text to begin on a new line.
+			 * @see https://music-encoding.org/guidelines/v5/elements/lb.html
+			 */
+			lb: Type.Optional(Type.Union([LbSchema, Type.Array(LbSchema)])),
+
+			/**
+			 * Proper noun or noun phrase.
+			 * @see https://music-encoding.org/guidelines/v5/elements/name.html
+			 */
+			name: Type.Optional(Type.Union([NameSchema, Type.Array(NameSchema)])),
+
+			/**
+			 * Numeric information in any form.
+			 * @see https://music-encoding.org/guidelines/v5/elements/num.html
+			 */
+			num: Type.Optional(Type.Union([NumSchema, Type.Array(NumSchema)])),
+
+			/**
+			 * An empty formatting element that forces text to begin on a new page.
+			 * @see https://music-encoding.org/guidelines/v5/elements/pb.html
+			 */
+			pb: Type.Optional(Type.Union([PbSchema, Type.Array(PbSchema)])),
+
+			/**
+			 * A formatting element indicating special visual rendering, e.g., bold or italicized, of a text word or phrase.
+			 * @see https://music-encoding.org/guidelines/v5/elements/rend.html
+			 */
+			rend: Type.Optional(Type.Union([RendSchema, Type.Array(RendSchema)])),
+
+			/**
+			 * Keyword or phrase which describes a resource.
+			 * @see https://music-encoding.org/guidelines/v5/elements/term.html
+			 */
+			term: Type.Optional(Type.Union([TermSchema, Type.Array(TermSchema)])),
+
+			// model.editLike elements
+			/**
+			 * Marks an addition to the text.
+			 * @see https://music-encoding.org/guidelines/v5/elements/add.html
+			 */
+			add: Type.Optional(Type.Union([AddSchema, Type.Array(AddSchema)])),
+
+			/**
+			 * Groups a number of alternative encodings for the same point in a text.
+			 * @see https://music-encoding.org/guidelines/v5/elements/choice.html
+			 */
+			choice: Type.Optional(
+				Type.Union([ChoiceSchema, Type.Array(ChoiceSchema)]),
+			),
+
+			/**
+			 * Contains the correct form of an apparent erroneous passage.
+			 * @see https://music-encoding.org/guidelines/v5/elements/corr.html
+			 */
+			corr: Type.Optional(Type.Union([CorrSchema, Type.Array(CorrSchema)])),
+
+			/**
+			 * Contains an area of damage to the physical medium.
+			 * @see https://music-encoding.org/guidelines/v5/elements/damage.html
+			 */
+			damage: Type.Optional(
+				Type.Union([DamageSchema, Type.Array(DamageSchema)]),
+			),
+
+			/**
+			 * Contains information deleted, marked as deleted, or otherwise indicated as superfluous or spurious in the copy text by an author, scribe, annotator, or corrector.
+			 * @see https://music-encoding.org/guidelines/v5/elements/del.html
+			 */
+			del: Type.Optional(Type.Union([DelSchema, Type.Array(DelSchema)])),
+
+			/**
+			 * Contains the expansion of an abbreviation.
+			 * @see https://music-encoding.org/guidelines/v5/elements/expan.html
+			 */
+			expan: Type.Optional(Type.Union([ExpanSchema, Type.Array(ExpanSchema)])),
+
+			/**
+			 * Marks the beginning of a passage written in a new hand, or of a change in the scribe, writing style, ink or character of the document hand.
+			 * @see https://music-encoding.org/guidelines/v5/elements/handShift.html
+			 */
+			handShift: Type.Optional(
+				Type.Union([HandShiftSchema, Type.Array(HandShiftSchema)]),
+			),
+
+			/**
+			 * Contains material which is marked as following the original, rather than being normalized or corrected.
+			 * @see https://music-encoding.org/guidelines/v5/elements/orig.html
+			 */
+			orig: Type.Optional(Type.Union([OrigSchema, Type.Array(OrigSchema)])),
+
+			/**
+			 * Contains material which has been regularized or normalized in some sense.
+			 * @see https://music-encoding.org/guidelines/v5/elements/reg.html
+			 */
+			reg: Type.Optional(Type.Union([RegSchema, Type.Array(RegSchema)])),
+
+			/**
+			 * Indicates restoration of material to an earlier state by cancellation of an editorial or authorial marking or instruction.
+			 * @see https://music-encoding.org/guidelines/v5/elements/restore.html
+			 */
+			restore: Type.Optional(
+				Type.Union([RestoreSchema, Type.Array(RestoreSchema)]),
+			),
+
+			/**
+			 * Contains apparently incorrect or inaccurate material.
+			 * @see https://music-encoding.org/guidelines/v5/elements/sic.html
+			 */
+			sic: Type.Optional(Type.Union([SicSchema, Type.Array(SicSchema)])),
+
+			/**
+			 * Groups transcriptional elements when the combination is to be regarded as a single intervention in the text.
+			 * @see https://music-encoding.org/guidelines/v5/elements/subst.html
+			 */
+			subst: Type.Optional(Type.Union([SubstSchema, Type.Array(SubstSchema)])),
+
+			// model.transcriptionLike elements
+			/**
+			 * Indicates a point where material has been omitted in a transcription, whether as part of sampling practice or for editorial reasons described in the MEI header.
+			 * @see https://music-encoding.org/guidelines/v5/elements/gap.html
+			 */
+			gap: Type.Optional(Type.Union([GapSchema, Type.Array(GapSchema)])),
+
+			/**
+			 * Contains material supplied by the transcriber or editor for any reason.
+			 * @see https://music-encoding.org/guidelines/v5/elements/supplied.html
+			 */
+			supplied: Type.Optional(
+				Type.Union([SuppliedSchema, Type.Array(SuppliedSchema)]),
+			),
+
+			/**
+			 * Contains material that cannot be transcribed with certainty because it is illegible or inaudible in the source.
+			 * @see https://music-encoding.org/guidelines/v5/elements/unclear.html
+			 */
+			unclear: Type.Optional(
+				Type.Union([UnclearSchema, Type.Array(UnclearSchema)]),
+			),
+
+			// Additional elements that can appear in bloc content
+			/**
+			 * Groups elements representing or containing graphic information such as an illustration or figure.
+			 * @see https://music-encoding.org/guidelines/v5/elements/fig.html
+			 */
+			fig: Type.Optional(Type.Union([FigSchema, Type.Array(FigSchema)])),
+
+			/**
+			 * Contains a description of a watermark or similar device.
+			 * @see https://music-encoding.org/guidelines/v5/elements/watermark.html
+			 */
+			watermark: Type.Optional(
+				Type.Union([WatermarkSchema, Type.Array(WatermarkSchema)]),
+			),
+
+			/**
+			 * Describes the system used to ensure correct ordering of the quires making up an item, typically by means of annotations at the foot of the page.
+			 * @see https://music-encoding.org/guidelines/v5/elements/catchwords.html
+			 */
+			catchwords: Type.Optional(
+				Type.Union([CatchwordsSchema, Type.Array(CatchwordsSchema)]),
+			),
+
+			/**
+			 * Contains a heraldic formula or phrase, typically found as part of a blazon, coat of arms, etc.
+			 * @see https://music-encoding.org/guidelines/v5/elements/heraldry.html
+			 */
+			heraldry: Type.Optional(
+				Type.Union([HeraldrySchema, Type.Array(HeraldrySchema)]),
+			),
+
+			/**
+			 * Defines a location within a manuscript or manuscript component, usually as a (possibly discontinuous) sequence of folio references.
+			 * @see https://music-encoding.org/guidelines/v5/elements/locus.html
+			 */
+			locus: Type.Optional(Type.Union([LocusSchema, Type.Array(LocusSchema)])),
+
+			/**
+			 * Groups locations which together form a distinct but discontinuous item within a manuscript or manuscript part, according to a specific foliation.
+			 * @see https://music-encoding.org/guidelines/v5/elements/locusGrp.html
+			 */
+			locusGrp: Type.Optional(
+				Type.Union([LocusGrpSchema, Type.Array(LocusGrpSchema)]),
+			),
+
+			/**
+			 * Marks the word or words taken from a fixed point in a codex (typically the beginning of the second leaf) in order to provide a unique identifier for the item.
+			 * @see https://music-encoding.org/guidelines/v5/elements/secFolio.html
+			 */
+			secFolio: Type.Optional(
+				Type.Union([SecFolioSchema, Type.Array(SecFolioSchema)]),
+			),
+
+			/**
+			 * Provides a description of the leaf or quire signatures found within a codex.
+			 * @see https://music-encoding.org/guidelines/v5/elements/signatures.html
+			 */
+			signatures: Type.Optional(
+				Type.Union([SignaturesSchema, Type.Array(SignaturesSchema)]),
+			),
+
+			/**
+			 * Contains a word or phrase describing an official mark indicating ownership, genuineness, validity, etc.
+			 * @see https://music-encoding.org/guidelines/v5/elements/stamp.html
+			 */
+			stamp: Type.Optional(Type.Union([StampSchema, Type.Array(StampSchema)])),
+
+			// Names and dates elements
+			/**
+			 * Identifies an organization or group of people that acts as a single entity.
+			 * @see https://music-encoding.org/guidelines/v5/elements/corpName.html
+			 */
+			corpName: Type.Optional(
+				Type.Union([CorpNameSchema, Type.Array(CorpNameSchema)]),
+			),
+
+			/**
+			 * Contains the name of a geopolitical unit, such as a nation, country, colony, or commonwealth, larger than or administratively superior to a region and smaller than a bloc.
+			 * @see https://music-encoding.org/guidelines/v5/elements/country.html
+			 */
+			country: Type.Optional(
+				Type.Union([CountrySchema, Type.Array(CountrySchema)]),
+			),
+
+			/**
+			 * Contains the name of any kind of subdivision of a settlement, such as a parish, ward, or other administrative or geographic unit.
+			 * @see https://music-encoding.org/guidelines/v5/elements/district.html
+			 */
+			district: Type.Optional(
+				Type.Union([DistrictSchema, Type.Array(DistrictSchema)]),
+			),
+
+			/**
+			 * Contains a common noun identifying a geographical feature.
+			 * @see https://music-encoding.org/guidelines/v5/elements/geogFeat.html
+			 */
+			geogFeat: Type.Optional(
+				Type.Union([GeogFeatSchema, Type.Array(GeogFeatSchema)]),
+			),
+
+			/**
+			 * The proper noun designation for a place, natural feature, or political jurisdiction.
+			 * @see https://music-encoding.org/guidelines/v5/elements/geogName.html
+			 */
+			geogName: Type.Optional(
+				Type.Union([GeogNameSchema, Type.Array(GeogNameSchema)]),
+			),
+
+			/**
+			 * A label that describes a period of time, such as 'Baroque' or '3rd Style period'.
+			 * @see https://music-encoding.org/guidelines/v5/elements/periodName.html
+			 */
+			periodName: Type.Optional(
+				Type.Union([PeriodNameSchema, Type.Array(PeriodNameSchema)]),
+			),
+
+			/**
+			 * Designation for an individual, including any or all of that individual's forenames, surnames, honorific titles, and added names.
+			 * @see https://music-encoding.org/guidelines/v5/elements/persName.html
+			 */
+			persName: Type.Optional(
+				Type.Union([PersNameSchema, Type.Array(PersNameSchema)]),
+			),
+
+			/**
+			 * Contains a number or other identifier for some postal delivery point other than a street address.
+			 * @see https://music-encoding.org/guidelines/v5/elements/postBox.html
+			 */
+			postBox: Type.Optional(
+				Type.Union([PostBoxSchema, Type.Array(PostBoxSchema)]),
+			),
+
+			/**
+			 * Contains a numerical or alphanumeric code used as part of a postal address to simplify sorting or delivery of mail.
+			 * @see https://music-encoding.org/guidelines/v5/elements/postCode.html
+			 */
+			postCode: Type.Optional(
+				Type.Union([PostCodeSchema, Type.Array(PostCodeSchema)]),
+			),
+
+			/**
+			 * Contains the name of an administrative unit such as a state, province, or county, larger than a settlement, but smaller than a country.
+			 * @see https://music-encoding.org/guidelines/v5/elements/region.html
+			 */
+			region: Type.Optional(
+				Type.Union([RegionSchema, Type.Array(RegionSchema)]),
+			),
+
+			/**
+			 * Contains the name of a settlement such as a city, town, or village identified as a single geopolitical or administrative unit.
+			 * @see https://music-encoding.org/guidelines/v5/elements/settlement.html
+			 */
+			settlement: Type.Optional(
+				Type.Union([SettlementSchema, Type.Array(SettlementSchema)]),
+			),
+
+			/**
+			 * Full street address including any name or number identifying a building as well as the name of the street or route on which it is located.
+			 * @see https://music-encoding.org/guidelines/v5/elements/street.html
+			 */
+			street: Type.Optional(
+				Type.Union([StreetSchema, Type.Array(StreetSchema)]),
+			),
+
+			/**
+			 * A label for a characteristic style of writing or performance, such as 'bebop' or 'rock-n-roll'.
+			 * @see https://music-encoding.org/guidelines/v5/elements/styleName.html
+			 */
+			styleName: Type.Optional(
+				Type.Union([StyleNameSchema, Type.Array(StyleNameSchema)]),
+			),
+
+			// Pointer and reference elements
+			/**
+			 * Defines a traversible pointer to another location, using only attributes to describe the destination.
+			 * @see https://music-encoding.org/guidelines/v5/elements/ptr.html
+			 */
+			ptr: Type.Optional(Type.Union([PtrSchema, Type.Array(PtrSchema)])),
+
+			/**
+			 * Defines a traversible reference to another location. May contain text and sub-elements that describe the destination.
+			 * @see https://music-encoding.org/guidelines/v5/elements/ref.html
+			 */
+			ref: Type.Optional(Type.Union([RefSchema, Type.Array(RefSchema)])),
+
+			// Shared elements
+			/**
+			 * Contains a postal address, for example of a publisher, an organization, or an individual.
+			 * @see https://music-encoding.org/guidelines/v5/elements/address.html
+			 */
+			address: Type.Optional(
+				Type.Union([AddressSchema, Type.Array(AddressSchema)]),
+			),
+
+			/**
+			 * Provides a loosely-structured bibliographic citation in which the sub-components may or may not be explicitly marked.
+			 * @see https://music-encoding.org/guidelines/v5/elements/bibl.html
+			 */
+			bibl: Type.Optional(Type.Union([BiblSchema, Type.Array(BiblSchema)])),
+
+			/**
+			 * Contains a bibliographic citation in which bibliographic sub-elements must appear in a specified order.
+			 * @see https://music-encoding.org/guidelines/v5/elements/biblStruct.html
+			 */
+			biblStruct: Type.Optional(
+				Type.Union([BiblStructSchema, Type.Array(BiblStructSchema)]),
+			),
+
+			/**
+			 * A string identifying a point in time or the time period between two such points.
+			 * @see https://music-encoding.org/guidelines/v5/elements/date.html
+			 */
+			date: Type.Optional(Type.Union([DateSchema, Type.Array(DateSchema)])),
+
+			/**
+			 * Entity to whom a creative work is formally offered.
+			 * @see https://music-encoding.org/guidelines/v5/elements/dedic.html
+			 */
+			dedic: Type.Optional(Type.Union([DedicSchema, Type.Array(DedicSchema)])),
+
+			/**
+			 * Description of a measurement taken through a three-dimensional object.
+			 * @see https://music-encoding.org/guidelines/v5/elements/depth.html
+			 */
+			depth: Type.Optional(Type.Union([DepthSchema, Type.Array(DepthSchema)])),
+
+			/**
+			 * Any single dimensional specification.
+			 * @see https://music-encoding.org/guidelines/v5/elements/dim.html
+			 */
+			dim: Type.Optional(Type.Union([DimSchema, Type.Array(DimSchema)])),
+
+			/**
+			 * Information about the physical size of an entity; usually includes numerical data.
+			 * @see https://music-encoding.org/guidelines/v5/elements/dimensions.html
+			 */
+			dimensions: Type.Optional(
+				Type.Union([DimensionsSchema, Type.Array(DimensionsSchema)]),
+			),
+
+			/**
+			 * Used to express size in terms other than physical dimensions, such as number of pages, records, bytes, physical components, etc.
+			 * @see https://music-encoding.org/guidelines/v5/elements/extent.html
+			 */
+			extent: Type.Optional(
+				Type.Union([ExtentSchema, Type.Array(ExtentSchema)]),
+			),
+
+			/**
+			 * Description of the vertical size of an object.
+			 * @see https://music-encoding.org/guidelines/v5/elements/height.html
+			 */
+			height: Type.Optional(
+				Type.Union([HeightSchema, Type.Array(HeightSchema)]),
+			),
+
+			/**
+			 * An alpha-numeric string that establishes the identity of the described material.
+			 * @see https://music-encoding.org/guidelines/v5/elements/identifier.html
+			 */
+			identifier: Type.Optional(
+				Type.Union([IdentifierSchema, Type.Array(IdentifierSchema)]),
+			),
+
+			/**
+			 * Describes a relationship or linkage amongst entities.
+			 * @see https://music-encoding.org/guidelines/v5/elements/relation.html
+			 */
+			relation: Type.Optional(
+				Type.Union([RelationSchema, Type.Array(RelationSchema)]),
+			),
+
+			/**
+			 * Gathers relation elements.
+			 * @see https://music-encoding.org/guidelines/v5/elements/relationList.html
+			 */
+			relationList: Type.Optional(
+				Type.Union([RelationListSchema, Type.Array(RelationListSchema)]),
+			),
+
+			/**
+			 * Institution, agency, or individual which holds a bibliographic item.
+			 * @see https://music-encoding.org/guidelines/v5/elements/repository.html
+			 */
+			repository: Type.Optional(
+				Type.Union([RepositorySchema, Type.Array(RepositorySchema)]),
+			),
+
+			/**
+			 * An inline table with a single column.
+			 * @see https://music-encoding.org/guidelines/v5/elements/stack.html
+			 */
+			stack: Type.Optional(Type.Union([StackSchema, Type.Array(StackSchema)])),
+
+			/**
+			 * A reference to a previously defined symbol.
+			 * @see https://music-encoding.org/guidelines/v5/elements/symbol.html
+			 */
+			symbol: Type.Optional(
+				Type.Union([SymbolSchema, Type.Array(SymbolSchema)]),
+			),
+
+			/**
+			 * Title of a bibliographic entity.
+			 * @see https://music-encoding.org/guidelines/v5/elements/title.html
+			 */
+			title: Type.Optional(Type.Union([TitleSchema, Type.Array(TitleSchema)])),
+
+			/**
+			 * Description of the horizontal size of an object.
+			 * @see https://music-encoding.org/guidelines/v5/elements/width.html
+			 */
+			width: Type.Optional(Type.Union([WidthSchema, Type.Array(WidthSchema)])),
+
+			// Text elements
+			/**
+			 * Contains material which is distinguished from the surrounding phrase-level text using quotation marks or a similar method. Use quote for block-level quotations.
+			 * @see https://music-encoding.org/guidelines/v5/elements/q.html
+			 */
+			q: Type.Optional(Type.Union([QSchema, Type.Array(QSchema)])),
+
+			/**
+			 * Represents any segmentation of text below the "text component" level.
+			 * @see https://music-encoding.org/guidelines/v5/elements/seg.html
+			 */
+			seg: Type.Optional(Type.Union([SegSchema, Type.Array(SegSchema)])),
+		},
+		{ additionalProperties: false },
+	),
+]);
+
+export type Bloc = Static<typeof BlocSchema>;

@@ -15,7 +15,7 @@ import { UnclearSchema } from "./unclear";
  * Groups a number of alternative encodings for the same point in a text.
  * @see https://music-encoding.org/guidelines/v5/elements/choice.html
  */
-export const ChoiceSchema: any = Type.Recursive((Self) =>
+export const ChoiceSchema = Type.Recursive((Self) =>
 	Type.Intersect([
 		StandardTagSchema,
 		AttrCommonSchema,

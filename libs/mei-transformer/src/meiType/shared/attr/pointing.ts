@@ -11,20 +11,20 @@ export const AttrPointingSchema = Type.Object({
 	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.pointing.html
 	 * @see https://music-encoding.org/guidelines/v5/data-types/data.URI.html
 	 */
-	target: Type.Optional(Type.String()),
+	"@target": Type.Optional(Type.String()),
 	/**
 	 * Characterization of target resource(s) using any convenient classification scheme or typology.
 	 * Value is a NMTOKEN.
 	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.pointing.html
 	 * @see https://www.w3.org/TR/xmlschema11-2/#NMTOKEN
 	 */
-	targettype: Type.Optional(Type.String()),
+	"@targettype": Type.Optional(Type.String()),
 	/**
 	 * Defines whether a link occurs automatically or must be requested by the user.
 	 * Allowed values are: `onLoad`, `onRequest`, `none`, `other`
 	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.pointing.html
 	 */
-	"xlink:actuate": Type.Optional(
+	"@xlink:actuate": Type.Optional(
 		Type.Union([
 			Type.Literal("onLoad"),
 			Type.Literal("onRequest"),
@@ -38,13 +38,13 @@ export const AttrPointingSchema = Type.Object({
 	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.pointing.html
 	 * @see https://music-encoding.org/guidelines/v5/data-types/data.URI.html
 	 */
-	"xlink:role": Type.Optional(Type.String()),
+	"@xlink:role": Type.Optional(Type.String()),
 	/**
 	 * Defines how a remote resource is rendered.
 	 * Allowed values are: `new`, `replace`, `embed`, `none`, `other`
 	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.pointing.html
 	 */
-	"xlink:show": Type.Optional(
+	"@xlink:show": Type.Optional(
 		Type.Union([
 			Type.Literal("new"),
 			Type.Literal("replace"),

@@ -13,7 +13,7 @@ export const AttrTargetEvalSchema = Type.Object({
 	 *   - `none` (No further evaluation of targets is carried out beyond that needed to find the element(s) specified in plist or target attribute.)
 	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.targetEval.html
 	 */
-	evaluate: Type.Optional(
+	"@evaluate": Type.Optional(
 		Type.Union([
 			Type.Literal("all"),
 			Type.Literal("one"),

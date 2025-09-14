@@ -1,5 +1,5 @@
 import { type Static, Type } from "@sinclair/typebox";
-import { StandardTagSchema } from "../common";
+import { NotImplementedTagSchema, StandardTagSchema } from "../common";
 // Import child element schemas
 import { AbbrSchema } from "../shared/abbr";
 import { AddressSchema } from "../shared/address";
@@ -38,7 +38,6 @@ import { AttrTransSchema } from "./attr/trans";
 import { ChoiceSchema } from "./choice";
 import { CorrSchema } from "./corr";
 import { DamageSchema } from "./damage";
-import { DelSchema } from "./del";
 import { ExpanSchema } from "./expan";
 import { GapSchema } from "./gap";
 import { HandShiftSchema } from "./handShift";
@@ -294,7 +293,7 @@ export const AddSchema = Type.Intersect([
 			 * Deletion.
 			 * @see https://music-encoding.org/guidelines/v5/elements/del.html
 			 */
-			del: Type.Optional(Type.Union([DelSchema, Type.Array(DelSchema)])),
+			del: Type.Optional(NotImplementedTagSchema), // TODO: Not implemented because of circular dependency
 
 			/**
 			 * Supplied text.

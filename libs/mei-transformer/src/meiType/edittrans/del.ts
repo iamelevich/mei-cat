@@ -5,11 +5,11 @@ import { AbbrSchema } from "../shared/abbr";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrExtentSchema } from "../shared/attr/extent";
 import { AttrFacsimileSchema } from "../shared/attr/facsimile";
-import { AttrHandIdentSchema } from "../shared/attr/handIdent";
 import { AttrLangSchema } from "../shared/attr/lang";
+import { AttrTextRenditionSchema } from "../shared/attr/textRendition";
 import { PSchema } from "../shared/p";
-import { AttrAgentIdentSchema } from "./attr/agentIdent";
-import { DelSchema } from "./del";
+import { AttrEditSchema } from "./attr/edit";
+import { AttrTransSchema } from "./attr/trans";
 import { GapSchema } from "./gap";
 import { OrigSchema } from "./orig";
 import { RegSchema } from "./reg";
@@ -20,26 +20,20 @@ import { SuppliedSchema } from "./supplied";
 import { UnclearSchema } from "./unclear";
 
 /**
- * Contains an area of damage to the physical medium.
- * @see https://music-encoding.org/guidelines/v5/elements/damage.html
+ * Contains information deleted, marked as deleted, or otherwise indicated as superfluous or spurious in the copy text by an author, scribe, annotator, or corrector.
+ * @see https://music-encoding.org/guidelines/v5/elements/del.html
  */
-export const DamageSchema = Type.Intersect([
+export const DelSchema = Type.Intersect([
 	StandardTagSchema,
 	AttrCommonSchema,
-	AttrAgentIdentSchema,
+	AttrEditSchema,
 	AttrExtentSchema,
 	AttrFacsimileSchema,
-	AttrHandIdentSchema,
 	AttrLangSchema,
+	AttrTextRenditionSchema,
+	AttrTransSchema,
 	Type.Object(
 		{
-			/**
-			 * Records the degree of damage.
-			 * Value is plain text.
-			 * @see https://music-encoding.org/guidelines/v5/elements/damage.html#degree
-			 */
-			"@degree": Type.Optional(Type.String()),
-
 			// Child elements - zero or more of each
 			// Note: This is a simplified version with key elements to avoid circular references
 			// Additional elements can be added as needed
@@ -49,25 +43,6 @@ export const DamageSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/abbr.html
 			 */
 			abbr: Type.Optional(Type.Union([AbbrSchema, Type.Array(AbbrSchema)])),
-
-			// Elements that would create circular dependencies
-			/**
-			 * Addition.
-			 * @see https://music-encoding.org/guidelines/v5/elements/add.html
-			 */
-			add: Type.Optional(NotImplementedTagSchema), // TODO: Not implemented because of circular dependency
-
-			/**
-			 * Correction.
-			 * @see https://music-encoding.org/guidelines/v5/elements/corr.html
-			 */
-			corr: Type.Optional(NotImplementedTagSchema), // TODO: Not implemented because of circular dependency
-
-			/**
-			 * Deletion.
-			 * @see https://music-encoding.org/guidelines/v5/elements/del.html
-			 */
-			del: Type.Optional(Type.Union([DelSchema, Type.Array(DelSchema)])),
 
 			/**
 			 * Gap.
@@ -128,9 +103,22 @@ export const DamageSchema = Type.Intersect([
 			unclear: Type.Optional(
 				Type.Union([UnclearSchema, Type.Array(UnclearSchema)]),
 			),
+
+			// Elements that would create circular dependencies
+			/**
+			 * Addition.
+			 * @see https://music-encoding.org/guidelines/v5/elements/add.html
+			 */
+			add: Type.Optional(NotImplementedTagSchema), // TODO: Not implemented because of circular dependency
+
+			/**
+			 * Correction.
+			 * @see https://music-encoding.org/guidelines/v5/elements/corr.html
+			 */
+			corr: Type.Optional(NotImplementedTagSchema), // TODO: Not implemented because of circular dependency
 		},
 		{ additionalProperties: false },
 	),
 ]);
 
-export type Damage = Static<typeof DamageSchema>;
+export type Del = Static<typeof DelSchema>;

@@ -35,7 +35,6 @@ import { WidthSchema } from "../shared/width";
 import { AttrEditSchema } from "./attr/edit";
 import { AttrTransSchema } from "./attr/trans";
 import { DamageSchema } from "./damage";
-import { DelSchema } from "./del";
 import { ExpanSchema } from "./expan";
 import { GapSchema } from "./gap";
 import { HandShiftSchema } from "./handShift";
@@ -291,7 +290,7 @@ export const CorrSchema = Type.Recursive((Self) =>
 				 * Deletion.
 				 * @see https://music-encoding.org/guidelines/v5/elements/del.html
 				 */
-				del: Type.Optional(Type.Union([DelSchema, Type.Array(DelSchema)])),
+				del: Type.Optional(NotImplementedTagSchema), // TODO: Not implemented because of circular dependency
 
 				/**
 				 * Expansion.

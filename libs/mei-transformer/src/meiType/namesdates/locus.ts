@@ -1,5 +1,6 @@
 import { type Static, Type } from "@sinclair/typebox";
-import { NotImplementedTagSchema, StandardTagSchema } from "../common";
+import { StandardTagSchema } from "../common";
+import { AttrFoliationSchemeSchema } from "../msDesc/attr/foliation";
 import { AttrBiblSchema } from "../shared/attr/bibl";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrLangSchema } from "../shared/attr/lang";
@@ -15,6 +16,7 @@ export const LocusSchema = Type.Recursive((Self) =>
 		StandardTagSchema,
 		AttrCommonSchema,
 		AttrBiblSchema,
+		AttrFoliationSchemeSchema,
 		AttrLangSchema,
 		Type.Object(
 			{
@@ -55,12 +57,6 @@ export const LocusSchema = Type.Recursive((Self) =>
 				 * @see https://music-encoding.org/guidelines/v5/elements/locus.html#to
 				 */
 				to: Type.Optional(Type.String()),
-
-				/**
-				 * Identifies the foliation scheme in terms of which the location is being specified by pointing to some foliation element defining it, or to some other equivalent resource.
-				 * @see https://music-encoding.org/guidelines/v5/elements/locus.html#scheme
-				 */
-				scheme: Type.Optional(Type.String()),
 			},
 			{ additionalProperties: false },
 		),

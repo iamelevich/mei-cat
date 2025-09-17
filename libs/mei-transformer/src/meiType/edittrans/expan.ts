@@ -1,5 +1,5 @@
 import { Type } from "typebox";
-import { NotImplementedTagSchema, StandardTagSchema } from "../common";
+import { StandardTagSchema } from "../common";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrExtentSchema } from "../shared/attr/extent";
 import { AttrFacsimileSchema } from "../shared/attr/facsimile";

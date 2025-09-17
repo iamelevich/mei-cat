@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "@sinclair/typebox";
 import { StandardTagSchema } from "../common";
 import { AttrBiblSchema } from "../shared/attr/bibl";
 import { AttrCommonSchema } from "../shared/attr/common";
@@ -18,5 +18,3 @@ export const MensurationSchema = Type.Intersect([
 	AttrMensurLogSchema,
 	AttrMensurVisSchema,
 ]);
-
-export type Mensuration = Static<typeof MensurationSchema>;

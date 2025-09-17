@@ -1,10 +1,7 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "@sinclair/typebox";
 import { StandardTagSchema } from "../common";
 import { AttrBiblSchema } from "../shared/attr/bibl";
 import { AttrCommonSchema } from "../shared/attr/common";
-import { DescSchema } from "../shared/desc";
-import { AttUsageSchema } from "./attUsage";
-import { TagUsageSchema } from "./tagUsage";
 
 /**
  * Supplies the formal name of the namespace to which the elements documented by its children belong.
@@ -35,25 +32,23 @@ export const NamespaceSchema = Type.Intersect([
 			 * Container for text that briefly describes the feature to which it is attached, including its intended usage, purpose, or application as appropriate.
 			 * @see https://music-encoding.org/guidelines/v5/elements/desc.html
 			 */
-			desc: Type.Optional(DescSchema),
+			desc: Type.Optional(Type.Ref("desc")),
 			// Choice: one or more tagUsage OR one or more attUsage
 			/**
 			 * Documents the usage of a specific element within the document.
 			 * @see https://music-encoding.org/guidelines/v5/elements/tagUsage.html
 			 */
 			tagUsage: Type.Optional(
-				Type.Union([TagUsageSchema, Type.Array(TagUsageSchema)]),
+				Type.Union([Type.Ref("tagUsage"), Type.Array(Type.Ref("tagUsage"))]),
 			),
 			/**
 			 * Documents the usage of a specific attribute of the element.
 			 * @see https://music-encoding.org/guidelines/v5/elements/attUsage.html
 			 */
 			attUsage: Type.Optional(
-				Type.Union([AttUsageSchema, Type.Array(AttUsageSchema)]),
+				Type.Union([Type.Ref("attUsage"), Type.Array(Type.Ref("attUsage"))]),
 			),
 		},
 		{ additionalProperties: false },
 	),
 ]);
-
-export type Namespace = Static<typeof NamespaceSchema>;

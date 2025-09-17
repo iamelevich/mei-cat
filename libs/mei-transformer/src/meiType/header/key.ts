@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "@sinclair/typebox";
 import { StandardTagSchema } from "../common";
 import { AttrAccidentalSchema } from "../shared/attr/accidental";
 import { AttrBiblSchema } from "../shared/attr/bibl";
@@ -18,5 +18,3 @@ export const KeySchema = Type.Intersect([
 	AttrKeyModeSchema,
 	AttrPitchSchema,
 ]);
-
-export type Key = Static<typeof KeySchema>;

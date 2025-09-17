@@ -1,11 +1,9 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "@sinclair/typebox";
 import { StandardTagSchema } from "../common";
 import { AttrBiblSchema } from "../shared/attr/bibl";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrDataPointingSchema } from "../shared/attr/dataPointing";
 import { AttrLangSchema } from "../shared/attr/lang";
-import { HeadSchema } from "../shared/head";
-import { PSchema } from "../shared/p";
 
 /**
  * Project-level meta-data describing the aim or purpose for which the electronic file was encoded, funding agencies, etc. together with any other relevant information concerning the process by which it was assembled or collected.
@@ -24,16 +22,16 @@ export const ProjectDescSchema = Type.Intersect([
 			 * Contains any heading, for example, the title of a section of text, or the heading of a list.
 			 * @see https://music-encoding.org/guidelines/v5/elements/head.html
 			 */
-			head: Type.Optional(Type.Union([HeadSchema, Type.Array(HeadSchema)])),
+			head: Type.Optional(
+				Type.Union([Type.Ref("head"), Type.Array(Type.Ref("head"))]),
+			),
 			// One or more model.pLike
 			/**
 			 * One or more text phrases that form a logical prose passage.
 			 * @see https://music-encoding.org/guidelines/v5/elements/p.html
 			 */
-			p: Type.Union([PSchema, Type.Array(PSchema)]),
+			p: Type.Union([Type.Ref("p"), Type.Array(Type.Ref("p"))]),
 		},
 		{ additionalProperties: false },
 	),
 ]);
-
-export type ProjectDesc = Static<typeof ProjectDescSchema>;

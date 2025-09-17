@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "@sinclair/typebox";
 import { StandardTagSchema } from "../common";
 import { AttrBiblSchema } from "../shared/attr/bibl";
 import { AttrCommonSchema } from "../shared/attr/common";
@@ -14,5 +14,3 @@ export const UnpubSchema = Type.Intersect([
 	AttrBiblSchema,
 	AttrLangSchema,
 ]);
-
-export type Unpub = Static<typeof UnpubSchema>;

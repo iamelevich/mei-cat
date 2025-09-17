@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "@sinclair/typebox";
 import { StandardTagSchema } from "../common";
 import { AttrAuthorizedSchema } from "../shared/attr/authorized";
 import { AttrBiblSchema } from "../shared/attr/bibl";
@@ -27,5 +27,3 @@ export const TrackConfigSchema = Type.Intersect([
 		{ additionalProperties: false },
 	),
 ]);
-
-export type TrackConfig = Static<typeof TrackConfigSchema>;

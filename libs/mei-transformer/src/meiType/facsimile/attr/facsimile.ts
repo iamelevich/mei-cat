@@ -1,5 +1,4 @@
-import type { Static } from "@sinclair/typebox";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that associate a feature corresponding with all or part of an image.
@@ -15,5 +14,3 @@ export const AttrFacsimileSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrFacsimile = Static<typeof AttrFacsimileSchema>;

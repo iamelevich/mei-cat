@@ -1,5 +1,5 @@
-import { type Static, Type } from "@sinclair/typebox";
-import { NotImplementedTagSchema, StandardTagSchema } from "../common";
+import { Type } from "typebox";
+import { StandardTagSchema } from "../common";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrCoordinatedSchema } from "../shared/attr/coordinated";
 import { AttrDataPointingSchema } from "../shared/attr/dataPointing";
@@ -24,25 +24,17 @@ export const ZoneSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/figDesc.html
 			 */
 			figDesc: Type.Optional(
-				Type.Union([
-					NotImplementedTagSchema,
-					Type.Array(NotImplementedTagSchema),
-				]),
-			), // TODO: Not implemented because of circular dependency
+				Type.Union([Type.Ref("figDesc"), Type.Array(Type.Ref("figDesc"))]),
+			),
 
 			/**
 			 * Graphic.
 			 * @see https://music-encoding.org/guidelines/v5/elements/graphic.html
 			 */
 			graphic: Type.Optional(
-				Type.Union([
-					NotImplementedTagSchema,
-					Type.Array(NotImplementedTagSchema),
-				]), // TODO: Not implemented because of circular dependency
+				Type.Union([Type.Ref("graphic"), Type.Array(Type.Ref("graphic"))]),
 			),
 		},
 		{ additionalProperties: false },
 	),
 ]);
-
-export type Zone = Static<typeof ZoneSchema>;

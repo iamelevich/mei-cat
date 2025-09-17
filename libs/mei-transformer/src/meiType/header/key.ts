@@ -1,4 +1,4 @@
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 import { StandardTagSchema } from "../common";
 import { AttrAccidentalSchema } from "../shared/attr/accidental";
 import { AttrBiblSchema } from "../shared/attr/bibl";

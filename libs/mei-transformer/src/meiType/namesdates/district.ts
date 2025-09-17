@@ -1,16 +1,5 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 import { StandardTagSchema } from "../common";
-import { DelSchema } from "../edittrans/del";
-import { ExpanSchema } from "../edittrans/expan";
-import { GapSchema } from "../edittrans/gap";
-import { HandShiftSchema } from "../edittrans/handShift";
-import { OrigSchema } from "../edittrans/orig";
-import { RegSchema } from "../edittrans/reg";
-import { RestoreSchema } from "../edittrans/restore";
-import { SicSchema } from "../edittrans/sic";
-import { SubstSchema } from "../edittrans/subst";
-import { SuppliedSchema } from "../edittrans/supplied";
-import { UnclearSchema } from "../edittrans/unclear";
 import { AttrAuthorizedSchema } from "../shared/attr/authorized";
 import { AttrBiblSchema } from "../shared/attr/bibl";
 import { AttrCommonSchema } from "../shared/attr/common";
@@ -44,7 +33,7 @@ export const DistrictSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/abbr.html
 			 */
 			abbr: Type.Optional(
-				Type.Union([Type.String(), Type.Array(Type.String())]),
+				Type.Union([Type.Ref("abbr"), Type.Array(Type.Ref("abbr"))]),
 			),
 
 			// model.editLike elements
@@ -52,67 +41,81 @@ export const DistrictSchema = Type.Intersect([
 			 * Contains information deleted, marked as deleted, or otherwise indicated as superfluous or spurious in the copy text by an author, scribe, annotator, or corrector.
 			 * @see https://music-encoding.org/guidelines/v5/elements/del.html
 			 */
-			del: Type.Optional(Type.Union([DelSchema, Type.Array(DelSchema)])),
+			del: Type.Optional(
+				Type.Union([Type.Ref("del"), Type.Array(Type.Ref("del"))]),
+			),
 
 			/**
 			 * Contains the expansion of an abbreviation.
 			 * @see https://music-encoding.org/guidelines/v5/elements/expan.html
 			 */
-			expan: Type.Optional(Type.Union([ExpanSchema, Type.Array(ExpanSchema)])),
+			expan: Type.Optional(
+				Type.Union([Type.Ref("expan"), Type.Array(Type.Ref("expan"))]),
+			),
 
 			/**
 			 * Marks the beginning of a passage written in a new hand, or of a change in the scribe, writing style, ink or character of the document hand.
 			 * @see https://music-encoding.org/guidelines/v5/elements/handShift.html
 			 */
 			handShift: Type.Optional(
-				Type.Union([HandShiftSchema, Type.Array(HandShiftSchema)]),
+				Type.Union([Type.Ref("handShift"), Type.Array(Type.Ref("handShift"))]),
 			),
 
 			/**
 			 * Contains material which is marked as following the original, rather than being normalized or corrected.
 			 * @see https://music-encoding.org/guidelines/v5/elements/orig.html
 			 */
-			orig: Type.Optional(Type.Union([OrigSchema, Type.Array(OrigSchema)])),
+			orig: Type.Optional(
+				Type.Union([Type.Ref("orig"), Type.Array(Type.Ref("orig"))]),
+			),
 
 			/**
 			 * Contains material which has been regularized or normalized in some sense.
 			 * @see https://music-encoding.org/guidelines/v5/elements/reg.html
 			 */
-			reg: Type.Optional(Type.Union([RegSchema, Type.Array(RegSchema)])),
+			reg: Type.Optional(
+				Type.Union([Type.Ref("reg"), Type.Array(Type.Ref("reg"))]),
+			),
 
 			/**
 			 * Indicates restoration of material to an earlier state by cancellation of an editorial or authorial marking or instruction.
 			 * @see https://music-encoding.org/guidelines/v5/elements/restore.html
 			 */
 			restore: Type.Optional(
-				Type.Union([RestoreSchema, Type.Array(RestoreSchema)]),
+				Type.Union([Type.Ref("restore"), Type.Array(Type.Ref("restore"))]),
 			),
 
 			/**
 			 * Contains apparently incorrect or inaccurate material.
 			 * @see https://music-encoding.org/guidelines/v5/elements/sic.html
 			 */
-			sic: Type.Optional(Type.Union([SicSchema, Type.Array(SicSchema)])),
+			sic: Type.Optional(
+				Type.Union([Type.Ref("sic"), Type.Array(Type.Ref("sic"))]),
+			),
 
 			/**
 			 * Groups transcriptional elements when the combination is to be regarded as a single intervention in the text.
 			 * @see https://music-encoding.org/guidelines/v5/elements/subst.html
 			 */
-			subst: Type.Optional(Type.Union([SubstSchema, Type.Array(SubstSchema)])),
+			subst: Type.Optional(
+				Type.Union([Type.Ref("subst"), Type.Array(Type.Ref("subst"))]),
+			),
 
 			// model.transcriptionLike elements
 			/**
 			 * Indicates a point where material has been omitted in a transcription, whether as part of sampling practice or for editorial reasons described in the MEI header.
 			 * @see https://music-encoding.org/guidelines/v5/elements/gap.html
 			 */
-			gap: Type.Optional(Type.Union([GapSchema, Type.Array(GapSchema)])),
+			gap: Type.Optional(
+				Type.Union([Type.Ref("gap"), Type.Array(Type.Ref("gap"))]),
+			),
 
 			/**
 			 * Contains material supplied by the transcriber or editor for any reason.
 			 * @see https://music-encoding.org/guidelines/v5/elements/supplied.html
 			 */
 			supplied: Type.Optional(
-				Type.Union([SuppliedSchema, Type.Array(SuppliedSchema)]),
+				Type.Union([Type.Ref("supplied"), Type.Array(Type.Ref("supplied"))]),
 			),
 
 			/**
@@ -120,11 +123,9 @@ export const DistrictSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/unclear.html
 			 */
 			unclear: Type.Optional(
-				Type.Union([UnclearSchema, Type.Array(UnclearSchema)]),
+				Type.Union([Type.Ref("unclear"), Type.Array(Type.Ref("unclear"))]),
 			),
 		},
 		{ additionalProperties: false },
 	),
 ]);
-
-export type District = Static<typeof DistrictSchema>;

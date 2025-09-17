@@ -29,9 +29,9 @@ export const AttrPerfResBasicSchema = Type.Intersect([
  * Attributes that define the characteristics and components of the performance resource.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.perfRes.html
  */
-export const UattrperfresSchema = Type.Intersect([
-	Type.Ref("attrperfresbasic"),
-	Type.Ref("attrtransposition"),
+export const AttrPerfResSchema = Type.Intersect([
+	AttrPerfResBasicSchema,
+	AttrTranspositionSchema,
 	Type.Object(
 		{
 			/**

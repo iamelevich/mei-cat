@@ -1,8 +1,6 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 import { StandardTagSchema } from "../common";
 import { AttrCommonSchema } from "../shared/attr/common";
-import { HeadSchema } from "../shared/head";
-import { ExpressionSchema } from "./expression";
 
 /**
  * Gathers bibliographic expression entities.
@@ -19,7 +17,9 @@ export const ExpressionListSchema = Type.Intersect([
 			 * Contains any heading, for example, the title of a section of text, or the heading of a list.
 			 * @see https://music-encoding.org/guidelines/v5/elements/head.html
 			 */
-			head: Type.Optional(Type.Union([HeadSchema, Type.Array(HeadSchema)])),
+			head: Type.Optional(
+				Type.Union([Type.Ref("head"), Type.Array(Type.Ref("head"))]),
+			),
 
 			// rng:zeroOrMore - model.expressionLike
 			/**
@@ -27,11 +27,12 @@ export const ExpressionListSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/expression.html
 			 */
 			expression: Type.Optional(
-				Type.Union([ExpressionSchema, Type.Array(ExpressionSchema)]),
+				Type.Union([
+					Type.Ref("expression"),
+					Type.Array(Type.Ref("expression")),
+				]),
 			),
 		},
 		{ additionalProperties: false },
 	),
 ]);
-
-export type ExpressionList = Static<typeof ExpressionListSchema>;

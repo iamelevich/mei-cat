@@ -1,36 +1,9 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 import { StandardTagSchema } from "../common";
-import { ClassificationSchema } from "../header/classification";
-import { ContentsSchema } from "../header/contents";
-import { ContextSchema } from "../header/context";
-import { ExtMetaSchema } from "../header/extMeta";
-import { HistorySchema } from "../header/history";
-import { LangUsageSchema } from "../header/langUsage";
-import { NotesStmtSchema } from "../header/notesStmt";
-import { OtherCharSchema } from "../header/otherChar";
-import { PerfDurationSchema } from "../header/perfDuration";
-import { PerfMediumSchema } from "../header/perfMedium";
-import { ScoreFormatSchema } from "../header/scoreFormat";
-import { ArrangerSchema } from "../shared/arranger";
 import { AttrAuthorizedSchema } from "../shared/attr/authorized";
 import { AttrBiblSchema } from "../shared/attr/bibl";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrDataPointingSchema } from "../shared/attr/dataPointing";
-import { AuthorSchema } from "../shared/author";
-import { BiblListSchema } from "../shared/biblList";
-import { ComposerSchema } from "../shared/composer";
-import { ContributorSchema } from "../shared/contributor";
-import { CreationSchema } from "../shared/creation";
-import { EditorSchema } from "../shared/editor";
-import { ExtentSchema } from "../shared/extent";
-import { FunderSchema } from "../shared/funder";
-import { HeadSchema } from "../shared/head";
-import { IdentifierSchema } from "../shared/identifier";
-import { LibrettistSchema } from "../shared/librettist";
-import { LyricistSchema } from "../shared/lyricist";
-import { RelationListSchema } from "../shared/relationList";
-import { SponsorSchema } from "../shared/sponsor";
-import { TitleSchema } from "../shared/title";
 
 /**
  * Intellectual or artistic realization of a work.
@@ -50,7 +23,9 @@ export const ExpressionSchema = Type.Intersect([
 			 * Contains any heading, for example, the title of a section of text, or the heading of a list.
 			 * @see https://music-encoding.org/guidelines/v5/elements/head.html
 			 */
-			head: Type.Optional(Type.Union([HeadSchema, Type.Array(HeadSchema)])),
+			head: Type.Optional(
+				Type.Union([Type.Ref("head"), Type.Array(Type.Ref("head"))]),
+			),
 
 			// rng:zeroOrMore - model.identifierLike
 			/**
@@ -58,7 +33,10 @@ export const ExpressionSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/identifier.html
 			 */
 			identifier: Type.Optional(
-				Type.Union([IdentifierSchema, Type.Array(IdentifierSchema)]),
+				Type.Union([
+					Type.Ref("identifier"),
+					Type.Array(Type.Ref("identifier")),
+				]),
 			),
 
 			// rng:oneOrMore - model.titleLike
@@ -66,7 +44,7 @@ export const ExpressionSchema = Type.Intersect([
 			 * Title of a bibliographic entity.
 			 * @see https://music-encoding.org/guidelines/v5/elements/title.html
 			 */
-			title: Type.Union([TitleSchema, Type.Array(TitleSchema)]),
+			title: Type.Union([Type.Ref("title"), Type.Array(Type.Ref("title"))]),
 
 			// rng:zeroOrMore - model.respLikePart
 			/**
@@ -74,7 +52,7 @@ export const ExpressionSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/arranger.html
 			 */
 			arranger: Type.Optional(
-				Type.Union([ArrangerSchema, Type.Array(ArrangerSchema)]),
+				Type.Union([Type.Ref("arranger"), Type.Array(Type.Ref("arranger"))]),
 			),
 
 			/**
@@ -82,7 +60,7 @@ export const ExpressionSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/author.html
 			 */
 			author: Type.Optional(
-				Type.Union([AuthorSchema, Type.Array(AuthorSchema)]),
+				Type.Union([Type.Ref("author"), Type.Array(Type.Ref("author"))]),
 			),
 
 			/**
@@ -90,7 +68,7 @@ export const ExpressionSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/composer.html
 			 */
 			composer: Type.Optional(
-				Type.Union([ComposerSchema, Type.Array(ComposerSchema)]),
+				Type.Union([Type.Ref("composer"), Type.Array(Type.Ref("composer"))]),
 			),
 
 			/**
@@ -98,7 +76,10 @@ export const ExpressionSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/contributor.html
 			 */
 			contributor: Type.Optional(
-				Type.Union([ContributorSchema, Type.Array(ContributorSchema)]),
+				Type.Union([
+					Type.Ref("contributor"),
+					Type.Array(Type.Ref("contributor")),
+				]),
 			),
 
 			/**
@@ -106,7 +87,7 @@ export const ExpressionSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/editor.html
 			 */
 			editor: Type.Optional(
-				Type.Union([EditorSchema, Type.Array(EditorSchema)]),
+				Type.Union([Type.Ref("editor"), Type.Array(Type.Ref("editor"))]),
 			),
 
 			/**
@@ -114,7 +95,7 @@ export const ExpressionSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/funder.html
 			 */
 			funder: Type.Optional(
-				Type.Union([FunderSchema, Type.Array(FunderSchema)]),
+				Type.Union([Type.Ref("funder"), Type.Array(Type.Ref("funder"))]),
 			),
 
 			/**
@@ -122,7 +103,10 @@ export const ExpressionSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/librettist.html
 			 */
 			librettist: Type.Optional(
-				Type.Union([LibrettistSchema, Type.Array(LibrettistSchema)]),
+				Type.Union([
+					Type.Ref("librettist"),
+					Type.Array(Type.Ref("librettist")),
+				]),
 			),
 
 			/**
@@ -130,7 +114,7 @@ export const ExpressionSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/lyricist.html
 			 */
 			lyricist: Type.Optional(
-				Type.Union([LyricistSchema, Type.Array(LyricistSchema)]),
+				Type.Union([Type.Ref("lyricist"), Type.Array(Type.Ref("lyricist"))]),
 			),
 
 			/**
@@ -138,7 +122,7 @@ export const ExpressionSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/sponsor.html
 			 */
 			sponsor: Type.Optional(
-				Type.Union([SponsorSchema, Type.Array(SponsorSchema)]),
+				Type.Union([Type.Ref("sponsor"), Type.Array(Type.Ref("sponsor"))]),
 			),
 
 			// rng:zeroOrMore - model.workIdent
@@ -151,7 +135,7 @@ export const ExpressionSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/otherChar.html
 			 */
 			otherChar: Type.Optional(
-				Type.Union([OtherCharSchema, Type.Array(OtherCharSchema)]),
+				Type.Union([Type.Ref("otherchar"), Type.Array(Type.Ref("otherchar"))]),
 			),
 
 			// rng:optional - creation
@@ -159,35 +143,35 @@ export const ExpressionSchema = Type.Intersect([
 			 * Non-bibliographic details of the creation of an intellectual entity, in narrative form, such as the date, place, and circumstances of its composition.
 			 * @see https://music-encoding.org/guidelines/v5/elements/creation.html
 			 */
-			creation: Type.Optional(CreationSchema),
+			creation: Type.Optional(Type.Ref("creation")),
 
 			// rng:optional - history
 			/**
 			 * Provides a container for information about the history of a resource other than the circumstances of its creation.
 			 * @see https://music-encoding.org/guidelines/v5/elements/history.html
 			 */
-			history: Type.Optional(HistorySchema),
+			history: Type.Optional(Type.Ref("history")),
 
 			// rng:optional - langUsage
 			/**
 			 * Groups elements describing the languages, sub-languages, dialects, etc., represented within the encoded resource.
 			 * @see https://music-encoding.org/guidelines/v5/elements/langUsage.html
 			 */
-			langUsage: Type.Optional(LangUsageSchema),
+			langUsage: Type.Optional(Type.Ref("langusage")),
 
 			// rng:optional - perfMedium
 			/**
 			 * Indicates the number and character of the performing forces used in a musical composition.
 			 * @see https://music-encoding.org/guidelines/v5/elements/perfMedium.html
 			 */
-			perfMedium: Type.Optional(PerfMediumSchema),
+			perfMedium: Type.Optional(Type.Ref("perfmedium")),
 
 			// rng:optional - perfDuration
 			/**
 			 * Used to express the duration of performance of printed or manuscript music or the playing time for a sound recording, videorecording, etc.
 			 * @see https://music-encoding.org/guidelines/v5/elements/perfDuration.html
 			 */
-			perfDuration: Type.Optional(PerfDurationSchema),
+			perfDuration: Type.Optional(Type.Ref("perfduration")),
 
 			// rng:zeroOrMore - extent
 			/**
@@ -195,7 +179,7 @@ export const ExpressionSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/extent.html
 			 */
 			extent: Type.Optional(
-				Type.Union([ExtentSchema, Type.Array(ExtentSchema)]),
+				Type.Union([Type.Ref("extent"), Type.Array(Type.Ref("extent"))]),
 			),
 
 			// rng:optional - scoreFormat
@@ -203,21 +187,21 @@ export const ExpressionSchema = Type.Intersect([
 			 * Describes the type of score used to represent a musical composition (e.g., short score, full score, condensed score, close score, etc.).
 			 * @see https://music-encoding.org/guidelines/v5/elements/scoreFormat.html
 			 */
-			scoreFormat: Type.Optional(ScoreFormatSchema),
+			scoreFormat: Type.Optional(Type.Ref("scoreformat")),
 
 			// rng:optional - contents
 			/**
 			 * List of the material contained within a resource.
 			 * @see https://music-encoding.org/guidelines/v5/elements/contents.html
 			 */
-			contents: Type.Optional(ContentsSchema),
+			contents: Type.Optional(Type.Ref("contents")),
 
 			// rng:optional - context
 			/**
 			 * The historical, social, intellectual, artistic, or other context within which the work was originally conceived or the historical, social, intellectual, artistic, or other context within which the expression was realized.
 			 * @see https://music-encoding.org/guidelines/v5/elements/context.html
 			 */
-			context: Type.Optional(ContextSchema),
+			context: Type.Optional(Type.Ref("context")),
 
 			// rng:zeroOrMore - biblList
 			/**
@@ -225,7 +209,7 @@ export const ExpressionSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/biblList.html
 			 */
 			biblList: Type.Optional(
-				Type.Union([BiblListSchema, Type.Array(BiblListSchema)]),
+				Type.Union([Type.Ref("bibllist"), Type.Array(Type.Ref("bibllist"))]),
 			),
 
 			// rng:optional - notesStmt
@@ -233,28 +217,28 @@ export const ExpressionSchema = Type.Intersect([
 			 * Collects any notes providing information about a text additional to that recorded in other parts of the bibliographic description.
 			 * @see https://music-encoding.org/guidelines/v5/elements/notesStmt.html
 			 */
-			notesStmt: Type.Optional(NotesStmtSchema),
+			notesStmt: Type.Optional(Type.Ref("notesstmt")),
 
 			// rng:optional - classification
 			/**
 			 * Groups information which describes the nature or topic of an entity.
 			 * @see https://music-encoding.org/guidelines/v5/elements/classification.html
 			 */
-			classification: Type.Optional(ClassificationSchema),
+			classification: Type.Optional(Type.Ref("classification")),
 
 			// rng:optional - componentList
 			/**
 			 * Container for intellectual or physical component parts of a bibliographic entity.
 			 * @see https://music-encoding.org/guidelines/v5/elements/componentList.html
 			 */
-			componentList: Type.Optional(Type.Any()), // TODO: Avoid circular dependency with ComponentListSchema
+			componentList: Type.Optional(Type.Ref("componentlist")),
 
 			// rng:optional - relationList
 			/**
 			 * Gathers relation elements.
 			 * @see https://music-encoding.org/guidelines/v5/elements/relationList.html
 			 */
-			relationList: Type.Optional(RelationListSchema),
+			relationList: Type.Optional(Type.Ref("relationlist")),
 
 			// rng:zeroOrMore - extMeta
 			/**
@@ -262,11 +246,9 @@ export const ExpressionSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/extMeta.html
 			 */
 			extMeta: Type.Optional(
-				Type.Union([ExtMetaSchema, Type.Array(ExtMetaSchema)]),
+				Type.Union([Type.Ref("extmeta"), Type.Array(Type.Ref("extmeta"))]),
 			),
 		},
 		{ additionalProperties: false },
 	),
 ]);
-
-export type Expression = Static<typeof ExpressionSchema>;

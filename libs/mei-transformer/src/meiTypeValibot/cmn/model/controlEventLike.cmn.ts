@@ -1,19 +1,19 @@
 import * as v from "valibot";
-import { ArpegSchema, type ArpegData } from "../../shared/arpeg";
-import { AttaccaSchema, type AttaccaData } from "../../shared/attacca";
-import { BeamSpanSchema, type BeamSpanData } from "../../shared/beamSpan";
-import { BracketSpanSchema, type BracketSpanData } from "../../shared/bracketSpan";
-import { BreathSchema, type BreathData } from "../../shared/breath";
-import { FermataSchema, type FermataData } from "../../shared/fermata";
-import { HairpinSchema, type HairpinData } from "../../shared/hairpin";
-import { HarpPedalSchema, type HarpPedalData } from "../../shared/harpPedal";
-import { LvSchema, type LvData } from "../../shared/lv";
-import { OctaveSchema, type OctaveData } from "../../shared/octave";
-import { PedalSchema, type PedalData } from "../../shared/pedal";
-import { RehSchema, type RehData } from "../../shared/reh";
-import { SlurSchema, type SlurData } from "../../shared/slur";
-import { TieSchema, type TieData } from "../../shared/tie";
-import { TupletSpanSchema, type TupletSpanData } from "../../shared/tupletSpan";
+import { ArpegSchema, type ArpegData } from "../arpeg";
+import { AttaccaSchema, type AttaccaData } from "../attacca";
+import { BeamSpanSchema, type BeamSpanData } from "../beamSpan";
+import { BracketSpanSchema, type BracketSpanData } from "../bracketSpan";
+import { BreathSchema, type BreathData } from "../breath";
+import { FermataSchema, type FermataData } from "../fermata";
+import { HairpinSchema, type HairpinData } from "../hairpin";
+import { HarpPedalSchema, type HarpPedalData } from "../harpPedal";
+import { LvSchema, type LvData } from "../lv";
+import { OctaveSchema, type OctaveData } from "../octave";
+import { PedalSchema, type PedalData } from "../pedal";
+import { RehSchema, type RehData } from "../reh";
+import { SlurSchema, type SlurData } from "../slur";
+import { TieSchema, type TieData } from "../tie";
+import { TupletSpanSchema, type TupletSpanData } from "../tupletSpan";
 import { OrnamentLikeCmnSchema } from "../../shared/model/ornamentLike.cmn";
 
 /**

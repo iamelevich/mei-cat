@@ -1,7 +1,7 @@
 import * as v from "valibot";
 import { VoltaSchema } from "../../shared/volta";
 import { ControlEventLikeSchema } from "../../shared/model/controlEventLike";
-import { ControlEventLikeCmnSchema } from "../../shared/model/controlEventLike.cmn";
+import { ControlEventLikeCmnSchema } from "../../cmn/model/controlEventLike.cmn";
 import { LayerLikeSchema } from "../../shared/model/layerLike";
 import { VerseLikeSchema } from "../../shared/model/verseLike";
 

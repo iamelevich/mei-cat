@@ -1,4 +1,4 @@
-import type { ValueError } from "@sinclair/typebox/value";
+import type { ValueError } from "typebox/value";
 
 /**
  * Helper function to format validation errors for clear test output

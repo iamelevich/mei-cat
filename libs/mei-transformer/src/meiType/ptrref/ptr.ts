@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 import { StandardTagSchema } from "../common";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrLangSchema } from "../shared/attr/lang";
@@ -15,5 +15,3 @@ export const PtrSchema = Type.Intersect([
 	AttrLangSchema,
 	AttrPointingSchema,
 ]);
-
-export type Ptr = Static<typeof PtrSchema>;

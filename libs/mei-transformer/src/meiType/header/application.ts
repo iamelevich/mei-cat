@@ -1,11 +1,7 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "@sinclair/typebox";
 import { StandardTagSchema } from "../common";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrDatableSchema } from "../shared/attr/datable";
-import { NameSchema } from "../shared/name";
-import { PSchema } from "../shared/p";
-import { PtrSchema } from "../shared/ptr";
-import { RefSchema } from "../shared/ref";
 
 /**
  * Provides information about an application which has acted upon the current document.
@@ -26,25 +22,27 @@ export const ApplicationSchema = Type.Intersect([
 			 * Proper noun or noun phrase (required - one or more).
 			 * @see https://music-encoding.org/guidelines/v5/elements/name.html
 			 */
-			name: Type.Union([NameSchema, Type.Array(NameSchema)]),
+			name: Type.Union([Type.Ref("name"), Type.Array(Type.Ref("name"))]),
 			/**
 			 * One or more text phrases that form a logical prose passage (optional).
 			 * @see https://music-encoding.org/guidelines/v5/elements/p.html
 			 */
-			p: Type.Optional(Type.Union([PSchema, Type.Array(PSchema)])),
+			p: Type.Optional(Type.Union([Type.Ref("p"), Type.Array(Type.Ref("p"))])),
 			/**
 			 * Defines a traversible pointer to another location (optional).
 			 * @see https://music-encoding.org/guidelines/v5/elements/ptr.html
 			 */
-			ptr: Type.Optional(Type.Union([PtrSchema, Type.Array(PtrSchema)])),
+			ptr: Type.Optional(
+				Type.Union([Type.Ref("ptr"), Type.Array(Type.Ref("ptr"))]),
+			),
 			/**
 			 * Defines a traversible reference to another location (optional).
 			 * @see https://music-encoding.org/guidelines/v5/elements/ref.html
 			 */
-			ref: Type.Optional(Type.Union([RefSchema, Type.Array(RefSchema)])),
+			ref: Type.Optional(
+				Type.Union([Type.Ref("ref"), Type.Array(Type.Ref("ref"))]),
+			),
 		},
 		{ additionalProperties: false },
 	),
 ]);
-
-export type Application = Static<typeof ApplicationSchema>;

@@ -1,8 +1,7 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "@sinclair/typebox";
 import { StandardTagSchema } from "../common";
 import { AttrBiblSchema } from "../shared/attr/bibl";
 import { AttrCommonSchema } from "../shared/attr/common";
-import { DescSchema } from "../shared/desc";
 
 /**
  * Documents the usage of a specific attribute of the element.
@@ -28,10 +27,8 @@ export const AttUsageSchema = Type.Intersect([
 			 * Container for text that briefly describes the feature to which it is attached, including its intended usage, purpose, or application as appropriate.
 			 * @see https://music-encoding.org/guidelines/v5/elements/desc.html
 			 */
-			desc: Type.Optional(DescSchema),
+			desc: Type.Optional(Type.Ref("desc")),
 		},
 		{ additionalProperties: false },
 	),
 ]);
-
-export type AttUsage = Static<typeof AttUsageSchema>;

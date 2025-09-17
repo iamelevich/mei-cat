@@ -1,9 +1,8 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "@sinclair/typebox";
 import { StandardTagSchema } from "../common";
 import { AttrBiblSchema } from "../shared/attr/bibl";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrLangSchema } from "../shared/attr/lang";
-import { PSchema } from "../shared/p";
 
 /**
  * Description of a revision of the MEI file.
@@ -19,8 +18,6 @@ export const ChangeDescSchema = Type.Intersect([
 		 * One or more text phrases that form a logical prose passage (optional).
 		 * @see https://music-encoding.org/guidelines/v5/elements/p.html
 		 */
-		p: Type.Optional(Type.Union([PSchema, Type.Array(PSchema)])),
+		p: Type.Optional(Type.Union([Type.Ref("p"), Type.Array(Type.Ref("p"))])),
 	}),
 ]);
-
-export type ChangeDesc = Static<typeof ChangeDescSchema>;

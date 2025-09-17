@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Logical attributes for meter signature.
@@ -25,5 +25,3 @@ export const AttrMeterSigLogSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrMeterSigLog = Static<typeof AttrMeterSigLogSchema>;

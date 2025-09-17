@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 export const AttrMediumSchema = Type.Object(
 	{
@@ -10,5 +10,3 @@ export const AttrMediumSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrMedium = Static<typeof AttrMediumSchema>;

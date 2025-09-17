@@ -1,5 +1,4 @@
-import type { Static } from "@sinclair/typebox";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 import { AttrClassedSchema } from "./classed";
 
 /**
@@ -21,5 +20,3 @@ export const AttrTypedSchema = Type.Intersect([
 	),
 	AttrClassedSchema,
 ]);
-
-export type AttrTyped = Static<typeof AttrTypedSchema>;

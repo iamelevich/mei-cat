@@ -1,5 +1,4 @@
-import type { Static } from "@sinclair/typebox";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes specific to name elements.
@@ -22,5 +21,3 @@ export const AttrNameSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrName = Static<typeof AttrNameSchema>;

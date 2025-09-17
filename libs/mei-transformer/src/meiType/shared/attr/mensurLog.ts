@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Logical attributes for mensuration.
@@ -24,5 +24,3 @@ export const AttrMensurLogSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrMensurLog = Static<typeof AttrMensurLogSchema>;

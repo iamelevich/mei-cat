@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that identify metadata elements within the header.
@@ -15,9 +15,3 @@ export const AttrMetadataPointingSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-/**
- * Attributes that identify metadata elements within the header.
- * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.metadataPointing.html
- */
-export type AttrMetadataPointing = Static<typeof AttrMetadataPointingSchema>;

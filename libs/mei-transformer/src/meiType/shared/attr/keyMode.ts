@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes for describing key mode.
@@ -14,5 +14,3 @@ export const AttrKeyModeSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrKeyMode = Static<typeof AttrKeyModeSchema>;

@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 export const AttrInternetMediaSchema = Type.Object(
 	{
@@ -12,5 +12,3 @@ export const AttrInternetMediaSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrInternetMedia = Static<typeof AttrInternetMediaSchema>;

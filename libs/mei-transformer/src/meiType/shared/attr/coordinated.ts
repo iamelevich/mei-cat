@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes for coordinate positioning.
@@ -38,9 +38,3 @@ export const AttrCoordinatedSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-/**
- * Attributes for coordinate positioning.
- * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.coordinated.html
- */
-export type AttrCoordinated = Static<typeof AttrCoordinatedSchema>;

@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes for measurement units.
@@ -34,5 +34,3 @@ export const AttrMeasurementSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrMeasurement = Static<typeof AttrMeasurementSchema>;

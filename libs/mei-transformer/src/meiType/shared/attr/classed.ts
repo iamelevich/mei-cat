@@ -1,5 +1,4 @@
-import type { Static } from "@sinclair/typebox";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes which can be used to classify features.
@@ -16,5 +15,3 @@ export const AttrClassedSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrClassed = Static<typeof AttrClassedSchema>;

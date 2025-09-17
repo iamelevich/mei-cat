@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that record horizontal alignment.
@@ -24,9 +24,3 @@ export const AttrHorizontalAlignSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-/**
- * Attributes that record horizontal alignment.
- * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.horizontalAlign.html
- */
-export type AttrHorizontalAlign = Static<typeof AttrHorizontalAlignSchema>;

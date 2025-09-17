@@ -1,5 +1,4 @@
-import type { Static } from "@sinclair/typebox";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes used to specify the version of MEI used.
@@ -17,9 +16,3 @@ export const AttrMeiVersionSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-/**
- * Attributes used to specify the version of MEI used.
- * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.meiVersion.html
- */
-export type AttrMeiVersion = Static<typeof AttrMeiVersionSchema>;

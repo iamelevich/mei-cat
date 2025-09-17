@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * XY coordinate attributes for positioning features.
@@ -16,5 +16,3 @@ export const AttrXySchema = Type.Object({
 	 */
 	"@y": Type.Optional(Type.Number()),
 });
-
-export type AttrXy = Static<typeof AttrXySchema>;

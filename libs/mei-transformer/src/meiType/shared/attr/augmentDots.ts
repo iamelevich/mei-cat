@@ -1,5 +1,4 @@
-import type { Static } from "@sinclair/typebox";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that record the number of dots of augmentation.
@@ -16,5 +15,3 @@ export const AttrAugmentDotsSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrAugmentDots = Static<typeof AttrAugmentDotsSchema>;

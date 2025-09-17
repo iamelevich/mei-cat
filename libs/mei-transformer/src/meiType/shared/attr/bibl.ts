@@ -1,5 +1,4 @@
-import type { Static } from "@sinclair/typebox";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes used to supply a bibliographic reference to an element.
@@ -15,5 +14,3 @@ export const AttrBiblSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrBibl = Static<typeof AttrBiblSchema>;

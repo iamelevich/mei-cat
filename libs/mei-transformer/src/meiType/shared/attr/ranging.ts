@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that capture a measurement, count, or description with range information.
@@ -43,5 +43,3 @@ export const AttrRangingSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrRanging = Static<typeof AttrRangingSchema>;

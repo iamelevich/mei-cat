@@ -1,5 +1,4 @@
-import type { Static } from "@sinclair/typebox";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that specify element-to-element relationships.
@@ -55,5 +54,3 @@ export const AttrLinkingSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrLinking = Static<typeof AttrLinkingSchema>;

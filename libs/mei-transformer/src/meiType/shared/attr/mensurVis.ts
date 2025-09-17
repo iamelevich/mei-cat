@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Visual attributes for mensuration.
@@ -36,5 +36,3 @@ export const AttrMensurVisSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrMensurVis = Static<typeof AttrMensurVisSchema>;

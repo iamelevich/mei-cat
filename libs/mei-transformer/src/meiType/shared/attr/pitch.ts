@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes for describing pitch.
@@ -15,5 +15,3 @@ export const AttrPitchSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrPitch = Static<typeof AttrPitchSchema>;

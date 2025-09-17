@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes for capturing momentary pitch inflection.
@@ -14,5 +14,3 @@ export const AttrAccidentalSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrAccidental = Static<typeof AttrAccidentalSchema>;

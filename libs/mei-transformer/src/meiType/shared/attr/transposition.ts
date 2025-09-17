@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that describe transposition.
@@ -21,5 +21,3 @@ export const AttrTranspositionSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrTransposition = Static<typeof AttrTranspositionSchema>;

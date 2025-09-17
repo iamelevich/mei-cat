@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that capture the appearance of the element's contents using MEI-defined descriptors.
@@ -22,5 +22,3 @@ export const AttrTextRenditionSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrTextRendition = Static<typeof AttrTextRenditionSchema>;

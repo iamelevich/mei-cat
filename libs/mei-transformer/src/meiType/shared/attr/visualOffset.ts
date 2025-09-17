@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that record visual offsets.
@@ -29,9 +29,3 @@ export const AttrVisualOffsetSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-/**
- * Attributes that record visual offsets.
- * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.visualOffset.html
- */
-export type AttrVisualOffset = Static<typeof AttrVisualOffsetSchema>;

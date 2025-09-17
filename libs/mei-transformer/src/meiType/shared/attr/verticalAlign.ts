@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that record vertical alignment.
@@ -23,9 +23,3 @@ export const AttrVerticalAlignSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-/**
- * Attributes that record vertical alignment.
- * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.verticalAlign.html
- */
-export type AttrVerticalAlign = Static<typeof AttrVerticalAlignSchema>;

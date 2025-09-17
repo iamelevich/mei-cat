@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that identify the first element in a sequence of events.
@@ -15,9 +15,3 @@ export const AttrStartIdSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-/**
- * Attributes that identify the first element in a sequence of events.
- * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.startId.html
- */
-export type AttrStartId = Static<typeof AttrStartIdSchema>;

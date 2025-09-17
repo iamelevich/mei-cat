@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes common to dates.
@@ -44,5 +44,3 @@ export const AttrDatableSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrDatable = Static<typeof AttrDatableSchema>;

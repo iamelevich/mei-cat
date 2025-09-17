@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Basic attributes for performance resources.
@@ -20,5 +20,3 @@ export const AttrPerfResBasicSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrPerfResBasic = Static<typeof AttrPerfResBasicSchema>;

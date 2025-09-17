@@ -1,5 +1,4 @@
-import type { Static } from "@sinclair/typebox";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that uniquely identify an element.
@@ -16,9 +15,3 @@ export const AttrIdSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-/**
- * Attributes that uniquely identify an element.
- * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.id.html
- */
-export type AttrId = Static<typeof AttrIdSchema>;

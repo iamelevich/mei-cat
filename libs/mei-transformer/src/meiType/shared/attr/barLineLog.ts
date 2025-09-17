@@ -1,5 +1,4 @@
-import type { Static } from "@sinclair/typebox";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 import { AttrMeterConformanceBarSchema } from "./meterConformanceBar";
 
 /**
@@ -20,5 +19,3 @@ export const AttrBarLineLogSchema = Type.Intersect([
 	),
 	AttrMeterConformanceBarSchema,
 ]);
-
-export type AttrBarLineLog = Static<typeof AttrBarLineLogSchema>;

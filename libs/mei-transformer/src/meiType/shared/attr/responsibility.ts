@@ -1,5 +1,4 @@
-import type { Static } from "@sinclair/typebox";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes capturing information regarding responsibility for some aspect of the text's creation, transcription, editing, or encoding.
@@ -18,9 +17,3 @@ export const AttrResponsibilitySchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-/**
- * Attributes capturing information regarding responsibility for some aspect of the text's creation, transcription, editing, or encoding.
- * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.responsibility.html
- */
-export type AttrResponsibility = Static<typeof AttrResponsibilitySchema>;

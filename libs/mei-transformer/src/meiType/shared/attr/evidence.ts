@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Evidence attributes for supporting reliability or accuracy of interventions.
@@ -22,5 +22,3 @@ export const AttrEvidenceSchema = Type.Object({
 		]),
 	),
 });
-
-export type AttrEvidence = Static<typeof AttrEvidenceSchema>;

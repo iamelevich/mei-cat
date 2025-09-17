@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes for bifolium surface references.
@@ -29,5 +29,3 @@ export const AttrBifoliumSurfacesSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrBifoliumSurfaces = Static<typeof AttrBifoliumSurfacesSchema>;

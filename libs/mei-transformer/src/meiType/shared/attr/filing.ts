@@ -1,5 +1,4 @@
-import type { Static } from "@sinclair/typebox";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that deal with string filing characteristics.
@@ -16,5 +15,3 @@ export const AttrFilingSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrFiling = Static<typeof AttrFilingSchema>;

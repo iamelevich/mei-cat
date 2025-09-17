@@ -1,5 +1,4 @@
-import type { Static } from "@sinclair/typebox";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that link metadata elements to one or more data-containing elements.
@@ -19,5 +18,3 @@ export const AttrDataPointingSchema = Type.Object(
 		additionalProperties: false,
 	},
 );
-
-export type AttrDataPointing = Static<typeof AttrDataPointingSchema>;

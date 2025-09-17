@@ -1,5 +1,4 @@
-import type { Static } from "@sinclair/typebox";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 import { AttrCanonicalSchema } from "./canonical";
 
 /**
@@ -30,5 +29,3 @@ export const AttrAuthorizedSchema = Type.Intersect([
 	),
 	AttrCanonicalSchema,
 ]);
-
-export type AttrAuthorized = Static<typeof AttrAuthorizedSchema>;

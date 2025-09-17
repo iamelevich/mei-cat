@@ -1,5 +1,4 @@
-import type { Static } from "@sinclair/typebox";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes used to specify the language of the element's content.
@@ -35,9 +34,3 @@ export const AttrLangSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-/**
- * Attributes used to specify the language of the element's content.
- * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.lang.html
- */
-export type AttrLang = Static<typeof AttrLangSchema>;

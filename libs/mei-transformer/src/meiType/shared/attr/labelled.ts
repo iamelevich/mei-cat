@@ -1,5 +1,4 @@
-import type { Static } from "@sinclair/typebox";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes used to supply a label for an element.
@@ -16,5 +15,3 @@ export const AttrLabelledSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrLabelled = Static<typeof AttrLabelledSchema>;

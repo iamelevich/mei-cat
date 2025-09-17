@@ -1,5 +1,4 @@
-import type { Static } from "@sinclair/typebox";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that can be used to associate a representation such as a name or title with canonical information about the object being named or referenced.
@@ -18,5 +17,3 @@ export const AttrCanonicalSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrCanonical = Static<typeof AttrCanonicalSchema>;

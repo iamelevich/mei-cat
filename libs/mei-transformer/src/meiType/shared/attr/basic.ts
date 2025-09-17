@@ -1,5 +1,4 @@
-import type { Static } from "@sinclair/typebox";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 import { AttrIdSchema } from "./id";
 
 /**
@@ -24,9 +23,3 @@ export const AttrBasicSchema = Type.Intersect([
 	),
 	AttrIdSchema,
 ]);
-
-/**
- * Attributes that form the basis of the att.common class.
- * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.basic.html
- */
-export type AttrBasic = Static<typeof AttrBasicSchema>;

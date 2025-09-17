@@ -1,5 +1,4 @@
-import type { Static } from "@sinclair/typebox";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes used to supply a number-like designation for an element.
@@ -22,5 +21,3 @@ export const AttrNNumberLikeSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrNNumberLike = Static<typeof AttrNNumberLikeSchema>;

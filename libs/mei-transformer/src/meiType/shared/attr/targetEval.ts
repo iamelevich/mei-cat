@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that specify the intended meaning when a participant in a relationship is itself a pointer.
@@ -21,5 +21,3 @@ export const AttrTargetEvalSchema = Type.Object({
 		]),
 	),
 });
-
-export type AttrTargetEval = Static<typeof AttrTargetEvalSchema>;

@@ -1,5 +1,4 @@
-import type { Static } from "@sinclair/typebox";
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that provide information about a measure's conformance to the prevailing meter.
@@ -27,7 +26,3 @@ export const AttrMeterConformanceBarSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrMeterConformanceBar = Static<
-	typeof AttrMeterConformanceBarSchema
->;

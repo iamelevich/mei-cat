@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes for dimensions (height and width).
@@ -19,5 +19,3 @@ export const AttrDimensionsSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrDimensions = Static<typeof AttrDimensionsSchema>;

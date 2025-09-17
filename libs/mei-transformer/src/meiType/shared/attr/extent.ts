@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 import { AttrRangingSchema } from "./ranging";
 
 /**
@@ -47,9 +47,3 @@ export const AttrExtentSchema = Type.Intersect([
 		{ additionalProperties: false },
 	),
 ]);
-
-/**
- * Attributes that capture a measurement, count, or description.
- * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.extent.html
- */
-export type AttrExtent = Static<typeof AttrExtentSchema>;

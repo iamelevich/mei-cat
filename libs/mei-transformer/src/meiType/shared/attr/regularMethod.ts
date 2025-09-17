@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Indicates the method employed to mark corrections and normalizations.
@@ -13,5 +13,3 @@ export const AttrRegularMethodSchema = Type.Object({
 		Type.Union([Type.Literal("silent"), Type.Literal("tags")]),
 	),
 });
-
-export type AttrRegularMethod = Static<typeof AttrRegularMethodSchema>;

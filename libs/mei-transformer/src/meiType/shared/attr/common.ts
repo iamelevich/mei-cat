@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 import { AttrBasicSchema } from "./basic";
 import { AttrLabelledSchema } from "./labelled";
 import { AttrLinkingSchema } from "./linking";
@@ -18,5 +18,3 @@ export const AttrCommonSchema = Type.Intersect([
 	AttrResponsibilitySchema,
 	AttrTypedSchema,
 ]);
-
-export type AttrCommon = Static<typeof AttrCommonSchema>;

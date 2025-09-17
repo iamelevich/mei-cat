@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that define the characteristics and components of the bibliographic description.
@@ -45,5 +45,3 @@ export const AttrRecordTypeSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrRecordType = Static<typeof AttrRecordTypeSchema>;

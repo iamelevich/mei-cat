@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that describe a performance resource as ad libitum (optional).
@@ -17,4 +17,3 @@ export const AttrAdlibitumSchema = Type.Object(
 	{ additionalProperties: false },
 );
 
-export type AttrAdlibitum = Static<typeof AttrAdlibitumSchema>;

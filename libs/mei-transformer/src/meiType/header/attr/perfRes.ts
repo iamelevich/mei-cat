@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 import { AttrTranspositionSchema } from "../../shared/attr/transposition";
 import { AttrAdlibitumSchema } from "./adlibitum";
 
@@ -25,15 +25,13 @@ export const AttrPerfResBasicSchema = Type.Intersect([
 	),
 ]);
 
-export type AttrPerfResBasic = Static<typeof AttrPerfResBasicSchema>;
-
 /**
  * Attributes that define the characteristics and components of the performance resource.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.perfRes.html
  */
-export const AttrPerfResSchema = Type.Intersect([
-	AttrPerfResBasicSchema,
-	AttrTranspositionSchema,
+export const UattrperfresSchema = Type.Intersect([
+	Type.Ref("attrperfresbasic"),
+	Type.Ref("attrtransposition"),
 	Type.Object(
 		{
 			/**
@@ -46,5 +44,3 @@ export const AttrPerfResSchema = Type.Intersect([
 		{ additionalProperties: false },
 	),
 ]);
-
-export type AttrPerfRes = Static<typeof AttrPerfResSchema>;

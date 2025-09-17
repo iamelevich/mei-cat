@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that describe correction and normalization methods.
@@ -19,5 +19,3 @@ export const AttrRegularMethodSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrRegularMethod = Static<typeof AttrRegularMethodSchema>;

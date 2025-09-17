@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 import { StandardTagSchema } from "../common";
 import { AbbrSchema } from "../shared/abbr";
 import { AnnotSchema } from "../shared/annot";
@@ -82,5 +82,3 @@ export const FigDescSchema = Type.Intersect([
 		{ additionalProperties: false },
 	),
 ]);
-
-export type FigDesc = Static<typeof FigDescSchema>;

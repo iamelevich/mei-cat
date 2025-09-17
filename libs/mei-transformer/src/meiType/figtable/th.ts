@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 import { StandardTagSchema } from "../common";
 import { AddSchema } from "../edittrans/add";
 import { CorrSchema } from "../edittrans/corr";
@@ -243,5 +243,3 @@ export const ThSchema = Type.Intersect([
 		{ additionalProperties: false },
 	),
 ]);
-
-export type Th = Static<typeof ThSchema>;

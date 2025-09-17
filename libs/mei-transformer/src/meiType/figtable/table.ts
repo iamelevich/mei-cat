@@ -1,11 +1,9 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 import { StandardTagSchema } from "../common";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrFacsimileSchema } from "../shared/attr/facsimile";
 import { AttrLangSchema } from "../shared/attr/lang";
 import { AttrXySchema } from "../shared/attr/xy";
-import { CaptionSchema } from "../shared/caption";
-import { TrSchema } from "./tr";
 
 /**
  * Contains text displayed in tabular form.
@@ -29,17 +27,17 @@ export const TableSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/caption.html
 			 */
 			caption: Type.Optional(
-				Type.Union([CaptionSchema, Type.Array(CaptionSchema)]),
+				Type.Union([Type.Ref("caption"), Type.Array(Type.Ref("caption"))]),
 			),
 
 			/**
 			 * Table row (one or more required).
 			 * @see https://music-encoding.org/guidelines/v5/elements/tr.html
 			 */
-			tr: Type.Optional(Type.Union([TrSchema, Type.Array(TrSchema)])),
+			tr: Type.Optional(
+				Type.Union([Type.Ref("tr"), Type.Array(Type.Ref("tr"))]),
+			),
 		},
 		{ additionalProperties: false },
 	),
 ]);
-
-export type Table = Static<typeof TableSchema>;

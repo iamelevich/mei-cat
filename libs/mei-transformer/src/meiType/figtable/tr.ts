@@ -1,11 +1,9 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 import { StandardTagSchema } from "../common";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrFacsimileSchema } from "../shared/attr/facsimile";
 import { AttrLangSchema } from "../shared/attr/lang";
 import { AttrXySchema } from "../shared/attr/xy";
-import { TdSchema } from "./td";
-import { ThSchema } from "./th";
 
 /**
  * A formatting element that contains one or more cells (intersection of a row and a column) in a table.
@@ -27,16 +25,18 @@ export const TrSchema = Type.Intersect([
 			 * Table data cell.
 			 * @see https://music-encoding.org/guidelines/v5/elements/td.html
 			 */
-			td: Type.Optional(Type.Union([TdSchema, Type.Array(TdSchema)])),
+			td: Type.Optional(
+				Type.Union([Type.Ref("td"), Type.Array(Type.Ref("td"))]),
+			),
 
 			/**
 			 * Table header cell.
 			 * @see https://music-encoding.org/guidelines/v5/elements/th.html
 			 */
-			th: Type.Optional(Type.Union([ThSchema, Type.Array(ThSchema)])),
+			th: Type.Optional(
+				Type.Union([Type.Ref("th"), Type.Array(Type.Ref("th"))]),
+			),
 		},
 		{ additionalProperties: false },
 	),
 ]);
-
-export type Tr = Static<typeof TrSchema>;

@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 import { StandardTagSchema } from "../common";
 import { ZoneSchema } from "../facsimile/zone";
 import { AttrCommonSchema } from "../shared/attr/common";
@@ -38,5 +38,3 @@ export const GraphicSchema = Type.Intersect([
 		{ additionalProperties: false },
 	),
 ]);
-
-export type Graphic = Static<typeof GraphicSchema>;

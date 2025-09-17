@@ -1,0 +1,16 @@
+import * as v from "valibot";
+import { StandardTagSchema } from "../common";
+import { AttrCommonSchema } from "../shared/attr/common";
+import { AttrLangSchema } from "../shared/attr/lang";
+
+/**
+ * Simplified schema for pubStmt element.
+ * @see https://music-encoding.org/guidelines/v5/elements/pubStmt.html
+ */
+export const PubStmtSchema = v.object({
+	...StandardTagSchema.entries,
+	...AttrCommonSchema.entries,
+	...AttrLangSchema.entries,
+});
+
+export type PubStmtData = v.InferOutput<typeof PubStmtSchema>;

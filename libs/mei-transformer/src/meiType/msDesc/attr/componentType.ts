@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * att.componentType — Attributes for denoting component type of an entity.
@@ -22,5 +22,3 @@ export const AttrComponentTypeSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrComponentType = Static<typeof AttrComponentTypeSchema>;

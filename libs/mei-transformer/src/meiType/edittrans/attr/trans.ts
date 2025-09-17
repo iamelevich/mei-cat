@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Transcription attributes for genetic and editorial information.
@@ -33,5 +33,3 @@ export const AttrTransSchema = Type.Object({
 	 */
 	"@state": Type.Optional(Type.String()),
 });
-
-export type AttrTrans = Static<typeof AttrTransSchema>;

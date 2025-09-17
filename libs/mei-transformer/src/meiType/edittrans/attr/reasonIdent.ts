@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that identify the reason for missing textual material, why material is supplied, or why transcription is difficult.
@@ -15,5 +15,3 @@ export const AttrReasonIdentSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrReasonIdent = Static<typeof AttrReasonIdentSchema>;

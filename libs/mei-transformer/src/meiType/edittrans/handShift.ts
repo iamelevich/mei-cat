@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 import { StandardTagSchema } from "../common";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrFacsimileSchema } from "../shared/attr/facsimile";
@@ -46,5 +46,3 @@ export const HandShiftSchema = Type.Intersect([
 		{ additionalProperties: false },
 	),
 ]);
-
-export type HandShift = Static<typeof HandShiftSchema>;

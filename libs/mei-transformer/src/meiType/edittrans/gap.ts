@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 import { StandardTagSchema } from "../common";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrExtentSchema } from "../shared/attr/extent";
@@ -18,5 +18,3 @@ export const GapSchema = Type.Intersect([
 	AttrHandIdentSchema,
 	AttrReasonIdentSchema,
 ]);
-
-export type Gap = Static<typeof GapSchema>;

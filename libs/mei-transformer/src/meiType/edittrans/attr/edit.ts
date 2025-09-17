@@ -1,4 +1,4 @@
-import { Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that capture information about the nature of an encoded scholarly intervention or interpretation of any aspect of an item.

@@ -1,10 +1,8 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 import { StandardTagSchema } from "../common";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrFacsimileSchema } from "../shared/attr/facsimile";
 import { AttrLangSchema } from "../shared/attr/lang";
-import { LemSchema } from "./lem";
-import { RdgSchema } from "./rdg";
 
 /**
  * Contains one or more alternative encodings for the same point in a text.
@@ -26,16 +24,18 @@ export const AppSchema = Type.Intersect([
 			 * Contains the lemma, or base text, of a textual variation.
 			 * @see https://music-encoding.org/guidelines/v5/elements/lem.html
 			 */
-			lem: Type.Optional(Type.Union([LemSchema, Type.Array(LemSchema)])),
+			lem: Type.Optional(
+				Type.Union([Type.Ref("lem"), Type.Array(Type.Ref("lem"))]),
+			),
 
 			/**
 			 * Contains a single reading within a textual variation.
 			 * @see https://music-encoding.org/guidelines/v5/elements/rdg.html
 			 */
-			rdg: Type.Optional(Type.Union([RdgSchema, Type.Array(RdgSchema)])),
+			rdg: Type.Optional(
+				Type.Union([Type.Ref("rdg"), Type.Array(Type.Ref("rdg"))]),
+			),
 		},
 		{ additionalProperties: false },
 	),
 ]);
-
-export type App = Static<typeof AppSchema>;

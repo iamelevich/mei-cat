@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "typebox";
 
 /**
  * Attributes that identify the agent responsible for some aspect of the text's creation, revision, or encoding.
@@ -15,5 +15,3 @@ export const AttrAgentIdentSchema = Type.Object(
 	},
 	{ additionalProperties: false },
 );
-
-export type AttrAgentIdent = Static<typeof AttrAgentIdentSchema>;

@@ -1,17 +1,10 @@
-import { type Static, Type } from "@sinclair/typebox";
-import { NotImplementedTagSchema, StandardTagSchema } from "../common";
-// Import child element schemas - avoiding circular references
-import { AbbrSchema } from "../shared/abbr";
+import { Type } from "typebox";
+import { StandardTagSchema } from "../common";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrExtentSchema } from "../shared/attr/extent";
 import { AttrFacsimileSchema } from "../shared/attr/facsimile";
 import { AttrLangSchema } from "../shared/attr/lang";
-import { PSchema } from "../shared/p";
 import { AttrEditSchema } from "./attr/edit";
-import { GapSchema } from "./gap";
-import { SubstSchema } from "./subst";
-import { SuppliedSchema } from "./supplied";
-import { UnclearSchema } from "./unclear";
 
 /**
  * Contains apparently incorrect or inaccurate material.
@@ -34,44 +27,54 @@ export const SicSchema = Type.Intersect([
 			 * Abbreviation or expansion.
 			 * @see https://music-encoding.org/guidelines/v5/elements/abbr.html
 			 */
-			abbr: Type.Optional(Type.Union([AbbrSchema, Type.Array(AbbrSchema)])),
+			abbr: Type.Optional(
+				Type.Union([Type.Ref("abbr"), Type.Array(Type.Ref("abbr"))]),
+			),
 
 			/**
 			 * Gap.
 			 * @see https://music-encoding.org/guidelines/v5/elements/gap.html
 			 */
-			gap: Type.Optional(Type.Union([GapSchema, Type.Array(GapSchema)])),
+			gap: Type.Optional(
+				Type.Union([Type.Ref("gap"), Type.Array(Type.Ref("gap"))]),
+			),
 
 			/**
 			 * Paragraph.
 			 * @see https://music-encoding.org/guidelines/v5/elements/p.html
 			 */
-			p: Type.Optional(Type.Union([PSchema, Type.Array(PSchema)])),
+			p: Type.Optional(Type.Union([Type.Ref("p"), Type.Array(Type.Ref("p"))])),
 
 			/**
 			 * Regularization.
 			 * @see https://music-encoding.org/guidelines/v5/elements/reg.html
 			 */
-			reg: Type.Optional(NotImplementedTagSchema), // TODO: Not implemented because of circular dependency
+			reg: Type.Optional(
+				Type.Union([Type.Ref("reg"), Type.Array(Type.Ref("reg"))]),
+			),
 
 			/**
 			 * Restoration.
 			 * @see https://music-encoding.org/guidelines/v5/elements/restore.html
 			 */
-			restore: Type.Optional(NotImplementedTagSchema), // TODO: Not implemented because of circular dependency
+			restore: Type.Optional(
+				Type.Union([Type.Ref("restore"), Type.Array(Type.Ref("restore"))]),
+			),
 
 			/**
 			 * Substitution.
 			 * @see https://music-encoding.org/guidelines/v5/elements/subst.html
 			 */
-			subst: Type.Optional(Type.Union([SubstSchema, Type.Array(SubstSchema)])),
+			subst: Type.Optional(
+				Type.Union([Type.Ref("subst"), Type.Array(Type.Ref("subst"))]),
+			),
 
 			/**
 			 * Supplied text.
 			 * @see https://music-encoding.org/guidelines/v5/elements/supplied.html
 			 */
 			supplied: Type.Optional(
-				Type.Union([SuppliedSchema, Type.Array(SuppliedSchema)]),
+				Type.Union([Type.Ref("supplied"), Type.Array(Type.Ref("supplied"))]),
 			),
 
 			/**
@@ -79,7 +82,7 @@ export const SicSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/unclear.html
 			 */
 			unclear: Type.Optional(
-				Type.Union([UnclearSchema, Type.Array(UnclearSchema)]),
+				Type.Union([Type.Ref("unclear"), Type.Array(Type.Ref("unclear"))]),
 			),
 
 			// Elements that would create circular dependencies
@@ -87,40 +90,50 @@ export const SicSchema = Type.Intersect([
 			 * Addition.
 			 * @see https://music-encoding.org/guidelines/v5/elements/add.html
 			 */
-			add: Type.Optional(NotImplementedTagSchema), // TODO: Not implemented because of circular dependency
+			add: Type.Optional(
+				Type.Union([Type.Ref("add"), Type.Array(Type.Ref("add"))]),
+			),
 
 			/**
 			 * Correction.
 			 * @see https://music-encoding.org/guidelines/v5/elements/corr.html
 			 */
-			corr: Type.Optional(NotImplementedTagSchema), // TODO: Not implemented because of circular dependency
+			corr: Type.Optional(
+				Type.Union([Type.Ref("corr"), Type.Array(Type.Ref("corr"))]),
+			),
 
 			/**
 			 * Damage.
 			 * @see https://music-encoding.org/guidelines/v5/elements/damage.html
 			 */
-			damage: Type.Optional(NotImplementedTagSchema), // TODO: Not implemented because of circular dependency
+			damage: Type.Optional(
+				Type.Union([Type.Ref("damage"), Type.Array(Type.Ref("damage"))]),
+			),
 
 			/**
 			 * Deletion.
 			 * @see https://music-encoding.org/guidelines/v5/elements/del.html
 			 */
-			del: Type.Optional(NotImplementedTagSchema), // TODO: Not implemented because of circular dependency
+			del: Type.Optional(
+				Type.Union([Type.Ref("del"), Type.Array(Type.Ref("del"))]),
+			),
 
 			/**
 			 * Expansion.
 			 * @see https://music-encoding.org/guidelines/v5/elements/expan.html
 			 */
-			expan: Type.Optional(NotImplementedTagSchema), // TODO: Not implemented because of circular dependency
+			expan: Type.Optional(
+				Type.Union([Type.Ref("expan"), Type.Array(Type.Ref("expan"))]),
+			),
 
 			/**
 			 * Original text.
 			 * @see https://music-encoding.org/guidelines/v5/elements/orig.html
 			 */
-			orig: Type.Optional(NotImplementedTagSchema), // TODO: Not implemented because of circular dependency
+			orig: Type.Optional(
+				Type.Union([Type.Ref("orig"), Type.Array(Type.Ref("orig"))]),
+			),
 		},
 		{ additionalProperties: false },
 	),
 ]);
-
-export type Sic = Static<typeof SicSchema>;

@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "@sinclair/typebox";
 import { StandardTagSchema } from "../common";
 import { AttrBiblSchema } from "../shared/attr/bibl";
 import { AttrCommonSchema } from "../shared/attr/common";
@@ -39,5 +39,3 @@ export const IncipCodeSchema = Type.Intersect([
 		{ additionalProperties: false },
 	),
 ]);
-
-export type IncipCode = Static<typeof IncipCodeSchema>;

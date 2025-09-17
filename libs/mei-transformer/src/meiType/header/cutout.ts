@@ -1,4 +1,4 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "@sinclair/typebox";
 import { NotImplementedTagSchema, StandardTagSchema } from "../common";
 import { AttrTransSchema } from "../edittrans/attr/trans";
 import { AttrCommonSchema } from "../shared/attr/common";
@@ -6,7 +6,6 @@ import { AttrDimensionsSchema } from "../shared/attr/dimensions";
 import { AttrEvidenceSchema } from "../shared/attr/evidence";
 import { AttrMeasurementSchema } from "../shared/attr/measurement";
 import { AttrXySchema } from "../shared/attr/xy";
-import { FoliumSchema } from "./folium";
 
 /**
  * A cutout is a section of a document sheet that has been removed and is now missing.
@@ -58,11 +57,9 @@ export const CutoutSchema = Type.Intersect([
 			 * @see https://music-encoding.org/guidelines/v5/elements/folium.html
 			 */
 			folium: Type.Optional(
-				Type.Union([FoliumSchema, Type.Array(FoliumSchema)]),
+				Type.Union([Type.Ref("folium"), Type.Array(Type.Ref("folium"))]),
 			),
 		},
 		{ additionalProperties: false },
 	),
 ]);
-
-export type Cutout = Static<typeof CutoutSchema>;

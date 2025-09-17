@@ -1,13 +1,9 @@
-import { type Static, Type } from "@sinclair/typebox";
+import { Type } from "@sinclair/typebox";
 import { StandardTagSchema } from "../common";
 import { AttrAuthorizedSchema } from "../shared/attr/authorized";
 import { AttrBiblSchema } from "../shared/attr/bibl";
 import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrDataPointingSchema } from "../shared/attr/dataPointing";
-import { DescSchema } from "../shared/desc";
-import { LabelSchema } from "../shared/label";
-import { AltIdSchema } from "./altId";
-import { CatRelSchema } from "./catRel";
 
 /**
  * Contains an individual descriptive category in a user-defined taxonomy, possibly nested within a superordinate category.
@@ -27,26 +23,28 @@ export const CategorySchema = Type.Recursive((ThisSchema) =>
 				 * @see https://music-encoding.org/guidelines/v5/elements/altId.html
 				 */
 				altId: Type.Optional(
-					Type.Union([AltIdSchema, Type.Array(AltIdSchema)]),
+					Type.Union([Type.Ref("altId"), Type.Array(Type.Ref("altId"))]),
 				),
 				/**
 				 * A container for document text that identifies the feature to which it is attached. For a "tool tip" or other generated label, use the label attribute.
 				 * @see https://music-encoding.org/guidelines/v5/elements/label.html
 				 */
 				label: Type.Optional(
-					Type.Union([LabelSchema, Type.Array(LabelSchema)]),
+					Type.Union([Type.Ref("label"), Type.Array(Type.Ref("label"))]),
 				),
 				/**
 				 * Container for text that briefly describes the feature to which it is attached, including its intended usage, purpose, or application as appropriate.
 				 * @see https://music-encoding.org/guidelines/v5/elements/desc.html
 				 */
-				desc: Type.Optional(Type.Union([DescSchema, Type.Array(DescSchema)])),
+				desc: Type.Optional(
+					Type.Union([Type.Ref("desc"), Type.Array(Type.Ref("desc"))]),
+				),
 				/**
 				 * Contains the name, i.e., label, of a related category.
 				 * @see https://music-encoding.org/guidelines/v5/elements/catRel.html
 				 */
 				catRel: Type.Optional(
-					Type.Union([CatRelSchema, Type.Array(CatRelSchema)]),
+					Type.Union([Type.Ref("catRel"), Type.Array(Type.Ref("catRel"))]),
 				),
 				/**
 				 * Contains an individual descriptive category in a user-defined taxonomy, possibly nested within a superordinate category.
@@ -60,5 +58,3 @@ export const CategorySchema = Type.Recursive((ThisSchema) =>
 		),
 	]),
 );
-
-export type Category = Static<typeof CategorySchema>;

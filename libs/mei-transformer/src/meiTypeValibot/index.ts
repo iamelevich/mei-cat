@@ -2,6 +2,7 @@
 export * from "./common";
 
 // Directory exports
+export * from "./critapp";
 export * from "./edittrans";
 export * from "./facsimile";
 export * from "./figtable";

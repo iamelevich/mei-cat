@@ -1,5 +1,4 @@
 export * from "./add";
-export * from "./app";
 export * from "./choice";
 export * from "./corr";
 export * from "./damage";
@@ -7,9 +6,7 @@ export * from "./del";
 export * from "./expan";
 export * from "./gap";
 export * from "./handShift";
-export * from "./lem";
 export * from "./orig";
-export * from "./rdg";
 export * from "./reg";
 export * from "./restore";
 export * from "./sic";

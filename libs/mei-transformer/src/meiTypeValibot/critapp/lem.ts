@@ -4,7 +4,7 @@ import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrLangSchema } from "../shared/attr/lang";
 
 /**
- * Simplified schema for lem element.
+ * Contains the lemma, or base text, of a textual variation.
  * @see https://music-encoding.org/guidelines/v5/elements/lem.html
  */
 export const LemSchema = v.object({

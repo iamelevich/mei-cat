@@ -4,7 +4,7 @@ import { AttrCommonSchema } from "../shared/attr/common";
 import { AttrLangSchema } from "../shared/attr/lang";
 
 /**
- * Simplified schema for rdg element.
+ * Contains a single reading within a textual variation.
  * @see https://music-encoding.org/guidelines/v5/elements/rdg.html
  */
 export const RdgSchema = v.object({

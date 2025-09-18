@@ -1,3 +1,7 @@
+// MEI.header - Header component declarations
+// @see https://music-encoding.org/guidelines/v5/modules/MEI.header.html
+
+// Elements
 export * from "./accessRestrict";
 export * from "./acquisition";
 export * from "./altId";
@@ -89,3 +93,31 @@ export * from "./useRestrict";
 export * from "./watermark";
 export * from "./work";
 export * from "./workList";
+
+// Models
+export * from "./model/bifoliumLike";
+export * from "./model/editorialDeclPart";
+export * from "./model/encodingPart";
+export * from "./model/eventPart";
+export * from "./model/foliumLike";
+export * from "./model/frontAndBackPart";
+export * from "./model/headerPart";
+export * from "./model/paperModLike";
+export * from "./model/physDescPart";
+export * from "./model/pubStmtPart";
+export * from "./model/startLike.header";
+export * from "./model/workIdent";
+export * from "./model/workLike";
+
+// Macro groups
+export * from "./macro/availabilityPart";
+export * from "./macro/bibldescPart";
+
+// Attributes
+export * from "./attr/adlibitum";
+export * from "./attr/bifoliumSurfaces";
+export * from "./attr/foliumSurfaces";
+export * from "./attr/perfRes";
+export * from "./attr/perfRes.basic";
+export * from "./attr/recordType";
+export * from "./attr/regularMethod";

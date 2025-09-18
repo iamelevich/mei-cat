@@ -3,15 +3,6 @@ import { ControlEventLikeCmnSchema } from "../../cmn";
 import { VerseLikeSchema, VoltaSchema } from "../../lyrics";
 import { ControlEventLikeSchema, LayerLikeSchema } from "../../shared";
 
-const RdgPartMusicBaseSchema = v.intersect([
-	ControlEventLikeSchema,
-	ControlEventLikeCmnSchema,
-	LayerLikeSchema,
-	VerseLikeSchema,
-]);
-
-type RdgPartMusicBaseData = v.InferOutput<typeof RdgPartMusicBaseSchema>;
-
 /**
  * Groups elements that represent reading parts in music.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.rdgPart.music.html

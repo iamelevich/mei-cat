@@ -5,7 +5,7 @@ import * as v from "valibot";
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.trill.log.html
  */
 export const AttrTrillLogSchema = v.object({
-  // TODO: Add trill.log attributes
+	// TODO: Add trill.log attributes
 });
 
 export type AttrTrillLogData = v.InferOutput<typeof AttrTrillLogSchema>;

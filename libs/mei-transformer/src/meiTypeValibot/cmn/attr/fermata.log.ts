@@ -1,11 +1,15 @@
 import * as v from "valibot";
+import { AttrAlignmentSchema } from "../../performance/attr/alignment";
+import { AttrControlEventSchema, AttrStartEndIdSchema } from "../../shared";
 
 /**
- * Attributes for fermata.log.
+ * Logical domain attributes.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.fermata.log.html
  */
 export const AttrFermataLogSchema = v.object({
-	// TODO: Add fermata.log attributes
+	...AttrAlignmentSchema.entries,
+	...AttrControlEventSchema.entries,
+	...AttrStartEndIdSchema.entries,
 });
 
 export type AttrFermataLogData = v.InferOutput<typeof AttrFermataLogSchema>;

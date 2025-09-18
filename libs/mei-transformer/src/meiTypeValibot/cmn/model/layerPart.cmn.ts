@@ -1,11 +1,15 @@
 import * as v from "valibot";
+import { type EventLikeCmnData, EventLikeCmnSchema } from "./eventLike.cmn";
+import {
+	type EventLikeMeasureFillingData,
+	EventLikeMeasureFillingSchema,
+} from "./eventLike.measureFilling";
 
 /**
- * Groups elements that represent layer parts in common music notation.
+ * Groups notated events that may appear at the layer level in CMN.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.layerPart.cmn.html
  */
-export const LayerPartCmnSchema = v.object({
-  // TODO: Add CMN layer part elements
-});
+export const LayerPartCmnSchema: v.GenericSchema<LayerPartCmnData> =
+	v.intersect([EventLikeCmnSchema, EventLikeMeasureFillingSchema]);
 
-export type LayerPartCmnData = v.InferOutput<typeof LayerPartCmnSchema>;
+export type LayerPartCmnData = EventLikeCmnData & EventLikeMeasureFillingData;

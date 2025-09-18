@@ -1,11 +1,15 @@
 import * as v from "valibot";
 
 /**
- * Attributes for tremForm.
+ * Attributes describing the form of a tremolo.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.tremForm.html
  */
 export const AttrTremFormSchema = v.object({
-	// TODO: Add tremForm attributes
+	/**
+	 * Describes the style of the tremolo.
+	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.tremForm.html#form
+	 */
+	"@form": v.optional(v.union([v.literal("meas"), v.literal("unmeas")])),
 });
 
 export type AttrTremFormData = v.InferOutput<typeof AttrTremFormSchema>;

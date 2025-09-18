@@ -1,11 +1,22 @@
 import * as v from "valibot";
+import {
+	AttrAugmentDotsSchema,
+	AttrDurationLogSchema,
+	AttrEventSchema,
+} from "../../shared";
+import { AttrNumberedSchema } from "./numbered";
+import { AttrTremFormSchema } from "./tremForm";
 
 /**
- * Attributes for bTrem.log.
+ * Logical domain attributes.
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.bTrem.log.html
  */
 export const AttrBTremLogSchema = v.object({
-  // TODO: Add bTrem.log attributes
+	...AttrEventSchema.entries,
+	...AttrAugmentDotsSchema.entries,
+	...AttrDurationLogSchema.entries,
+	...AttrNumberedSchema.entries,
+	...AttrTremFormSchema.entries,
 });
 
 export type AttrBTremLogData = v.InferOutput<typeof AttrBTremLogSchema>;

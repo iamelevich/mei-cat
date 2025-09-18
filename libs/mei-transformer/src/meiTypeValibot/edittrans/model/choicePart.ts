@@ -1,16 +1,16 @@
 import * as v from "valibot";
 import { EditorialLikeSchema } from "../../shared";
-import { CorrSchema } from "../corr";
-import { OrigSchema } from "../orig";
-import { RegSchema } from "../reg";
-import { SicSchema } from "../sic";
-import { UnclearSchema } from "../unclear";
+import { type CorrData, CorrSchema } from "../corr";
+import { type OrigData, OrigSchema } from "../orig";
+import { type RegData, RegSchema } from "../reg";
+import { type SicData, SicSchema } from "../sic";
+import { type UnclearData, UnclearSchema } from "../unclear";
 
 /**
  * Groups elements that may appear as part of the content of a choice element.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.choicePart.html
  */
-export const ChoicePartSchema = v.intersect([
+export const ChoicePartSchema: v.GenericSchema<ChoicePartData> = v.intersect([
 	v.object({
 		/**
 		 * Contains the correct form of an apparent erroneous passage.
@@ -54,4 +54,10 @@ export const ChoicePartSchema = v.intersect([
 	EditorialLikeSchema,
 ]);
 
-export type ChoicePartData = v.InferOutput<typeof ChoicePartSchema>;
+export type ChoicePartData = {
+	corr?: CorrData | CorrData[];
+	orig?: OrigData | OrigData[];
+	reg?: RegData | RegData[];
+	sic?: SicData | SicData[];
+	unclear?: UnclearData | UnclearData[];
+};

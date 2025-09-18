@@ -1,19 +1,15 @@
 import * as v from "valibot";
-import { BendSchema, type BendData } from "../bend";
-import { CaesuraSchema, type CaesuraData } from "../caesura";
-import { CpMarkSchema, type CpMarkData } from "../cpMark";
-import { DirSchema, type DirData } from "../dir";
-import { DynamSchema, type DynamData } from "../dynam";
-import { GlissSchema, type GlissData } from "../gliss";
-import { MetaMarkSchema, type MetaMarkData } from "../metaMark";
-import { OrnamSchema, type OrnamData } from "../ornam";
-import { PhraseSchema, type PhraseData } from "../phrase";
-import { RepeatMarkSchema, type RepeatMarkData } from "../repeatMark";
-import { SpSchema, type SpData } from "../sp";
-import { TempoSchema, type TempoData } from "../tempo";
-import { ControlEventLikeHarmonySchema } from "./controlEventLike.harmony";
-import { FingeringLikeSchema } from "./fingeringLike";
+import { TempoSchema } from "../tempo";
+import { ControlEventLikeHarmonySchema } from "../../harmony/model/controlEventLike.harmony";
+import { FingeringLikeSchema } from "../../fingering/model/fingeringLike";
 import { StageDirLikeSchema } from "./stageDirLike";
+import { BendSchema, GlissSchema, RepeatMarkSchema } from "../../cmn";
+import { CpMarkSchema, MetaMarkSchema } from "../../edittrans";
+import { CaesuraSchema } from "../caesura";
+import { DirSchema } from "../dir";
+import { DynamSchema } from "../dynam";
+import { OrnamSchema } from "../ornam";
+import { PhraseSchema } from "../phrase";
 
 /**
  * Groups elements that represent control events.

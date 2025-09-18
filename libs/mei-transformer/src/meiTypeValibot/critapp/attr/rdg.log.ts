@@ -5,7 +5,7 @@ import * as v from "valibot";
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.rdg.log.html
  */
 export const AttrRdgLogSchema = v.object({
-	// TODO: Add rdg.log attributes
+	// No attributes in schema
 });
 
 export type AttrRdgLogData = v.InferOutput<typeof AttrRdgLogSchema>;

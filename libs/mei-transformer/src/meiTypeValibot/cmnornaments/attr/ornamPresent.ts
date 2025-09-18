@@ -5,7 +5,7 @@ import * as v from "valibot";
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.ornamPresent.html
  */
 export const AttrOrnamPresentSchema = v.object({
-  // TODO: Add ornamPresent attributes
+	// TODO: Add ornamPresent attributes
 });
 
 export type AttrOrnamPresentData = v.InferOutput<typeof AttrOrnamPresentSchema>;

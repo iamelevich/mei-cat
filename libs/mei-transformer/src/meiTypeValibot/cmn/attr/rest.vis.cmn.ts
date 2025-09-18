@@ -5,7 +5,7 @@ import * as v from "valibot";
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.rest.vis.cmn.html
  */
 export const AttrRestVisCmnSchema = v.object({
-  // TODO: Add rest.vis.cmn attributes
+	// TODO: Add rest.vis.cmn attributes
 });
 
 export type AttrRestVisCmnData = v.InferOutput<typeof AttrRestVisCmnSchema>;

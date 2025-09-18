@@ -5,7 +5,9 @@ import * as v from "valibot";
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.layerDef.log.cmn.html
  */
 export const AttrLayerDefLogCmnSchema = v.object({
-  // TODO: Add layerDef.log.cmn attributes
+	// TODO: Add layerDef.log.cmn attributes
 });
 
-export type AttrLayerDefLogCmnData = v.InferOutput<typeof AttrLayerDefLogCmnSchema>;
+export type AttrLayerDefLogCmnData = v.InferOutput<
+	typeof AttrLayerDefLogCmnSchema
+>;

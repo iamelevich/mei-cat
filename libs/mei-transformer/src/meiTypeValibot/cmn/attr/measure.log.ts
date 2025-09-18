@@ -5,7 +5,7 @@ import * as v from "valibot";
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.measure.log.html
  */
 export const AttrMeasureLogSchema = v.object({
-  // TODO: Add measure.log attributes
+	// TODO: Add measure.log attributes
 });
 
 export type AttrMeasureLogData = v.InferOutput<typeof AttrMeasureLogSchema>;

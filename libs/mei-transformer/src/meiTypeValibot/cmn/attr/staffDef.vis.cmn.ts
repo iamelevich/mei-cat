@@ -5,7 +5,9 @@ import * as v from "valibot";
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.staffDef.vis.cmn.html
  */
 export const AttrStaffDefVisCmnSchema = v.object({
-  // TODO: Add staffDef.vis.cmn attributes
+	// TODO: Add staffDef.vis.cmn attributes
 });
 
-export type AttrStaffDefVisCmnData = v.InferOutput<typeof AttrStaffDefVisCmnSchema>;
+export type AttrStaffDefVisCmnData = v.InferOutput<
+	typeof AttrStaffDefVisCmnSchema
+>;

@@ -5,7 +5,7 @@ import * as v from "valibot";
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.graced.html
  */
 export const AttrGracedSchema = v.object({
-  // TODO: Add graced attributes
+	// TODO: Add graced attributes
 });
 
 export type AttrGracedData = v.InferOutput<typeof AttrGracedSchema>;

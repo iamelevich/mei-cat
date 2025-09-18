@@ -5,7 +5,7 @@ import * as v from "valibot";
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.lv.log.html
  */
 export const AttrLvLogSchema = v.object({
-  // TODO: Add lv.log attributes
+	// TODO: Add lv.log attributes
 });
 
 export type AttrLvLogData = v.InferOutput<typeof AttrLvLogSchema>;

@@ -5,7 +5,7 @@ import * as v from "valibot";
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.tremMeasured.html
  */
 export const AttrTremMeasuredSchema = v.object({
-  // TODO: Add tremMeasured attributes
+	// TODO: Add tremMeasured attributes
 });
 
 export type AttrTremMeasuredData = v.InferOutput<typeof AttrTremMeasuredSchema>;

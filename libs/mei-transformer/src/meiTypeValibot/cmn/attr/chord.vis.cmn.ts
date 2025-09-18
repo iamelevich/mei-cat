@@ -5,7 +5,7 @@ import * as v from "valibot";
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.chord.vis.cmn.html
  */
 export const AttrChordVisCmnSchema = v.object({
-  // TODO: Add chord.vis.cmn attributes
+	// TODO: Add chord.vis.cmn attributes
 });
 
 export type AttrChordVisCmnData = v.InferOutput<typeof AttrChordVisCmnSchema>;

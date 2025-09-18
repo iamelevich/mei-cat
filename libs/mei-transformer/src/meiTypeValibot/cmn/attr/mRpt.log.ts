@@ -5,7 +5,7 @@ import * as v from "valibot";
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.mRpt.log.html
  */
 export const AttrMRptLogSchema = v.object({
-  // TODO: Add mRpt.log attributes
+	// TODO: Add mRpt.log attributes
 });
 
 export type AttrMRptLogData = v.InferOutput<typeof AttrMRptLogSchema>;

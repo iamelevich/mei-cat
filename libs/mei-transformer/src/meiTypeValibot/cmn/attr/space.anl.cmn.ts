@@ -5,7 +5,7 @@ import * as v from "valibot";
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.space.anl.cmn.html
  */
 export const AttrSpaceAnlCmnSchema = v.object({
-  // TODO: Add space.anl.cmn attributes
+	// TODO: Add space.anl.cmn attributes
 });
 
 export type AttrSpaceAnlCmnData = v.InferOutput<typeof AttrSpaceAnlCmnSchema>;

@@ -1,6 +1,3 @@
-// MEI.msDesc - Manuscript description component declarations
-// @see https://music-encoding.org/guidelines/v5/modules/MEI.msDesc.html
-
 // Elements
 export * from "./accMat";
 export * from "./addDesc";
@@ -31,9 +28,9 @@ export * from "./supportDesc";
 export * from "./typeDesc";
 export * from "./typeNote";
 
-// Models
-export * from "./model/msInline";
-
 // Attributes
 export * from "./attr/componentType";
-export * from "./attr/foliation";
+export * from "./attr/foliation.scheme";
+
+// Models
+export * from "./model/msInline";

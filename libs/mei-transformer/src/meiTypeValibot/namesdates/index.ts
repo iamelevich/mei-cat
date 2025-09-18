@@ -1,6 +1,3 @@
-// MEI.namesdates - Names and dates component declarations
-// @see https://music-encoding.org/guidelines/v5/modules/MEI.namesdates.html
-
 // Elements
 export * from "./addName";
 export * from "./bloc";

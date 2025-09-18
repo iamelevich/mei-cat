@@ -24,4 +24,6 @@ export const NotImplementedTagSchema = v.union([
 	v.array(v.union([AnythingObjectSchema, v.string()])),
 ]);
 
-export type NotImplementedTagData = v.InferOutput<typeof NotImplementedTagSchema>;
+export type NotImplementedTagData = v.InferOutput<
+	typeof NotImplementedTagSchema
+>;

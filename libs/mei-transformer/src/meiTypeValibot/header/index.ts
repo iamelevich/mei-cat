@@ -1,6 +1,3 @@
-// MEI.header - Header component declarations
-// @see https://music-encoding.org/guidelines/v5/modules/MEI.header.html
-
 // Elements
 export * from "./accessRestrict";
 export * from "./acquisition";
@@ -14,8 +11,8 @@ export * from "./bifolium";
 export * from "./byline";
 export * from "./captureMode";
 export * from "./carrierForm";
-export * from "./category";
 export * from "./catRel";
+export * from "./category";
 export * from "./change";
 export * from "./changeDesc";
 export * from "./classDecls";
@@ -46,9 +43,8 @@ export * from "./incipText";
 export * from "./inscription";
 export * from "./interpretation";
 export * from "./key";
-export * from "./language";
 export * from "./langUsage";
-export * from "./manifestationList";
+export * from "./language";
 export * from "./meiHead";
 export * from "./mensuration";
 export * from "./meter";
@@ -80,8 +76,8 @@ export * from "./sourceDesc";
 export * from "./specRepro";
 export * from "./stdVals";
 export * from "./sysReq";
-export * from "./tagsDecl";
 export * from "./tagUsage";
+export * from "./tagsDecl";
 export * from "./taxonomy";
 export * from "./termList";
 export * from "./titleStmt";
@@ -93,6 +89,19 @@ export * from "./useRestrict";
 export * from "./watermark";
 export * from "./work";
 export * from "./workList";
+
+// Macros
+export * from "./macro/availabilityPart";
+export * from "./macro/bibldescPart";
+
+// Attributes
+export * from "./attr/adlibitum";
+export * from "./attr/bifoliumSurfaces";
+export * from "./attr/foliumSurfaces";
+export * from "./attr/perfRes";
+export * from "./attr/perfRes.basic";
+export * from "./attr/recordType";
+export * from "./attr/regularMethod";
 
 // Models
 export * from "./model/bifoliumLike";
@@ -108,16 +117,3 @@ export * from "./model/pubStmtPart";
 export * from "./model/startLike.header";
 export * from "./model/workIdent";
 export * from "./model/workLike";
-
-// Macro groups
-export * from "./macro/availabilityPart";
-export * from "./macro/bibldescPart";
-
-// Attributes
-export * from "./attr/adlibitum";
-export * from "./attr/bifoliumSurfaces";
-export * from "./attr/foliumSurfaces";
-export * from "./attr/perfRes";
-export * from "./attr/perfRes.basic";
-export * from "./attr/recordType";
-export * from "./attr/regularMethod";

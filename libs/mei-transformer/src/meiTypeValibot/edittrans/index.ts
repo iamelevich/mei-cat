@@ -18,14 +18,6 @@ export * from "./subst";
 export * from "./supplied";
 export * from "./unclear";
 
-// Models
-export * from "./model/choicePart";
-export * from "./model/editLike";
-export * from "./model/editTransPart";
-export * from "./model/editTransPart.music";
-export * from "./model/editTransPart.text";
-export * from "./model/transcriptionLike";
-
 // Attributes
 export * from "./attr/agentIdent";
 export * from "./attr/cpMark.log";
@@ -33,3 +25,11 @@ export * from "./attr/edit";
 export * from "./attr/metaMark.log";
 export * from "./attr/reasonIdent";
 export * from "./attr/trans";
+
+// Models
+export * from "./model/choicePart";
+export * from "./model/editLike";
+export * from "./model/editTransPart";
+export * from "./model/editTransPart.music";
+export * from "./model/editTransPart.text";
+export * from "./model/transcriptionLike";

@@ -9,7 +9,7 @@ export const AttrLangSchema = v.object({
 	/**
 	 * Identifies the language of the element’s content. The values for this attribute are language 'tags' as defined in BCP 47. All language tags that make use of private use sub-tags must be documented in a corresponding language element in the MEI header whose id attribute is the same as the language tag’s value.
 	 */
-	"@lang": v.optional(v.string()),
+	"@xml:lang": v.optional(v.string()),
 	/**
 	 * Specifies the transliteration technique used.
 	 */

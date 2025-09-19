@@ -78,20 +78,24 @@ exports[`WorkSchema should parse a complete work element from cnw0002.xml.json 1
     {
       "#text": "Maskarade",
       "@xml:id": "title_41c4ef82",
+      "@xml:lang": "da",
     },
     {
       "#text": "Masquerade",
       "@xml:id": "title_80453ebe",
+      "@xml:lang": "en",
     },
     {
       "#text": "Komisk opera i tre akter",
       "@type": "subordinate",
       "@xml:id": "title_a287c05d",
+      "@xml:lang": "da",
     },
     {
       "#text": "Comic Opera in Three Acts",
       "@type": "subordinate",
       "@xml:id": "title_378abcba",
+      "@xml:lang": "en",
     },
   ],
 }
@@ -123,6 +127,7 @@ exports[`WorkSchema should parse work with only title 1`] = `
     {
       "#text": "Maskarade",
       "@xml:id": "title_41c4ef82",
+      "@xml:lang": "da",
     },
   ],
 }
@@ -208,20 +213,24 @@ exports[`WorkSchema should parse work with multiple titles in different language
     {
       "#text": "Maskarade",
       "@xml:id": "title_41c4ef82",
+      "@xml:lang": "da",
     },
     {
       "#text": "Masquerade",
       "@xml:id": "title_80453ebe",
+      "@xml:lang": "en",
     },
     {
       "#text": "Komisk opera i tre akter",
       "@type": "subordinate",
       "@xml:id": "title_a287c05d",
+      "@xml:lang": "da",
     },
     {
       "#text": "Comic Opera in Three Acts",
       "@type": "subordinate",
       "@xml:id": "title_378abcba",
+      "@xml:lang": "en",
     },
   ],
 }

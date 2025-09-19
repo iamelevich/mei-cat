@@ -20,10 +20,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "Jeronimus",
               "@xml:id": "name_N250FE",
+              "@xml:lang": "da",
             },
             {
               "#text": "Jeronimus",
               "@xml:id": "name_N25101",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -41,10 +43,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "Magdalone",
               "@xml:id": "name_N25112",
+              "@xml:lang": "da",
             },
             {
               "#text": "Magdalone",
               "@xml:id": "name_N25115",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -62,10 +66,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "Leander",
               "@xml:id": "name_N25126",
+              "@xml:lang": "da",
             },
             {
               "#text": "Leander",
               "@xml:id": "name_N25129",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -82,10 +88,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "Henrik",
               "@xml:id": "name_N25139",
+              "@xml:lang": "da",
             },
             {
               "#text": "Henrik",
               "@xml:id": "name_N2513C",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -103,10 +111,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "Arv",
               "@xml:id": "name_N2514D",
+              "@xml:lang": "da",
             },
             {
               "#text": "Arv",
               "@xml:id": "name_N25150",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -123,10 +133,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "Leonard",
               "@xml:id": "name_N25160",
+              "@xml:lang": "da",
             },
             {
               "#text": "Leonard",
               "@xml:id": "name_N25163",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -144,10 +156,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "Leonora",
               "@xml:id": "name_N25174",
+              "@xml:lang": "da",
             },
             {
               "#text": "Leonora",
               "@xml:id": "name_N25177",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -165,10 +179,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "Pernille",
               "@xml:id": "name_N25188",
+              "@xml:lang": "da",
             },
             {
               "#text": "Pernille",
               "@xml:id": "name_N2518B",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -186,10 +202,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "En Vægter",
               "@xml:id": "name_N2519C",
+              "@xml:lang": "da",
             },
             {
               "#text": "A Watchman",
               "@xml:id": "name_N2519F",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -207,10 +225,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "En Vagtmester",
               "@xml:id": "name_N251B0",
+              "@xml:lang": "da",
             },
             {
               "#text": "A Doorman",
               "@xml:id": "name_N251B3",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -228,10 +248,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "En Mand, der sælger Masker",
               "@xml:id": "name_N251C4",
+              "@xml:lang": "da",
             },
             {
               "#text": "A Mask-Seller",
               "@xml:id": "name_N251C7",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -249,10 +271,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "En Magister",
               "@xml:id": "name_N251D8",
+              "@xml:lang": "da",
             },
             {
               "#text": "A Tutor",
               "@xml:id": "name_N251DB",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -270,10 +294,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "En Dreng, der sælger Blomster",
               "@xml:id": "name_N251EC",
+              "@xml:lang": "da",
             },
             {
               "#text": "A Flower-Boy",
               "@xml:id": "name_N251EF",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -290,10 +316,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "Maskarademesteren",
               "@xml:id": "name_N251FF",
+              "@xml:lang": "da",
             },
             {
               "#text": "Master of the Masquerades",
               "@xml:id": "name_N25202",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -311,10 +339,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "En Student",
               "@xml:id": "name_N25213",
+              "@xml:lang": "da",
             },
             {
               "#text": "A Student",
               "@xml:id": "name_N25216",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -332,10 +362,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "1. Student",
               "@xml:id": "name_N25227",
+              "@xml:lang": "da",
             },
             {
               "#text": "First Student",
               "@xml:id": "name_N2522A",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -353,10 +385,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "2. Student",
               "@xml:id": "name_N2523B",
+              "@xml:lang": "da",
             },
             {
               "#text": "Second Student",
               "@xml:id": "name_N2523E",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -374,10 +408,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "3. Student",
               "@xml:id": "name_N2524F",
+              "@xml:lang": "da",
             },
             {
               "#text": "Third Student",
               "@xml:id": "name_N25252",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -395,10 +431,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "4. Student",
               "@xml:id": "name_N25263",
+              "@xml:lang": "da",
             },
             {
               "#text": "Fourth Student",
               "@xml:id": "name_N25266",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -416,10 +454,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "5. Student",
               "@xml:id": "name_N25277",
+              "@xml:lang": "da",
             },
             {
               "#text": "Fifth Student",
               "@xml:id": "name_N2527A",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -437,10 +477,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "1. Pige",
               "@xml:id": "name_N2528B",
+              "@xml:lang": "da",
             },
             {
               "#text": "First Girl",
               "@xml:id": "name_N2528E",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -458,10 +500,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "2. Pige",
               "@xml:id": "name_N2529F",
+              "@xml:lang": "da",
             },
             {
               "#text": "Second Girl",
               "@xml:id": "name_N252A2",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -479,10 +523,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "3. Pige",
               "@xml:id": "name_N252B3",
+              "@xml:lang": "da",
             },
             {
               "#text": "Third Girl",
               "@xml:id": "name_N252B6",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -500,10 +546,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "En Officer",
               "@xml:id": "name_N252C7",
+              "@xml:lang": "da",
             },
             {
               "#text": "An Officer",
               "@xml:id": "name_N252CA",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -516,10 +564,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "Dansemesteren",
               "@xml:id": "name_N252D7",
+              "@xml:lang": "da",
             },
             {
               "#text": "The Dancing Master",
               "@xml:id": "name_N252DA",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -532,10 +582,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "Hans Kæreste",
               "@xml:id": "name_N252E7",
+              "@xml:lang": "da",
             },
             {
               "#text": "His Fiancée",
               "@xml:id": "name_N252EA",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -548,10 +600,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "Vulcan",
               "@xml:id": "name_N252F7",
+              "@xml:lang": "da",
             },
             {
               "#text": "Vulcan",
               "@xml:id": "name_N252FA",
+              "@xml:lang": "en",
             },
           ],
         },
@@ -564,10 +618,12 @@ exports[`PerfMediumSchema should be a valid schema for cnw0002 1`] = `
             {
               "#text": "Kor af Studenter, Officerer, unge Piger, maskerede Personer af begge Køn",
               "@xml:id": "name_N25307",
+              "@xml:lang": "da",
             },
             {
               "#text": "Choir of Students, Officers, Young Girls, Masked Persons of both Sexes",
               "@xml:id": "name_N2530A",
+              "@xml:lang": "en",
             },
           ],
         },

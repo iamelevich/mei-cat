@@ -1,7 +1,5 @@
 // Bun Snapshot v1, https://bun.sh/docs/test/snapshots
 
-
-
 exports[`RevisionDescSchema should be a valid schema 1`] = `
 {
   "@xml:id": "idm16111",

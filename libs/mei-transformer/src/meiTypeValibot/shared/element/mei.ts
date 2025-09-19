@@ -14,6 +14,16 @@ const MeiBaseSchema = v.object({
 	...AttrIdSchema.entries,
 	...AttrMeiVersionSchema.entries,
 	...AttrResponsibilitySchema.entries,
+
+	/**
+	 * The namespace of the element. XML attribute.
+	 */
+	"@xmlns": v.optional(v.string()),
+
+	/**
+	 * Link to the XLink namespace. XML attribute.
+	 */
+	"@xmlns:xlink": v.optional(v.string()),
 });
 
 /**

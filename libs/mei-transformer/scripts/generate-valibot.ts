@@ -776,7 +776,7 @@ function generateElementContent(
 			} else {
 				// optionalZeroOrMany or requiredZeroOrMany
 				directElements.push(
-					`    ${content.name}: ${content.relationType === "requiredZeroOrMany" ? "" : "v.optional("}v.union([${schemaRef}, v.array(${schemaRef})])${content.relationType === "requiredZeroOrMany" ? "" : ")"},`,
+					`    ${content.name}: ${content.relationType === "requiredZeroOrMany" ? "" : "v.optional("}v.union([v.array(${schemaRef}), ${schemaRef}])${content.relationType === "requiredZeroOrMany" ? "" : ")"},`,
 				);
 			}
 		}
@@ -972,7 +972,7 @@ function generateMacroContent(
 			} else {
 				// optionalZeroOrMany
 				directElements.push(
-					`  ${content.name}: v.optional(v.union([${schemaRef}, v.array(${schemaRef})])),`,
+					`  ${content.name}: v.optional(v.union([v.array(${schemaRef}), ${schemaRef}])),`,
 				);
 			}
 		}
@@ -1176,7 +1176,7 @@ function generateModelContent(
 				`     * ${member.description}`,
 				`     * @see ${member.url}`,
 				`     */`,
-				`    ${member.name}: v.optional(v.union([${pascalName}Schema, v.array(${pascalName}Schema)])),`,
+				`    ${member.name}: v.optional(v.union([v.array(${pascalName}Schema), ${pascalName}Schema])),`,
 			);
 		}
 	}

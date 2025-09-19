@@ -1,7 +1,13 @@
 import * as v from "valibot";
 import {
+	type ModelEditorialLikeData,
+	ModelEditorialLikeSchema,
+} from "../../shared";
+import {
 	type CorrData,
 	CorrSchema,
+	type ModelEditLikeData,
+	ModelEditLikeSchema,
 	type OrigData,
 	OrigSchema,
 	type RegData,
@@ -10,13 +16,7 @@ import {
 	SicSchema,
 	type UnclearData,
 	UnclearSchema,
-	type ModelEditLikeData,
-	ModelEditLikeSchema,
 } from "..";
-import {
-	type ModelEditorialLikeData,
-	ModelEditorialLikeSchema,
-} from "../../shared";
 
 /**
  * Groups elements that may appear as part of the content of a choice element.

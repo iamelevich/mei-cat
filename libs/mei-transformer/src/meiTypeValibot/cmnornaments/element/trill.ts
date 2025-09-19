@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrTrillAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrTrillGesSchema } from "../../gestural";
-import { AttrTrillLogSchema } from "..";
+import { AttrCommonSchema } from "../../shared";
 import { AttrTrillVisSchema } from "../../visual";
+import { AttrTrillLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for TrillSchema

@@ -1,14 +1,14 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrBracketSpanAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrBracketSpanGesSchema } from "../../gestural";
-import { AttrBracketSpanLogSchema } from "..";
-import { AttrBracketSpanVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	ModelTextPhraseLikeLimitedSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrBracketSpanVisSchema } from "../../visual";
+import { AttrBracketSpanLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for BracketSpanSchema

@@ -1,5 +1,7 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { ModelLocrefLikeSchema } from "../../ptrref";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
@@ -8,9 +10,7 @@ import {
 	ModelMilestoneLikeTextSchema,
 	ModelTitleLikeSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { EditorSchema, ExtentSchema, RespStmtSchema, TextLangSchema } from ".";
-import { ModelLocrefLikeSchema } from "../../ptrref";
 
 /**
  * Base schema with attribute, to simplify types for SeriesSchema

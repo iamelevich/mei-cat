@@ -1,10 +1,10 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, AttrDotLogSchema } from "..";
 import { AttrDotAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrDotGesSchema } from "../../gestural";
 import { AttrDotVisSchema } from "../../visual";
-import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrCommonSchema, AttrDotLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for DotSchema

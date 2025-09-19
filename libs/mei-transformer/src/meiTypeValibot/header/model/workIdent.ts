@@ -1,5 +1,11 @@
 import * as v from "valibot";
 import {
+	type ModelIncipLikeData,
+	ModelIncipLikeSchema,
+	type TempoData,
+	TempoSchema,
+} from "../../shared";
+import {
 	type KeyData,
 	KeySchema,
 	type MensurationData,
@@ -7,12 +13,6 @@ import {
 	type MeterData,
 	MeterSchema,
 } from "..";
-import {
-	type TempoData,
-	TempoSchema,
-	type ModelIncipLikeData,
-	ModelIncipLikeSchema,
-} from "../../shared";
 
 /**
  * Groups elements that assist in the identification of a work.

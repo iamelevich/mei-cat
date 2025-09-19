@@ -1,15 +1,29 @@
 import * as v from "valibot";
 import {
+	type ModelFigureLikeData,
+	ModelFigureLikeSchema,
+} from "../../figtable";
+import { type ModelMsInlineData, ModelMsInlineSchema } from "../../msDesc";
+import {
+	type ModelAddressPartData,
+	ModelAddressPartSchema,
+	type ModelNameLikeLabelData,
+	ModelNameLikeLabelSchema,
+} from "../../namesdates";
+import { type ModelLocrefLikeData, ModelLocrefLikeSchema } from "../../ptrref";
+import {
+	type ModelQLikeData,
+	ModelQLikeSchema,
+	type SegData,
+	SegSchema,
+} from "../../text";
+import {
 	type DedicateeData,
 	DedicateeSchema,
 	type DimensionsData,
 	DimensionsSchema,
 	type ExtentData,
 	ExtentSchema,
-	type SymbolData,
-	SymbolSchema,
-	type TermData,
-	TermSchema,
 	type ModelAddressLikeData,
 	ModelAddressLikeSchema,
 	type ModelAnnotLikeData,
@@ -36,25 +50,11 @@ import {
 	ModelRendLikeSchema,
 	type ModelTitleLikeData,
 	ModelTitleLikeSchema,
+	type SymbolData,
+	SymbolSchema,
+	type TermData,
+	TermSchema,
 } from "..";
-import {
-	type SegData,
-	SegSchema,
-	type ModelQLikeData,
-	ModelQLikeSchema,
-} from "../../text";
-import {
-	type ModelAddressPartData,
-	ModelAddressPartSchema,
-	type ModelNameLikeLabelData,
-	ModelNameLikeLabelSchema,
-} from "../../namesdates";
-import {
-	type ModelFigureLikeData,
-	ModelFigureLikeSchema,
-} from "../../figtable";
-import { type ModelLocrefLikeData, ModelLocrefLikeSchema } from "../../ptrref";
-import { type ModelMsInlineData, ModelMsInlineSchema } from "../../msDesc";
 
 /**
  * Groups textual elements that occur at the level of individual words or phrases. This class is equivalent to the model.textPhraseLike class without the pb element.

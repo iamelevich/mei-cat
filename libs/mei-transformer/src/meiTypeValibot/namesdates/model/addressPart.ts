@@ -1,13 +1,13 @@
 import * as v from "valibot";
 import {
+	type ModelGeogNamePartData,
+	ModelGeogNamePartSchema,
 	type PostBoxData,
 	PostBoxSchema,
 	type PostCodeData,
 	PostCodeSchema,
 	type StreetData,
 	StreetSchema,
-	type ModelGeogNamePartData,
-	ModelGeogNamePartSchema,
 } from "..";
 
 /**

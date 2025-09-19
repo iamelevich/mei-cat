@@ -1,5 +1,6 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
@@ -7,7 +8,6 @@ import {
 	AttrMetadataPointingSchema,
 	AttrPointingSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { ClipSchema } from ".";
 
 /**

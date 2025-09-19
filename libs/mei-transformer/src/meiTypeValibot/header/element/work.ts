@@ -1,5 +1,6 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { ExpressionListSchema } from "../../frbr";
 import {
 	AttrAuthorizedSchema,
 	AttrBiblSchema,
@@ -15,6 +16,7 @@ import {
 	ModelTitleLikeSchema,
 	RelationListSchema,
 } from "../../shared";
+import { ModelWorkIdentSchema } from "..";
 import {
 	AudienceSchema,
 	ClassificationSchema,
@@ -29,8 +31,6 @@ import {
 	PerfDurationSchema,
 	PerfMediumSchema,
 } from ".";
-import { ExpressionListSchema } from "../../frbr";
-import { ModelWorkIdentSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for WorkSchema

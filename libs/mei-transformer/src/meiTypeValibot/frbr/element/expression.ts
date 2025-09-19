@@ -1,20 +1,6 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
 import {
-	AttrAuthorizedSchema,
-	AttrBiblSchema,
-	AttrCommonSchema,
-	AttrDataPointingSchema,
-	BiblListSchema,
-	CreationSchema,
-	ExtentSchema,
-	ModelHeadLikeSchema,
-	ModelIdentifierLikeSchema,
-	ModelRespLikePartSchema,
-	ModelTitleLikeSchema,
-	RelationListSchema,
-} from "../../shared";
-import {
 	ClassificationSchema,
 	ComponentListSchema,
 	ContentsSchema,
@@ -29,6 +15,20 @@ import {
 	PerfMediumSchema,
 	ScoreFormatSchema,
 } from "../../header";
+import {
+	AttrAuthorizedSchema,
+	AttrBiblSchema,
+	AttrCommonSchema,
+	AttrDataPointingSchema,
+	BiblListSchema,
+	CreationSchema,
+	ExtentSchema,
+	ModelHeadLikeSchema,
+	ModelIdentifierLikeSchema,
+	ModelRespLikePartSchema,
+	ModelTitleLikeSchema,
+	RelationListSchema,
+} from "../../shared";
 
 /**
  * Base schema with attribute, to simplify types for ExpressionSchema

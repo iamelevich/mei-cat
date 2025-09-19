@@ -1,8 +1,8 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrBiblSchema, AttrCommonSchema, ModelHeadLikeSchema } from "..";
 import { AttrFacsimileSchema } from "../../facsimile";
 import { ModelNameLikeAgentSchema } from "../../namesdates";
+import { AttrBiblSchema, AttrCommonSchema, ModelHeadLikeSchema } from "..";
 import { NameSchema, RespSchema } from ".";
 
 /**

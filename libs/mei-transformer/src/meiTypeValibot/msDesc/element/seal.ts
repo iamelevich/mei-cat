@@ -1,5 +1,6 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { ConditionSchema } from "../../header";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
@@ -10,7 +11,6 @@ import {
 	ModelTextPhraseLikeLimitedSchema,
 	PSchema,
 } from "../../shared";
-import { ConditionSchema } from "../../header";
 import { DecoNoteSchema } from ".";
 
 /**

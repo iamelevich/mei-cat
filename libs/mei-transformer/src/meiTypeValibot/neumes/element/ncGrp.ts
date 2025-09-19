@@ -1,23 +1,23 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrNcGrpAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { type ModelAppLikeData, ModelAppLikeSchema } from "../../critapp";
+import {
+	type ModelEditLikeData,
+	ModelEditLikeSchema,
+	type ModelTranscriptionLikeData,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrNcGrpGesSchema } from "../../gestural";
+import { AttrCommonSchema } from "../../shared";
+import { AttrNcGrpVisSchema } from "../../visual";
 import {
 	AttrNcGrpLogSchema,
-	ModelNeumeModifierLikeSchema,
 	type ModelNeumeModifierLikeData,
+	ModelNeumeModifierLikeSchema,
 } from "..";
-import { AttrNcGrpVisSchema } from "../../visual";
-import { ModelAppLikeSchema, type ModelAppLikeData } from "../../critapp";
-import {
-	ModelEditLikeSchema,
-	type ModelEditLikeData,
-	ModelTranscriptionLikeSchema,
-	type ModelTranscriptionLikeData,
-} from "../../edittrans";
-import { NcSchema, type NcData } from ".";
+import { type NcData, NcSchema } from ".";
 
 /**
  * Base schema with attribute, to simplify types for NcGrpSchema

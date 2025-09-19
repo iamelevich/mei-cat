@@ -1,20 +1,20 @@
 import * as v from "valibot";
+import { AttrSylAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { ModelAppLikeSchema } from "../../critapp";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrSylGesSchema } from "../../gestural";
+import { AttrSylVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	AttrLangSchema,
 	AttrSylLogSchema,
 	ModelTextPhraseLikeLimitedSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrSylAnlSchema } from "../../analytical";
-import { AttrSylGesSchema } from "../../gestural";
-import { AttrSylVisSchema } from "../../visual";
-import { ModelAppLikeSchema } from "../../critapp";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
 
 /**
  * Base schema with attribute, to simplify types for SylSchema

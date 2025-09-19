@@ -1,5 +1,16 @@
 import * as v from "valibot";
+import { AttrEndingAnlSchema } from "../../analytical";
+import { ModelSectionPartCmnSchema } from "../../cmn";
 import { StandardTagSchema } from "../../common";
+import { ModelAppLikeSchema } from "../../critapp";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrEndingGesSchema } from "../../gestural";
+import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
+import { AttrEndingVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	AttrEndingLogSchema,
@@ -13,18 +24,7 @@ import {
 	ModelSectionPartMensuralAndNeumesSchema,
 	ModelStaffDefLikeSchema,
 } from "..";
-import { AttrEndingAnlSchema } from "../../analytical";
-import { AttrEndingGesSchema } from "../../gestural";
-import { AttrEndingVisSchema } from "../../visual";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { ExpansionSchema } from ".";
-import { ModelAppLikeSchema } from "../../critapp";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
-import { ModelSectionPartCmnSchema } from "../../cmn";
 
 /**
  * Base schema with attribute, to simplify types for EndingSchema

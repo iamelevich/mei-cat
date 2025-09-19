@@ -1,11 +1,11 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, AttrLangSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import {
 	ModelEditLikeSchema,
 	ModelTranscriptionLikeSchema,
 } from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrCommonSchema, AttrLangSchema } from "../../shared";
 
 /**
  * Base schema with attribute, to simplify types for PostCodeSchema

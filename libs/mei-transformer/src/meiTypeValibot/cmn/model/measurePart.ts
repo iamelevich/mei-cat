@@ -1,4 +1,5 @@
 import * as v from "valibot";
+import { type ModelMidiLikeData, ModelMidiLikeSchema } from "../../midi";
 import {
 	type ModelControlEventLikeData,
 	ModelControlEventLikeSchema,
@@ -11,7 +12,6 @@ import {
 	type ModelOssiaLikeData,
 	ModelOssiaLikeSchema,
 } from "..";
-import { type ModelMidiLikeData, ModelMidiLikeSchema } from "../../midi";
 
 /**
  * Groups elements that may appear within a CMN measure.

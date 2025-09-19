@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrBendAnlSchema } from "../../analytical";
-import { AttrBendGesSchema } from "../../gestural";
-import { AttrBendLogSchema } from "..";
-import { AttrBendVisSchema } from "../../visual";
-import { AttrCommonSchema } from "../../shared";
+import { StandardTagSchema } from "../../common";
 import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrBendGesSchema } from "../../gestural";
+import { AttrCommonSchema } from "../../shared";
+import { AttrBendVisSchema } from "../../visual";
+import { AttrBendLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for BendSchema

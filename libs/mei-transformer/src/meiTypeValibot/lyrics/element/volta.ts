@@ -1,5 +1,10 @@
 import * as v from "valibot";
+import { AttrVoltaAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { ModelAppLikeSchema } from "../../critapp";
+import { ModelEditLikeSchema } from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrVoltaGesSchema } from "../../gestural";
 import {
 	AttrCommonSchema,
 	AttrLangSchema,
@@ -10,13 +15,8 @@ import {
 	SpaceSchema,
 	TempoSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrVoltaAnlSchema } from "../../analytical";
-import { AttrVoltaGesSchema } from "../../gestural";
-import { AttrVoltaLogSchema } from "..";
 import { AttrVoltaVisSchema } from "../../visual";
-import { ModelAppLikeSchema } from "../../critapp";
-import { ModelEditLikeSchema } from "../../edittrans";
+import { AttrVoltaLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for VoltaSchema

@@ -1,5 +1,11 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { ModelFLikeSchema } from "../../harmony";
+import {
+	ModelNeumeComponentModifierLikeSchema,
+	ModelNeumeModifierLikeSchema,
+	ModelNeumePartSchema,
+} from "../../neumes";
 import {
 	AttrAuthorizedSchema,
 	AttrCommonSchema,
@@ -11,20 +17,14 @@ import {
 	ModelSectionPartSchema,
 	ModelStaffGrpLikeSchema,
 } from "../../shared";
+import { ModelDivLikeSchema } from "../../text";
+import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
 import {
 	AttrEditSchema,
 	ModelEditLikeSchema,
 	ModelEditTransPartSchema,
 	ModelTranscriptionLikeSchema,
 } from "..";
-import { ModelDivLikeSchema } from "../../text";
-import { ModelFLikeSchema } from "../../harmony";
-import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
-import {
-	ModelNeumeComponentModifierLikeSchema,
-	ModelNeumeModifierLikeSchema,
-	ModelNeumePartSchema,
-} from "../../neumes";
 
 /**
  * Base schema with attribute, to simplify types for RegSchema

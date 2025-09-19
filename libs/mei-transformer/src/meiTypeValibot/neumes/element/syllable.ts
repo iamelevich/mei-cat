@@ -1,5 +1,13 @@
 import * as v from "valibot";
+import { AttrSyllableAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { ModelAppLikeSchema } from "../../critapp";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrSyllableGesSchema } from "../../gestural";
 import {
 	AttrCommonSchema,
 	ModelAnnotLikeSchema,
@@ -8,22 +16,14 @@ import {
 	ModelStaffDefLikeSchema,
 	ModelStaffGrpLikeSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrSyllableAnlSchema } from "../../analytical";
-import { AttrSyllableGesSchema } from "../../gestural";
+import { ModelDivLikeSchema } from "../../text";
+import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
+import { AttrSyllableVisSchema } from "../../visual";
 import {
 	AttrSyllableLogSchema,
 	ModelNeumeModifierLikeSchema,
 	ModelSyllablePartSchema,
 } from "..";
-import { AttrSyllableVisSchema } from "../../visual";
-import { ModelAppLikeSchema } from "../../critapp";
-import { ModelDivLikeSchema } from "../../text";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
 
 /**
  * Base schema with attribute, to simplify types for SyllableSchema

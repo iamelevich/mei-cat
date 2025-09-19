@@ -1,5 +1,13 @@
 import * as v from "valibot";
+import { AttrStaffAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { ModelAppLikeSchema } from "../../critapp";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrStaffGesSchema } from "../../gestural";
 import {
 	AttrBasicSchema,
 	AttrLabelledSchema,
@@ -15,16 +23,8 @@ import {
 	ModelStaffDefLikeSchema,
 	ModelStaffPartSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrStaffAnlSchema } from "../../analytical";
-import { AttrStaffGesSchema } from "../../gestural";
-import { AttrStaffVisSchema } from "../../visual";
-import { ModelAppLikeSchema } from "../../critapp";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
 import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
+import { AttrStaffVisSchema } from "../../visual";
 
 /**
  * Base schema with attribute, to simplify types for OStaffSchema

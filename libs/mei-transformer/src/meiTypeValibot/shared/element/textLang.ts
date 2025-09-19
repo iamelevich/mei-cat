@@ -1,12 +1,12 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
 	AttrLangSchema,
 	ModelTextPhraseLikeLimitedSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
 
 /**
  * Base schema with attribute, to simplify types for TextLangSchema

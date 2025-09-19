@@ -1,7 +1,7 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, AttrMetadataPointingSchema } from "../../shared";
 import { GraphicSchema } from "../../figtable";
+import { AttrCommonSchema, AttrMetadataPointingSchema } from "../../shared";
 import { SurfaceSchema } from ".";
 
 /**

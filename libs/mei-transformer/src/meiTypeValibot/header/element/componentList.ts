@@ -1,11 +1,11 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, ModelHeadLikeSchema } from "../../shared";
 import {
 	ModelExpressionLikeSchema,
 	ModelItemLikeSchema,
 	ModelManifestationLikeSchema,
 } from "../../frbr";
+import { AttrCommonSchema, ModelHeadLikeSchema } from "../../shared";
 import { ModelWorkLikeSchema } from "..";
 
 /**

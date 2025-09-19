@@ -1,9 +1,9 @@
 import * as v from "valibot";
 import {
-	type LabelData,
-	LabelSchema,
 	type LabelAbbrData,
 	LabelAbbrSchema,
+	type LabelData,
+	LabelSchema,
 } from "..";
 
 /**

@@ -1,13 +1,14 @@
 import * as v from "valibot";
+import { type WatermarkData, WatermarkSchema } from "../../header";
 import {
 	type CatchwordsData,
 	CatchwordsSchema,
 	type HeraldryData,
 	HeraldrySchema,
 	type LocusData,
-	LocusSchema,
 	type LocusGrpData,
 	LocusGrpSchema,
+	LocusSchema,
 	type SecFolioData,
 	SecFolioSchema,
 	type SignaturesData,
@@ -15,7 +16,6 @@ import {
 	type StampData,
 	StampSchema,
 } from "..";
-import { type WatermarkData, WatermarkSchema } from "../../header";
 
 /**
  * Groups elements that may appear inline when the msdesc module is active.

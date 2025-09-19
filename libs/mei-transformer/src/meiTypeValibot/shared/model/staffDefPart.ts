@@ -1,20 +1,20 @@
 import * as v from "valibot";
 import {
+	type ModelStaffDefPartMensuralData,
+	ModelStaffDefPartMensuralSchema,
+} from "../../mensural";
+import {
 	type ClefData,
-	ClefSchema,
 	type ClefGrpData,
 	ClefGrpSchema,
-	type TuningData,
-	TuningSchema,
+	ClefSchema,
 	type ModelKeySigLikeData,
 	ModelKeySigLikeSchema,
 	type ModelMeterSigLikeData,
 	ModelMeterSigLikeSchema,
+	type TuningData,
+	TuningSchema,
 } from "..";
-import {
-	type ModelStaffDefPartMensuralData,
-	ModelStaffDefPartMensuralSchema,
-} from "../../mensural";
 
 /**
  * Groups elements that may appear in the declaration of staff features.

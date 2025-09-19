@@ -1,7 +1,7 @@
 import * as v from "valibot";
 import { AttrInstrumentIdentSchema, AttrTimeBaseSchema } from "../../midi";
-import { AttrStringtabTuningSchema } from "../../stringtab";
 import { AttrTuningSchema } from "../../shared";
+import { AttrStringtabTuningSchema } from "../../stringtab";
 
 /**
  * Gestural domain attributes for staffDef in the CMN repertoire..

@@ -1,5 +1,8 @@
 import * as v from "valibot";
+import { AttrLayerDefAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { AttrLayerDefGesSchema } from "../../gestural";
+import { AttrLayerDefVisSchema } from "../../visual";
 import {
 	AttrBasicSchema,
 	AttrLabelledSchema,
@@ -13,9 +16,6 @@ import {
 	ModelLabelLikeSchema,
 	ModelMeterSigLikeSchema,
 } from "..";
-import { AttrLayerDefAnlSchema } from "../../analytical";
-import { AttrLayerDefGesSchema } from "../../gestural";
-import { AttrLayerDefVisSchema } from "../../visual";
 import { AmbitusSchema } from ".";
 
 /**

@@ -1,4 +1,6 @@
 import * as v from "valibot";
+import { AttrStaffDefLogCmnSchema } from "../../cmn";
+import { AttrStaffDefLogMensuralSchema } from "../../mensural";
 import {
 	AttrCleffingLogSchema,
 	AttrDurationDefaultSchema,
@@ -7,8 +9,6 @@ import {
 	AttrOctaveDefaultSchema,
 	AttrTranspositionSchema,
 } from "..";
-import { AttrStaffDefLogCmnSchema } from "../../cmn";
-import { AttrStaffDefLogMensuralSchema } from "../../mensural";
 
 /**
  * Logical domain attributes for staffDef..

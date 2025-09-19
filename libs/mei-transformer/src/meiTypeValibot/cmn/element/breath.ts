@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrBreathAnlSchema } from "../../analytical";
-import { AttrBreathGesSchema } from "../../gestural";
-import { AttrBreathLogSchema } from "..";
-import { AttrBreathVisSchema } from "../../visual";
-import { AttrCommonSchema } from "../../shared";
+import { StandardTagSchema } from "../../common";
 import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrBreathGesSchema } from "../../gestural";
+import { AttrCommonSchema } from "../../shared";
+import { AttrBreathVisSchema } from "../../visual";
+import { AttrBreathLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for BreathSchema

@@ -1,5 +1,16 @@
 import * as v from "valibot";
+import { AttrSectionAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { ModelAppLikeSchema } from "../../critapp";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrSectionGesSchema } from "../../gestural";
+import { ModelDivLikeSchema } from "../../text";
+import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
+import { AttrSectionVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	AttrMetadataPointingSchema,
@@ -11,18 +22,7 @@ import {
 	ModelRelationLikeSchema,
 	ModelSectionPartSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrSectionAnlSchema } from "../../analytical";
-import { AttrSectionGesSchema } from "../../gestural";
-import { AttrSectionVisSchema } from "../../visual";
 import { ExpansionSchema } from ".";
-import { ModelAppLikeSchema } from "../../critapp";
-import { ModelDivLikeSchema } from "../../text";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
 
 /**
  * Base schema with attribute, to simplify types for SectionSchema

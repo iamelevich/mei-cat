@@ -1,4 +1,5 @@
 import * as v from "valibot";
+import { type PerfDurationData, PerfDurationSchema } from "../../header";
 import {
 	type BiblScopeData,
 	BiblScopeSchema,
@@ -8,6 +9,10 @@ import {
 	GenreSchema,
 	type ImprintData,
 	ImprintSchema,
+	type ModelEditionLikeData,
+	ModelEditionLikeSchema,
+	type ModelRespLikeData,
+	ModelRespLikeSchema,
 	type PhysLocData,
 	PhysLocSchema,
 	type RecipientData,
@@ -18,12 +23,7 @@ import {
 	SeriesSchema,
 	type TextLangData,
 	TextLangSchema,
-	type ModelEditionLikeData,
-	ModelEditionLikeSchema,
-	type ModelRespLikeData,
-	ModelRespLikeSchema,
 } from "..";
-import { type PerfDurationData, PerfDurationSchema } from "../../header";
 
 /**
  * Groups elements that may appear as part of a bibliographic description.

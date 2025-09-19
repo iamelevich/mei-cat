@@ -1,5 +1,12 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { ModelAppLikeSchema } from "../../critapp";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AnchoredTextSchema } from "../../usersymbols";
 import {
 	AttrCommonSchema,
 	AttrFormeworkSchema,
@@ -8,13 +15,6 @@ import {
 	ModelTextComponentLikeSchema,
 	ModelTextPhraseLikeLimitedSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AnchoredTextSchema } from "../../usersymbols";
-import { ModelAppLikeSchema } from "../../critapp";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
 
 /**
  * Base schema with attribute, to simplify types for PgHeadSchema

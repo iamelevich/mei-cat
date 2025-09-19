@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrProportAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrProportGesSchema } from "../../gestural";
-import { AttrProportLogSchema } from "..";
+import { AttrCommonSchema } from "../../shared";
 import { AttrProportVisSchema } from "../../visual";
+import { AttrProportLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for ProportSchema

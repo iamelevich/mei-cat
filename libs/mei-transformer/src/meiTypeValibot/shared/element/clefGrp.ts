@@ -1,10 +1,10 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrClefGrpAnlSchema } from "../../analytical";
-import { AttrClefGrpGesSchema } from "../../gestural";
-import { AttrClefGrpLogSchema, AttrCommonSchema, AttrEventSchema } from "..";
-import { AttrClefGrpVisSchema } from "../../visual";
+import { StandardTagSchema } from "../../common";
 import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrClefGrpGesSchema } from "../../gestural";
+import { AttrClefGrpVisSchema } from "../../visual";
+import { AttrClefGrpLogSchema, AttrCommonSchema, AttrEventSchema } from "..";
 import { ClefSchema } from ".";
 
 /**

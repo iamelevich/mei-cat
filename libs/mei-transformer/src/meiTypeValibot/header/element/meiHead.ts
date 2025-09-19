@@ -1,5 +1,6 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { ManifestationListSchema } from "../../frbr";
 import {
 	AttrBasicSchema,
 	AttrBiblSchema,
@@ -16,7 +17,6 @@ import {
 	RevisionDescSchema,
 	WorkListSchema,
 } from ".";
-import { ManifestationListSchema } from "../../frbr";
 
 /**
  * Base schema with attribute, to simplify types for MeiHeadSchema

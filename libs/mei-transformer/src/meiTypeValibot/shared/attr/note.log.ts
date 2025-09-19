@@ -1,4 +1,9 @@
 import * as v from "valibot";
+import { AttrNoteLogCmnSchema } from "../../cmn";
+import {
+	AttrDurationQualitySchema,
+	AttrNoteLogMensuralSchema,
+} from "../../mensural";
 import {
 	AttrAugmentDotsSchema,
 	AttrColorationSchema,
@@ -7,11 +12,6 @@ import {
 	AttrEventSchema,
 	AttrPitchedSchema,
 } from "..";
-import {
-	AttrDurationQualitySchema,
-	AttrNoteLogMensuralSchema,
-} from "../../mensural";
-import { AttrNoteLogCmnSchema } from "../../cmn";
 
 /**
  * Logical domain attributes..

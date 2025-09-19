@@ -1,5 +1,6 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { ConditionSchema } from "../../header";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
@@ -9,7 +10,6 @@ import {
 	PSchema,
 } from "../../shared";
 import { CollationSchema, FoliationSchema, SupportSchema } from ".";
-import { ConditionSchema } from "../../header";
 
 /**
  * Base schema with attribute, to simplify types for SupportDescSchema

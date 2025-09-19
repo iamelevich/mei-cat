@@ -8,6 +8,26 @@ import {
 	RepeatMarkSchema,
 } from "../../cmn";
 import {
+	type ModelStageDirLikeData,
+	ModelStageDirLikeSchema,
+	type SpData,
+	SpSchema,
+} from "../../drama";
+import {
+	type CpMarkData,
+	CpMarkSchema,
+	type MetaMarkData,
+	MetaMarkSchema,
+} from "../../edittrans";
+import {
+	type ModelFingeringLikeData,
+	ModelFingeringLikeSchema,
+} from "../../fingering";
+import {
+	type ModelControlEventLikeHarmonyData,
+	ModelControlEventLikeHarmonySchema,
+} from "../../harmony";
+import {
 	type CaesuraData,
 	CaesuraSchema,
 	type DirData,
@@ -21,26 +41,6 @@ import {
 	type TempoData,
 	TempoSchema,
 } from "..";
-import {
-	type CpMarkData,
-	CpMarkSchema,
-	type MetaMarkData,
-	MetaMarkSchema,
-} from "../../edittrans";
-import {
-	type SpData,
-	SpSchema,
-	type ModelStageDirLikeData,
-	ModelStageDirLikeSchema,
-} from "../../drama";
-import {
-	type ModelControlEventLikeHarmonyData,
-	ModelControlEventLikeHarmonySchema,
-} from "../../harmony";
-import {
-	type ModelFingeringLikeData,
-	ModelFingeringLikeSchema,
-} from "../../fingering";
 
 /**
  * Groups elements, such as dynamics, ties, phrase marks, pedal marks, etc., which depend upon other events, such as notes or rests, for their existence.

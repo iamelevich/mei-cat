@@ -1,15 +1,15 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
 import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import {
 	AttrCommonSchema,
 	AttrLangSchema,
 	ModelTextPhraseLikeSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
 
 /**
  * Base schema with attribute, to simplify types for AddrLineSchema

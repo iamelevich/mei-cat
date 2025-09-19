@@ -1,5 +1,7 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrRecordTypeSchema } from "../../header";
+import { AttrComponentTypeSchema } from "../../msDesc";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
@@ -8,8 +10,6 @@ import {
 	AttrTargetEvalSchema,
 	ModelRespLikePartSchema,
 } from "..";
-import { AttrComponentTypeSchema } from "../../msDesc";
-import { AttrRecordTypeSchema } from "../../header";
 import {
 	BiblScopeSchema,
 	IdentifierSchema,

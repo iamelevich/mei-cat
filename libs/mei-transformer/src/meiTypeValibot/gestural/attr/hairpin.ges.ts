@@ -1,6 +1,6 @@
 import * as v from "valibot";
+import { AttrMidiValue2Schema, AttrMidiValueSchema } from "../../midi";
 import { AttrDurationGesSchema, AttrTimestamp2GesSchema } from "..";
-import { AttrMidiValueSchema, AttrMidiValue2Schema } from "../../midi";
 
 /**
  * Gestural domain attributes..

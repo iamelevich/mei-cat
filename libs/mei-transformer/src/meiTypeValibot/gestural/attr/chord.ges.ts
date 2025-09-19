@@ -1,7 +1,7 @@
 import * as v from "valibot";
-import { AttrArticulationGesSchema, AttrDurationGesSchema } from "..";
 import { AttrChordGesCmnSchema } from "../../cmn";
 import { AttrInstrumentIdentSchema } from "../../midi";
+import { AttrArticulationGesSchema, AttrDurationGesSchema } from "..";
 
 /**
  * Gestural domain attributes..

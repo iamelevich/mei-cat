@@ -1,20 +1,20 @@
 import * as v from "valibot";
+import { AttrDirAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrDirGesSchema } from "../../gestural";
+import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
+import { AttrDirVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	AttrDirLogSchema,
 	AttrLangSchema,
 	ModelTextPhraseLikeLimitedSchema,
 } from "..";
-import { AttrDirAnlSchema } from "../../analytical";
-import { AttrDirGesSchema } from "../../gestural";
-import { AttrDirVisSchema } from "../../visual";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
 
 /**
  * Base schema with attribute, to simplify types for DirSchema

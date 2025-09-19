@@ -1,14 +1,14 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrAmbitusAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrAmbitusGesSchema } from "../../gestural";
+import { AttrAmbitusVisSchema } from "../../visual";
 import {
 	AttrAmbitusLogSchema,
 	AttrCommonSchema,
 	AttrMetadataPointingSchema,
 } from "..";
-import { AttrAmbitusVisSchema } from "../../visual";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AmbNoteSchema } from ".";
 
 /**

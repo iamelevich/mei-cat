@@ -1,5 +1,17 @@
 import * as v from "valibot";
+import { AttrRdgAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrRdgGesSchema } from "../../gestural";
+import { ModelFLikeSchema } from "../../harmony";
+import {
+	ModelNeumeComponentModifierLikeSchema,
+	ModelNeumeModifierLikeSchema,
+	ModelNeumePartSchema,
+} from "../../neumes";
 import {
 	AttrCommonSchema,
 	AttrPointingSchema,
@@ -10,27 +22,15 @@ import {
 	ModelSectionPartSchema,
 	ModelStaffGrpLikeSchema,
 } from "../../shared";
+import { ModelDivLikeSchema } from "../../text";
+import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
+import { AttrRdgVisSchema } from "../../visual";
 import {
 	AttrCritSchema,
 	AttrRdgLogSchema,
 	ModelAppLikeSchema,
 	ModelRdgPartSchema,
 } from "..";
-import { AttrRdgAnlSchema } from "../../analytical";
-import { AttrRdgGesSchema } from "../../gestural";
-import { AttrRdgVisSchema } from "../../visual";
-import { ModelDivLikeSchema } from "../../text";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { ModelFLikeSchema } from "../../harmony";
-import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
-import {
-	ModelNeumeComponentModifierLikeSchema,
-	ModelNeumeModifierLikeSchema,
-	ModelNeumePartSchema,
-} from "../../neumes";
 
 /**
  * Base schema with attribute, to simplify types for LemSchema

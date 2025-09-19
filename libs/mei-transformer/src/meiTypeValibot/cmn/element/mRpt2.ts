@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrMRpt2AnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrMRpt2GesSchema } from "../../gestural";
-import { AttrMRpt2LogSchema } from "..";
+import { AttrCommonSchema } from "../../shared";
 import { AttrMRpt2VisSchema } from "../../visual";
+import { AttrMRpt2LogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for MRpt2Schema

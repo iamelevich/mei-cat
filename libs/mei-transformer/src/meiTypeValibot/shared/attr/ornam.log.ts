@@ -1,11 +1,11 @@
 import * as v from "valibot";
+import { AttrOrnamentAccidSchema } from "../../cmnOrnaments";
 import {
 	AttrControlEventSchema,
 	AttrDurationAdditiveSchema,
 	AttrStartEndIdSchema,
 	AttrTimestamp2LogSchema,
 } from "..";
-import { AttrOrnamentAccidSchema } from "../../cmnOrnaments";
 
 /**
  * Logical domain attributes..

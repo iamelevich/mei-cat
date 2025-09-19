@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrTurnAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrTurnGesSchema } from "../../gestural";
-import { AttrTurnLogSchema } from "..";
+import { AttrCommonSchema } from "../../shared";
 import { AttrTurnVisSchema } from "../../visual";
+import { AttrTurnLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for TurnSchema

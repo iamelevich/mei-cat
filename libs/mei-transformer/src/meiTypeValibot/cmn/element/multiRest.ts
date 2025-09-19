@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrMultiRestAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrMultiRestGesSchema } from "../../gestural";
-import { AttrMultiRestLogSchema } from "..";
+import { AttrCommonSchema } from "../../shared";
 import { AttrMultiRestVisSchema } from "../../visual";
+import { AttrMultiRestLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for MultiRestSchema

@@ -1,5 +1,6 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrRecordTypeSchema } from "../../header";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
@@ -9,7 +10,6 @@ import {
 	AttrTargetEvalSchema,
 	ModelAnnotLikeSchema,
 } from "..";
-import { AttrRecordTypeSchema } from "../../header";
 import {
 	AnalyticSchema,
 	IdentifierSchema,

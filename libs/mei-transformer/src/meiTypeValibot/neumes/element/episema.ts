@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
 import { AttrEpisemaAnlSchema } from "../../analytical";
-import { AttrEpisemaGesSchema } from "../../gestural";
-import { AttrEpisemaLogSchema } from "..";
-import { AttrEpisemaVisSchema } from "../../visual";
+import { StandardTagSchema } from "../../common";
 import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrEpisemaGesSchema } from "../../gestural";
+import { AttrCommonSchema } from "../../shared";
+import { AttrEpisemaVisSchema } from "../../visual";
+import { AttrEpisemaLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for EpisemaSchema

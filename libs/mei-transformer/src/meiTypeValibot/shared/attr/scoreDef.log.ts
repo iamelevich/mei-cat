@@ -1,4 +1,6 @@
 import * as v from "valibot";
+import { AttrScoreDefLogCmnSchema } from "../../cmn";
+import { AttrScoreDefLogMensuralSchema } from "../../mensural";
 import {
 	AttrCleffingLogSchema,
 	AttrDurationDefaultSchema,
@@ -7,8 +9,6 @@ import {
 	AttrOctaveDefaultSchema,
 	AttrTranspositionSchema,
 } from "..";
-import { AttrScoreDefLogCmnSchema } from "../../cmn";
-import { AttrScoreDefLogMensuralSchema } from "../../mensural";
 
 /**
  * Logical domain attributes for scoreDef in the CMN repertoire. The values set in these attributes act as score-wide defaults for attributes that are not set in descendant elements..

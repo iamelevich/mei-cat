@@ -1,6 +1,11 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
 import {
+	AttrComponentTypeSchema,
+	LocusGrpSchema,
+	LocusSchema,
+} from "../../msDesc";
+import {
 	AttrAuthorizedSchema,
 	AttrBiblSchema,
 	AttrCommonSchema,
@@ -10,11 +15,6 @@ import {
 	ModelBiblLikeSchema,
 	ModelHeadLikeSchema,
 } from "../../shared";
-import {
-	AttrComponentTypeSchema,
-	LocusSchema,
-	LocusGrpSchema,
-} from "../../msDesc";
 import { AttrRecordTypeSchema } from "..";
 
 /**

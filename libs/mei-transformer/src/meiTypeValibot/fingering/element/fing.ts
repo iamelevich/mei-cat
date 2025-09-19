@@ -1,18 +1,18 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import {
-	AttrCommonSchema,
-	ModelTextPhraseLikeLimitedSchema,
-} from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrFingAnlSchema } from "../../analytical";
-import { AttrFingGesSchema } from "../../gestural";
-import { AttrFingLogSchema } from "..";
-import { AttrFingVisSchema } from "../../visual";
+import { StandardTagSchema } from "../../common";
 import {
 	ModelEditLikeSchema,
 	ModelTranscriptionLikeSchema,
 } from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrFingGesSchema } from "../../gestural";
+import {
+	AttrCommonSchema,
+	ModelTextPhraseLikeLimitedSchema,
+} from "../../shared";
+import { AttrFingVisSchema } from "../../visual";
+import { AttrFingLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for FingSchema

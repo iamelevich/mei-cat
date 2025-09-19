@@ -1,14 +1,14 @@
 import * as v from "valibot";
+import { AttrGrpSymAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrGrpSymGesSchema } from "../../gestural";
+import { AttrGrpSymVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	AttrGrpSymLogSchema,
 	ModelLabelLikeSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrGrpSymAnlSchema } from "../../analytical";
-import { AttrGrpSymGesSchema } from "../../gestural";
-import { AttrGrpSymVisSchema } from "../../visual";
 
 /**
  * Base schema with attribute, to simplify types for GrpSymSchema

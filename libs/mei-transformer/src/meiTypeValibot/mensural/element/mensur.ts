@@ -1,9 +1,9 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, AttrMensurLogSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrMensurAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrMensurGesSchema } from "../../gestural";
+import { AttrCommonSchema, AttrMensurLogSchema } from "../../shared";
 import { AttrMensurVisSchema } from "../../visual";
 
 /**

@@ -3,20 +3,20 @@ import { StandardTagSchema } from "../../common";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
-	BiblScopeSchema,
 	type BiblScopeData,
-	ModelHeadLikeSchema,
+	BiblScopeSchema,
 	type ModelHeadLikeData,
-	ModelIdentifierLikeSchema,
+	ModelHeadLikeSchema,
 	type ModelIdentifierLikeData,
-	ModelRespLikePartSchema,
+	ModelIdentifierLikeSchema,
 	type ModelRespLikePartData,
-	ModelTitleLikeSchema,
+	ModelRespLikePartSchema,
 	type ModelTitleLikeData,
-	RespStmtSchema,
+	ModelTitleLikeSchema,
 	type RespStmtData,
+	RespStmtSchema,
 } from "../../shared";
-import { ContentsSchema, type ContentsData } from ".";
+import { type ContentsData, ContentsSchema } from ".";
 
 /**
  * Base schema with attribute, to simplify types for SeriesStmtSchema

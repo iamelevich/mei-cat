@@ -1,15 +1,15 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrBeatRptAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrBeatRptGesSchema } from "../../gestural";
-import { AttrBeatRptLogSchema } from "..";
-import { AttrBeatRptVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	AttrPlistSchema,
 	AttrTargetEvalSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrBeatRptVisSchema } from "../../visual";
+import { AttrBeatRptLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for BeatRptSchema

@@ -1,16 +1,16 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrBeamAnlSchema } from "../../analytical";
-import { AttrBeamGesSchema } from "../../gestural";
-import { AttrBeamLogSchema, ModelEventLikeCmnSchema } from "..";
-import { AttrBeamVisSchema } from "../../visual";
-import { AttrCommonSchema, ModelEventLikeSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
+import { StandardTagSchema } from "../../common";
 import { ModelAppLikeSchema } from "../../critapp";
 import {
 	ModelEditLikeSchema,
 	ModelTranscriptionLikeSchema,
 } from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrBeamGesSchema } from "../../gestural";
+import { AttrCommonSchema, ModelEventLikeSchema } from "../../shared";
+import { AttrBeamVisSchema } from "../../visual";
+import { AttrBeamLogSchema, ModelEventLikeCmnSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for BeamSchema

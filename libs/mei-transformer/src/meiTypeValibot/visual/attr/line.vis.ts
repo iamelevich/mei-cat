@@ -2,10 +2,10 @@ import * as v from "valibot";
 import {
 	AttrColorSchema,
 	AttrPlacementRelStaffSchema,
-	AttrVisualOffsetSchema,
 	AttrVisualOffset2Schema,
-	AttrXySchema,
+	AttrVisualOffsetSchema,
 	AttrXy2Schema,
+	AttrXySchema,
 } from "../../shared";
 
 /**

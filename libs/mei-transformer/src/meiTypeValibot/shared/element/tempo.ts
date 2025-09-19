@@ -1,5 +1,14 @@
 import * as v from "valibot";
+import { AttrTempoAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrTempoGesSchema } from "../../gestural";
+import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
+import { AttrTempoVisSchema } from "../../visual";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
@@ -7,15 +16,6 @@ import {
 	AttrTempoLogSchema,
 	ModelTextPhraseLikeLimitedSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrTempoAnlSchema } from "../../analytical";
-import { AttrTempoGesSchema } from "../../gestural";
-import { AttrTempoVisSchema } from "../../visual";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
 
 /**
  * Base schema with attribute, to simplify types for TempoSchema

@@ -1,15 +1,15 @@
 import * as v from "valibot";
+import { AttrKeySigAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { ModelTranscriptionLikeSchema } from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrKeySigGesSchema } from "../../gestural";
+import { AttrKeySigVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	AttrKeySigLogSchema,
 	ModelKeyAccidLikeSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrKeySigAnlSchema } from "../../analytical";
-import { AttrKeySigGesSchema } from "../../gestural";
-import { AttrKeySigVisSchema } from "../../visual";
-import { ModelTranscriptionLikeSchema } from "../../edittrans";
 
 /**
  * Base schema with attribute, to simplify types for KeySigSchema

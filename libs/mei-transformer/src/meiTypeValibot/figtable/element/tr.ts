@@ -1,7 +1,7 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, AttrLangSchema, AttrXySchema } from "../../shared";
 import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrCommonSchema, AttrLangSchema, AttrXySchema } from "../../shared";
 import { TdSchema, ThSchema } from ".";
 
 /**

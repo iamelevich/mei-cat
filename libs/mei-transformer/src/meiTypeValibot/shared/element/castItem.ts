@@ -1,9 +1,9 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrBiblSchema, AttrCommonSchema, AttrLangSchema } from "..";
 import { AttrFacsimileSchema } from "../../facsimile";
-import { ActorSchema, RoleSchema, RoleDescSchema } from ".";
 import { PerfResSchema } from "../../header";
+import { AttrBiblSchema, AttrCommonSchema, AttrLangSchema } from "..";
+import { ActorSchema, RoleDescSchema, RoleSchema } from ".";
 
 /**
  * Base schema with attribute, to simplify types for CastItemSchema

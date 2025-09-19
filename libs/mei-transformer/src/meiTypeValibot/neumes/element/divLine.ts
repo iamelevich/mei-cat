@@ -1,5 +1,7 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrExtSymSchema } from "../../externalsymbols";
+import { AttrFacsimileSchema } from "../../facsimile";
 import {
 	AttrBasicSchema,
 	AttrClassedSchema,
@@ -14,8 +16,6 @@ import {
 	AttrXySchema,
 } from "../../shared";
 import { AttrDivLineLogSchema } from "..";
-import { AttrExtSymSchema } from "../../externalsymbols";
-import { AttrFacsimileSchema } from "../../facsimile";
 
 /**
  * Base schema with attribute, to simplify types for DivLineSchema

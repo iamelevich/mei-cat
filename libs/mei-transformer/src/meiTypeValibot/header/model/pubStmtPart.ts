@@ -1,21 +1,21 @@
 import * as v from "valibot";
-import { type AvailabilityData, AvailabilitySchema } from "..";
 import {
 	type DistributorData,
 	DistributorSchema,
-	type PubPlaceData,
-	PubPlaceSchema,
-	type PublisherData,
-	PublisherSchema,
-	type RespStmtData,
-	RespStmtSchema,
 	type ModelAddressLikeData,
 	ModelAddressLikeSchema,
 	type ModelDateLikeData,
 	ModelDateLikeSchema,
 	type ModelIdentifierLikeData,
 	ModelIdentifierLikeSchema,
+	type PublisherData,
+	PublisherSchema,
+	type PubPlaceData,
+	PubPlaceSchema,
+	type RespStmtData,
+	RespStmtSchema,
 } from "../../shared";
+import { type AvailabilityData, AvailabilitySchema } from "..";
 
 /**
  * Groups elements that may appear as part of the publication statement for a bibliographic item.

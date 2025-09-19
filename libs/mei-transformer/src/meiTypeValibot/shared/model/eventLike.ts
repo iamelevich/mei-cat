@@ -1,15 +1,20 @@
 import * as v from "valibot";
+import { type TabGrpData, TabGrpSchema } from "../../stringtab";
 import {
 	type BarLineData,
 	BarLineSchema,
 	type ChordData,
 	ChordSchema,
 	type ClefData,
-	ClefSchema,
 	type ClefGrpData,
 	ClefGrpSchema,
+	ClefSchema,
 	type CustosData,
 	CustosSchema,
+	type ModelKeySigLikeData,
+	ModelKeySigLikeSchema,
+	type ModelMeterSigLikeData,
+	ModelMeterSigLikeSchema,
 	type NoteData,
 	NoteSchema,
 	type PadData,
@@ -18,12 +23,7 @@ import {
 	RestSchema,
 	type SpaceData,
 	SpaceSchema,
-	type ModelKeySigLikeData,
-	ModelKeySigLikeSchema,
-	type ModelMeterSigLikeData,
-	ModelMeterSigLikeSchema,
 } from "..";
-import { type TabGrpData, TabGrpSchema } from "../../stringtab";
 
 /**
  * Groups event elements that occur in all notational repertoires.

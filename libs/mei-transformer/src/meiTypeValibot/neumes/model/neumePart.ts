@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { type NcData, NcSchema, type NcGrpData, NcGrpSchema } from "..";
+import { type NcData, type NcGrpData, NcGrpSchema, NcSchema } from "..";
 
 /**
  * Groups elements that may occur within a neume.

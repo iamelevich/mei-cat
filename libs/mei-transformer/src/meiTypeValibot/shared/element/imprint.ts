@@ -1,13 +1,13 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { ModelTranscriptionLikeSchema } from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
 	ModelImprintPartSchema,
 	ModelTextPhraseLikeSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { ModelTranscriptionLikeSchema } from "../../edittrans";
 import { RespStmtSchema } from ".";
 
 /**

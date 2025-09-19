@@ -1,16 +1,16 @@
 import * as v from "valibot";
+import { AttrMNumAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrMNumGesSchema } from "../../gestural";
 import {
 	AttrCommonSchema,
 	AttrLangSchema,
 	ModelLbLikeSchema,
 	ModelRendLikeSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrMNumAnlSchema } from "../../analytical";
-import { AttrMNumGesSchema } from "../../gestural";
-import { AttrMNumLogSchema } from "..";
 import { AttrMNumVisSchema } from "../../visual";
+import { AttrMNumLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for MNumSchema

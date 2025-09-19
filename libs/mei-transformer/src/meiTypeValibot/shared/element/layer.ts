@@ -1,5 +1,16 @@
 import * as v from "valibot";
+import { AttrLayerAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { ModelAppLikeSchema } from "../../critapp";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrLayerGesSchema } from "../../gestural";
+import { DivLineSchema } from "../../neumes";
+import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
+import { AttrLayerVisSchema } from "../../visual";
 import {
 	AttrBasicSchema,
 	AttrLabelledSchema,
@@ -13,17 +24,6 @@ import {
 	ModelLayerPartSchema,
 	ModelMilestoneLikeMusicSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrLayerAnlSchema } from "../../analytical";
-import { AttrLayerGesSchema } from "../../gestural";
-import { AttrLayerVisSchema } from "../../visual";
-import { DivLineSchema } from "../../neumes";
-import { ModelAppLikeSchema } from "../../critapp";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
 
 /**
  * Base schema with attribute, to simplify types for LayerSchema

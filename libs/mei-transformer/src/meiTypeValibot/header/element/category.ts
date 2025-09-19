@@ -5,12 +5,12 @@ import {
 	AttrBiblSchema,
 	AttrCommonSchema,
 	AttrDataPointingSchema,
-	DescSchema,
 	type DescData,
-	LabelSchema,
+	DescSchema,
 	type LabelData,
+	LabelSchema,
 } from "../../shared";
-import { AltIdSchema, type AltIdData, CatRelSchema, type CatRelData } from ".";
+import { type AltIdData, AltIdSchema, type CatRelData, CatRelSchema } from ".";
 
 /**
  * Base schema with attribute, to simplify types for CategorySchema

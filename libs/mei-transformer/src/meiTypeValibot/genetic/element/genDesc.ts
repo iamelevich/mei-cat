@@ -1,7 +1,7 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
 import { AttrCommonSchema, AttrMetadataPointingSchema } from "../../shared";
-import { GenStateSchema, type GenStateData } from ".";
+import { type GenStateData, GenStateSchema } from ".";
 
 /**
  * Base schema with attribute, to simplify types for GenDescSchema

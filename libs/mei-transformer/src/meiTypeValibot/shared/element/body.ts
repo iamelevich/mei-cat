@@ -1,11 +1,11 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { ModelDivLikeSchema } from "../../text";
 import {
 	AttrCommonSchema,
 	AttrMetadataPointingSchema,
 	ModelMdivLikeSchema,
 } from "..";
-import { ModelDivLikeSchema } from "../../text";
 
 /**
  * Base schema with attribute, to simplify types for BodySchema

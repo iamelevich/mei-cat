@@ -1,8 +1,8 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrCommonSchema, AttrMediumSchema } from "../../shared";
 import { AttrEditSchema } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
 
 /**
  * Base schema with attribute, to simplify types for HandShiftSchema

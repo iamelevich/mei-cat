@@ -1,12 +1,12 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrTransSchema } from "../../edittrans";
 import {
 	AttrCommonSchema,
 	AttrEvidenceSchema,
 	AttrMeasurementSchema,
 	AttrXySchema,
 } from "../../shared";
-import { AttrTransSchema } from "../../edittrans";
 import { ModelBifoliumLikeSchema, ModelFoliumLikeSchema } from "..";
 
 /**

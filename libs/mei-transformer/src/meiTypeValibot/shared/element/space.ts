@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, AttrSpaceLogSchema } from "..";
-import { AttrDurationQualitySchema } from "../../mensural";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrSpaceAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrSpaceGesSchema } from "../../gestural";
+import { AttrDurationQualitySchema } from "../../mensural";
 import { AttrSpaceVisSchema } from "../../visual";
+import { AttrCommonSchema, AttrSpaceLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for SpaceSchema

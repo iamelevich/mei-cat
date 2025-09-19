@@ -1,4 +1,5 @@
 import * as v from "valibot";
+import { AttrTimestampGesSchema } from "../../gestural";
 import { AttrAlignmentSchema } from "../../performance";
 import {
 	AttrPartIdentSchema,
@@ -6,7 +7,6 @@ import {
 	AttrStartIdSchema,
 	AttrTimestampLogSchema,
 } from "../../shared";
-import { AttrTimestampGesSchema } from "../../gestural";
 
 /**
  * Logical domain attributes..

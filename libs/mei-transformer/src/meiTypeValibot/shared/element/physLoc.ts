@@ -1,5 +1,7 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { HistorySchema } from "../../header";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
@@ -7,8 +9,6 @@ import {
 	ModelIdentifierLikeSchema,
 	ModelRepositoryLikeSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { HistorySchema } from "../../header";
 
 /**
  * Base schema with attribute, to simplify types for PhysLocSchema

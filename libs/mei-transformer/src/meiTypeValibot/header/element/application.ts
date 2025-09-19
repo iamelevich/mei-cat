@@ -1,12 +1,12 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { ModelLocrefLikeSchema } from "../../ptrref";
 import {
 	AttrCommonSchema,
 	AttrDatableSchema,
 	ModelPLikeSchema,
 	NameSchema,
 } from "../../shared";
-import { ModelLocrefLikeSchema } from "../../ptrref";
 
 /**
  * Base schema with attribute, to simplify types for ApplicationSchema

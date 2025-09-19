@@ -1,20 +1,20 @@
 import * as v from "valibot";
 import {
-	type DescData,
-	DescSchema,
-	type NameData,
-	NameSchema,
-	type ModelAddressLikeData,
-	ModelAddressLikeSchema,
-	type ModelDateLikeData,
-	ModelDateLikeSchema,
-} from "../../shared";
-import {
 	type ModelNameLikeAgentData,
 	ModelNameLikeAgentSchema,
 	type ModelNameLikeGeogNameData,
 	ModelNameLikeGeogNameSchema,
 } from "../../namesdates";
+import {
+	type DescData,
+	DescSchema,
+	type ModelAddressLikeData,
+	ModelAddressLikeSchema,
+	type ModelDateLikeData,
+	ModelDateLikeSchema,
+	type NameData,
+	NameSchema,
+} from "../../shared";
 
 /**
  * Groups elements that may be used to provide a structured description of an event.

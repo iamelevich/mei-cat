@@ -1,11 +1,11 @@
 import * as v from "valibot";
+import { type ModelOssiaLikeData, ModelOssiaLikeSchema } from "../../cmn";
 import {
 	type ModelLayerLikeData,
 	ModelLayerLikeSchema,
 	type ModelStaffPartMensuralAndNeumesData,
 	ModelStaffPartMensuralAndNeumesSchema,
 } from "..";
-import { type ModelOssiaLikeData, ModelOssiaLikeSchema } from "../../cmn";
 
 /**
  * Groups elements that are components of a staff.

@@ -1,6 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrAttaccaAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrAttaccaGesSchema } from "../../gestural";
 import {
 	AttrAttaccaLogSchema,
@@ -8,13 +13,8 @@ import {
 	AttrLangSchema,
 	ModelTextPhraseLikeLimitedSchema,
 } from "../../shared";
-import { AttrAttaccaVisSchema } from "../../visual";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
 import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
+import { AttrAttaccaVisSchema } from "../../visual";
 
 /**
  * Base schema with attribute, to simplify types for AttaccaSchema

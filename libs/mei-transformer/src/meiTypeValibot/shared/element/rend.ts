@@ -1,6 +1,11 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
 import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrExtSymAuthSchema } from "../../externalsymbols";
+import {
 	AttrColorSchema,
 	AttrCommonSchema,
 	AttrHorizontalAlignSchema,
@@ -11,11 +16,6 @@ import {
 	AttrWhitespaceSchema,
 	ModelTextPhraseLikeSchema,
 } from "..";
-import { AttrExtSymAuthSchema } from "../../externalsymbols";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
 
 /**
  * Base schema with attribute, to simplify types for RendSchema

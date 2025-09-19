@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrPlicaAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrPlicaGesSchema } from "../../gestural";
-import { AttrPlicaLogSchema } from "..";
+import { AttrCommonSchema } from "../../shared";
 import { AttrPlicaVisSchema } from "../../visual";
+import { AttrPlicaLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for PlicaSchema

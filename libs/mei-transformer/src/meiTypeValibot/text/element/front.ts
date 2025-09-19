@@ -1,5 +1,7 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { ModelFrontAndBackPartSchema } from "../../header";
 import {
 	AttrCommonSchema,
 	AttrLangSchema,
@@ -7,9 +9,7 @@ import {
 	ModelMilestoneLikeTextSchema,
 	ModelRelationLikeSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { ModelDivLikeSchema } from "..";
-import { ModelFrontAndBackPartSchema } from "../../header";
 
 /**
  * Base schema with attribute, to simplify types for FrontSchema

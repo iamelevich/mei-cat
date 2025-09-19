@@ -1,5 +1,11 @@
 import * as v from "valibot";
+import { AttrScoreDefAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { AttrScoreDefGesSchema } from "../../gestural";
+import { ModelChordTableLikeSchema } from "../../harmony";
+import { InstrGrpSchema } from "../../midi";
+import { ModelSymbolTableLikeSchema } from "../../usersymbols";
+import { AttrScoreDefVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	AttrScoreDefLogSchema,
@@ -7,13 +13,7 @@ import {
 	ModelMeterSigLikeSchema,
 	ModelStaffGrpLikeSchema,
 } from "..";
-import { AttrScoreDefAnlSchema } from "../../analytical";
-import { AttrScoreDefGesSchema } from "../../gestural";
-import { AttrScoreDefVisSchema } from "../../visual";
 import { AmbitusSchema, GrpSymSchema, PgFootSchema, PgHeadSchema } from ".";
-import { InstrGrpSchema } from "../../midi";
-import { ModelChordTableLikeSchema } from "../../harmony";
-import { ModelSymbolTableLikeSchema } from "../../usersymbols";
 
 /**
  * Base schema with attribute, to simplify types for ScoreDefSchema

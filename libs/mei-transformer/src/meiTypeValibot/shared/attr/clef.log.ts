@@ -2,8 +2,8 @@ import * as v from "valibot";
 import {
 	AttrClefShapeSchema,
 	AttrLineLocSchema,
-	AttrOctaveSchema,
 	AttrOctaveDisplacementSchema,
+	AttrOctaveSchema,
 } from "..";
 
 /**

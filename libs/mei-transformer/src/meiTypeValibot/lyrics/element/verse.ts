@@ -1,24 +1,24 @@
 import * as v from "valibot";
+import { AttrVerseAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { ModelAppLikeSchema } from "../../critapp";
+import { ModelEditLikeSchema } from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrVerseGesSchema } from "../../gestural";
 import {
 	AttrCommonSchema,
 	AttrLangSchema,
 	DirSchema,
 	DynamSchema,
-	LabelSchema,
 	LabelAbbrSchema,
+	LabelSchema,
 	ModelLbLikeSchema,
 	ModelSylLikeSchema,
 	SpaceSchema,
 	TempoSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrVerseAnlSchema } from "../../analytical";
-import { AttrVerseGesSchema } from "../../gestural";
-import { AttrVerseLogSchema } from "..";
 import { AttrVerseVisSchema } from "../../visual";
-import { ModelAppLikeSchema } from "../../critapp";
-import { ModelEditLikeSchema } from "../../edittrans";
+import { AttrVerseLogSchema } from "..";
 import { VoltaSchema } from ".";
 
 /**

@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrChordDefAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
 import { AttrChordDefGesSchema } from "../../gestural";
-import { AttrChordDefLogSchema } from "..";
-import { AttrChordDefVisSchema } from "../../visual";
 import { AttrCommonSchema } from "../../shared";
 import { BarreSchema } from "../../stringtab";
+import { AttrChordDefVisSchema } from "../../visual";
+import { AttrChordDefLogSchema } from "..";
 import { ChordMemberSchema } from ".";
 
 /**

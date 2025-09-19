@@ -1,5 +1,9 @@
 import * as v from "valibot";
+import { AttrPbAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrPbGesSchema } from "../../gestural";
+import { AttrPbVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	AttrPbLogSchema,
@@ -7,10 +11,6 @@ import {
 	AttrSourceSchema,
 	MacroMetaLikePageSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrPbAnlSchema } from "../../analytical";
-import { AttrPbGesSchema } from "../../gestural";
-import { AttrPbVisSchema } from "../../visual";
 
 /**
  * Base schema with attribute, to simplify types for PbSchema

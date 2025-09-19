@@ -1,5 +1,15 @@
 import * as v from "valibot";
+import { AttrPartAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { ModelAppLikeSchema } from "../../critapp";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrPartGesSchema } from "../../gestural";
+import { ModelDivLikeSchema } from "../../text";
+import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
+import { AttrPartVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	AttrMetadataPointingSchema,
@@ -10,16 +20,6 @@ import {
 	ModelScorePartSchema,
 	ModelStaffDefLikeSchema,
 } from "..";
-import { AttrPartAnlSchema } from "../../analytical";
-import { AttrPartGesSchema } from "../../gestural";
-import { AttrPartVisSchema } from "../../visual";
-import { ModelAppLikeSchema } from "../../critapp";
-import { ModelDivLikeSchema } from "../../text";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
 
 /**
  * Base schema with attribute, to simplify types for PartSchema

@@ -6,8 +6,8 @@ import {
 	AttrPartIdentSchema,
 	AttrStaffIdentSchema,
 	AttrStartEndIdSchema,
-	AttrTimestampLogSchema,
 	AttrTimestamp2LogSchema,
+	AttrTimestampLogSchema,
 } from "..";
 
 /**

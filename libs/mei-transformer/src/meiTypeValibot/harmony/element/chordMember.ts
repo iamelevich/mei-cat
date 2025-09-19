@@ -1,10 +1,10 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrChordMemberAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
 import { AttrChordMemberGesSchema } from "../../gestural";
-import { AttrChordMemberLogSchema } from "..";
-import { AttrChordMemberVisSchema } from "../../visual";
 import { AttrCommonSchema } from "../../shared";
+import { AttrChordMemberVisSchema } from "../../visual";
+import { AttrChordMemberLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for ChordMemberSchema

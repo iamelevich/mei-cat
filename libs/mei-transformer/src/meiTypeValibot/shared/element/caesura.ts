@@ -1,10 +1,10 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrCaesuraAnlSchema } from "../../analytical";
-import { AttrCaesuraGesSchema } from "../../gestural";
-import { AttrCaesuraLogSchema, AttrCommonSchema } from "..";
-import { AttrCaesuraVisSchema } from "../../visual";
+import { StandardTagSchema } from "../../common";
 import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrCaesuraGesSchema } from "../../gestural";
+import { AttrCaesuraVisSchema } from "../../visual";
+import { AttrCaesuraLogSchema, AttrCommonSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for CaesuraSchema

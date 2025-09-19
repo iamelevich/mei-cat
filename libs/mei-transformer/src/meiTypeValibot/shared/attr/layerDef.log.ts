@@ -1,10 +1,10 @@
 import * as v from "valibot";
+import { AttrLayerDefLogCmnSchema } from "../../cmn";
 import {
 	AttrDurationDefaultSchema,
 	AttrOctaveDefaultSchema,
 	AttrTranspositionSchema,
 } from "..";
-import { AttrLayerDefLogCmnSchema } from "../../cmn";
 
 /**
  * Logical domain attributes..

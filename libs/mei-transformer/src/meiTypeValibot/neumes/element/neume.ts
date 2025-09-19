@@ -1,5 +1,13 @@
 import * as v from "valibot";
+import { AttrNeumeAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { ModelAppLikeSchema } from "../../critapp";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrNeumeGesSchema } from "../../gestural";
 import {
 	AttrBasicSchema,
 	AttrClassedSchema,
@@ -8,20 +16,12 @@ import {
 	AttrNNumberLikeSchema,
 	AttrResponsibilitySchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrNeumeAnlSchema } from "../../analytical";
-import { AttrNeumeGesSchema } from "../../gestural";
+import { AttrNeumeVisSchema } from "../../visual";
 import {
 	AttrNeumeLogSchema,
 	ModelNeumeModifierLikeSchema,
 	ModelNeumePartSchema,
 } from "..";
-import { AttrNeumeVisSchema } from "../../visual";
-import { ModelAppLikeSchema } from "../../critapp";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
 
 /**
  * Base schema with attribute, to simplify types for NeumeSchema

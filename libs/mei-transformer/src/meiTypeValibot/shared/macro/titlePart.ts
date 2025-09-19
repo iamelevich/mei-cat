@@ -1,5 +1,16 @@
 import * as v from "valibot";
 import {
+	type ModelFigureLikeData,
+	ModelFigureLikeSchema,
+} from "../../figtable";
+import {
+	type ModelAddressPartData,
+	ModelAddressPartSchema,
+	type ModelNameLikeLabelData,
+	ModelNameLikeLabelSchema,
+} from "../../namesdates";
+import { type ModelLocrefLikeData, ModelLocrefLikeSchema } from "../../ptrref";
+import {
 	type ModelAddressLikeData,
 	ModelAddressLikeSchema,
 	type ModelAnnotLikeData,
@@ -25,17 +36,6 @@ import {
 	type SymbolData,
 	SymbolSchema,
 } from "..";
-import {
-	type ModelAddressPartData,
-	ModelAddressPartSchema,
-	type ModelNameLikeLabelData,
-	ModelNameLikeLabelSchema,
-} from "../../namesdates";
-import {
-	type ModelFigureLikeData,
-	ModelFigureLikeSchema,
-} from "../../figtable";
-import { type ModelLocrefLikeData, ModelLocrefLikeSchema } from "../../ptrref";
 
 /**
  * Groups elements that may appear as part of a bibliographic title.

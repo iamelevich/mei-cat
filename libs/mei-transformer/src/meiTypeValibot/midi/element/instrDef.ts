@@ -1,5 +1,7 @@
 import * as v from "valibot";
+import { AttrInstrDefAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { AttrInstrDefGesSchema } from "../../gestural";
 import {
 	AttrBasicSchema,
 	AttrLabelledSchema,
@@ -9,10 +11,8 @@ import {
 	AttrResponsibilitySchema,
 	AttrTypedSchema,
 } from "../../shared";
-import { AttrInstrDefAnlSchema } from "../../analytical";
-import { AttrInstrDefGesSchema } from "../../gestural";
-import { AttrInstrDefLogSchema } from "..";
 import { AttrInstrDefVisSchema } from "../../visual";
+import { AttrInstrDefLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for InstrDefSchema

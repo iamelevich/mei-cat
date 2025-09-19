@@ -1,7 +1,7 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, AttrSourceSchema } from "..";
 import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrCommonSchema, AttrSourceSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for LbSchema

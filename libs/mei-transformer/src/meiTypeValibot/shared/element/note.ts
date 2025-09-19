@@ -1,22 +1,22 @@
 import * as v from "valibot";
+import { AttrNoteAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { ModelAppLikeSchema } from "../../critapp";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrNoteGesSchema } from "../../gestural";
+import { ModelVerseLikeSchema } from "../../lyrics";
+import { PlicaSchema, StemSchema } from "../../mensural";
+import { AttrNoteVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	AttrNoteLogSchema,
 	ModelNoteModifierLikeSchema,
 	ModelSylLikeSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrNoteAnlSchema } from "../../analytical";
-import { AttrNoteGesSchema } from "../../gestural";
-import { AttrNoteVisSchema } from "../../visual";
-import { ModelAppLikeSchema } from "../../critapp";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { ModelVerseLikeSchema } from "../../lyrics";
-import { PlicaSchema, StemSchema } from "../../mensural";
 
 /**
  * Base schema with attribute, to simplify types for NoteSchema

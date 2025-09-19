@@ -1,5 +1,9 @@
 import * as v from "valibot";
 import {
+	type ModelSectionPartCmnData,
+	ModelSectionPartCmnSchema,
+} from "../../cmn";
+import {
 	type ModelEndingLikeData,
 	ModelEndingLikeSchema,
 	type ModelScoreDefLikeData,
@@ -11,10 +15,6 @@ import {
 	type ModelStaffDefLikeData,
 	ModelStaffDefLikeSchema,
 } from "..";
-import {
-	type ModelSectionPartCmnData,
-	ModelSectionPartCmnSchema,
-} from "../../cmn";
 
 /**
  * Groups elements that may appear as part of a section.

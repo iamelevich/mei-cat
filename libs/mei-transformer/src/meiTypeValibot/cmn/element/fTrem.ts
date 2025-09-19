@@ -1,16 +1,16 @@
 import * as v from "valibot";
+import { AttrFTremAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrFTremGesSchema } from "../../gestural";
 import {
 	AttrCommonSchema,
 	ChordSchema,
 	ClefSchema,
 	NoteSchema,
 } from "../../shared";
-import { AttrFTremAnlSchema } from "../../analytical";
-import { AttrFTremGesSchema } from "../../gestural";
-import { AttrFTremLogSchema } from "..";
 import { AttrFTremVisSchema } from "../../visual";
-import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrFTremLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for FTremSchema

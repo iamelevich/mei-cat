@@ -1,13 +1,13 @@
 import * as v from "valibot";
+import { AttrNoteGesMensuralSchema } from "../../mensural";
+import { AttrInstrumentIdentSchema, AttrMidiVelocitySchema } from "../../midi";
+import { AttrStringtabSchema } from "../../stringtab";
 import {
 	AttrAccidentalGesSchema,
 	AttrArticulationGesSchema,
 	AttrDurationGesSchema,
 	AttrPitchGesSchema,
 } from "..";
-import { AttrInstrumentIdentSchema, AttrMidiVelocitySchema } from "../../midi";
-import { AttrNoteGesMensuralSchema } from "../../mensural";
-import { AttrStringtabSchema } from "../../stringtab";
 
 /**
  * Gestural domain attributes..

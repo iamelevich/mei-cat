@@ -3,11 +3,11 @@ import {
 	type ModelLayerPartMensuralData,
 	ModelLayerPartMensuralSchema,
 } from "../../mensural";
+import { type ModelMidiLikeData, ModelMidiLikeSchema } from "../../midi";
 import {
 	type ModelLayerPartNeumesData,
 	ModelLayerPartNeumesSchema,
 } from "../../neumes";
-import { type ModelMidiLikeData, ModelMidiLikeSchema } from "../../midi";
 import {
 	type ModelNoteModifierLikeData,
 	ModelNoteModifierLikeSchema,

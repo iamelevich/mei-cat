@@ -1,14 +1,14 @@
 import * as v from "valibot";
+import { AttrGlissAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrGlissGesSchema } from "../../gestural";
 import {
 	AttrCommonSchema,
 	ModelTextPhraseLikeLimitedSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrGlissAnlSchema } from "../../analytical";
-import { AttrGlissGesSchema } from "../../gestural";
-import { AttrGlissLogSchema } from "..";
 import { AttrGlissVisSchema } from "../../visual";
+import { AttrGlissLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for GlissSchema

@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrMordentAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrMordentGesSchema } from "../../gestural";
-import { AttrMordentLogSchema } from "..";
+import { AttrCommonSchema } from "../../shared";
 import { AttrMordentVisSchema } from "../../visual";
+import { AttrMordentLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for MordentSchema

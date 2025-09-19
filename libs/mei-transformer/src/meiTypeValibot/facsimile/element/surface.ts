@@ -1,5 +1,6 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { ModelFigDescLikeSchema, ModelGraphicLikeSchema } from "../../figtable";
 import {
 	AttrCommonSchema,
 	AttrCoordinatedSchema,
@@ -7,7 +8,6 @@ import {
 	AttrMetadataPointingSchema,
 	AttrStartIdSchema,
 } from "../../shared";
-import { ModelFigDescLikeSchema, ModelGraphicLikeSchema } from "../../figtable";
 import { ZoneSchema } from ".";
 
 /**

@@ -1,6 +1,15 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
 import {
+	AvailabilitySchema,
+	ClassificationSchema,
+	ComponentListSchema,
+	ExtMetaSchema,
+	HistorySchema,
+	NotesStmtSchema,
+	PhysDescSchema,
+} from "../../header";
+import {
 	AttrAuthorizedSchema,
 	AttrBiblSchema,
 	AttrCommonSchema,
@@ -12,15 +21,6 @@ import {
 	PhysLocSchema,
 	RelationListSchema,
 } from "../../shared";
-import {
-	AvailabilitySchema,
-	ClassificationSchema,
-	ComponentListSchema,
-	ExtMetaSchema,
-	HistorySchema,
-	NotesStmtSchema,
-	PhysDescSchema,
-} from "../../header";
 
 /**
  * Base schema with attribute, to simplify types for ItemSchema

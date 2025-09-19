@@ -1,10 +1,10 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrArticAnlSchema } from "../../analytical";
-import { AttrArticGesSchema } from "../../gestural";
-import { AttrArticLogSchema, AttrCommonSchema } from "..";
-import { AttrArticVisSchema } from "../../visual";
+import { StandardTagSchema } from "../../common";
 import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrArticGesSchema } from "../../gestural";
+import { AttrArticVisSchema } from "../../visual";
+import { AttrArticLogSchema, AttrCommonSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for ArticSchema

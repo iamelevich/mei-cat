@@ -1,13 +1,13 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { ModelLocrefLikeSchema } from "../../ptrref";
+import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
 import {
 	AttrCommonSchema,
 	AttrLangSchema,
 	ModelAnnotLikeSchema,
 	ModelTextComponentLikeSchema,
 } from "..";
-import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
-import { ModelLocrefLikeSchema } from "../../ptrref";
 
 /**
  * Base schema with attribute, to simplify types for PgDescSchema

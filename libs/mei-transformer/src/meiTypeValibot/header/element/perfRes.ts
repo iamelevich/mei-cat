@@ -1,14 +1,14 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrEditSchema } from "../../edittrans";
 import {
 	AttrAuthorizedSchema,
 	AttrBiblSchema,
 	AttrCommonSchema,
 	AttrLangSchema,
-	ModelTextPhraseLikeLimitedSchema,
 	type ModelTextPhraseLikeLimitedData,
+	ModelTextPhraseLikeLimitedSchema,
 } from "../../shared";
-import { AttrEditSchema } from "../../edittrans";
 import { AttrPerfResSchema } from "..";
 
 /**

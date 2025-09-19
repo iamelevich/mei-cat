@@ -1,5 +1,7 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrEditSchema } from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
 import {
 	AttrBiblSchema,
 	AttrCalendaredSchema,
@@ -8,8 +10,6 @@ import {
 	AttrLangSchema,
 	ModelTextPhraseLikeSchema,
 } from "..";
-import { AttrEditSchema } from "../../edittrans";
-import { AttrFacsimileSchema } from "../../facsimile";
 
 /**
  * Base schema with attribute, to simplify types for DateSchema

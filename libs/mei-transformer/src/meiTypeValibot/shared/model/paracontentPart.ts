@@ -1,10 +1,15 @@
 import * as v from "valibot";
 import {
+	type ModelStageDirLikeData,
+	ModelStageDirLikeSchema,
+} from "../../drama";
+import {
 	type ModelEditLikeData,
 	ModelEditLikeSchema,
 	type ModelTranscriptionLikeData,
 	ModelTranscriptionLikeSchema,
 } from "../../edittrans";
+import { type ModelTableLikeData, ModelTableLikeSchema } from "../../figtable";
 import {
 	type ModelLgLikeData,
 	ModelLgLikeSchema,
@@ -13,11 +18,6 @@ import {
 	type ModelQuoteLikeData,
 	ModelQuoteLikeSchema,
 } from "../../text";
-import {
-	type ModelStageDirLikeData,
-	ModelStageDirLikeSchema,
-} from "../../drama";
-import { type ModelTableLikeData, ModelTableLikeSchema } from "../../figtable";
 import { type ModelTextPhraseLikeData, ModelTextPhraseLikeSchema } from "..";
 
 /**

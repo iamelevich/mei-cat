@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrAltSymSchema } from "../../usersymbols";
+import { AttrExtSymSchema } from "../../externalsymbols";
 import {
 	AttrColorSchema,
 	AttrLineRendSchema,
@@ -9,7 +9,7 @@ import {
 	AttrVisualOffsetSchema,
 	AttrXySchema,
 } from "../../shared";
-import { AttrExtSymSchema } from "../../externalsymbols";
+import { AttrAltSymSchema } from "../../usersymbols";
 
 /**
  * Visual domain attributes. The place attribute captures the placement of the pedal marking with respect to the staff with which it is associated. Modern publishing standards require the place to be <val>below</val>; however, for transcriptions of manuscript works, this attribute class allows the full range of values..

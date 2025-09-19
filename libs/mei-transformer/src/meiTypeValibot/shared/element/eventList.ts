@@ -1,30 +1,30 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
+import {
+	type ModelNameLikeAgentData,
+	ModelNameLikeAgentSchema,
+	type ModelNameLikeGeogNameData,
+	ModelNameLikeGeogNameSchema,
+} from "../../namesdates";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
-	ModelAddressLikeSchema,
 	type ModelAddressLikeData,
-	ModelDateLikeSchema,
+	ModelAddressLikeSchema,
 	type ModelDateLikeData,
-	ModelHeadLikeSchema,
+	ModelDateLikeSchema,
 	type ModelHeadLikeData,
+	ModelHeadLikeSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
 import {
-	BiblListSchema,
 	type BiblListData,
-	EventSchema,
+	BiblListSchema,
 	type EventData,
-	NameSchema,
+	EventSchema,
 	type NameData,
+	NameSchema,
 } from ".";
-import {
-	ModelNameLikeAgentSchema,
-	type ModelNameLikeAgentData,
-	ModelNameLikeGeogNameSchema,
-	type ModelNameLikeGeogNameData,
-} from "../../namesdates";
 
 /**
  * Base schema with attribute, to simplify types for EventListSchema

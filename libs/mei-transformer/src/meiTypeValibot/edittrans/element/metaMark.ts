@@ -1,5 +1,8 @@
 import * as v from "valibot";
+import { AttrMetaMarkAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrMetaMarkGesSchema } from "../../gestural";
 import {
 	AttrCommonSchema,
 	AttrLangSchema,
@@ -7,15 +10,12 @@ import {
 	ModelSectionLikeSchema,
 	ModelTextPhraseLikeLimitedSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrMetaMarkAnlSchema } from "../../analytical";
-import { AttrMetaMarkGesSchema } from "../../gestural";
+import { AttrMetaMarkVisSchema } from "../../visual";
 import {
 	AttrMetaMarkLogSchema,
 	ModelEditLikeSchema,
 	ModelTranscriptionLikeSchema,
 } from "..";
-import { AttrMetaMarkVisSchema } from "../../visual";
 
 /**
  * Base schema with attribute, to simplify types for MetaMarkSchema

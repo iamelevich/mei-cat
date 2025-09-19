@@ -1,12 +1,12 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
 	AttrLangSchema,
 	ModelHeadLikeSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { CastGrpSchema, CastItemSchema } from ".";
 
 /**

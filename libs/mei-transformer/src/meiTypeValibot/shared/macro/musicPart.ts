@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { type BodyData, BodySchema, type GroupData, GroupSchema } from "..";
 import {
 	type ModelBackLikeData,
 	ModelBackLikeSchema,
 	type ModelFrontLikeData,
 	ModelFrontLikeSchema,
 } from "../../text";
+import { type BodyData, BodySchema, type GroupData, GroupSchema } from "..";
 
 /**
  * Groups elements that may appear as part of the music element.

@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrStrophicusAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrStrophicusGesSchema } from "../../gestural";
-import { AttrStrophicusLogSchema } from "..";
+import { AttrCommonSchema } from "../../shared";
 import { AttrStrophicusVisSchema } from "../../visual";
+import { AttrStrophicusLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for StrophicusSchema

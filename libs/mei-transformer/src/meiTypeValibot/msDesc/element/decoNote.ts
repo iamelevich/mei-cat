@@ -1,17 +1,17 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { type ConditionData, ConditionSchema } from "../../header";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
 	AttrLangSchema,
-	HeadSchema,
 	type HeadData,
-	ModelTextPhraseLikeLimitedSchema,
+	HeadSchema,
 	type ModelTextPhraseLikeLimitedData,
-	PSchema,
+	ModelTextPhraseLikeLimitedSchema,
 	type PData,
+	PSchema,
 } from "../../shared";
-import { ConditionSchema, type ConditionData } from "../../header";
 
 /**
  * Base schema with attribute, to simplify types for DecoNoteSchema

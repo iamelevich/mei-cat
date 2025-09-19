@@ -4,9 +4,9 @@ import {
 	AttrExtenderSchema,
 	AttrPlacementRelStaffSchema,
 	AttrVerticalGroupSchema,
-	AttrVisualOffsetSchema,
 	AttrVisualOffset2HoSchema,
 	AttrVisualOffset2ToSchema,
+	AttrVisualOffsetSchema,
 	AttrXySchema,
 } from "../../shared";
 

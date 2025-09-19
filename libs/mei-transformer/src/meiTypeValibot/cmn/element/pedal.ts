@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrPedalAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrPedalGesSchema } from "../../gestural";
-import { AttrPedalLogSchema } from "..";
+import { AttrCommonSchema } from "../../shared";
 import { AttrPedalVisSchema } from "../../visual";
+import { AttrPedalLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for PedalSchema

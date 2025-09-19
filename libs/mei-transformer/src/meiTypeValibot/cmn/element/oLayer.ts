@@ -1,5 +1,13 @@
 import * as v from "valibot";
+import { AttrLayerAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { ModelAppLikeSchema } from "../../critapp";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrLayerGesSchema } from "../../gestural";
 import {
 	AttrBasicSchema,
 	AttrLabelledSchema,
@@ -13,16 +21,8 @@ import {
 	ModelLayerPartSchema,
 	ModelMilestoneLikeMusicSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrLayerAnlSchema } from "../../analytical";
-import { AttrLayerGesSchema } from "../../gestural";
-import { AttrLayerVisSchema } from "../../visual";
-import { ModelAppLikeSchema } from "../../critapp";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
 import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
+import { AttrLayerVisSchema } from "../../visual";
 
 /**
  * Base schema with attribute, to simplify types for OLayerSchema

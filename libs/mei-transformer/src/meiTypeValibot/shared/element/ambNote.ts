@@ -1,10 +1,10 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrAmbNoteAnlSchema } from "../../analytical";
-import { AttrAmbNoteGesSchema } from "../../gestural";
-import { AttrAmbNoteLogSchema, AttrCommonSchema } from "..";
-import { AttrAmbNoteVisSchema } from "../../visual";
+import { StandardTagSchema } from "../../common";
 import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrAmbNoteGesSchema } from "../../gestural";
+import { AttrAmbNoteVisSchema } from "../../visual";
+import { AttrAmbNoteLogSchema, AttrCommonSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for AmbNoteSchema

@@ -3,14 +3,14 @@ import { StandardTagSchema } from "../../common";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
-	DescSchema,
 	type DescData,
-	ModelBiblLikeSchema,
+	DescSchema,
 	type ModelBiblLikeData,
-	ModelHeadLikeSchema,
+	ModelBiblLikeSchema,
 	type ModelHeadLikeData,
+	ModelHeadLikeSchema,
 } from "../../shared";
-import { CategorySchema, type CategoryData } from ".";
+import { type CategoryData, CategorySchema } from ".";
 
 /**
  * Base schema with attribute, to simplify types for TaxonomySchema

@@ -1,5 +1,10 @@
 import * as v from "valibot";
+import { AttrSpAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { ModelAppLikeSchema } from "../../critapp";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { ModelFigureLikeSchema } from "../../figtable";
+import { AttrSpGesSchema } from "../../gestural";
 import {
 	AttrCommonSchema,
 	AttrLangSchema,
@@ -8,19 +13,14 @@ import {
 	ModelPLikeSchema,
 	SpeakerSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrSpAnlSchema } from "../../analytical";
-import { AttrSpGesSchema } from "../../gestural";
-import { AttrSpLogSchema, ModelStageDirLikeSchema } from "..";
-import { AttrSpVisSchema } from "../../visual";
 import {
 	ListSchema,
 	ModelLgLikeSchema,
 	ModelLLikeSchema,
 	ModelQuoteLikeSchema,
 } from "../../text";
-import { ModelAppLikeSchema } from "../../critapp";
-import { ModelFigureLikeSchema } from "../../figtable";
+import { AttrSpVisSchema } from "../../visual";
+import { AttrSpLogSchema, ModelStageDirLikeSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for SpSchema

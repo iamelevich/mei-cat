@@ -1,19 +1,19 @@
 import * as v from "valibot";
+import { AttrOrnamAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrOrnamGesSchema } from "../../gestural";
+import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
+import { AttrOrnamVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	AttrOrnamLogSchema,
 	ModelTextPhraseLikeLimitedSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrOrnamAnlSchema } from "../../analytical";
-import { AttrOrnamGesSchema } from "../../gestural";
-import { AttrOrnamVisSchema } from "../../visual";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
 
 /**
  * Base schema with attribute, to simplify types for OrnamSchema

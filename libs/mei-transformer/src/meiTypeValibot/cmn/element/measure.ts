@@ -1,5 +1,13 @@
 import * as v from "valibot";
+import { AttrMeasureAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { ModelAppLikeSchema } from "../../critapp";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrMeasureGesSchema } from "../../gestural";
 import {
 	AttrCommonSchema,
 	AttrMetadataPointingSchema,
@@ -10,18 +18,10 @@ import {
 	ModelRelationLikeSchema,
 	ModelStaffDefLikeSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrMeasureAnlSchema } from "../../analytical";
-import { AttrMeasureGesSchema } from "../../gestural";
-import { AttrMeasureLogSchema, ModelMeasurePartSchema } from "..";
-import { AttrMeasureVisSchema } from "../../visual";
-import { MNumSchema } from ".";
-import { ModelAppLikeSchema } from "../../critapp";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
 import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
+import { AttrMeasureVisSchema } from "../../visual";
+import { AttrMeasureLogSchema, ModelMeasurePartSchema } from "..";
+import { MNumSchema } from ".";
 
 /**
  * Base schema with attribute, to simplify types for MeasureSchema

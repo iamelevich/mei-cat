@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrBeamSpanAnlSchema } from "../../analytical";
-import { AttrBeamSpanGesSchema } from "../../gestural";
-import { AttrBeamSpanLogSchema } from "..";
-import { AttrBeamSpanVisSchema } from "../../visual";
-import { AttrCommonSchema } from "../../shared";
+import { StandardTagSchema } from "../../common";
 import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrBeamSpanGesSchema } from "../../gestural";
+import { AttrCommonSchema } from "../../shared";
+import { AttrBeamSpanVisSchema } from "../../visual";
+import { AttrBeamSpanLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for BeamSpanSchema

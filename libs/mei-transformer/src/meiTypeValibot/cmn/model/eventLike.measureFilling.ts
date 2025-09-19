@@ -2,10 +2,10 @@ import * as v from "valibot";
 import {
 	type MRestData,
 	MRestSchema,
-	type MRptData,
-	MRptSchema,
 	type MRpt2Data,
 	MRpt2Schema,
+	type MRptData,
+	MRptSchema,
 	type MSpaceData,
 	MSpaceSchema,
 	type MultiRestData,

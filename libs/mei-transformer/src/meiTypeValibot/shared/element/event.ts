@@ -1,5 +1,10 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrEditSchema } from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { ModelTableLikeSchema } from "../../figtable";
+import { ModelEventPartSchema } from "../../header";
+import { ListSchema } from "../../text";
 import {
 	AttrBiblSchema,
 	AttrCalendaredSchema,
@@ -9,12 +14,7 @@ import {
 	ModelHeadLikeSchema,
 	ModelPLikeSchema,
 } from "..";
-import { AttrEditSchema } from "../../edittrans";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { BiblListSchema, CastListSchema, EventListSchema } from ".";
-import { ListSchema } from "../../text";
-import { ModelEventPartSchema } from "../../header";
-import { ModelTableLikeSchema } from "../../figtable";
 
 /**
  * Base schema with attribute, to simplify types for EventSchema

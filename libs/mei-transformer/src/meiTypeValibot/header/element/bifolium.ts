@@ -1,23 +1,23 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
 import {
-	AttrBifoliumSurfacesSchema,
-	ModelBifoliumLikeSchema,
-	ModelFoliumLikeSchema,
-	ModelPaperModLikeSchema,
-} from "..";
-import {
-	AttrCommonSchema,
-	AttrDimensionsSchema,
-	AttrMeasurementSchema,
-} from "../../shared";
-import {
 	AddSchema,
 	DamageSchema,
 	DelSchema,
 	GapSchema,
 	RestoreSchema,
 } from "../../edittrans";
+import {
+	AttrCommonSchema,
+	AttrDimensionsSchema,
+	AttrMeasurementSchema,
+} from "../../shared";
+import {
+	AttrBifoliumSurfacesSchema,
+	ModelBifoliumLikeSchema,
+	ModelFoliumLikeSchema,
+	ModelPaperModLikeSchema,
+} from "..";
 
 /**
  * Base schema with attribute, to simplify types for BifoliumSchema

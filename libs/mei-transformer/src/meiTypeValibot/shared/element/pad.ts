@@ -1,9 +1,9 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, AttrPadLogSchema } from "..";
 import { AttrPadAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
 import { AttrPadGesSchema } from "../../gestural";
 import { AttrPadVisSchema } from "../../visual";
+import { AttrCommonSchema, AttrPadLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for PadSchema

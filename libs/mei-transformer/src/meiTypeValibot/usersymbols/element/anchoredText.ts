@@ -1,19 +1,19 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrAnchoredTextAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrAnchoredTextGesSchema } from "../../gestural";
-import { AttrAnchoredTextLogSchema } from "..";
-import { AttrAnchoredTextVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	AttrLangSchema,
 	ModelTextPhraseLikeLimitedSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
+import { AttrAnchoredTextVisSchema } from "../../visual";
+import { AttrAnchoredTextLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for AnchoredTextSchema

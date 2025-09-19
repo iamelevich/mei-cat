@@ -1,9 +1,13 @@
 import * as v from "valibot";
 import {
-	type VoltaData,
-	VoltaSchema,
+	type ModelControlEventLikeCmnData,
+	ModelControlEventLikeCmnSchema,
+} from "../../cmn";
+import {
 	type ModelVerseLikeData,
 	ModelVerseLikeSchema,
+	type VoltaData,
+	VoltaSchema,
 } from "../../lyrics";
 import {
 	type ModelControlEventLikeData,
@@ -11,10 +15,6 @@ import {
 	type ModelLayerLikeData,
 	ModelLayerLikeSchema,
 } from "../../shared";
-import {
-	type ModelControlEventLikeCmnData,
-	ModelControlEventLikeCmnSchema,
-} from "../../cmn";
 
 /**
  * Groups elements that may appear as part of editorial and transcription elements in music notation.

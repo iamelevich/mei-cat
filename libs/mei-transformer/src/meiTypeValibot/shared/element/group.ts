@@ -1,7 +1,7 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
 import { AttrCommonSchema, AttrMetadataPointingSchema } from "..";
-import { MusicSchema, type MusicData } from ".";
+import { type MusicData, MusicSchema } from ".";
 
 /**
  * Base schema with attribute, to simplify types for GroupSchema

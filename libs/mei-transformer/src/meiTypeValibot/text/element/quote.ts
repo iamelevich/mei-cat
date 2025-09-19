@@ -1,5 +1,7 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { SpSchema } from "../../drama";
+import { AttrFacsimileSchema } from "../../facsimile";
 import {
 	AttrCommonSchema,
 	AttrLangSchema,
@@ -8,8 +10,6 @@ import {
 	ModelParacontentPartSchema,
 	ModelPLikeSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { SpSchema } from "../../drama";
 
 /**
  * Base schema with attribute, to simplify types for QuoteSchema

@@ -1,13 +1,13 @@
 import * as v from "valibot";
+import { AttrTuningAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { AttrTuningGesSchema } from "../../gestural";
+import { AttrTuningVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	AttrTuningLogSchema,
 	ModelTuningPartSchema,
 } from "..";
-import { AttrTuningAnlSchema } from "../../analytical";
-import { AttrTuningGesSchema } from "../../gestural";
-import { AttrTuningVisSchema } from "../../visual";
 
 /**
  * Base schema with attribute, to simplify types for TuningSchema

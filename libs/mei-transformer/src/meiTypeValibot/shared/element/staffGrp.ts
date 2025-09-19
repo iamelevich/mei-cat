@@ -1,5 +1,9 @@
 import * as v from "valibot";
+import { AttrStaffGrpAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrStaffGrpGesSchema } from "../../gestural";
+import { AttrStaffGrpVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	AttrMetadataPointingSchema,
@@ -9,10 +13,6 @@ import {
 	ModelStaffDefLikeSchema,
 	ModelStaffGrpLikeSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrStaffGrpAnlSchema } from "../../analytical";
-import { AttrStaffGrpGesSchema } from "../../gestural";
-import { AttrStaffGrpVisSchema } from "../../visual";
 import { GrpSymSchema } from ".";
 
 /**

@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrBTremAnlSchema } from "../../analytical";
-import { AttrBTremGesSchema } from "../../gestural";
-import { AttrBTremLogSchema } from "..";
-import { AttrBTremVisSchema } from "../../visual";
-import { AttrCommonSchema, ChordSchema, NoteSchema } from "../../shared";
+import { StandardTagSchema } from "../../common";
 import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrBTremGesSchema } from "../../gestural";
+import { AttrCommonSchema, ChordSchema, NoteSchema } from "../../shared";
+import { AttrBTremVisSchema } from "../../visual";
+import { AttrBTremLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for BTremSchema

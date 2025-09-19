@@ -1,11 +1,11 @@
 import * as v from "valibot";
+import { type ModelSylLikeData, ModelSylLikeSchema } from "../../shared";
 import {
 	type ModelRdgPartMusicData,
 	ModelRdgPartMusicSchema,
 	type ModelRdgPartTextData,
 	ModelRdgPartTextSchema,
 } from "..";
-import { type ModelSylLikeData, ModelSylLikeSchema } from "../../shared";
 
 /**
  * Groups elements that may appear as part of a textual or musical variant.

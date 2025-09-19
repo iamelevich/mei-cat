@@ -1,16 +1,16 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
 import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import {
 	AttrBiblSchema,
 	AttrCommonSchema,
 	AttrLangSchema,
 	ModelTextComponentLikeSchema,
 	ModelTextPhraseLikeSchema,
 } from "../../shared";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
 
 /**
  * Base schema with attribute, to simplify types for ContentItemSchema

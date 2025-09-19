@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrHalfmRptAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrHalfmRptGesSchema } from "../../gestural";
-import { AttrHalfmRptLogSchema } from "..";
+import { AttrCommonSchema } from "../../shared";
 import { AttrHalfmRptVisSchema } from "../../visual";
+import { AttrHalfmRptLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for HalfmRptSchema

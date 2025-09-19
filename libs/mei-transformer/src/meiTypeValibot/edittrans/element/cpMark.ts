@@ -1,18 +1,18 @@
 import * as v from "valibot";
+import { AttrCpMarkAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrCpMarkGesSchema } from "../../gestural";
 import {
 	AttrCommonSchema,
 	ModelTextPhraseLikeLimitedSchema,
 } from "../../shared";
-import { AttrCpMarkAnlSchema } from "../../analytical";
-import { AttrCpMarkGesSchema } from "../../gestural";
+import { AttrCpMarkVisSchema } from "../../visual";
 import {
 	AttrCpMarkLogSchema,
 	ModelEditLikeSchema,
 	ModelTranscriptionLikeSchema,
 } from "..";
-import { AttrCpMarkVisSchema } from "../../visual";
-import { AttrFacsimileSchema } from "../../facsimile";
 
 /**
  * Base schema with attribute, to simplify types for CpMarkSchema

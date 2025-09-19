@@ -1,19 +1,19 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import {
-	AttrCommonSchema,
-	ModelTextPhraseLikeLimitedSchema,
-} from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrSignifLetAnlSchema } from "../../analytical";
-import { AttrSignifLetGesSchema } from "../../gestural";
-import { AttrSignifLetLogSchema } from "..";
-import { AttrSignifLetVisSchema } from "../../visual";
+import { StandardTagSchema } from "../../common";
 import {
 	ModelEditLikeSchema,
 	ModelTranscriptionLikeSchema,
 } from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrSignifLetGesSchema } from "../../gestural";
+import {
+	AttrCommonSchema,
+	ModelTextPhraseLikeLimitedSchema,
+} from "../../shared";
 import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
+import { AttrSignifLetVisSchema } from "../../visual";
+import { AttrSignifLetLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for SignifLetSchema

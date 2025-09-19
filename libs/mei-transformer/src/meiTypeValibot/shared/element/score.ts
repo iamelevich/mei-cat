@@ -1,5 +1,15 @@
 import * as v from "valibot";
+import { AttrScoreAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { ModelAppLikeSchema } from "../../critapp";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrScoreGesSchema } from "../../gestural";
+import { ModelDivLikeSchema } from "../../text";
+import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
+import { AttrScoreVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	AttrMetadataPointingSchema,
@@ -11,16 +21,6 @@ import {
 	ModelScorePartSchema,
 	ModelStaffDefLikeSchema,
 } from "..";
-import { AttrScoreAnlSchema } from "../../analytical";
-import { AttrScoreGesSchema } from "../../gestural";
-import { AttrScoreVisSchema } from "../../visual";
-import { ModelAppLikeSchema } from "../../critapp";
-import { ModelDivLikeSchema } from "../../text";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
 
 /**
  * Base schema with attribute, to simplify types for ScoreSchema

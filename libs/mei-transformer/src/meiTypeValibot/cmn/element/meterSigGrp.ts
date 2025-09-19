@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, ModelMeterSigLikeSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrMeterSigGrpAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrMeterSigGrpGesSchema } from "../../gestural";
-import { AttrMeterSigGrpLogSchema } from "..";
+import { AttrCommonSchema, ModelMeterSigLikeSchema } from "../../shared";
 import { AttrMeterSigGrpVisSchema } from "../../visual";
+import { AttrMeterSigGrpLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for MeterSigGrpSchema

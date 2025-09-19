@@ -1,6 +1,6 @@
 import * as v from "valibot";
-import { AttrPerfResBasicSchema } from "..";
 import { AttrTranspositionSchema } from "../../shared";
+import { AttrPerfResBasicSchema } from "..";
 
 /**
  * Attributes that define the characteristics and components of the performance resource..

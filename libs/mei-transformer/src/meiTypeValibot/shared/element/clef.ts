@@ -1,10 +1,10 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrClefAnlSchema } from "../../analytical";
-import { AttrClefGesSchema } from "../../gestural";
-import { AttrClefLogSchema, AttrCommonSchema, AttrEventSchema } from "..";
-import { AttrClefVisSchema } from "../../visual";
+import { StandardTagSchema } from "../../common";
 import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrClefGesSchema } from "../../gestural";
+import { AttrClefVisSchema } from "../../visual";
+import { AttrClefLogSchema, AttrCommonSchema, AttrEventSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for ClefSchema

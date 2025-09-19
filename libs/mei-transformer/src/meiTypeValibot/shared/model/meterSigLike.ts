@@ -1,9 +1,9 @@
 import * as v from "valibot";
 import {
 	type MeterSigData,
-	MeterSigSchema,
 	type MeterSigGrpData,
 	MeterSigGrpSchema,
+	MeterSigSchema,
 } from "../../cmn";
 
 /**

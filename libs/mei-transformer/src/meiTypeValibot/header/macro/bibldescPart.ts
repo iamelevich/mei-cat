@@ -1,4 +1,5 @@
 import * as v from "valibot";
+import { type PhysLocData, PhysLocSchema } from "../../shared";
 import {
 	type AvailabilityData,
 	AvailabilitySchema,
@@ -11,7 +12,6 @@ import {
 	type SeriesStmtData,
 	SeriesStmtSchema,
 } from "..";
-import { type PhysLocData, PhysLocSchema } from "../../shared";
 
 /**
  * Groups manifestation- and item-specific elements that may appear as part of a bibliographic description.

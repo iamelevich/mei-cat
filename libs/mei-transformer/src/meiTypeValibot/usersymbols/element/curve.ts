@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
 import { AttrCurveAnlSchema } from "../../analytical";
-import { AttrCurveGesSchema } from "../../gestural";
-import { AttrCurveLogSchema } from "..";
-import { AttrCurveVisSchema } from "../../visual";
+import { StandardTagSchema } from "../../common";
 import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrCurveGesSchema } from "../../gestural";
+import { AttrCommonSchema } from "../../shared";
+import { AttrCurveVisSchema } from "../../visual";
+import { AttrCurveLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for CurveSchema

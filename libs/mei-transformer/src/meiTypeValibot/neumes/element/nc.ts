@@ -1,5 +1,13 @@
 import * as v from "valibot";
+import { AttrNcAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { ModelAppLikeSchema } from "../../critapp";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrNcGesSchema } from "../../gestural";
 import {
 	AttrBasicSchema,
 	AttrClassedSchema,
@@ -8,20 +16,12 @@ import {
 	AttrNNumberLikeSchema,
 	AttrResponsibilitySchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrNcAnlSchema } from "../../analytical";
-import { AttrNcGesSchema } from "../../gestural";
+import { AttrNcVisSchema } from "../../visual";
 import {
 	AttrNcLogSchema,
 	ModelNeumeComponentModifierLikeSchema,
 	ModelNeumeModifierLikeSchema,
 } from "..";
-import { AttrNcVisSchema } from "../../visual";
-import { ModelAppLikeSchema } from "../../critapp";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
 
 /**
  * Base schema with attribute, to simplify types for NcSchema

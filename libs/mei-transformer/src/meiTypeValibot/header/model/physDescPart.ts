@@ -36,6 +36,16 @@ import {
 	TypeDescSchema,
 } from "../../msDesc";
 import {
+	type DimensionsData,
+	DimensionsSchema,
+	type ExtentData,
+	ExtentSchema,
+	type ModelIncipLikeData,
+	ModelIncipLikeSchema,
+	type TitlePageData,
+	TitlePageSchema,
+} from "../../shared";
+import {
 	type CaptureModeData,
 	CaptureModeSchema,
 	type CarrierFormData,
@@ -71,16 +81,6 @@ import {
 	type WatermarkData,
 	WatermarkSchema,
 } from "..";
-import {
-	type DimensionsData,
-	DimensionsSchema,
-	type ExtentData,
-	ExtentSchema,
-	type TitlePageData,
-	TitlePageSchema,
-	type ModelIncipLikeData,
-	ModelIncipLikeSchema,
-} from "../../shared";
 
 /**
  * Groups elements that may appear as part of the physical description of a bibliographic item.

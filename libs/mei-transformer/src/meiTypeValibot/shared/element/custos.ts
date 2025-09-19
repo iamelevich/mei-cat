@@ -1,10 +1,10 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, AttrCustosLogSchema, AttrSourceSchema } from "..";
 import { AttrCustosAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrCustosGesSchema } from "../../gestural";
 import { AttrCustosVisSchema } from "../../visual";
-import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrCommonSchema, AttrCustosLogSchema, AttrSourceSchema } from "..";
 import { AccidSchema } from ".";
 
 /**

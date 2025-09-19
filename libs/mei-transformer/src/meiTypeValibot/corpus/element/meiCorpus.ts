@@ -1,11 +1,11 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { MeiHeadSchema } from "../../header";
 import {
 	AttrCommonSchema,
 	AttrMeiVersionSchema,
 	MeiSchema,
 } from "../../shared";
-import { MeiHeadSchema } from "../../header";
 
 /**
  * Base schema with attribute, to simplify types for MeiCorpusSchema

@@ -1,6 +1,6 @@
 import * as v from "valibot";
-import { AttrColorSchema } from "../../shared";
 import { AttrNumberPlacementSchema } from "../../cmn";
+import { AttrColorSchema } from "../../shared";
 
 /**
  * Visual domain attributes..

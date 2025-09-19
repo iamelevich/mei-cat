@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrArpegAnlSchema } from "../../analytical";
-import { AttrArpegGesSchema } from "../../gestural";
-import { AttrArpegLogSchema } from "..";
-import { AttrArpegVisSchema } from "../../visual";
-import { AttrCommonSchema } from "../../shared";
+import { StandardTagSchema } from "../../common";
 import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrArpegGesSchema } from "../../gestural";
+import { AttrCommonSchema } from "../../shared";
+import { AttrArpegVisSchema } from "../../visual";
+import { AttrArpegLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for ArpegSchema

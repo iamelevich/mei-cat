@@ -1,19 +1,19 @@
 import * as v from "valibot";
+import { AttrStageDirAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrStageDirGesSchema } from "../../gestural";
 import {
 	AttrCommonSchema,
 	AttrLangSchema,
 	ModelTextPhraseLikeLimitedSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrStageDirAnlSchema } from "../../analytical";
-import { AttrStageDirGesSchema } from "../../gestural";
-import { AttrStageDirLogSchema } from "..";
 import { AttrStageDirVisSchema } from "../../visual";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
+import { AttrStageDirLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for StageDirSchema

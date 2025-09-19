@@ -1,6 +1,23 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
 import {
+	AttrRecordTypeSchema,
+	ClassificationSchema,
+	ComponentListSchema,
+	ContentsSchema,
+	ExtMetaSchema,
+	HistorySchema,
+	LangUsageSchema,
+	MacroBibldescPartSchema,
+	NotesStmtSchema,
+	TitleStmtSchema,
+} from "../../header";
+import {
+	AttrComponentTypeSchema,
+	LocusGrpSchema,
+	LocusSchema,
+} from "../../msDesc";
+import {
 	AttrAuthorizedSchema,
 	AttrBiblSchema,
 	AttrCommonSchema,
@@ -13,23 +30,6 @@ import {
 	ModelIdentifierLikeSchema,
 	RelationListSchema,
 } from "../../shared";
-import {
-	AttrComponentTypeSchema,
-	LocusSchema,
-	LocusGrpSchema,
-} from "../../msDesc";
-import {
-	AttrRecordTypeSchema,
-	ClassificationSchema,
-	ComponentListSchema,
-	ContentsSchema,
-	ExtMetaSchema,
-	HistorySchema,
-	LangUsageSchema,
-	MacroBibldescPartSchema,
-	NotesStmtSchema,
-	TitleStmtSchema,
-} from "../../header";
 import { ItemListSchema } from ".";
 
 /**

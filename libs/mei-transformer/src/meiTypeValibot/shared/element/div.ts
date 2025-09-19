@@ -1,5 +1,9 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { SpSchema } from "../../drama";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { ModelFigureLikeSchema } from "../../figtable";
+import { ModelDivLikeSchema } from "../../text";
 import {
 	AttrBasicSchema,
 	AttrClassedSchema,
@@ -13,10 +17,6 @@ import {
 	ModelMilestoneLikeTextSchema,
 	ModelTextComponentLikeSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { ModelDivLikeSchema } from "../../text";
-import { ModelFigureLikeSchema } from "../../figtable";
-import { SpSchema } from "../../drama";
 
 /**
  * Base schema with attribute, to simplify types for DivSchema

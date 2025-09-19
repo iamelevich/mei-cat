@@ -1,14 +1,14 @@
 import * as v from "valibot";
+import { AttrLineAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrLineGesSchema } from "../../gestural";
 import {
 	AttrCommonSchema,
 	ModelTextPhraseLikeLimitedSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrLineAnlSchema } from "../../analytical";
-import { AttrLineGesSchema } from "../../gestural";
-import { AttrLineLogSchema } from "..";
 import { AttrLineVisSchema } from "../../visual";
+import { AttrLineLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for LineSchema

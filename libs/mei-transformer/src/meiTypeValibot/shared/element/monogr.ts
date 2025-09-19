@@ -1,5 +1,7 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrRecordTypeSchema } from "../../header";
+import { CorpNameSchema } from "../../namesdates";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
@@ -12,7 +14,6 @@ import {
 	ModelRespLikePartSchema,
 	ModelTitleLikeSchema,
 } from "..";
-import { AttrRecordTypeSchema } from "../../header";
 import {
 	BiblScopeSchema,
 	EditorSchema,
@@ -20,7 +21,6 @@ import {
 	ImprintSchema,
 	RespStmtSchema,
 } from ".";
-import { CorpNameSchema } from "../../namesdates";
 
 /**
  * Base schema with attribute, to simplify types for MonogrSchema

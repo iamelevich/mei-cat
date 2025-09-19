@@ -1,4 +1,6 @@
 import * as v from "valibot";
+import { AttrScoreDefVisCmnSchema } from "../../cmn";
+import { AttrScoreDefVisMensuralSchema } from "../../mensural";
 import {
 	AttrBarringSchema,
 	AttrDistancesSchema,
@@ -15,14 +17,12 @@ import {
 	AttrSystemsSchema,
 	AttrTextStyleSchema,
 } from "../../shared";
+import { AttrScoreDefVisTablatureSchema } from "../../stringtab";
 import {
 	AttrCleffingVisSchema,
 	AttrKeySigDefaultVisSchema,
 	AttrMeterSigDefaultVisSchema,
 } from "..";
-import { AttrScoreDefVisCmnSchema } from "../../cmn";
-import { AttrScoreDefVisMensuralSchema } from "../../mensural";
-import { AttrScoreDefVisTablatureSchema } from "../../stringtab";
 
 /**
  * Visual domain attributes for scoreDef in the CMN repertoire..

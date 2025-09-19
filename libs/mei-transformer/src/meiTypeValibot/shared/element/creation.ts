@@ -1,5 +1,7 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { DedicationSchema } from "../../header";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
@@ -8,8 +10,6 @@ import {
 	ModelHeadLikeSchema,
 	ModelTextPhraseLikeLimitedSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { DedicationSchema } from "../../header";
 
 /**
  * Base schema with attribute, to simplify types for CreationSchema

@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { type FingData, FingSchema, type FingGrpData, FingGrpSchema } from "..";
+import { type FingData, type FingGrpData, FingGrpSchema, FingSchema } from "..";
 
 /**
  * Groups elements that capture performance instructions regarding the use of the fingers of the hand (or a subset of them).

@@ -1,7 +1,13 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrAnnotAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrAnnotGesSchema } from "../../gestural";
+import { AttrAnnotVisSchema } from "../../visual";
 import {
 	AttrAnnotLogSchema,
 	AttrAudienceSchema,
@@ -16,12 +22,6 @@ import {
 	ModelTextComponentLikeSchema,
 	ModelTextPhraseLikeSchema,
 } from "..";
-import { AttrAnnotVisSchema } from "../../visual";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
 
 /**
  * Base schema with attribute, to simplify types for AnnotSchema

@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { type NameData, NameSchema } from "..";
 import {
 	type ModelNameLikeAgentData,
 	ModelNameLikeAgentSchema,
 	type ModelNameLikePlaceData,
 	ModelNameLikePlaceSchema,
 } from "../../namesdates";
+import { type NameData, NameSchema } from "..";
 
 /**
  * Groups elements that contain names.

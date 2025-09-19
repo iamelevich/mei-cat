@@ -1,9 +1,9 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, AttrLangSchema } from "..";
 import { AttrFacsimileSchema } from "../../facsimile";
-import { AddrLineSchema } from ".";
 import { ModelAddressPartSchema } from "../../namesdates";
+import { AttrCommonSchema, AttrLangSchema } from "..";
+import { AddrLineSchema } from ".";
 
 /**
  * Base schema with attribute, to simplify types for AddressSchema

@@ -1,5 +1,15 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { ModelGraphicLikeSchema } from "../../figtable";
+import {
+	IncipCodeSchema,
+	IncipTextSchema,
+	KeySchema,
+	MensurationSchema,
+	MeterSchema,
+	PerfResListSchema,
+	PerfResSchema,
+} from "../../header";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
@@ -7,17 +17,7 @@ import {
 	ModelHeadLikeSchema,
 	ModelScoreLikeSchema,
 } from "..";
-import { ClefSchema, ClefGrpSchema, RoleSchema, TempoSchema } from ".";
-import {
-	IncipCodeSchema,
-	IncipTextSchema,
-	KeySchema,
-	MensurationSchema,
-	MeterSchema,
-	PerfResSchema,
-	PerfResListSchema,
-} from "../../header";
-import { ModelGraphicLikeSchema } from "../../figtable";
+import { ClefGrpSchema, ClefSchema, RoleSchema, TempoSchema } from ".";
 
 /**
  * Base schema with attribute, to simplify types for IncipSchema

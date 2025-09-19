@@ -1,5 +1,11 @@
 import * as v from "valibot";
+import { AttrLyricsAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrLyricsGesSchema } from "../../gestural";
+import { AttrLyricsLogSchema } from "../../lyrics";
+import { ModelLgLikeSchema, ModelLLikeSchema } from "../../text";
+import { AttrLyricsVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	AttrLangSchema,
@@ -7,12 +13,6 @@ import {
 	AttrXySchema,
 	ModelHeadLikeSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrLyricsAnlSchema } from "../../analytical";
-import { AttrLyricsGesSchema } from "../../gestural";
-import { AttrLyricsLogSchema } from "../../lyrics";
-import { AttrLyricsVisSchema } from "../../visual";
-import { ModelLgLikeSchema, ModelLLikeSchema } from "../../text";
 
 /**
  * Base schema with attribute, to simplify types for LgSchema

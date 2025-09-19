@@ -1,15 +1,15 @@
 import * as v from "valibot";
+import { AttrOssiaAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrOssiaGesSchema } from "../../gestural";
 import {
 	AttrCommonSchema,
 	ModelLayerLikeSchema,
 	ModelStaffLikeSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrOssiaAnlSchema } from "../../analytical";
-import { AttrOssiaGesSchema } from "../../gestural";
-import { AttrOssiaLogSchema } from "..";
 import { AttrOssiaVisSchema } from "../../visual";
+import { AttrOssiaLogSchema } from "..";
 import { OLayerSchema, OStaffSchema } from ".";
 
 /**

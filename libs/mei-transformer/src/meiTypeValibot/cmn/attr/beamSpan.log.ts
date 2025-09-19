@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { AttrBeamedWithSchema } from "..";
 import {
 	AttrControlEventSchema,
 	AttrDurationAdditiveSchema,
 	AttrStartEndIdSchema,
 	AttrTimestamp2LogSchema,
 } from "../../shared";
+import { AttrBeamedWithSchema } from "..";
 
 /**
  * Logical domain attributes..

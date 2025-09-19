@@ -1,14 +1,14 @@
 import * as v from "valibot";
+import { AttrOctaveAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrOctaveGesSchema } from "../../gestural";
 import {
 	AttrCommonSchema,
 	ModelTextPhraseLikeLimitedSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrOctaveAnlSchema } from "../../analytical";
-import { AttrOctaveGesSchema } from "../../gestural";
-import { AttrOctaveLogSchema } from "..";
 import { AttrOctaveVisSchema } from "../../visual";
+import { AttrOctaveLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for OctaveSchema

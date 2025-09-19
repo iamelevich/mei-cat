@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrStemAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrStemGesSchema } from "../../gestural";
-import { AttrStemLogSchema } from "..";
+import { AttrCommonSchema } from "../../shared";
 import { AttrStemVisSchema } from "../../visual";
+import { AttrStemLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for StemSchema

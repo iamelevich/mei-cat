@@ -1,19 +1,19 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import {
-	AttrCommonSchema,
-	ModelTextPhraseLikeLimitedSchema,
-} from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrHarmAnlSchema } from "../../analytical";
-import { AttrHarmGesSchema } from "../../gestural";
-import { AttrHarmLogSchema, ModelFigbassLikeSchema } from "..";
-import { AttrHarmVisSchema } from "../../visual";
+import { StandardTagSchema } from "../../common";
 import {
 	ModelEditLikeSchema,
 	ModelTranscriptionLikeSchema,
 } from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrHarmGesSchema } from "../../gestural";
+import {
+	AttrCommonSchema,
+	ModelTextPhraseLikeLimitedSchema,
+} from "../../shared";
 import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
+import { AttrHarmVisSchema } from "../../visual";
+import { AttrHarmLogSchema, ModelFigbassLikeSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for HarmSchema

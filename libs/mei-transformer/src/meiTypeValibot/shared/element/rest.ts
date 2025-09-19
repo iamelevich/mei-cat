@@ -1,16 +1,16 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, AttrRestLogSchema } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrRestAnlSchema } from "../../analytical";
-import { AttrRestGesSchema } from "../../gestural";
-import { AttrRestVisSchema } from "../../visual";
-import { DotSchema } from ".";
+import { StandardTagSchema } from "../../common";
 import { ModelAppLikeSchema } from "../../critapp";
 import {
 	ModelEditLikeSchema,
 	ModelTranscriptionLikeSchema,
 } from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrRestGesSchema } from "../../gestural";
+import { AttrRestVisSchema } from "../../visual";
+import { AttrCommonSchema, AttrRestLogSchema } from "..";
+import { DotSchema } from ".";
 
 /**
  * Base schema with attribute, to simplify types for RestSchema

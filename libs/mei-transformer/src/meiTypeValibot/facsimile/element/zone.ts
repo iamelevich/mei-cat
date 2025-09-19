@@ -1,11 +1,11 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { ModelFigDescLikeSchema, ModelGraphicLikeSchema } from "../../figtable";
 import {
 	AttrCommonSchema,
 	AttrCoordinatedSchema,
 	AttrDataPointingSchema,
 } from "../../shared";
-import { ModelFigDescLikeSchema, ModelGraphicLikeSchema } from "../../figtable";
 
 /**
  * Base schema with attribute, to simplify types for ZoneSchema

@@ -1,19 +1,19 @@
 import * as v from "valibot";
+import { AttrDynamAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrDynamGesSchema } from "../../gestural";
+import { AttrDynamVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	AttrDynamLogSchema,
 	AttrLangSchema,
 	ModelTextPhraseLikeLimitedSchema,
 } from "..";
-import { AttrDynamAnlSchema } from "../../analytical";
-import { AttrDynamGesSchema } from "../../gestural";
-import { AttrDynamVisSchema } from "../../visual";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
 
 /**
  * Base schema with attribute, to simplify types for DynamSchema

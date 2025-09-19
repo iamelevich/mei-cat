@@ -1,4 +1,6 @@
 import * as v from "valibot";
+import { AttrStaffDefVisCmnSchema } from "../../cmn";
+import { AttrStaffDefVisMensuralSchema } from "../../mensural";
 import {
 	AttrBarringSchema,
 	AttrDistancesSchema,
@@ -11,15 +13,13 @@ import {
 	AttrTextStyleSchema,
 	AttrVisibilitySchema,
 } from "../../shared";
+import { AttrStaffDefVisTablatureSchema } from "../../stringtab";
 import {
 	AttrCleffingVisSchema,
 	AttrGuitarGridVisSchema,
 	AttrKeySigDefaultVisSchema,
 	AttrMeterSigDefaultVisSchema,
 } from "..";
-import { AttrStaffDefVisCmnSchema } from "../../cmn";
-import { AttrStaffDefVisMensuralSchema } from "../../mensural";
-import { AttrStaffDefVisTablatureSchema } from "../../stringtab";
 
 /**
  * Visual domain attributes for staffDef..

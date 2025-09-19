@@ -1,12 +1,12 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrLvAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrLvGesSchema } from "../../gestural";
-import { AttrLvLogSchema } from "..";
-import { AttrLvVisSchema } from "../../visual";
+import { AttrCommonSchema } from "../../shared";
 import { CurveSchema } from "../../usersymbols";
+import { AttrLvVisSchema } from "../../visual";
+import { AttrLvLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for LvSchema

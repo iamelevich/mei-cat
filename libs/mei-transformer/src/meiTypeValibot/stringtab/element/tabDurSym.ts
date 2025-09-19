@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrStringtabSchema, AttrTabDurSymLogSchema } from "..";
 import { AttrTabDurSymAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrTabDurSymGesSchema } from "../../gestural";
+import { AttrCommonSchema } from "../../shared";
 import { AttrTabDurSymVisSchema } from "../../visual";
+import { AttrStringtabSchema, AttrTabDurSymLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for TabDurSymSchema

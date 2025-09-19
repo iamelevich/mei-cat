@@ -1,12 +1,12 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrTieAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrTieGesSchema } from "../../gestural";
-import { AttrTieLogSchema } from "..";
-import { AttrTieVisSchema } from "../../visual";
+import { AttrCommonSchema } from "../../shared";
 import { CurveSchema } from "../../usersymbols";
+import { AttrTieVisSchema } from "../../visual";
+import { AttrTieLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for TieSchema

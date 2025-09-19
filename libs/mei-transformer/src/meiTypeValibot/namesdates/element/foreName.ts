@@ -1,18 +1,18 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
 import {
+	AttrEditSchema,
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import {
 	AttrBiblSchema,
 	AttrCommonSchema,
 	AttrLangSchema,
 	AttrNameSchema,
 	ModelTextPhraseLikeSchema,
 } from "../../shared";
-import {
-	AttrEditSchema,
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { AttrFacsimileSchema } from "../../facsimile";
 
 /**
  * Base schema with attribute, to simplify types for ForeNameSchema

@@ -1,20 +1,20 @@
 import * as v from "valibot";
+import { AttrRepeatMarkAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrRepeatMarkGesSchema } from "../../gestural";
 import {
 	AttrCommonSchema,
 	AttrLangSchema,
 	AttrRepeatMarkLogSchema,
 	ModelTextPhraseLikeLimitedSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrRepeatMarkAnlSchema } from "../../analytical";
-import { AttrRepeatMarkGesSchema } from "../../gestural";
-import { AttrRepeatMarkVisSchema } from "../../visual";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
 import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
+import { AttrRepeatMarkVisSchema } from "../../visual";
 
 /**
  * Base schema with attribute, to simplify types for RepeatMarkSchema

@@ -1,10 +1,10 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
 import { AttrCourseAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
 import { AttrCourseGesSchema } from "../../gestural";
-import { AttrCourseLogSchema } from "..";
+import { AttrCommonSchema } from "../../shared";
 import { AttrCourseVisSchema } from "../../visual";
+import { AttrCourseLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for StringSchema

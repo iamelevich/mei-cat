@@ -4,10 +4,10 @@ import {
 	AttrLineRendBaseSchema,
 	AttrPlacementRelStaffSchema,
 	AttrVerticalGroupSchema,
-	AttrVisualOffsetSchema,
 	AttrVisualOffset2Schema,
-	AttrXySchema,
+	AttrVisualOffsetSchema,
 	AttrXy2Schema,
+	AttrXySchema,
 } from "../../shared";
 
 /**

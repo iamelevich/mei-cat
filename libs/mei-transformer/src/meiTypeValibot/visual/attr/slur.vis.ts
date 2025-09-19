@@ -3,10 +3,10 @@ import {
 	AttrColorSchema,
 	AttrCurvatureSchema,
 	AttrLineRendBaseSchema,
-	AttrVisualOffsetSchema,
 	AttrVisualOffset2Schema,
-	AttrXySchema,
+	AttrVisualOffsetSchema,
 	AttrXy2Schema,
+	AttrXySchema,
 } from "../../shared";
 
 /**

@@ -1,15 +1,15 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrBarLineAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrBarLineGesSchema } from "../../gestural";
+import { AttrBarLineVisSchema } from "../../visual";
 import {
 	AttrBarLineLogSchema,
 	AttrCommonSchema,
 	AttrPointingSchema,
 	AttrTargetEvalSchema,
 } from "..";
-import { AttrBarLineVisSchema } from "../../visual";
-import { AttrFacsimileSchema } from "../../facsimile";
 
 /**
  * Base schema with attribute, to simplify types for BarLineSchema

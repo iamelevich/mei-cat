@@ -1,11 +1,11 @@
 import * as v from "valibot";
+import { type ModelSylLikeData, ModelSylLikeSchema } from "../../shared";
 import {
 	type ModelEditTransPartMusicData,
 	ModelEditTransPartMusicSchema,
 	type ModelEditTransPartTextData,
 	ModelEditTransPartTextSchema,
 } from "..";
-import { type ModelSylLikeData, ModelSylLikeSchema } from "../../shared";
 
 /**
  * Groups elements that may appear as part of editorial and transcription elements.

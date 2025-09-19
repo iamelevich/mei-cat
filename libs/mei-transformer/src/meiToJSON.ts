@@ -1,7 +1,7 @@
 import { $ } from "bun";
 import { XMLParser } from "fast-xml-parser";
 import * as v from "valibot";
-import { MeiJsonSchema, type MeiJsonData } from "./meiTypeValibot";
+import { type MeiJsonData, MeiJsonSchema } from "./meiTypeValibot";
 
 /**
  * Transforms MEI XML string to JSON.

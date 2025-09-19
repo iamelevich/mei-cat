@@ -1,8 +1,8 @@
 import * as v from "valibot";
 import {
 	AttrDurationGesSchema,
-	AttrTimestampGesSchema,
 	AttrTimestamp2GesSchema,
+	AttrTimestampGesSchema,
 } from "..";
 
 /**

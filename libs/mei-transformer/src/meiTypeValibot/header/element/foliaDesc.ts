@@ -1,6 +1,5 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
 import {
 	AddSchema,
 	DamageSchema,
@@ -8,6 +7,7 @@ import {
 	GapSchema,
 	RestoreSchema,
 } from "../../edittrans";
+import { AttrCommonSchema } from "../../shared";
 import { ModelBifoliumLikeSchema, ModelFoliumLikeSchema } from "..";
 
 /**

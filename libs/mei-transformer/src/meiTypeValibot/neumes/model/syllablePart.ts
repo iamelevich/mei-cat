@@ -1,4 +1,6 @@
 import * as v from "valibot";
+import { type ModelVerseLikeData, ModelVerseLikeSchema } from "../../lyrics";
+import { type ModelMidiLikeData, ModelMidiLikeSchema } from "../../midi";
 import {
 	type AccidData,
 	AccidSchema,
@@ -10,8 +12,6 @@ import {
 	ModelSylLikeSchema,
 } from "../../shared";
 import { type ModelEventLikeNeumesData, ModelEventLikeNeumesSchema } from "..";
-import { type ModelMidiLikeData, ModelMidiLikeSchema } from "../../midi";
-import { type ModelVerseLikeData, ModelVerseLikeSchema } from "../../lyrics";
 
 /**
  * Groups elements that may appear as part of the content of a syllable.

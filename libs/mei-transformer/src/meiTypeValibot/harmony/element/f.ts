@@ -1,18 +1,18 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import {
-	AttrCommonSchema,
-	ModelTextPhraseLikeLimitedSchema,
-} from "../../shared";
 import { AttrFAnlSchema } from "../../analytical";
-import { AttrFGesSchema } from "../../gestural";
-import { AttrFLogSchema } from "..";
-import { AttrFVisSchema } from "../../visual";
-import { AttrFacsimileSchema } from "../../facsimile";
+import { StandardTagSchema } from "../../common";
 import {
 	ModelEditLikeSchema,
 	ModelTranscriptionLikeSchema,
 } from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrFGesSchema } from "../../gestural";
+import {
+	AttrCommonSchema,
+	ModelTextPhraseLikeLimitedSchema,
+} from "../../shared";
+import { AttrFVisSchema } from "../../visual";
+import { AttrFLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for FSchema

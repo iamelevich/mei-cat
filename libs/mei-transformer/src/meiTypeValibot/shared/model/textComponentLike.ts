@@ -1,4 +1,5 @@
 import * as v from "valibot";
+import { type ModelTableLikeData, ModelTableLikeSchema } from "../../figtable";
 import {
 	type ModelLgLikeData,
 	ModelLgLikeSchema,
@@ -8,7 +9,6 @@ import {
 	ModelQuoteLikeSchema,
 } from "../../text";
 import { type ModelPLikeData, ModelPLikeSchema } from "..";
-import { type ModelTableLikeData, ModelTableLikeSchema } from "../../figtable";
 
 /**
  * Groups block-level text elements.

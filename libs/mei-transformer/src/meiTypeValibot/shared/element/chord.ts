@@ -1,21 +1,21 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
 import { AttrChordAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { ModelAppLikeSchema } from "../../critapp";
+import {
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrChordGesSchema } from "../../gestural";
+import { ModelVerseLikeSchema } from "../../lyrics";
+import { AttrChordVisSchema } from "../../visual";
 import {
 	AttrChordLogSchema,
 	AttrCommonSchema,
 	ModelChordPartSchema,
 	ModelSylLikeSchema,
 } from "..";
-import { AttrChordVisSchema } from "../../visual";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { ModelAppLikeSchema } from "../../critapp";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { ModelVerseLikeSchema } from "../../lyrics";
 
 /**
  * Base schema with attribute, to simplify types for ChordSchema

@@ -1,9 +1,9 @@
 import * as v from "valibot";
 import {
-	type RespStmtData,
-	RespStmtSchema,
 	type ModelRespLikePartData,
 	ModelRespLikePartSchema,
+	type RespStmtData,
+	RespStmtSchema,
 } from "..";
 
 /**

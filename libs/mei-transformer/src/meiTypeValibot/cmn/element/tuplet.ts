@@ -1,16 +1,16 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, ModelEventLikeSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrTupletAnlSchema } from "../../analytical";
-import { AttrTupletGesSchema } from "../../gestural";
-import { AttrTupletLogSchema, ModelEventLikeCmnSchema } from "..";
-import { AttrTupletVisSchema } from "../../visual";
+import { StandardTagSchema } from "../../common";
 import { ModelAppLikeSchema } from "../../critapp";
 import {
 	ModelEditLikeSchema,
 	ModelTranscriptionLikeSchema,
 } from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrTupletGesSchema } from "../../gestural";
+import { AttrCommonSchema, ModelEventLikeSchema } from "../../shared";
+import { AttrTupletVisSchema } from "../../visual";
+import { AttrTupletLogSchema, ModelEventLikeCmnSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for TupletSchema

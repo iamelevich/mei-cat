@@ -4,10 +4,10 @@ import {
 	AttrBiblSchema,
 	AttrCommonSchema,
 	AttrLangSchema,
-	RendSchema,
 	type RendData,
-	SymbolSchema,
+	RendSchema,
 	type SymbolData,
+	SymbolSchema,
 } from "../../shared";
 import { AttrFoliationSchemeSchema } from "..";
 

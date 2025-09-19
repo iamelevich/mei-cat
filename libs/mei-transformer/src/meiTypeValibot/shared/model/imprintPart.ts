@@ -8,10 +8,10 @@ import {
 import {
 	type DistributorData,
 	DistributorSchema,
-	type PubPlaceData,
-	PubPlaceSchema,
 	type PublisherData,
 	PublisherSchema,
+	type PubPlaceData,
+	PubPlaceSchema,
 } from "..";
 
 /**

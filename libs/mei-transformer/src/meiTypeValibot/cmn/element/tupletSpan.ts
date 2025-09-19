@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrTupletSpanAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrTupletSpanGesSchema } from "../../gestural";
-import { AttrTupletSpanLogSchema } from "..";
+import { AttrCommonSchema } from "../../shared";
 import { AttrTupletSpanVisSchema } from "../../visual";
+import { AttrTupletSpanLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for TupletSpanSchema

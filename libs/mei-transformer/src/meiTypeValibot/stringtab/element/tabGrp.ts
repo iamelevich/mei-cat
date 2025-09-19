@@ -1,16 +1,16 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, NoteSchema, RestSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrTabGrpAnlSchema } from "../../analytical";
-import { AttrTabGrpGesSchema } from "../../gestural";
-import { AttrTabGrpLogSchema } from "..";
-import { AttrTabGrpVisSchema } from "../../visual";
+import { StandardTagSchema } from "../../common";
 import { ModelAppLikeSchema } from "../../critapp";
 import {
 	ModelEditLikeSchema,
 	ModelTranscriptionLikeSchema,
 } from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrTabGrpGesSchema } from "../../gestural";
+import { AttrCommonSchema, NoteSchema, RestSchema } from "../../shared";
+import { AttrTabGrpVisSchema } from "../../visual";
+import { AttrTabGrpLogSchema } from "..";
 import { TabDurSymSchema } from ".";
 
 /**

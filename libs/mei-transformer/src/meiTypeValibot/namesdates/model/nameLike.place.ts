@@ -1,12 +1,12 @@
 import * as v from "valibot";
 import {
-	type ModelNameLikeGeogNameData,
-	ModelNameLikeGeogNameSchema,
-} from "..";
-import {
 	type ModelRepositoryLikeData,
 	ModelRepositoryLikeSchema,
 } from "../../shared";
+import {
+	type ModelNameLikeGeogNameData,
+	ModelNameLikeGeogNameSchema,
+} from "..";
 
 /**
  * Groups place name elements.

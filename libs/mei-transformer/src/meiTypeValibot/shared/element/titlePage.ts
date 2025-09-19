@@ -1,5 +1,8 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { ModelTranscriptionLikeSchema } from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { ModelFigureLikeSchema } from "../../figtable";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
@@ -10,9 +13,6 @@ import {
 	ModelTextComponentLikeSchema,
 	ModelTitlePagePartSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { ModelFigureLikeSchema } from "../../figtable";
-import { ModelTranscriptionLikeSchema } from "../../edittrans";
 
 /**
  * Base schema with attribute, to simplify types for TitlePageSchema

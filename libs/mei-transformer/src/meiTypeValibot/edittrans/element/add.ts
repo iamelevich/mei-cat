@@ -1,5 +1,7 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { ModelFLikeSchema } from "../../harmony";
 import {
 	AttrCommonSchema,
 	AttrExtentSchema,
@@ -10,6 +12,8 @@ import {
 	ModelSectionPartSchema,
 	ModelStaffGrpLikeSchema,
 } from "../../shared";
+import { ModelDivLikeSchema } from "../../text";
+import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
 import {
 	AttrEditSchema,
 	AttrTransSchema,
@@ -17,10 +21,6 @@ import {
 	ModelEditTransPartSchema,
 	ModelTranscriptionLikeSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { ModelDivLikeSchema } from "../../text";
-import { ModelFLikeSchema } from "../../harmony";
-import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
 
 /**
  * Base schema with attribute, to simplify types for AddSchema

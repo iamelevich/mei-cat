@@ -1,11 +1,11 @@
 import * as v from "valibot";
+import { AttrTimestampGesSchema } from "../../gestural";
 import { AttrAlignmentSchema } from "../../performance";
 import {
 	AttrLayerIdentSchema,
 	AttrStaffIdentSchema,
 	AttrTimestampLogSchema,
 } from "..";
-import { AttrTimestampGesSchema } from "../../gestural";
 
 /**
  * Attributes that apply to all written events, <abbr>e.g.</abbr>, note, chord, rest, etc..

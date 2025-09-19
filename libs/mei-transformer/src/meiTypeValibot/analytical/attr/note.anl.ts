@@ -1,4 +1,6 @@
 import * as v from "valibot";
+import { AttrNoteAnlCmnSchema } from "../../cmn";
+import { AttrNoteAnlMensuralSchema } from "../../mensural";
 import {
 	AttrAccidentalSchema,
 	AttrArticulationSchema,
@@ -11,8 +13,6 @@ import {
 	AttrPitchClassSchema,
 	AttrSolfaSchema,
 } from "..";
-import { AttrNoteAnlCmnSchema } from "../../cmn";
-import { AttrNoteAnlMensuralSchema } from "../../mensural";
 
 /**
  * Analytical domain attributes..

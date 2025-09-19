@@ -1,12 +1,12 @@
 import * as v from "valibot";
-import { AttrBeamPresentSchema, AttrLvPresentSchema } from "..";
+import { AttrOrnamPresentSchema } from "../../cmnOrnaments";
 import {
 	AttrFermataPresentSchema,
 	AttrSlurPresentSchema,
 	AttrTiePresentSchema,
 	AttrTupletPresentSchema,
 } from "../../shared";
-import { AttrOrnamPresentSchema } from "../../cmnOrnaments";
+import { AttrBeamPresentSchema, AttrLvPresentSchema } from "..";
 
 /**
  * Analytical domain attributes in the CMN repertoire..

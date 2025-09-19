@@ -1,17 +1,17 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, ModelEventLikeSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrLigatureAnlSchema } from "../../analytical";
-import { AttrLigatureGesSchema } from "../../gestural";
-import { AttrLigatureLogSchema, ModelEventLikeMensuralSchema } from "..";
-import { AttrLigatureVisSchema } from "../../visual";
+import { StandardTagSchema } from "../../common";
 import { ModelAppLikeSchema } from "../../critapp";
 import {
 	ModelEditLikeSchema,
 	ModelTranscriptionLikeSchema,
 } from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrLigatureGesSchema } from "../../gestural";
 import { ModelEventLikeNeumesSchema } from "../../neumes";
+import { AttrCommonSchema, ModelEventLikeSchema } from "../../shared";
+import { AttrLigatureVisSchema } from "../../visual";
+import { AttrLigatureLogSchema, ModelEventLikeMensuralSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for LigatureSchema

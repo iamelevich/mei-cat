@@ -1,14 +1,14 @@
 import * as v from "valibot";
+import { AttrPartsAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { AttrPartsGesSchema } from "../../gestural";
+import { AttrPartsVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	AttrMetadataPointingSchema,
 	AttrPartsLogSchema,
 	ModelPartLikeSchema,
 } from "..";
-import { AttrPartsAnlSchema } from "../../analytical";
-import { AttrPartsGesSchema } from "../../gestural";
-import { AttrPartsVisSchema } from "../../visual";
 
 /**
  * Base schema with attribute, to simplify types for PartsSchema

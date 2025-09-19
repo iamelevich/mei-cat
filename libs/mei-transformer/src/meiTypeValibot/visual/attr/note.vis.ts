@@ -1,5 +1,7 @@
 import * as v from "valibot";
-import { AttrAltSymSchema } from "../../usersymbols";
+import { AttrNoteVisCmnSchema } from "../../cmn";
+import { AttrExtSymSchema } from "../../externalsymbols";
+import { AttrNoteVisMensuralSchema } from "../../mensural";
 import {
 	AttrColorSchema,
 	AttrEnclosingCharsSchema,
@@ -12,9 +14,7 @@ import {
 	AttrVisualOffsetToSchema,
 	AttrXySchema,
 } from "../../shared";
-import { AttrExtSymSchema } from "../../externalsymbols";
-import { AttrNoteVisCmnSchema } from "../../cmn";
-import { AttrNoteVisMensuralSchema } from "../../mensural";
+import { AttrAltSymSchema } from "../../usersymbols";
 
 /**
  * Visual domain attributes..

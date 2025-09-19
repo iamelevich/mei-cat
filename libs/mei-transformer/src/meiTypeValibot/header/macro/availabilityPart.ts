@@ -1,15 +1,5 @@
 import * as v from "valibot";
 import {
-	type AccessRestrictData,
-	AccessRestrictSchema,
-	type PriceData,
-	PriceSchema,
-	type SysReqData,
-	SysReqSchema,
-	type UseRestrictData,
-	UseRestrictSchema,
-} from "..";
-import {
 	type DistributorData,
 	DistributorSchema,
 	type ModelAddressLikeData,
@@ -21,6 +11,16 @@ import {
 	type ModelIdentifierLikeData,
 	ModelIdentifierLikeSchema,
 } from "../../shared";
+import {
+	type AccessRestrictData,
+	AccessRestrictSchema,
+	type PriceData,
+	PriceSchema,
+	type SysReqData,
+	SysReqSchema,
+	type UseRestrictData,
+	UseRestrictSchema,
+} from "..";
 
 /**
  * Groups elements that may appear as part of a description of the availability of and access to a bibliographic item.

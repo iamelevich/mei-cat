@@ -1,12 +1,12 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrSlurAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrSlurGesSchema } from "../../gestural";
-import { AttrSlurLogSchema } from "..";
-import { AttrSlurVisSchema } from "../../visual";
+import { AttrCommonSchema } from "../../shared";
 import { CurveSchema } from "../../usersymbols";
+import { AttrSlurVisSchema } from "../../visual";
+import { AttrSlurLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for SlurSchema

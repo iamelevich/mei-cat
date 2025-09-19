@@ -1,23 +1,23 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
 import {
+	AttrEditSchema,
+	ModelEditLikeSchema,
+	ModelTranscriptionLikeSchema,
+} from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import {
 	AttrBasicSchema,
 	AttrBiblSchema,
 	AttrClassedSchema,
 	AttrLabelledSchema,
 	AttrLangSchema,
 	AttrLinkingSchema,
-	AttrNNumberLikeSchema,
 	AttrNameSchema,
+	AttrNNumberLikeSchema,
 	AttrResponsibilitySchema,
 	ModelTextPhraseLikeSchema,
 } from "..";
-import {
-	AttrEditSchema,
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { AttrFacsimileSchema } from "../../facsimile";
 
 /**
  * Base schema with attribute, to simplify types for NameSchema

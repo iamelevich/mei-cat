@@ -1,10 +1,10 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, AttrKeyAccidLogSchema } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrKeyAccidAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrKeyAccidGesSchema } from "../../gestural";
 import { AttrKeyAccidVisSchema } from "../../visual";
+import { AttrCommonSchema, AttrKeyAccidLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for KeyAccidSchema

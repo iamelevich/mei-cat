@@ -1,5 +1,6 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { GraphicSchema } from "../../figtable";
 import {
 	AttrCommonSchema,
 	AttrCoordinatedSchema,
@@ -7,9 +8,8 @@ import {
 	ModelAnnotLikeSchema,
 	SymbolSchema,
 } from "../../shared";
-import { GraphicSchema } from "../../figtable";
-import { MappingSchema, SymNameSchema, SymPropSchema } from ".";
 import { ModelGraphicPrimitiveLikeSchema } from "..";
+import { MappingSchema, SymNameSchema, SymPropSchema } from ".";
 
 /**
  * Base schema with attribute, to simplify types for SymbolDefSchema

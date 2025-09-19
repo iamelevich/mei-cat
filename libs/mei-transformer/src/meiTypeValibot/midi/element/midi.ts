@@ -1,13 +1,13 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
 import { AttrMidiAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
 import { AttrMidiGesSchema } from "../../gestural";
+import { AttrCommonSchema } from "../../shared";
 import { AttrMidiLogSchema } from "..";
 import {
 	CcSchema,
-	ChanSchema,
 	ChanPrSchema,
+	ChanSchema,
 	CueSchema,
 	HexSchema,
 	MarkerSchema,

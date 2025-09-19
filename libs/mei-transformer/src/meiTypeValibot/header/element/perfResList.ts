@@ -1,18 +1,18 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrEditSchema } from "../../edittrans";
 import {
+	type AnnotData,
+	AnnotSchema,
 	AttrAuthorizedSchema,
 	AttrBiblSchema,
 	AttrCommonSchema,
 	AttrLangSchema,
-	AnnotSchema,
-	type AnnotData,
-	ModelHeadLikeSchema,
 	type ModelHeadLikeData,
+	ModelHeadLikeSchema,
 } from "../../shared";
-import { AttrEditSchema } from "../../edittrans";
 import { AttrPerfResBasicSchema } from "..";
-import { PerfResSchema, type PerfResData } from ".";
+import { type PerfResData, PerfResSchema } from ".";
 
 /**
  * Base schema with attribute, to simplify types for PerfResListSchema

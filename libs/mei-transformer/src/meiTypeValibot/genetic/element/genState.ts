@@ -3,8 +3,8 @@ import { StandardTagSchema } from "../../common";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
-	AttrDataPointingSchema,
 	AttrDatableSchema,
+	AttrDataPointingSchema,
 	AttrMetadataPointingSchema,
 	AttrPointingSchema,
 	DescSchema,

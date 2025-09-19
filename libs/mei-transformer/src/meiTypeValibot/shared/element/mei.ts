@@ -1,11 +1,11 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { MeiHeadSchema } from "../../header";
 import {
 	AttrIdSchema,
 	AttrMeiVersionSchema,
 	AttrResponsibilitySchema,
 } from "..";
-import { MeiHeadSchema } from "../../header";
 import { MusicSchema } from ".";
 
 /**

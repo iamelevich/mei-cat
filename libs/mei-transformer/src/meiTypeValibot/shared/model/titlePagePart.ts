@@ -32,10 +32,6 @@ import {
 import {
 	type ImprintData,
 	ImprintSchema,
-	type SeriesData,
-	SeriesSchema,
-	type TitlePartData,
-	TitlePartSchema,
 	type ModelDateLikeData,
 	ModelDateLikeSchema,
 	type ModelEditionLikeData,
@@ -46,6 +42,10 @@ import {
 	ModelRespLikePartSchema,
 	type ModelTitleLikeData,
 	ModelTitleLikeSchema,
+	type SeriesData,
+	SeriesSchema,
+	type TitlePartData,
+	TitlePartSchema,
 } from "..";
 
 /**

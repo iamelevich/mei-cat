@@ -1,5 +1,12 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { ModelFLikeSchema } from "../../harmony";
+import {
+	ModelNeumeComponentModifierLikeSchema,
+	ModelNeumeModifierLikeSchema,
+	ModelNeumePartSchema,
+} from "../../neumes";
 import {
 	AttrCommonSchema,
 	AttrExtentSchema,
@@ -10,21 +17,14 @@ import {
 	ModelSectionPartSchema,
 	ModelStaffGrpLikeSchema,
 } from "../../shared";
+import { ModelDivLikeSchema } from "../../text";
+import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
 import {
 	AttrEditSchema,
 	ModelEditLikeSchema,
 	ModelEditTransPartSchema,
 	ModelTranscriptionLikeSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { ModelDivLikeSchema } from "../../text";
-import { ModelFLikeSchema } from "../../harmony";
-import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
-import {
-	ModelNeumeComponentModifierLikeSchema,
-	ModelNeumeModifierLikeSchema,
-	ModelNeumePartSchema,
-} from "../../neumes";
 
 /**
  * Base schema with attribute, to simplify types for OrigSchema

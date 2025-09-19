@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrAltSymSchema } from "../../usersymbols";
+import { AttrExtSymSchema } from "../../externalsymbols";
 import {
 	AttrColorSchema,
 	AttrEnclosingCharsSchema,
@@ -9,8 +9,8 @@ import {
 	AttrVisualOffsetHoSchema,
 	AttrXySchema,
 } from "../../shared";
+import { AttrAltSymSchema } from "../../usersymbols";
 import { AttrCurvatureDirectionSchema } from "..";
-import { AttrExtSymSchema } from "../../externalsymbols";
 
 /**
  * Visual domain attributes..

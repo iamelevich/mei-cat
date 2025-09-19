@@ -1,9 +1,9 @@
 import * as v from "valibot";
 import {
 	type RelationData,
-	RelationSchema,
 	type RelationListData,
 	RelationListSchema,
+	RelationSchema,
 } from "..";
 
 /**

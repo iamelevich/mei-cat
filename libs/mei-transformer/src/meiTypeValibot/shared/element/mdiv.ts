@@ -1,5 +1,9 @@
 import * as v from "valibot";
+import { AttrMdivAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrMdivGesSchema } from "../../gestural";
+import { AttrMdivVisSchema } from "../../visual";
 import {
 	AttrCommonSchema,
 	AttrMdivLogSchema,
@@ -8,10 +12,6 @@ import {
 	ModelPartsLikeSchema,
 	ModelScoreLikeSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrMdivAnlSchema } from "../../analytical";
-import { AttrMdivGesSchema } from "../../gestural";
-import { AttrMdivVisSchema } from "../../visual";
 
 /**
  * Base schema with attribute, to simplify types for MdivSchema

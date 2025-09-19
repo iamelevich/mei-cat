@@ -1,10 +1,10 @@
 import * as v from "valibot";
+import { AttrExtSymSchema } from "../../externalsymbols";
 import {
 	AttrColorSchema,
 	AttrVisibilitySchema,
 	AttrXySchema,
 } from "../../shared";
-import { AttrExtSymSchema } from "../../externalsymbols";
 
 /**
  * Visual domain attributes that describe the properties of a stem in the mensural repertoire..

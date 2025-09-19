@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrOriscusAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrOriscusGesSchema } from "../../gestural";
-import { AttrOriscusLogSchema } from "..";
+import { AttrCommonSchema } from "../../shared";
 import { AttrOriscusVisSchema } from "../../visual";
+import { AttrOriscusLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for OriscusSchema

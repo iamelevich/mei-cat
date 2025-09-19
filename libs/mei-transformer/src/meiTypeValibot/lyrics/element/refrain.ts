@@ -1,5 +1,10 @@
 import * as v from "valibot";
+import { AttrRefrainAnlSchema } from "../../analytical";
 import { StandardTagSchema } from "../../common";
+import { ModelAppLikeSchema } from "../../critapp";
+import { ModelEditLikeSchema } from "../../edittrans";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrRefrainGesSchema } from "../../gestural";
 import {
 	AttrCommonSchema,
 	AttrLangSchema,
@@ -10,13 +15,8 @@ import {
 	SpaceSchema,
 	TempoSchema,
 } from "../../shared";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrRefrainAnlSchema } from "../../analytical";
-import { AttrRefrainGesSchema } from "../../gestural";
-import { AttrRefrainLogSchema } from "..";
 import { AttrRefrainVisSchema } from "../../visual";
-import { ModelAppLikeSchema } from "../../critapp";
-import { ModelEditLikeSchema } from "../../edittrans";
+import { AttrRefrainLogSchema } from "..";
 import { VoltaSchema } from ".";
 
 /**

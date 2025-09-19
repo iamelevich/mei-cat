@@ -6,6 +6,7 @@ import {
 	ModelHeadLikeSchema,
 	ModelTextComponentLikeSchema,
 } from "../../shared";
+import { ModelDivLikeSchema } from "../../text";
 import {
 	AcquisitionSchema,
 	ExhibHistSchema,
@@ -13,7 +14,6 @@ import {
 	TreatHistSchema,
 	TreatSchedSchema,
 } from ".";
-import { ModelDivLikeSchema } from "../../text";
 
 /**
  * Base schema with attribute, to simplify types for HistorySchema

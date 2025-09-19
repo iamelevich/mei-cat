@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, AttrPhraseLogSchema } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrPhraseAnlSchema } from "../../analytical";
+import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import { AttrPhraseGesSchema } from "../../gestural";
-import { AttrPhraseVisSchema } from "../../visual";
 import { CurveSchema } from "../../usersymbols";
+import { AttrPhraseVisSchema } from "../../visual";
+import { AttrCommonSchema, AttrPhraseLogSchema } from "..";
 
 /**
  * Base schema with attribute, to simplify types for PhraseSchema

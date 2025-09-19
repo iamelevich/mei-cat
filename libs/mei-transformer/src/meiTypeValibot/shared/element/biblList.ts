@@ -1,16 +1,16 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrFacsimileSchema } from "../../facsimile";
 import {
 	AttrBiblSchema,
 	AttrCommonSchema,
 	AttrLangSchema,
-	ModelBiblLikeSchema,
 	type ModelBiblLikeData,
-	ModelHeadLikeSchema,
+	ModelBiblLikeSchema,
 	type ModelHeadLikeData,
+	ModelHeadLikeSchema,
 } from "..";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { LabelSchema, type LabelData } from ".";
+import { type LabelData, LabelSchema } from ".";
 
 /**
  * Base schema with attribute, to simplify types for BiblListSchema

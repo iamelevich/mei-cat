@@ -1,5 +1,9 @@
 import * as v from "valibot";
 import {
+	type ModelOrnamentLikeCmnData,
+	ModelOrnamentLikeCmnSchema,
+} from "../../cmnOrnaments";
+import {
 	type ArpegData,
 	ArpegSchema,
 	type AttaccaData,
@@ -31,10 +35,6 @@ import {
 	type TupletSpanData,
 	TupletSpanSchema,
 } from "..";
-import {
-	type ModelOrnamentLikeCmnData,
-	ModelOrnamentLikeCmnSchema,
-} from "../../cmnOrnaments";
 
 /**
  * Groups control events that appear in CMN.

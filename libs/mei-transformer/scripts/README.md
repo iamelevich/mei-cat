@@ -1,8 +1,28 @@
-# MEI Module Management Script
+# MEI Schema Generation Scripts
 
-This script automates the management of MEI (Music Encoding Initiative) modules in the meiTypeValibot directory.
+This directory contains scripts for managing and generating MEI (Music Encoding Initiative) schema files.
 
-## What it does
+## Scripts Overview
+
+### 1. Module Management Script (`manage-modules.ts`)
+
+This script automates the management of MEI modules in the meiTypeValibot directory.
+
+### 2. JSON Definition Generator (`generate-json-def.ts`)
+
+This script generates JSON definition files from MEI components in a custom format used by other scripts.
+
+### 3. Valibot Schema Generator (`generate-valibot.ts`)
+
+This script generates Valibot schema files from MEI component definitions. It creates:
+- Element schemas with proper attribute and content model handling
+- Model schemas for MEI model classes
+- Macro schemas for reusable content models
+- Attribute schemas for attribute classes
+- Common schema for standard tag handling
+- Global index file for easy imports
+
+## Module Management Script
 
 1. **Scans existing modules**: Gets all current subfolders in the `meiTypeValibot/` directory
 2. **Fetches MEI modules**: Retrieves the complete list of MEI modules from the official documentation (excluding the main MEI module)
@@ -21,74 +41,84 @@ This script automates the management of MEI (Music Encoding Initiative) modules 
 ## Usage
 
 ```bash
-# Run the script
+# Run the module management script
 bun run manage-modules
 
 # Or run directly
 bun run scripts/manage-modules.ts
+
+# Generate JSON definition files
+bun run generate-json-def
+
+# Or run directly
+bun run scripts/generate-json-def.ts
+
+# Generate Valibot schema files
+bun run generate-valibot
+
+# Or run directly
+bun run scripts/generate-valibot.ts
 ```
 
-## Output
+## Module Management Output
 
-The script will:
+The module management script will:
 - Create missing module directories
 - Report missing schemas and automatically create/delete files:
   - Missing elements, macros, attributes, and models (automatically created with templates)
   - Extra files not in MEI specification (automatically deleted)
 - Update index.ts files with all available exports
 
-## Example Output
+## JSON Definition Output
 
-```
-📋 Processing module: MEI.cmnOrnaments
-✓ Directory created/verified: /path/to/cmnornaments
-Fetching module info for MEI.cmnOrnaments...
-  Found 3 elements, 0 macros, 5 attributes, 1 models
-  ⚠ Issues found for MEI.cmnOrnaments:
-    Missing 9 files:
-      Elements: mordent, trill, turn
-      Attributes: att.mordent.log, att.trill.log, att.turn.log, att.ornam, att.ornamentaccid
-      Models: model.ornamentLike.cmn
-    Extra files (not in MEI spec): unknownFile.ts, model/wrongModel.ts
-      🗑️  Deleted: unknownFile.ts
-      🗑️  Deleted: model/wrongModel.ts
-      📄 Created element: mordent.ts
-      📄 Created element: trill.ts
-      📄 Created element: turn.ts
-      📄 Created attribute: mordent.log.ts
-      📄 Created attribute: trill.log.ts
-      📄 Created attribute: turn.log.ts
-      📄 Created attribute: ornam.ts
-      📄 Created attribute: ornamentaccid.ts
-      📄 Created model: ornamentLike.cmn.ts
-      📝 Updated index.ts with 10 exports
-```
+The JSON definition generator will:
+- Generate JSON definition files for all MEI components in a custom format
+- Create definition files for each component type (elements, macros, attributes, models)
+- Include component metadata like descriptions, URLs, and relationships
+- Generate files that are used as input by other scripts (like the Valibot generator)
+
+## Valibot Schema Output
+
+The Valibot schema generator will:
+- Generate TypeScript files with Valibot schemas for all MEI components
+- Create properly structured schemas with:
+  - Base schemas for attributes
+  - Content model handling
+  - Proper type definitions
+  - Circular dependency resolution
+- Generate index files for each module
+- Generate a global index file for easy imports
+- Format and lint all generated files
 
 ## File Structure
 
-The script expects files to be organized according to MEI conventions:
+The scripts expect and generate files organized according to MEI conventions:
 
 - **Elements**: Direct files in module directory (e.g., `mordent.ts`)
 - **Models**: In `model/` subdirectory without `model.` prefix (e.g., `model/ornamentLike.cmn.ts`)
 - **Macros**: In `macro/` subdirectory without `macro.` prefix (e.g., `macro/availabilityPart.ts`)
 - **Attributes**: In `attr/` subdirectory without `att.` prefix (e.g., `attr/mordent.log.ts`)
+- **Common**: Root-level `common.ts` with standard tag schema
+- **Global Index**: Root-level `index.ts` exporting all modules
 
 ## Requirements
 
 - Bun runtime
 - Internet connection (to fetch MEI documentation)
-- Write permissions to the meiTypeValibot directory
+- Write permissions to the output directories
 
 ## Notes
 
-- The script uses regex parsing to extract information from MEI documentation HTML
-- It handles URL generation automatically based on MEI's documentation structure
-- The script respects existing files and only reports missing ones
-- Missing items are listed by category (elements, macros, attributes, models) for easy identification
-- Extra files that don't belong to the MEI specification are identified and automatically deleted
-- Common files like `index.ts` and `common.ts` are automatically excluded from extra file checks
-- The `index.ts` file is automatically generated/updated with exports for all available elements, macros, attributes, and models
-- Exports are organized by sections (Elements, Macros, Attributes, Models) and sorted alphabetically within each section
-- Includes proper relative paths for subdirectories
-- Missing files are automatically created with appropriate Valibot template schemas
-- Template files include proper imports, JSDoc comments with MEI documentation links, and TODO comments for implementation
+- The scripts use regex parsing to extract information from MEI documentation HTML
+- They handle URL generation automatically based on MEI's documentation structure
+- Generated files include:
+  - Proper imports and exports
+  - JSDoc comments with MEI documentation links
+  - Type definitions and schema validations
+  - Proper handling of circular dependencies
+  - Formatted and linted code
+- Index files are automatically generated with:
+  - Exports organized by sections (Elements, Macros, Attributes, Models)
+  - Alphabetically sorted exports
+  - Proper relative paths for subdirectories
+

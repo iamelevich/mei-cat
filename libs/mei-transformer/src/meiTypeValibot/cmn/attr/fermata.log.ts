@@ -1,5 +1,6 @@
 import * as v from "valibot";
-import { AttrControlEventSchema, AttrStartEndIdSchema } from "../../shared";
+import { AttrControlEventSchema } from "../../shared/attr/controlEvent";
+import { AttrStartEndIdSchema } from "../../shared/attr/startEndId";
 
 /**
  * Logical domain attributes..

@@ -1,11 +1,9 @@
 import * as v from "valibot";
-import { AttrRestLogCmnSchema } from "../../cmn";
-import {
-	AttrAugmentDotsSchema,
-	AttrCueSchema,
-	AttrEventSchema,
-	AttrRestdurationLogSchema,
-} from "..";
+import { AttrRestLogCmnSchema } from "../../cmn/attr/rest.log.cmn";
+import { AttrAugmentDotsSchema } from "../attr/augmentDots";
+import { AttrCueSchema } from "../attr/cue";
+import { AttrEventSchema } from "../attr/event";
+import { AttrRestdurationLogSchema } from "../attr/restduration.log";
 
 /**
  * Logical domain attributes..

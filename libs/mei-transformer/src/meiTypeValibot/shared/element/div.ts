@@ -1,22 +1,20 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { SpSchema } from "../../drama";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { ModelFigureLikeSchema } from "../../figtable";
-import { ModelDivLikeSchema } from "../../text";
-import {
-	AttrBasicSchema,
-	AttrClassedSchema,
-	AttrLabelledSchema,
-	AttrLangSchema,
-	AttrLinkingSchema,
-	AttrMetadataPointingSchema,
-	AttrNNumberLikeSchema,
-	AttrResponsibilitySchema,
-	ModelHeadLikeSchema,
-	ModelMilestoneLikeTextSchema,
-	ModelTextComponentLikeSchema,
-} from "..";
+import { SpSchema } from "../../drama/element/sp";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { ModelFigureLikeSchema } from "../../figtable/model/figureLike";
+import { ModelDivLikeSchema } from "../../text/model/divLike";
+import { AttrBasicSchema } from "../attr/basic";
+import { AttrClassedSchema } from "../attr/classed";
+import { AttrLabelledSchema } from "../attr/labelled";
+import { AttrLangSchema } from "../attr/lang";
+import { AttrLinkingSchema } from "../attr/linking";
+import { AttrMetadataPointingSchema } from "../attr/metadataPointing";
+import { AttrNNumberLikeSchema } from "../attr/nNumberLike";
+import { AttrResponsibilitySchema } from "../attr/responsibility";
+import { ModelHeadLikeSchema } from "../model/headLike";
+import { ModelMilestoneLikeTextSchema } from "../model/milestoneLike.text";
+import { ModelTextComponentLikeSchema } from "../model/textComponentLike";
 
 /**
  * Base schema with attribute, to simplify types for DivSchema
@@ -44,22 +42,22 @@ const DivBaseSchema = v.object({
  * Major structural division of text, such as a preface, chapter or section.
  * @see https://music-encoding.org/guidelines/v5/elements/div.html
  */
-export const DivSchema = v.intersect([
-	DivBaseSchema,
-	v.object({
-		/**
-		 * Reference to element sp
-		 * @see https://music-encoding.org/guidelines/v5/elements/sp.html
-		 */
-		sp: v.optional(
-			v.union([v.lazy(() => SpSchema), v.array(v.lazy(() => SpSchema))]),
-		),
-	}),
-	ModelDivLikeSchema,
-	ModelFigureLikeSchema,
-	ModelHeadLikeSchema,
-	ModelMilestoneLikeTextSchema,
-	ModelTextComponentLikeSchema,
-]);
+export const DivSchema = v.lazy(() =>
+	v.intersect([
+		DivBaseSchema,
+		v.object({
+			/**
+			 * Reference to element sp
+			 * @see https://music-encoding.org/guidelines/v5/elements/sp.html
+			 */
+			sp: v.optional(v.union([SpSchema, v.array(SpSchema)])),
+		}),
+		ModelDivLikeSchema,
+		ModelFigureLikeSchema,
+		ModelHeadLikeSchema,
+		ModelMilestoneLikeTextSchema,
+		ModelTextComponentLikeSchema,
+	]),
+);
 
 export type DivData = v.InferOutput<typeof DivSchema>;

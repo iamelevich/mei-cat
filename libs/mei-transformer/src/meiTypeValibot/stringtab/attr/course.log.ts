@@ -1,5 +1,6 @@
 import * as v from "valibot";
-import { AttrAccidentalSchema, AttrPitchedSchema } from "../../shared";
+import { AttrAccidentalSchema } from "../../shared/attr/accidental";
+import { AttrPitchedSchema } from "../../shared/attr/pitched";
 
 /**
  * Logical domain attributes..

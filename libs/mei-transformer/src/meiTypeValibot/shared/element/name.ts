@@ -1,23 +1,19 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	AttrEditSchema,
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	AttrBasicSchema,
-	AttrBiblSchema,
-	AttrClassedSchema,
-	AttrLabelledSchema,
-	AttrLangSchema,
-	AttrLinkingSchema,
-	AttrNameSchema,
-	AttrNNumberLikeSchema,
-	AttrResponsibilitySchema,
-	ModelTextPhraseLikeSchema,
-} from "..";
+import { AttrEditSchema } from "../../edittrans/attr/edit";
+import { ModelEditLikeSchema } from "../../edittrans/model/editLike";
+import { ModelTranscriptionLikeSchema } from "../../edittrans/model/transcriptionLike";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrBasicSchema } from "../attr/basic";
+import { AttrBiblSchema } from "../attr/bibl";
+import { AttrClassedSchema } from "../attr/classed";
+import { AttrLabelledSchema } from "../attr/labelled";
+import { AttrLangSchema } from "../attr/lang";
+import { AttrLinkingSchema } from "../attr/linking";
+import { AttrNameSchema } from "../attr/name";
+import { AttrNNumberLikeSchema } from "../attr/nNumberLike";
+import { AttrResponsibilitySchema } from "../attr/responsibility";
+import { ModelTextPhraseLikeSchema } from "../model/textPhraseLike";
 
 /**
  * Base schema with attribute, to simplify types for NameSchema
@@ -47,11 +43,13 @@ const NameBaseSchema = v.object({
  * Proper noun or noun phrase.
  * @see https://music-encoding.org/guidelines/v5/elements/name.html
  */
-export const NameSchema = v.intersect([
-	NameBaseSchema,
-	ModelEditLikeSchema,
-	ModelTextPhraseLikeSchema,
-	ModelTranscriptionLikeSchema,
-]);
+export const NameSchema = v.lazy(() =>
+	v.intersect([
+		NameBaseSchema,
+		ModelEditLikeSchema,
+		ModelTextPhraseLikeSchema,
+		ModelTranscriptionLikeSchema,
+	]),
+);
 
 export type NameData = v.InferOutput<typeof NameSchema>;

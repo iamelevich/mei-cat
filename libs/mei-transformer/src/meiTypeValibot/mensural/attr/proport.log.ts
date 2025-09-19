@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrDurationRatioSchema } from "../../shared";
+import { AttrDurationRatioSchema } from "../../shared/attr/duration.ratio";
 
 /**
  * Logical domain attributes. These attributes describe augmentation or diminution of the normal value of the notes in mensural notation as a ratio..

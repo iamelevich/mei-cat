@@ -1,14 +1,12 @@
 import * as v from "valibot";
-import {
-	AttrColorSchema,
-	AttrCurvatureSchema,
-	AttrLineRendBaseSchema,
-	AttrVerticalGroupSchema,
-	AttrVisualOffset2Schema,
-	AttrVisualOffsetSchema,
-	AttrXy2Schema,
-	AttrXySchema,
-} from "../../shared";
+import { AttrColorSchema } from "../../shared/attr/color";
+import { AttrCurvatureSchema } from "../../shared/attr/curvature";
+import { AttrLineRendBaseSchema } from "../../shared/attr/lineRend.base";
+import { AttrVerticalGroupSchema } from "../../shared/attr/verticalGroup";
+import { AttrVisualOffsetSchema } from "../../shared/attr/visualOffset";
+import { AttrVisualOffset2Schema } from "../../shared/attr/visualOffset2";
+import { AttrXySchema } from "../../shared/attr/xy";
+import { AttrXy2Schema } from "../../shared/attr/xy2";
 
 /**
  * Visual domain attributes. If the bulge or bezier attributes are present, the bend should be rendered as a curve. Otherwise, it should be rendered using lines. The ho and vo attributes describe the visual offset of the entire rendered bend. The endho, endvo and startho, startvo attribute pairs may be used to encode start and end points relative to their programmatic placement. For exact placement of the endpoints of the bend, use the x and y attributes..

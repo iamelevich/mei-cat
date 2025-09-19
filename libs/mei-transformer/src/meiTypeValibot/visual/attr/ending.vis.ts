@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrLineRendSchema } from "../../shared";
+import { AttrLineRendSchema } from "../../shared/attr/lineRend";
 
 /**
  * Visual domain attributes..

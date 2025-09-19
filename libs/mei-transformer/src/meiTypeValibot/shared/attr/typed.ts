@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrClassedSchema } from "..";
+import { AttrClassedSchema } from "../attr/classed";
 
 /**
  * Attributes which can be used to classify features..

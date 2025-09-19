@@ -1,15 +1,13 @@
 import * as v from "valibot";
-import { AttrExtSymSchema } from "../../externalsymbols";
-import { AttrNcFormSchema } from "../../neumes";
-import {
-	AttrColorSchema,
-	AttrStaffLocSchema,
-	AttrTypographySchema,
-	AttrVisibilitySchema,
-	AttrVisualOffsetHoSchema,
-	AttrXySchema,
-} from "../../shared";
-import { AttrAltSymSchema } from "../../usersymbols";
+import { AttrExtSymSchema } from "../../externalsymbols/attr/extSym";
+import { AttrNcFormSchema } from "../../neumes/attr/ncForm";
+import { AttrColorSchema } from "../../shared/attr/color";
+import { AttrStaffLocSchema } from "../../shared/attr/staffLoc";
+import { AttrTypographySchema } from "../../shared/attr/typography";
+import { AttrVisibilitySchema } from "../../shared/attr/visibility";
+import { AttrVisualOffsetHoSchema } from "../../shared/attr/visualOffset.ho";
+import { AttrXySchema } from "../../shared/attr/xy";
+import { AttrAltSymSchema } from "../../usersymbols/attr/altSym";
 
 /**
  * Visual domain attributes..

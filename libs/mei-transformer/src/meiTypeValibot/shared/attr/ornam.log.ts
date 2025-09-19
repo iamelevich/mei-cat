@@ -1,11 +1,9 @@
 import * as v from "valibot";
-import { AttrOrnamentAccidSchema } from "../../cmnOrnaments";
-import {
-	AttrControlEventSchema,
-	AttrDurationAdditiveSchema,
-	AttrStartEndIdSchema,
-	AttrTimestamp2LogSchema,
-} from "..";
+import { AttrOrnamentAccidSchema } from "../../cmnOrnaments/attr/ornamentAccid";
+import { AttrControlEventSchema } from "../attr/controlEvent";
+import { AttrDurationAdditiveSchema } from "../attr/duration.additive";
+import { AttrStartEndIdSchema } from "../attr/startEndId";
+import { AttrTimestamp2LogSchema } from "../attr/timestamp2.log";
 
 /**
  * Logical domain attributes..

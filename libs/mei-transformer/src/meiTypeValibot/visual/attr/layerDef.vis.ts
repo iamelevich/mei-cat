@@ -1,6 +1,7 @@
 import * as v from "valibot";
-import { AttrTextStyleSchema, AttrVisibilitySchema } from "../../shared";
-import { AttrBeamingVisSchema } from "..";
+import { AttrTextStyleSchema } from "../../shared/attr/textStyle";
+import { AttrVisibilitySchema } from "../../shared/attr/visibility";
+import { AttrBeamingVisSchema } from "../attr/beaming.vis";
 
 /**
  * Visual domain attributes..

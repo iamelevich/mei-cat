@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrRestAnlCmnSchema } from "../../cmn";
+import { AttrRestAnlCmnSchema } from "../../cmn/attr/rest.anl.cmn";
 
 /**
  * Analytical domain attributes..

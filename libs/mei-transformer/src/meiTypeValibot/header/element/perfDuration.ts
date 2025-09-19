@@ -1,12 +1,10 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	AttrBiblSchema,
-	AttrCommonSchema,
-	AttrLangSchema,
-	MacroStrucUnstrucContentSchema,
-} from "../../shared";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrBiblSchema } from "../../shared/attr/bibl";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrLangSchema } from "../../shared/attr/lang";
+import { MacroStrucUnstrucContentSchema } from "../../shared/macro/struc-unstrucContent";
 
 /**
  * Base schema with attribute, to simplify types for PerfDurationSchema
@@ -29,9 +27,8 @@ const PerfDurationBaseSchema = v.object({
  * Used to express the duration of performance of printed or manuscript music or the playing time for a sound recording, videorecording, etc.
  * @see https://music-encoding.org/guidelines/v5/elements/perfDuration.html
  */
-export const PerfDurationSchema = v.intersect([
-	PerfDurationBaseSchema,
-	MacroStrucUnstrucContentSchema,
-]);
+export const PerfDurationSchema = v.lazy(() =>
+	v.intersect([PerfDurationBaseSchema, MacroStrucUnstrucContentSchema]),
+);
 
 export type PerfDurationData = v.InferOutput<typeof PerfDurationSchema>;

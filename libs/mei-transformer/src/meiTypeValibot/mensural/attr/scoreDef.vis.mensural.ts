@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrMensuralVisSchema } from "../../visual";
+import { AttrMensuralVisSchema } from "../../visual/attr/mensural.vis";
 
 /**
  * Visual domain attributes for scoreDef in the mensural repertoire..

@@ -2,47 +2,47 @@ import * as v from "valibot";
 import {
 	type ModelNameLikeAgentData,
 	ModelNameLikeAgentSchema,
+} from "../../namesdates/model/nameLike.agent";
+import {
 	type ModelNameLikeGeogNameData,
 	ModelNameLikeGeogNameSchema,
-} from "../../namesdates";
+} from "../../namesdates/model/nameLike.geogName";
+import { type DescData, DescSchema } from "../../shared/element/desc";
+import { type NameData, NameSchema } from "../../shared/element/name";
 import {
-	type DescData,
-	DescSchema,
 	type ModelAddressLikeData,
 	ModelAddressLikeSchema,
+} from "../../shared/model/addressLike";
+import {
 	type ModelDateLikeData,
 	ModelDateLikeSchema,
-	type NameData,
-	NameSchema,
-} from "../../shared";
+} from "../../shared/model/dateLike";
 
 /**
  * Groups elements that may be used to provide a structured description of an event.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.eventPart.html
  */
-export const ModelEventPartSchema: v.GenericSchema<ModelEventPartData> =
-	v.intersect([
-		v.object({
-			/**
-			 * Container for text that briefly describes the feature to which it is attached, including its intended usage, purpose, or application as appropriate.
-			 * @see https://music-encoding.org/guidelines/v5/elements/desc.html
-			 */
-			desc: v.optional(
-				v.union([v.lazy(() => DescSchema), v.array(v.lazy(() => DescSchema))]),
-			),
-			/**
-			 * Proper noun or noun phrase.
-			 * @see https://music-encoding.org/guidelines/v5/elements/name.html
-			 */
-			name: v.optional(
-				v.union([v.lazy(() => NameSchema), v.array(v.lazy(() => NameSchema))]),
-			),
-		}),
-		ModelAddressLikeSchema,
-		ModelDateLikeSchema,
-		ModelNameLikeAgentSchema,
-		ModelNameLikeGeogNameSchema,
-	]);
+export const ModelEventPartSchema: v.GenericSchema<ModelEventPartData> = v.lazy(
+	() =>
+		v.intersect([
+			v.object({
+				/**
+				 * Container for text that briefly describes the feature to which it is attached, including its intended usage, purpose, or application as appropriate.
+				 * @see https://music-encoding.org/guidelines/v5/elements/desc.html
+				 */
+				desc: v.optional(v.union([DescSchema, v.array(DescSchema)])),
+				/**
+				 * Proper noun or noun phrase.
+				 * @see https://music-encoding.org/guidelines/v5/elements/name.html
+				 */
+				name: v.optional(v.union([NameSchema, v.array(NameSchema)])),
+			}),
+			ModelAddressLikeSchema,
+			ModelDateLikeSchema,
+			ModelNameLikeAgentSchema,
+			ModelNameLikeGeogNameSchema,
+		]),
+);
 
 export type ModelEventPartData = {
 	desc?: DescData | DescData[];

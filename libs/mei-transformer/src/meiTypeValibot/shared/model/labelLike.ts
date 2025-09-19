@@ -1,35 +1,28 @@
 import * as v from "valibot";
-import {
-	type LabelAbbrData,
-	LabelAbbrSchema,
-	type LabelData,
-	LabelSchema,
-} from "..";
+import { type LabelData, LabelSchema } from "../element/label";
+import { type LabelAbbrData, LabelAbbrSchema } from "../element/labelAbbr";
 
 /**
  * Groups elements used to assign a label to other parts of a document.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.labelLike.html
  */
-export const ModelLabelLikeSchema: v.GenericSchema<ModelLabelLikeData> =
-	v.object({
-		/**
-		 * A container for document text that identifies the feature to which it is attached. For a &#34;tool tip&#34; or other generated label, use the label attribute.
-		 * @see https://music-encoding.org/guidelines/v5/elements/label.html
-		 */
-		label: v.optional(
-			v.union([v.lazy(() => LabelSchema), v.array(v.lazy(() => LabelSchema))]),
-		),
-		/**
-		 * A label on the pages following the first.
-		 * @see https://music-encoding.org/guidelines/v5/elements/labelAbbr.html
-		 */
-		labelAbbr: v.optional(
-			v.union([
-				v.lazy(() => LabelAbbrSchema),
-				v.array(v.lazy(() => LabelAbbrSchema)),
-			]),
-		),
-	});
+export const ModelLabelLikeSchema: v.GenericSchema<ModelLabelLikeData> = v.lazy(
+	() =>
+		v.object({
+			/**
+			 * A container for document text that identifies the feature to which it is attached. For a &#34;tool tip&#34; or other generated label, use the label attribute.
+			 * @see https://music-encoding.org/guidelines/v5/elements/label.html
+			 */
+			label: v.optional(v.union([LabelSchema, v.array(LabelSchema)])),
+			/**
+			 * A label on the pages following the first.
+			 * @see https://music-encoding.org/guidelines/v5/elements/labelAbbr.html
+			 */
+			labelAbbr: v.optional(
+				v.union([LabelAbbrSchema, v.array(LabelAbbrSchema)]),
+			),
+		}),
+);
 
 export type ModelLabelLikeData = {
 	label?: LabelData | LabelData[];

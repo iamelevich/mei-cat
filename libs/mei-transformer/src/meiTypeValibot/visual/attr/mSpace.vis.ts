@@ -1,7 +1,7 @@
 import * as v from "valibot";
-import { AttrCutoutSchema } from "../../cmn";
-import { AttrXySchema } from "../../shared";
-import { AttrAltSymSchema } from "../../usersymbols";
+import { AttrCutoutSchema } from "../../cmn/attr/cutout";
+import { AttrXySchema } from "../../shared/attr/xy";
+import { AttrAltSymSchema } from "../../usersymbols/attr/altSym";
 
 /**
  * Visual domain attributes..

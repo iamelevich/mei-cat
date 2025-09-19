@@ -1,7 +1,8 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, AttrMetadataPointingSchema } from "../../shared";
-import { type GenStateData, GenStateSchema } from ".";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrMetadataPointingSchema } from "../../shared/attr/metadataPointing";
+import { type GenStateData, GenStateSchema } from "../element/genState";
 
 /**
  * Base schema with attribute, to simplify types for GenDescSchema
@@ -24,31 +25,23 @@ type GenDescBaseData = v.InferOutput<typeof GenDescBaseSchema>;
  * Bundles information about the textual development of a work.
  * @see https://music-encoding.org/guidelines/v5/elements/genDesc.html
  */
-export const GenDescSchema: v.GenericSchema<GenDescData> = v.intersect([
-	GenDescBaseSchema,
-	v.object({
-		/**
-		 * Reference to element genDesc
-		 * @see https://music-encoding.org/guidelines/v5/elements/genDesc.html
-		 */
-		genDesc: v.optional(
-			v.union([
-				v.lazy(() => GenDescSchema),
-				v.array(v.lazy(() => GenDescSchema)),
-			]),
-		),
-		/**
-		 * Reference to element genState
-		 * @see https://music-encoding.org/guidelines/v5/elements/genState.html
-		 */
-		genState: v.optional(
-			v.union([
-				v.lazy(() => GenStateSchema),
-				v.array(v.lazy(() => GenStateSchema)),
-			]),
-		),
-	}),
-]);
+export const GenDescSchema: v.GenericSchema<GenDescData> = v.lazy(() =>
+	v.intersect([
+		GenDescBaseSchema,
+		v.object({
+			/**
+			 * Reference to element genDesc
+			 * @see https://music-encoding.org/guidelines/v5/elements/genDesc.html
+			 */
+			genDesc: v.optional(v.union([GenDescSchema, v.array(GenDescSchema)])),
+			/**
+			 * Reference to element genState
+			 * @see https://music-encoding.org/guidelines/v5/elements/genState.html
+			 */
+			genState: v.optional(v.union([GenStateSchema, v.array(GenStateSchema)])),
+		}),
+	]),
+);
 
 export type GenDescData = GenDescBaseData & {
 	genDesc?: GenDescData | GenDescData[];

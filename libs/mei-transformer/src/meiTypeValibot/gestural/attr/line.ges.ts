@@ -1,5 +1,6 @@
 import * as v from "valibot";
-import { AttrDurationGesSchema, AttrTimestamp2GesSchema } from "..";
+import { AttrDurationGesSchema } from "../attr/duration.ges";
+import { AttrTimestamp2GesSchema } from "../attr/timestamp2.ges";
 
 /**
  * Attributes for describing the performed components of a line..

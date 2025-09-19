@@ -1,8 +1,9 @@
 import * as v from "valibot";
-import { AttrExpandableSchema } from "../../cmn";
-import { AttrExtSymSchema } from "../../externalsymbols";
-import { AttrColorSchema, AttrTypographySchema } from "../../shared";
-import { AttrAltSymSchema } from "../../usersymbols";
+import { AttrExpandableSchema } from "../../cmn/attr/expandable";
+import { AttrExtSymSchema } from "../../externalsymbols/attr/extSym";
+import { AttrColorSchema } from "../../shared/attr/color";
+import { AttrTypographySchema } from "../../shared/attr/typography";
+import { AttrAltSymSchema } from "../../usersymbols/attr/altSym";
 
 /**
  * Visual domain attributes..

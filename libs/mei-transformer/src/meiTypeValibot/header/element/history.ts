@@ -1,19 +1,15 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	AttrBiblSchema,
-	AttrCommonSchema,
-	ModelHeadLikeSchema,
-	ModelTextComponentLikeSchema,
-} from "../../shared";
-import { ModelDivLikeSchema } from "../../text";
-import {
-	AcquisitionSchema,
-	ExhibHistSchema,
-	ProvenanceSchema,
-	TreatHistSchema,
-	TreatSchedSchema,
-} from ".";
+import { AttrBiblSchema } from "../../shared/attr/bibl";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { ModelHeadLikeSchema } from "../../shared/model/headLike";
+import { ModelTextComponentLikeSchema } from "../../shared/model/textComponentLike";
+import { ModelDivLikeSchema } from "../../text/model/divLike";
+import { AcquisitionSchema } from "../element/acquisition";
+import { ExhibHistSchema } from "../element/exhibHist";
+import { ProvenanceSchema } from "../element/provenance";
+import { TreatHistSchema } from "../element/treatHist";
+import { TreatSchedSchema } from "../element/treatSched";
 
 /**
  * Base schema with attribute, to simplify types for HistorySchema
@@ -28,63 +24,50 @@ const HistoryBaseSchema = v.object({
  * Provides a container for information about the history of a resource other than the circumstances of its creation.
  * @see https://music-encoding.org/guidelines/v5/elements/history.html
  */
-export const HistorySchema = v.intersect([
-	HistoryBaseSchema,
-	v.object({
-		/**
-		 * Reference to element acquisition
-		 * @see https://music-encoding.org/guidelines/v5/elements/acquisition.html
-		 */
-		acquisition: v.optional(
-			v.union([
-				v.lazy(() => AcquisitionSchema),
-				v.array(v.lazy(() => AcquisitionSchema)),
-			]),
-		),
-		/**
-		 * Reference to element exhibHist
-		 * @see https://music-encoding.org/guidelines/v5/elements/exhibHist.html
-		 */
-		exhibHist: v.optional(
-			v.union([
-				v.lazy(() => ExhibHistSchema),
-				v.array(v.lazy(() => ExhibHistSchema)),
-			]),
-		),
-		/**
-		 * Reference to element provenance
-		 * @see https://music-encoding.org/guidelines/v5/elements/provenance.html
-		 */
-		provenance: v.optional(
-			v.union([
-				v.lazy(() => ProvenanceSchema),
-				v.array(v.lazy(() => ProvenanceSchema)),
-			]),
-		),
-		/**
-		 * Reference to element treatHist
-		 * @see https://music-encoding.org/guidelines/v5/elements/treatHist.html
-		 */
-		treatHist: v.optional(
-			v.union([
-				v.lazy(() => TreatHistSchema),
-				v.array(v.lazy(() => TreatHistSchema)),
-			]),
-		),
-		/**
-		 * Reference to element treatSched
-		 * @see https://music-encoding.org/guidelines/v5/elements/treatSched.html
-		 */
-		treatSched: v.optional(
-			v.union([
-				v.lazy(() => TreatSchedSchema),
-				v.array(v.lazy(() => TreatSchedSchema)),
-			]),
-		),
-	}),
-	ModelDivLikeSchema,
-	ModelHeadLikeSchema,
-	ModelTextComponentLikeSchema,
-]);
+export const HistorySchema = v.lazy(() =>
+	v.intersect([
+		HistoryBaseSchema,
+		v.object({
+			/**
+			 * Reference to element acquisition
+			 * @see https://music-encoding.org/guidelines/v5/elements/acquisition.html
+			 */
+			acquisition: v.optional(
+				v.union([AcquisitionSchema, v.array(AcquisitionSchema)]),
+			),
+			/**
+			 * Reference to element exhibHist
+			 * @see https://music-encoding.org/guidelines/v5/elements/exhibHist.html
+			 */
+			exhibHist: v.optional(
+				v.union([ExhibHistSchema, v.array(ExhibHistSchema)]),
+			),
+			/**
+			 * Reference to element provenance
+			 * @see https://music-encoding.org/guidelines/v5/elements/provenance.html
+			 */
+			provenance: v.optional(
+				v.union([ProvenanceSchema, v.array(ProvenanceSchema)]),
+			),
+			/**
+			 * Reference to element treatHist
+			 * @see https://music-encoding.org/guidelines/v5/elements/treatHist.html
+			 */
+			treatHist: v.optional(
+				v.union([TreatHistSchema, v.array(TreatHistSchema)]),
+			),
+			/**
+			 * Reference to element treatSched
+			 * @see https://music-encoding.org/guidelines/v5/elements/treatSched.html
+			 */
+			treatSched: v.optional(
+				v.union([TreatSchedSchema, v.array(TreatSchedSchema)]),
+			),
+		}),
+		ModelDivLikeSchema,
+		ModelHeadLikeSchema,
+		ModelTextComponentLikeSchema,
+	]),
+);
 
 export type HistoryData = v.InferOutput<typeof HistorySchema>;

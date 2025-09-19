@@ -1,6 +1,6 @@
 import * as v from "valibot";
-import { AttrMensuralSharedSchema } from "../../mensural";
-import { AttrDurationRatioSchema } from "..";
+import { AttrMensuralSharedSchema } from "../../mensural/attr/mensural.shared";
+import { AttrDurationRatioSchema } from "../attr/duration.ratio";
 
 /**
  * Logical domain attributes..

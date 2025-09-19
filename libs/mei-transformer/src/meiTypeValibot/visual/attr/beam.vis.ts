@@ -1,10 +1,8 @@
 import * as v from "valibot";
-import { AttrBeamRendSchema } from "../../cmn";
-import {
-	AttrColorSchema,
-	AttrCueSchema,
-	AttrVisibilitySchema,
-} from "../../shared";
+import { AttrBeamRendSchema } from "../../cmn/attr/beamRend";
+import { AttrColorSchema } from "../../shared/attr/color";
+import { AttrCueSchema } from "../../shared/attr/cue";
+import { AttrVisibilitySchema } from "../../shared/attr/visibility";
 
 /**
  * Visual domain attributes..

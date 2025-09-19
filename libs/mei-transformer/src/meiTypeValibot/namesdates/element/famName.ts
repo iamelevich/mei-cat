@@ -1,19 +1,15 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	AttrEditSchema,
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	AttrBiblSchema,
-	AttrCommonSchema,
-	AttrLangSchema,
-	AttrNameSchema,
-	ModelTextPhraseLikeSchema,
-} from "../../shared";
-import { NameLinkSchema } from ".";
+import { AttrEditSchema } from "../../edittrans/attr/edit";
+import { ModelEditLikeSchema } from "../../edittrans/model/editLike";
+import { ModelTranscriptionLikeSchema } from "../../edittrans/model/transcriptionLike";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrBiblSchema } from "../../shared/attr/bibl";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrLangSchema } from "../../shared/attr/lang";
+import { AttrNameSchema } from "../../shared/attr/name";
+import { ModelTextPhraseLikeSchema } from "../../shared/model/textPhraseLike";
+import { NameLinkSchema } from "../element/nameLink";
 
 /**
  * Base schema with attribute, to simplify types for FamNameSchema
@@ -32,23 +28,20 @@ const FamNameBaseSchema = v.object({
  * Contains a family (inherited) name, as opposed to a given, baptismal, or nick name.
  * @see https://music-encoding.org/guidelines/v5/elements/famName.html
  */
-export const FamNameSchema = v.intersect([
-	FamNameBaseSchema,
-	v.object({
-		/**
-		 * Reference to element nameLink
-		 * @see https://music-encoding.org/guidelines/v5/elements/nameLink.html
-		 */
-		nameLink: v.optional(
-			v.union([
-				v.lazy(() => NameLinkSchema),
-				v.array(v.lazy(() => NameLinkSchema)),
-			]),
-		),
-	}),
-	ModelEditLikeSchema,
-	ModelTextPhraseLikeSchema,
-	ModelTranscriptionLikeSchema,
-]);
+export const FamNameSchema = v.lazy(() =>
+	v.intersect([
+		FamNameBaseSchema,
+		v.object({
+			/**
+			 * Reference to element nameLink
+			 * @see https://music-encoding.org/guidelines/v5/elements/nameLink.html
+			 */
+			nameLink: v.optional(v.union([NameLinkSchema, v.array(NameLinkSchema)])),
+		}),
+		ModelEditLikeSchema,
+		ModelTextPhraseLikeSchema,
+		ModelTranscriptionLikeSchema,
+	]),
+);
 
 export type FamNameData = v.InferOutput<typeof FamNameSchema>;

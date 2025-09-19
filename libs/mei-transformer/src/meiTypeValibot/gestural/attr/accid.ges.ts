@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrAccidentalGesSchema } from "..";
+import { AttrAccidentalGesSchema } from "../attr/accidental.ges";
 
 /**
  * Gestural domain attributes..

@@ -1,7 +1,8 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrMidiEventSchema, AttrMidiNumberSchema } from "..";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrMidiEventSchema } from "../attr/midi.event";
+import { AttrMidiNumberSchema } from "../attr/midiNumber";
 
 /**
  * Base schema with attribute, to simplify types for NoteOffSchema
@@ -17,6 +18,6 @@ const NoteOffBaseSchema = v.object({
  * MIDI note-off event.
  * @see https://music-encoding.org/guidelines/v5/elements/noteOff.html
  */
-export const NoteOffSchema = v.intersect([NoteOffBaseSchema]);
+export const NoteOffSchema = v.lazy(() => v.intersect([NoteOffBaseSchema]));
 
 export type NoteOffData = v.InferOutput<typeof NoteOffSchema>;

@@ -1,12 +1,10 @@
 import * as v from "valibot";
-import { AttrExtSymSchema } from "../../externalsymbols";
-import {
-	AttrVisibilitySchema,
-	AttrVisualOffsetHoSchema,
-	AttrVisualOffsetToSchema,
-	AttrXySchema,
-} from "../../shared";
-import { AttrAltSymSchema } from "../../usersymbols";
+import { AttrExtSymSchema } from "../../externalsymbols/attr/extSym";
+import { AttrVisibilitySchema } from "../../shared/attr/visibility";
+import { AttrVisualOffsetHoSchema } from "../../shared/attr/visualOffset.ho";
+import { AttrVisualOffsetToSchema } from "../../shared/attr/visualOffset.to";
+import { AttrXySchema } from "../../shared/attr/xy";
+import { AttrAltSymSchema } from "../../usersymbols/attr/altSym";
 
 /**
  * Visual domain attributes..

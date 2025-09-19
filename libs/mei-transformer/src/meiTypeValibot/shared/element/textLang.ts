@@ -1,12 +1,10 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	AttrBiblSchema,
-	AttrCommonSchema,
-	AttrLangSchema,
-	ModelTextPhraseLikeLimitedSchema,
-} from "..";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrBiblSchema } from "../attr/bibl";
+import { AttrCommonSchema } from "../attr/common";
+import { AttrLangSchema } from "../attr/lang";
+import { ModelTextPhraseLikeLimitedSchema } from "../model/textPhraseLike.limited";
 
 /**
  * Base schema with attribute, to simplify types for TextLangSchema
@@ -33,9 +31,8 @@ const TextLangBaseSchema = v.object({
  * Identifies the languages and writing systems within the work described by a bibliographic description, not the language of the description.
  * @see https://music-encoding.org/guidelines/v5/elements/textLang.html
  */
-export const TextLangSchema = v.intersect([
-	TextLangBaseSchema,
-	ModelTextPhraseLikeLimitedSchema,
-]);
+export const TextLangSchema = v.lazy(() =>
+	v.intersect([TextLangBaseSchema, ModelTextPhraseLikeLimitedSchema]),
+);
 
 export type TextLangData = v.InferOutput<typeof TextLangSchema>;

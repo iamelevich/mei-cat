@@ -1,24 +1,20 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	AttrAuthorizedSchema,
-	AttrBasicSchema,
-	AttrBiblSchema,
-	AttrClassedSchema,
-	AttrFilingSchema,
-	AttrLabelledSchema,
-	AttrLangSchema,
-	AttrLinkingSchema,
-	AttrNIntegerSchema,
-	AttrResponsibilitySchema,
-	MacroTitlePartSchema,
-	ModelTitleLikeSchema,
-} from "..";
+import { ModelEditLikeSchema } from "../../edittrans/model/editLike";
+import { ModelTranscriptionLikeSchema } from "../../edittrans/model/transcriptionLike";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrAuthorizedSchema } from "../attr/authorized";
+import { AttrBasicSchema } from "../attr/basic";
+import { AttrBiblSchema } from "../attr/bibl";
+import { AttrClassedSchema } from "../attr/classed";
+import { AttrFilingSchema } from "../attr/filing";
+import { AttrLabelledSchema } from "../attr/labelled";
+import { AttrLangSchema } from "../attr/lang";
+import { AttrLinkingSchema } from "../attr/linking";
+import { AttrNIntegerSchema } from "../attr/nInteger";
+import { AttrResponsibilitySchema } from "../attr/responsibility";
+import { MacroTitlePartSchema } from "../macro/titlePart";
+import { ModelTitleLikeSchema } from "../model/titleLike";
 
 /**
  * Base schema with attribute, to simplify types for TitlePartSchema
@@ -48,12 +44,14 @@ const TitlePartBaseSchema = v.object({
  * Contains a subsection or division of the title of a bibliographic entity.
  * @see https://music-encoding.org/guidelines/v5/elements/titlePart.html
  */
-export const TitlePartSchema = v.intersect([
-	TitlePartBaseSchema,
-	MacroTitlePartSchema,
-	ModelEditLikeSchema,
-	ModelTitleLikeSchema,
-	ModelTranscriptionLikeSchema,
-]);
+export const TitlePartSchema = v.lazy(() =>
+	v.intersect([
+		TitlePartBaseSchema,
+		MacroTitlePartSchema,
+		ModelEditLikeSchema,
+		ModelTitleLikeSchema,
+		ModelTranscriptionLikeSchema,
+	]),
+);
 
 export type TitlePartData = v.InferOutput<typeof TitlePartSchema>;

@@ -1,20 +1,20 @@
 import * as v from "valibot";
-import { type FigData, FigSchema } from "..";
+import { type FigData, FigSchema } from "../element/fig";
 
 /**
  * Groups elements representing or containing graphic information such as an illustration or figure.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.figureLike.html
  */
 export const ModelFigureLikeSchema: v.GenericSchema<ModelFigureLikeData> =
-	v.object({
-		/**
-		 * Groups elements representing or containing graphic information such as an illustration or figure.
-		 * @see https://music-encoding.org/guidelines/v5/elements/fig.html
-		 */
-		fig: v.optional(
-			v.union([v.lazy(() => FigSchema), v.array(v.lazy(() => FigSchema))]),
-		),
-	});
+	v.lazy(() =>
+		v.object({
+			/**
+			 * Groups elements representing or containing graphic information such as an illustration or figure.
+			 * @see https://music-encoding.org/guidelines/v5/elements/fig.html
+			 */
+			fig: v.optional(v.union([FigSchema, v.array(FigSchema)])),
+		}),
+	);
 
 export type ModelFigureLikeData = {
 	fig?: FigData | FigData[];

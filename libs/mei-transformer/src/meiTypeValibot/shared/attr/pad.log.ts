@@ -1,5 +1,6 @@
 import * as v from "valibot";
-import { AttrEventSchema, AttrWidthSchema } from "..";
+import { AttrEventSchema } from "../attr/event";
+import { AttrWidthSchema } from "../attr/width";
 
 /**
  * Logical domain attributes..

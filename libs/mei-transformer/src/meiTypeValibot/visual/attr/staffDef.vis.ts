@@ -1,25 +1,21 @@
 import * as v from "valibot";
-import { AttrStaffDefVisCmnSchema } from "../../cmn";
-import { AttrStaffDefVisMensuralSchema } from "../../mensural";
-import {
-	AttrBarringSchema,
-	AttrDistancesSchema,
-	AttrLyricStyleSchema,
-	AttrMultinumMeasuresSchema,
-	AttrNotationStyleSchema,
-	AttrOneLineStaffSchema,
-	AttrScalableSchema,
-	AttrStaffItemsSchema,
-	AttrTextStyleSchema,
-	AttrVisibilitySchema,
-} from "../../shared";
-import { AttrStaffDefVisTablatureSchema } from "../../stringtab";
-import {
-	AttrCleffingVisSchema,
-	AttrGuitarGridVisSchema,
-	AttrKeySigDefaultVisSchema,
-	AttrMeterSigDefaultVisSchema,
-} from "..";
+import { AttrStaffDefVisCmnSchema } from "../../cmn/attr/staffDef.vis.cmn";
+import { AttrStaffDefVisMensuralSchema } from "../../mensural/attr/staffDef.vis.mensural";
+import { AttrBarringSchema } from "../../shared/attr/barring";
+import { AttrDistancesSchema } from "../../shared/attr/distances";
+import { AttrLyricStyleSchema } from "../../shared/attr/lyricStyle";
+import { AttrMultinumMeasuresSchema } from "../../shared/attr/multinumMeasures";
+import { AttrNotationStyleSchema } from "../../shared/attr/notationStyle";
+import { AttrOneLineStaffSchema } from "../../shared/attr/oneLineStaff";
+import { AttrScalableSchema } from "../../shared/attr/scalable";
+import { AttrStaffItemsSchema } from "../../shared/attr/staffItems";
+import { AttrTextStyleSchema } from "../../shared/attr/textStyle";
+import { AttrVisibilitySchema } from "../../shared/attr/visibility";
+import { AttrStaffDefVisTablatureSchema } from "../../stringtab/attr/staffDef.vis.tablature";
+import { AttrCleffingVisSchema } from "../attr/cleffing.vis";
+import { AttrGuitarGridVisSchema } from "../attr/guitarGrid.vis";
+import { AttrKeySigDefaultVisSchema } from "../attr/keySigDefault.vis";
+import { AttrMeterSigDefaultVisSchema } from "../attr/meterSigDefault.vis";
 
 /**
  * Visual domain attributes for staffDef..

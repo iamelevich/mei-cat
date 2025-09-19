@@ -1,11 +1,9 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	AttrBiblSchema,
-	AttrCommonSchema,
-	ModelHeadLikeSchema,
-} from "../../shared";
-import { ChangeSchema } from ".";
+import { AttrBiblSchema } from "../../shared/attr/bibl";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { ModelHeadLikeSchema } from "../../shared/model/headLike";
+import { ChangeSchema } from "../element/change";
 
 /**
  * Base schema with attribute, to simplify types for RevisionDescSchema
@@ -20,19 +18,18 @@ const RevisionDescBaseSchema = v.object({
  * Container for information about alterations that have been made to an MEI file.
  * @see https://music-encoding.org/guidelines/v5/elements/revisionDesc.html
  */
-export const RevisionDescSchema = v.intersect([
-	RevisionDescBaseSchema,
-	v.object({
-		/**
-		 * Reference to element change
-		 * @see https://music-encoding.org/guidelines/v5/elements/change.html
-		 */
-		change: v.union([
-			v.lazy(() => ChangeSchema),
-			v.array(v.lazy(() => ChangeSchema)),
-		]),
-	}),
-	ModelHeadLikeSchema,
-]);
+export const RevisionDescSchema = v.lazy(() =>
+	v.intersect([
+		RevisionDescBaseSchema,
+		v.object({
+			/**
+			 * Reference to element change
+			 * @see https://music-encoding.org/guidelines/v5/elements/change.html
+			 */
+			change: v.union([ChangeSchema, v.array(ChangeSchema)]),
+		}),
+		ModelHeadLikeSchema,
+	]),
+);
 
 export type RevisionDescData = v.InferOutput<typeof RevisionDescSchema>;

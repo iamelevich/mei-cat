@@ -1,20 +1,18 @@
 import * as v from "valibot";
-import { AttrNoteVisCmnSchema } from "../../cmn";
-import { AttrExtSymSchema } from "../../externalsymbols";
-import { AttrNoteVisMensuralSchema } from "../../mensural";
-import {
-	AttrColorSchema,
-	AttrEnclosingCharsSchema,
-	AttrNoteHeadsSchema,
-	AttrStaffLocSchema,
-	AttrStemsSchema,
-	AttrTypographySchema,
-	AttrVisibilitySchema,
-	AttrVisualOffsetHoSchema,
-	AttrVisualOffsetToSchema,
-	AttrXySchema,
-} from "../../shared";
-import { AttrAltSymSchema } from "../../usersymbols";
+import { AttrNoteVisCmnSchema } from "../../cmn/attr/note.vis.cmn";
+import { AttrExtSymSchema } from "../../externalsymbols/attr/extSym";
+import { AttrNoteVisMensuralSchema } from "../../mensural/attr/note.vis.mensural";
+import { AttrColorSchema } from "../../shared/attr/color";
+import { AttrEnclosingCharsSchema } from "../../shared/attr/enclosingChars";
+import { AttrNoteHeadsSchema } from "../../shared/attr/noteHeads";
+import { AttrStaffLocSchema } from "../../shared/attr/staffLoc";
+import { AttrStemsSchema } from "../../shared/attr/stems";
+import { AttrTypographySchema } from "../../shared/attr/typography";
+import { AttrVisibilitySchema } from "../../shared/attr/visibility";
+import { AttrVisualOffsetHoSchema } from "../../shared/attr/visualOffset.ho";
+import { AttrVisualOffsetToSchema } from "../../shared/attr/visualOffset.to";
+import { AttrXySchema } from "../../shared/attr/xy";
+import { AttrAltSymSchema } from "../../usersymbols/attr/altSym";
 
 /**
  * Visual domain attributes..

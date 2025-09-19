@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrMeterConformanceBarSchema } from "..";
+import { AttrMeterConformanceBarSchema } from "../attr/meterConformance.bar";
 
 /**
  * Logical domain attributes..

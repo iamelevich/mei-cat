@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { AttrTupletSpanAnlSchema } from "../../analytical";
+import { AttrTupletSpanAnlSchema } from "../../analytical/attr/tupletSpan.anl";
 import { StandardTagSchema } from "../../common";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrTupletSpanGesSchema } from "../../gestural";
-import { AttrCommonSchema } from "../../shared";
-import { AttrTupletSpanVisSchema } from "../../visual";
-import { AttrTupletSpanLogSchema } from "..";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrTupletSpanGesSchema } from "../../gestural/attr/tupletSpan.ges";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrTupletSpanVisSchema } from "../../visual/attr/tupletSpan.vis";
+import { AttrTupletSpanLogSchema } from "../attr/tupletSpan.log";
 
 /**
  * Base schema with attribute, to simplify types for TupletSpanSchema
@@ -24,6 +24,8 @@ const TupletSpanBaseSchema = v.object({
  * Alternative element for encoding tuplets, especially useful for tuplets that extend across bar lines.
  * @see https://music-encoding.org/guidelines/v5/elements/tupletSpan.html
  */
-export const TupletSpanSchema = v.intersect([TupletSpanBaseSchema]);
+export const TupletSpanSchema = v.lazy(() =>
+	v.intersect([TupletSpanBaseSchema]),
+);
 
 export type TupletSpanData = v.InferOutput<typeof TupletSpanSchema>;

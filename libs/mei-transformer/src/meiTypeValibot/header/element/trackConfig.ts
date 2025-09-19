@@ -1,12 +1,10 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	AttrAuthorizedSchema,
-	AttrBiblSchema,
-	AttrCommonSchema,
-	AttrLangSchema,
-	MacroStrucUnstrucContentSchema,
-} from "../../shared";
+import { AttrAuthorizedSchema } from "../../shared/attr/authorized";
+import { AttrBiblSchema } from "../../shared/attr/bibl";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrLangSchema } from "../../shared/attr/lang";
+import { MacroStrucUnstrucContentSchema } from "../../shared/macro/struc-unstrucContent";
 
 /**
  * Base schema with attribute, to simplify types for TrackConfigSchema
@@ -29,9 +27,8 @@ const TrackConfigBaseSchema = v.object({
  * Number of physical/input tracks on a sound medium (<abbr>e.g.</abbr>, eight track, twelve track).
  * @see https://music-encoding.org/guidelines/v5/elements/trackConfig.html
  */
-export const TrackConfigSchema = v.intersect([
-	TrackConfigBaseSchema,
-	MacroStrucUnstrucContentSchema,
-]);
+export const TrackConfigSchema = v.lazy(() =>
+	v.intersect([TrackConfigBaseSchema, MacroStrucUnstrucContentSchema]),
+);
 
 export type TrackConfigData = v.InferOutput<typeof TrackConfigSchema>;

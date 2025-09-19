@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrLineRendSchema } from "..";
+import { AttrLineRendSchema } from "../attr/lineRend";
 
 /**
  * Attributes that describe extension symbols, typically lines. Members of this class are also typically members of the att.lineRend class..

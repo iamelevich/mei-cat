@@ -1,17 +1,17 @@
 import * as v from "valibot";
-import { AttrTabGrpAnlSchema } from "../../analytical";
+import { AttrTabGrpAnlSchema } from "../../analytical/attr/tabGrp.anl";
 import { StandardTagSchema } from "../../common";
-import { ModelAppLikeSchema } from "../../critapp";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrTabGrpGesSchema } from "../../gestural";
-import { AttrCommonSchema, NoteSchema, RestSchema } from "../../shared";
-import { AttrTabGrpVisSchema } from "../../visual";
-import { AttrTabGrpLogSchema } from "..";
-import { TabDurSymSchema } from ".";
+import { ModelAppLikeSchema } from "../../critapp/model/appLike";
+import { ModelEditLikeSchema } from "../../edittrans/model/editLike";
+import { ModelTranscriptionLikeSchema } from "../../edittrans/model/transcriptionLike";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrTabGrpGesSchema } from "../../gestural/attr/tabGrp.ges";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { NoteSchema } from "../../shared/element/note";
+import { RestSchema } from "../../shared/element/rest";
+import { AttrTabGrpVisSchema } from "../../visual/attr/tabGrp.vis";
+import { AttrTabGrpLogSchema } from "../attr/tabGrp.log";
+import { TabDurSymSchema } from "../element/tabDurSym";
 
 /**
  * Base schema with attribute, to simplify types for TabGrpSchema
@@ -30,32 +30,30 @@ const TabGrpBaseSchema = v.object({
  * A group of simultaneous tab notes, comparable to a <gi scheme="MEI">chord</gi> in CMN. Rarely, may also contain rests, as in some "German" lute tablatures.
  * @see https://music-encoding.org/guidelines/v5/elements/tabGrp.html
  */
-export const TabGrpSchema = v.intersect([
-	TabGrpBaseSchema,
-	v.object({
-		/**
-		 * Reference to element note
-		 * @see https://music-encoding.org/guidelines/v5/elements/note.html
-		 */
-		note: v.optional(
-			v.union([v.lazy(() => NoteSchema), v.array(v.lazy(() => NoteSchema))]),
-		),
-		/**
-		 * Reference to element rest
-		 * @see https://music-encoding.org/guidelines/v5/elements/rest.html
-		 */
-		rest: v.optional(
-			v.union([v.lazy(() => RestSchema), v.array(v.lazy(() => RestSchema))]),
-		),
-		/**
-		 * Reference to element tabDurSym
-		 * @see https://music-encoding.org/guidelines/v5/elements/tabDurSym.html
-		 */
-		tabDurSym: v.optional(v.lazy(() => TabDurSymSchema)),
-	}),
-	ModelAppLikeSchema,
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-]);
+export const TabGrpSchema = v.lazy(() =>
+	v.intersect([
+		TabGrpBaseSchema,
+		v.object({
+			/**
+			 * Reference to element note
+			 * @see https://music-encoding.org/guidelines/v5/elements/note.html
+			 */
+			note: v.optional(v.union([NoteSchema, v.array(NoteSchema)])),
+			/**
+			 * Reference to element rest
+			 * @see https://music-encoding.org/guidelines/v5/elements/rest.html
+			 */
+			rest: v.optional(v.union([RestSchema, v.array(RestSchema)])),
+			/**
+			 * Reference to element tabDurSym
+			 * @see https://music-encoding.org/guidelines/v5/elements/tabDurSym.html
+			 */
+			tabDurSym: v.optional(TabDurSymSchema),
+		}),
+		ModelAppLikeSchema,
+		ModelEditLikeSchema,
+		ModelTranscriptionLikeSchema,
+	]),
+);
 
 export type TabGrpData = v.InferOutput<typeof TabGrpSchema>;

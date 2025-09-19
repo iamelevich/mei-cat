@@ -1,17 +1,15 @@
 import * as v from "valibot";
-import { AttrChordVisCmnSchema } from "../../cmn";
-import { AttrExtSymSchema } from "../../externalsymbols";
-import {
-	AttrColorSchema,
-	AttrEnclosingCharsSchema,
-	AttrStemsSchema,
-	AttrTypographySchema,
-	AttrVisibilitySchema,
-	AttrVisualOffsetHoSchema,
-	AttrVisualOffsetToSchema,
-	AttrXySchema,
-} from "../../shared";
-import { AttrAltSymSchema } from "../../usersymbols";
+import { AttrChordVisCmnSchema } from "../../cmn/attr/chord.vis.cmn";
+import { AttrExtSymSchema } from "../../externalsymbols/attr/extSym";
+import { AttrColorSchema } from "../../shared/attr/color";
+import { AttrEnclosingCharsSchema } from "../../shared/attr/enclosingChars";
+import { AttrStemsSchema } from "../../shared/attr/stems";
+import { AttrTypographySchema } from "../../shared/attr/typography";
+import { AttrVisibilitySchema } from "../../shared/attr/visibility";
+import { AttrVisualOffsetHoSchema } from "../../shared/attr/visualOffset.ho";
+import { AttrVisualOffsetToSchema } from "../../shared/attr/visualOffset.to";
+import { AttrXySchema } from "../../shared/attr/xy";
+import { AttrAltSymSchema } from "../../usersymbols/attr/altSym";
 
 /**
  * Visual domain attributes for chord. The slur, slur.dir, slur.rend, tie, tie.dir, and tie.rend attributes here are syntactic sugar for these attributes on each of the chord's individual notes. The values here apply to all the notes in the chord. If some notes are slurred or tied while others aren't, then the individual note attributes must be used..

@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrTremMeasuredSchema } from "../../cmn";
+import { AttrTremMeasuredSchema } from "../../cmn/attr/tremMeasured";
 
 /**
  * Gestural domain attributes..

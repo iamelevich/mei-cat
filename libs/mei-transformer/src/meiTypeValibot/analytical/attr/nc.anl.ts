@@ -1,12 +1,10 @@
 import * as v from "valibot";
-import { AttrNeumeTypeSchema } from "../../neumes";
-import {
-	AttrHarmonicFunctionSchema,
-	AttrIntervalMelodicSchema,
-	AttrMelodicFunctionSchema,
-	AttrPitchClassSchema,
-	AttrSolfaSchema,
-} from "..";
+import { AttrNeumeTypeSchema } from "../../neumes/attr/neumeType";
+import { AttrHarmonicFunctionSchema } from "../attr/harmonicFunction";
+import { AttrIntervalMelodicSchema } from "../attr/intervalMelodic";
+import { AttrMelodicFunctionSchema } from "../attr/melodicFunction";
+import { AttrPitchClassSchema } from "../attr/pitchClass";
+import { AttrSolfaSchema } from "../attr/solfa";
 
 /**
  * Analytical domain attributes..

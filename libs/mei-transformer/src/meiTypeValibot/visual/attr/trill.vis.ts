@@ -1,18 +1,16 @@
 import * as v from "valibot";
-import { AttrExtSymSchema } from "../../externalsymbols";
-import {
-	AttrColorSchema,
-	AttrEnclosingCharsSchema,
-	AttrExtenderSchema,
-	AttrPlacementRelStaffSchema,
-	AttrTypographySchema,
-	AttrVerticalGroupSchema,
-	AttrVisualOffset2HoSchema,
-	AttrVisualOffset2ToSchema,
-	AttrVisualOffsetSchema,
-	AttrXySchema,
-} from "../../shared";
-import { AttrAltSymSchema } from "../../usersymbols";
+import { AttrExtSymSchema } from "../../externalsymbols/attr/extSym";
+import { AttrColorSchema } from "../../shared/attr/color";
+import { AttrEnclosingCharsSchema } from "../../shared/attr/enclosingChars";
+import { AttrExtenderSchema } from "../../shared/attr/extender";
+import { AttrPlacementRelStaffSchema } from "../../shared/attr/placementRelStaff";
+import { AttrTypographySchema } from "../../shared/attr/typography";
+import { AttrVerticalGroupSchema } from "../../shared/attr/verticalGroup";
+import { AttrVisualOffsetSchema } from "../../shared/attr/visualOffset";
+import { AttrVisualOffset2HoSchema } from "../../shared/attr/visualOffset2.ho";
+import { AttrVisualOffset2ToSchema } from "../../shared/attr/visualOffset2.to";
+import { AttrXySchema } from "../../shared/attr/xy";
+import { AttrAltSymSchema } from "../../usersymbols/attr/altSym";
 
 /**
  * Visual domain attributes..

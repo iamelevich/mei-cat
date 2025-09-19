@@ -1,7 +1,8 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, AttrMetadataPointingSchema } from "../../shared";
-import { RecordingSchema } from ".";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrMetadataPointingSchema } from "../../shared/attr/metadataPointing";
+import { RecordingSchema } from "../element/recording";
 
 /**
  * Base schema with attribute, to simplify types for PerformanceSchema
@@ -16,20 +17,19 @@ const PerformanceBaseSchema = v.object({
  * A presentation of one or more musical works.
  * @see https://music-encoding.org/guidelines/v5/elements/performance.html
  */
-export const PerformanceSchema = v.intersect([
-	PerformanceBaseSchema,
-	v.object({
-		/**
-		 * Reference to element recording
-		 * @see https://music-encoding.org/guidelines/v5/elements/recording.html
-		 */
-		recording: v.optional(
-			v.union([
-				v.lazy(() => RecordingSchema),
-				v.array(v.lazy(() => RecordingSchema)),
-			]),
-		),
-	}),
-]);
+export const PerformanceSchema = v.lazy(() =>
+	v.intersect([
+		PerformanceBaseSchema,
+		v.object({
+			/**
+			 * Reference to element recording
+			 * @see https://music-encoding.org/guidelines/v5/elements/recording.html
+			 */
+			recording: v.optional(
+				v.union([RecordingSchema, v.array(RecordingSchema)]),
+			),
+		}),
+	]),
+);
 
 export type PerformanceData = v.InferOutput<typeof PerformanceSchema>;

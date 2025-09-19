@@ -1,11 +1,9 @@
 import * as v from "valibot";
-import {
-	AttrLayerIdentSchema,
-	AttrPartIdentSchema,
-	AttrStaffIdentSchema,
-	AttrStartIdSchema,
-	AttrTimestampLogSchema,
-} from "..";
+import { AttrLayerIdentSchema } from "../attr/layerIdent";
+import { AttrPartIdentSchema } from "../attr/partIdent";
+import { AttrStaffIdentSchema } from "../attr/staffIdent";
+import { AttrStartIdSchema } from "../attr/startId";
+import { AttrTimestampLogSchema } from "../attr/timestamp.log";
 
 /**
  * Logical domain attributes..

@@ -1,17 +1,15 @@
 import * as v from "valibot";
-import { AttrRestVisCmnSchema } from "../../cmn";
-import { AttrExtSymSchema } from "../../externalsymbols";
-import { AttrRestVisMensuralSchema } from "../../mensural";
-import {
-	AttrColorSchema,
-	AttrEnclosingCharsSchema,
-	AttrStaffLocPitchedSchema,
-	AttrStaffLocSchema,
-	AttrTypographySchema,
-	AttrVisualOffsetSchema,
-	AttrXySchema,
-} from "../../shared";
-import { AttrAltSymSchema } from "../../usersymbols";
+import { AttrRestVisCmnSchema } from "../../cmn/attr/rest.vis.cmn";
+import { AttrExtSymSchema } from "../../externalsymbols/attr/extSym";
+import { AttrRestVisMensuralSchema } from "../../mensural/attr/rest.vis.mensural";
+import { AttrColorSchema } from "../../shared/attr/color";
+import { AttrEnclosingCharsSchema } from "../../shared/attr/enclosingChars";
+import { AttrStaffLocSchema } from "../../shared/attr/staffLoc";
+import { AttrStaffLocPitchedSchema } from "../../shared/attr/staffLoc.pitched";
+import { AttrTypographySchema } from "../../shared/attr/typography";
+import { AttrVisualOffsetSchema } from "../../shared/attr/visualOffset";
+import { AttrXySchema } from "../../shared/attr/xy";
+import { AttrAltSymSchema } from "../../usersymbols/attr/altSym";
 
 /**
  * Visual domain attributes..

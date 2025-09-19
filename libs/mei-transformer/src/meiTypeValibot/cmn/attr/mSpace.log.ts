@@ -1,5 +1,6 @@
 import * as v from "valibot";
-import { AttrDurationAdditiveSchema, AttrEventSchema } from "../../shared";
+import { AttrDurationAdditiveSchema } from "../../shared/attr/duration.additive";
+import { AttrEventSchema } from "../../shared/attr/event";
 
 /**
  * Logical domain attributes in the CMN repertoire..

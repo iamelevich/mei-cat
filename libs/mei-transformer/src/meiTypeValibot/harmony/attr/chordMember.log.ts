@@ -1,6 +1,6 @@
 import * as v from "valibot";
-import { AttrPitchedSchema } from "../../shared";
-import { AttrStringtabSchema } from "../../stringtab";
+import { AttrPitchedSchema } from "../../shared/attr/pitched";
+import { AttrStringtabSchema } from "../../stringtab/attr/stringtab";
 
 /**
  * Logical domain attributes..

@@ -1,5 +1,6 @@
 import * as v from "valibot";
-import { AttrMeasurementSchema, AttrRangingSchema } from "..";
+import { AttrMeasurementSchema } from "../attr/measurement";
+import { AttrRangingSchema } from "../attr/ranging";
 
 /**
  * Attributes that specify a measurement in numerical terms..

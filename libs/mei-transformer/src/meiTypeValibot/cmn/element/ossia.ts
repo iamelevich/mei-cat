@@ -1,16 +1,15 @@
 import * as v from "valibot";
-import { AttrOssiaAnlSchema } from "../../analytical";
+import { AttrOssiaAnlSchema } from "../../analytical/attr/ossia.anl";
 import { StandardTagSchema } from "../../common";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrOssiaGesSchema } from "../../gestural";
-import {
-	AttrCommonSchema,
-	ModelLayerLikeSchema,
-	ModelStaffLikeSchema,
-} from "../../shared";
-import { AttrOssiaVisSchema } from "../../visual";
-import { AttrOssiaLogSchema } from "..";
-import { OLayerSchema, OStaffSchema } from ".";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrOssiaGesSchema } from "../../gestural/attr/ossia.ges";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { ModelLayerLikeSchema } from "../../shared/model/layerLike";
+import { ModelStaffLikeSchema } from "../../shared/model/staffLike";
+import { AttrOssiaVisSchema } from "../../visual/attr/ossia.vis";
+import { AttrOssiaLogSchema } from "../attr/ossia.log";
+import { OLayerSchema } from "../element/oLayer";
+import { OStaffSchema } from "../element/oStaff";
 
 /**
  * Base schema with attribute, to simplify types for OssiaSchema
@@ -29,28 +28,24 @@ const OssiaBaseSchema = v.object({
  * Captures original notation and a differently notated version <hi rend="bold">*present in the source being transcribed*</hi>.
  * @see https://music-encoding.org/guidelines/v5/elements/ossia.html
  */
-export const OssiaSchema = v.intersect([
-	OssiaBaseSchema,
-	v.object({
-		/**
-		 * Reference to element oLayer
-		 * @see https://music-encoding.org/guidelines/v5/elements/oLayer.html
-		 */
-		oLayer: v.union([
-			v.lazy(() => OLayerSchema),
-			v.array(v.lazy(() => OLayerSchema)),
-		]),
-		/**
-		 * Reference to element oStaff
-		 * @see https://music-encoding.org/guidelines/v5/elements/oStaff.html
-		 */
-		oStaff: v.union([
-			v.lazy(() => OStaffSchema),
-			v.array(v.lazy(() => OStaffSchema)),
-		]),
-	}),
-	ModelLayerLikeSchema,
-	ModelStaffLikeSchema,
-]);
+export const OssiaSchema = v.lazy(() =>
+	v.intersect([
+		OssiaBaseSchema,
+		v.object({
+			/**
+			 * Reference to element oLayer
+			 * @see https://music-encoding.org/guidelines/v5/elements/oLayer.html
+			 */
+			oLayer: v.union([OLayerSchema, v.array(OLayerSchema)]),
+			/**
+			 * Reference to element oStaff
+			 * @see https://music-encoding.org/guidelines/v5/elements/oStaff.html
+			 */
+			oStaff: v.union([OStaffSchema, v.array(OStaffSchema)]),
+		}),
+		ModelLayerLikeSchema,
+		ModelStaffLikeSchema,
+	]),
+);
 
 export type OssiaData = v.InferOutput<typeof OssiaSchema>;

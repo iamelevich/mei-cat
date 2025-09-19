@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrTupletAnlSchema } from "..";
+import { AttrTupletAnlSchema } from "../attr/tuplet.anl";
 
 /**
  * Analytical domain attributes..

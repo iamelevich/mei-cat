@@ -1,14 +1,12 @@
 import * as v from "valibot";
-import { AttrTimestampGesSchema } from "../../gestural";
-import { AttrAlignmentSchema } from "../../performance";
-import {
-	AttrLayerIdentSchema,
-	AttrPartIdentSchema,
-	AttrPlistSchema,
-	AttrStaffIdentSchema,
-	AttrTargetEvalSchema,
-	AttrTimestampLogSchema,
-} from "..";
+import { AttrTimestampGesSchema } from "../../gestural/attr/timestamp.ges";
+import { AttrAlignmentSchema } from "../../performance/attr/alignment";
+import { AttrLayerIdentSchema } from "../attr/layerIdent";
+import { AttrPartIdentSchema } from "../attr/partIdent";
+import { AttrPlistSchema } from "../attr/plist";
+import { AttrStaffIdentSchema } from "../attr/staffIdent";
+import { AttrTargetEvalSchema } from "../attr/targetEval";
+import { AttrTimestampLogSchema } from "../attr/timestamp.log";
 
 /**
  * Attributes shared by events which rely on other events for their existence. For example, a slur/phrase marking must be drawn between or over a group of notes. The slur is therefore a control event..

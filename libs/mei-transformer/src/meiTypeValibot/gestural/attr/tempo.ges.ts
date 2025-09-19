@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrMidiTempoSchema } from "../../midi";
+import { AttrMidiTempoSchema } from "../../midi/attr/midiTempo";
 
 /**
  * Gestural domain attributes..

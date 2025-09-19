@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrVisibilitySchema } from "../../shared";
+import { AttrVisibilitySchema } from "../../shared/attr/visibility";
 
 /**
  * Visual domain attributes..

@@ -1,12 +1,10 @@
 import * as v from "valibot";
-import { AttrPhraseVisCmnSchema } from "../../cmn";
-import {
-	AttrColorSchema,
-	AttrVisualOffset2Schema,
-	AttrVisualOffsetSchema,
-	AttrXy2Schema,
-	AttrXySchema,
-} from "../../shared";
+import { AttrPhraseVisCmnSchema } from "../../cmn/attr/phrase.vis.cmn";
+import { AttrColorSchema } from "../../shared/attr/color";
+import { AttrVisualOffsetSchema } from "../../shared/attr/visualOffset";
+import { AttrVisualOffset2Schema } from "../../shared/attr/visualOffset2";
+import { AttrXySchema } from "../../shared/attr/xy";
+import { AttrXy2Schema } from "../../shared/attr/xy2";
 
 /**
  * Visual domain attributes..

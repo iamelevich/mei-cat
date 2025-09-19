@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrMensuralLogSchema } from "..";
+import { AttrMensuralLogSchema } from "../attr/mensural.log";
 
 /**
  * Logical domain attributes for a score in the mensural repertoire. The values set in these attributes act as score-wide defaults for attributes that are not set in descendant elements..

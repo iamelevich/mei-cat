@@ -1,12 +1,10 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	AttrBiblSchema,
-	AttrCommonSchema,
-	AttrLangSchema,
-	MacroStrucUnstrucContentSchema,
-} from "../../shared";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrBiblSchema } from "../../shared/attr/bibl";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrLangSchema } from "../../shared/attr/lang";
+import { MacroStrucUnstrucContentSchema } from "../../shared/macro/struc-unstrucContent";
 
 /**
  * Base schema with attribute, to simplify types for RubricSchema
@@ -29,9 +27,8 @@ const RubricBaseSchema = v.object({
  * Contains a string of words through which a manuscript signals the beginning or end of a text division, often with an assertion as to its author and title, which is in some way set off from the text itself, usually in red ink, or by use of different size or type of script, or some other such visual device.
  * @see https://music-encoding.org/guidelines/v5/elements/rubric.html
  */
-export const RubricSchema = v.intersect([
-	RubricBaseSchema,
-	MacroStrucUnstrucContentSchema,
-]);
+export const RubricSchema = v.lazy(() =>
+	v.intersect([RubricBaseSchema, MacroStrucUnstrucContentSchema]),
+);
 
 export type RubricData = v.InferOutput<typeof RubricSchema>;

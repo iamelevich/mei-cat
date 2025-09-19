@@ -1,11 +1,9 @@
 import * as v from "valibot";
-import {
-	AttrPlacementRelStaffSchema,
-	AttrVisualOffset2HoSchema,
-	AttrVisualOffset2ToSchema,
-	AttrVisualOffsetSchema,
-	AttrXySchema,
-} from "../../shared";
+import { AttrPlacementRelStaffSchema } from "../../shared/attr/placementRelStaff";
+import { AttrVisualOffsetSchema } from "../../shared/attr/visualOffset";
+import { AttrVisualOffset2HoSchema } from "../../shared/attr/visualOffset2.ho";
+import { AttrVisualOffset2ToSchema } from "../../shared/attr/visualOffset2.to";
+import { AttrXySchema } from "../../shared/attr/xy";
 
 /**
  * Visual domain attributes..

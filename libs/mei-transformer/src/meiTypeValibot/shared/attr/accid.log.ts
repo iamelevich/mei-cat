@@ -1,5 +1,6 @@
 import * as v from "valibot";
-import { AttrAccidentalSchema, AttrControlEventSchema } from "..";
+import { AttrAccidentalSchema } from "../attr/accidental";
+import { AttrControlEventSchema } from "../attr/controlEvent";
 
 /**
  * Logical domain attributes..

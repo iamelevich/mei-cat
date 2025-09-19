@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrBeamingLogSchema } from "..";
+import { AttrBeamingLogSchema } from "../attr/beaming.log";
 
 /**
  * Logical domain attributes for staffDef in the CMN repertoire..

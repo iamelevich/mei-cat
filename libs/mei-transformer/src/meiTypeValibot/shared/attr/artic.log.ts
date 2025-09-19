@@ -1,5 +1,6 @@
 import * as v from "valibot";
-import { AttrArticulationSchema, AttrControlEventSchema } from "..";
+import { AttrArticulationSchema } from "../attr/articulation";
+import { AttrControlEventSchema } from "../attr/controlEvent";
 
 /**
  * Logical domain attributes..

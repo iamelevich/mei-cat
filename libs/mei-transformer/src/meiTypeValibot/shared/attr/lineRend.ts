@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrLineRendBaseSchema } from "..";
+import { AttrLineRendBaseSchema } from "../attr/lineRend.base";
 
 /**
  * Attributes that record the visual rendition of lines..

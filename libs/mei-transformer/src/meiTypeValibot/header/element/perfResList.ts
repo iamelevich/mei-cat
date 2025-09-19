@@ -1,18 +1,17 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrEditSchema } from "../../edittrans";
+import { AttrEditSchema } from "../../edittrans/attr/edit";
+import { AttrAuthorizedSchema } from "../../shared/attr/authorized";
+import { AttrBiblSchema } from "../../shared/attr/bibl";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrLangSchema } from "../../shared/attr/lang";
+import { type AnnotData, AnnotSchema } from "../../shared/element/annot";
 import {
-	type AnnotData,
-	AnnotSchema,
-	AttrAuthorizedSchema,
-	AttrBiblSchema,
-	AttrCommonSchema,
-	AttrLangSchema,
 	type ModelHeadLikeData,
 	ModelHeadLikeSchema,
-} from "../../shared";
-import { AttrPerfResBasicSchema } from "..";
-import { type PerfResData, PerfResSchema } from ".";
+} from "../../shared/model/headLike";
+import { AttrPerfResBasicSchema } from "../attr/perfRes.basic";
+import { type PerfResData, PerfResSchema } from "../element/perfRes";
 
 /**
  * Base schema with attribute, to simplify types for PerfResListSchema
@@ -33,39 +32,31 @@ type PerfResListBaseData = v.InferOutput<typeof PerfResListBaseSchema>;
  * Several instrumental or vocal resources treated as a group.
  * @see https://music-encoding.org/guidelines/v5/elements/perfResList.html
  */
-export const PerfResListSchema: v.GenericSchema<PerfResListData> = v.intersect([
-	PerfResListBaseSchema,
-	v.object({
-		/**
-		 * Reference to element annot
-		 * @see https://music-encoding.org/guidelines/v5/elements/annot.html
-		 */
-		annot: v.optional(
-			v.union([v.lazy(() => AnnotSchema), v.array(v.lazy(() => AnnotSchema))]),
-		),
-		/**
-		 * Reference to element perfRes
-		 * @see https://music-encoding.org/guidelines/v5/elements/perfRes.html
-		 */
-		perfRes: v.optional(
-			v.union([
-				v.lazy(() => PerfResSchema),
-				v.array(v.lazy(() => PerfResSchema)),
-			]),
-		),
-		/**
-		 * Reference to element perfResList
-		 * @see https://music-encoding.org/guidelines/v5/elements/perfResList.html
-		 */
-		perfResList: v.optional(
-			v.union([
-				v.lazy(() => PerfResListSchema),
-				v.array(v.lazy(() => PerfResListSchema)),
-			]),
-		),
-	}),
-	ModelHeadLikeSchema,
-]);
+export const PerfResListSchema: v.GenericSchema<PerfResListData> = v.lazy(() =>
+	v.intersect([
+		PerfResListBaseSchema,
+		v.object({
+			/**
+			 * Reference to element annot
+			 * @see https://music-encoding.org/guidelines/v5/elements/annot.html
+			 */
+			annot: v.optional(v.union([AnnotSchema, v.array(AnnotSchema)])),
+			/**
+			 * Reference to element perfRes
+			 * @see https://music-encoding.org/guidelines/v5/elements/perfRes.html
+			 */
+			perfRes: v.optional(v.union([PerfResSchema, v.array(PerfResSchema)])),
+			/**
+			 * Reference to element perfResList
+			 * @see https://music-encoding.org/guidelines/v5/elements/perfResList.html
+			 */
+			perfResList: v.optional(
+				v.union([PerfResListSchema, v.array(PerfResListSchema)]),
+			),
+		}),
+		ModelHeadLikeSchema,
+	]),
+);
 
 export type PerfResListData = PerfResListBaseData & {
 	annot?: AnnotData | AnnotData[];

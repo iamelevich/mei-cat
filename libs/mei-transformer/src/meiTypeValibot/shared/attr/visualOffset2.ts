@@ -1,9 +1,7 @@
 import * as v from "valibot";
-import {
-	AttrVisualOffset2HoSchema,
-	AttrVisualOffset2ToSchema,
-	AttrVisualOffset2VoSchema,
-} from "..";
+import { AttrVisualOffset2HoSchema } from "../attr/visualOffset2.ho";
+import { AttrVisualOffset2ToSchema } from "../attr/visualOffset2.to";
+import { AttrVisualOffset2VoSchema } from "../attr/visualOffset2.vo";
 
 /**
  * Visual offset attributes. Some items may have their location recorded in terms of pairs of offsets from their programmatically-determined location. The startho and endho attributes record the horizontal offsets of the start and end points of the item, respectively. Similarly, the startvo and endvo attributes record the vertical offsets of the start and end points of the item. The startto and endto attributes hold timestamp offsets, the most common use of which is as alternatives to the ho attributes..

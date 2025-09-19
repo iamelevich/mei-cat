@@ -1,6 +1,7 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrBiblSchema, AttrCommonSchema } from "../../shared";
+import { AttrBiblSchema } from "../../shared/attr/bibl";
+import { AttrCommonSchema } from "../../shared/attr/common";
 
 /**
  * Base schema with attribute, to simplify types for DomainsDeclSchema
@@ -29,6 +30,8 @@ const DomainsDeclBaseSchema = v.object({
  * Indicates which domains are included in the encoding.
  * @see https://music-encoding.org/guidelines/v5/elements/domainsDecl.html
  */
-export const DomainsDeclSchema = v.intersect([DomainsDeclBaseSchema]);
+export const DomainsDeclSchema = v.lazy(() =>
+	v.intersect([DomainsDeclBaseSchema]),
+);
 
 export type DomainsDeclData = v.InferOutput<typeof DomainsDeclSchema>;

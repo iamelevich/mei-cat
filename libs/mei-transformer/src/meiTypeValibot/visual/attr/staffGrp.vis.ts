@@ -1,9 +1,7 @@
 import * as v from "valibot";
-import {
-	AttrBarringSchema,
-	AttrStaffGroupingSymSchema,
-	AttrVisibilitySchema,
-} from "../../shared";
+import { AttrBarringSchema } from "../../shared/attr/barring";
+import { AttrStaffGroupingSymSchema } from "../../shared/attr/staffGroupingSym";
+import { AttrVisibilitySchema } from "../../shared/attr/visibility";
 
 /**
  * Visual domain attributes..

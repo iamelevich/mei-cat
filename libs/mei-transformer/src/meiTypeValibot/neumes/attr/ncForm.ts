@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrCurvatureDirectionSchema } from "../../visual";
+import { AttrCurvatureDirectionSchema } from "../../visual/attr/curvatureDirection";
 
 /**
  * Attributes that record visual details of neume notation..

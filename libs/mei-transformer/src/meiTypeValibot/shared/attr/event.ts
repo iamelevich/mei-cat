@@ -1,11 +1,9 @@
 import * as v from "valibot";
-import { AttrTimestampGesSchema } from "../../gestural";
-import { AttrAlignmentSchema } from "../../performance";
-import {
-	AttrLayerIdentSchema,
-	AttrStaffIdentSchema,
-	AttrTimestampLogSchema,
-} from "..";
+import { AttrTimestampGesSchema } from "../../gestural/attr/timestamp.ges";
+import { AttrAlignmentSchema } from "../../performance/attr/alignment";
+import { AttrLayerIdentSchema } from "../attr/layerIdent";
+import { AttrStaffIdentSchema } from "../attr/staffIdent";
+import { AttrTimestampLogSchema } from "../attr/timestamp.log";
 
 /**
  * Attributes that apply to all written events, <abbr>e.g.</abbr>, note, chord, rest, etc..

@@ -1,10 +1,11 @@
 import * as v from "valibot";
-import { AttrArticAnlSchema } from "../../analytical";
+import { AttrArticAnlSchema } from "../../analytical/attr/artic.anl";
 import { StandardTagSchema } from "../../common";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrArticGesSchema } from "../../gestural";
-import { AttrArticVisSchema } from "../../visual";
-import { AttrArticLogSchema, AttrCommonSchema } from "..";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrArticGesSchema } from "../../gestural/attr/artic.ges";
+import { AttrArticVisSchema } from "../../visual/attr/artic.vis";
+import { AttrArticLogSchema } from "../attr/artic.log";
+import { AttrCommonSchema } from "../attr/common";
 
 /**
  * Base schema with attribute, to simplify types for ArticSchema
@@ -23,6 +24,6 @@ const ArticBaseSchema = v.object({
  * An indication of how to play a note or chord.
  * @see https://music-encoding.org/guidelines/v5/elements/artic.html
  */
-export const ArticSchema = v.intersect([ArticBaseSchema]);
+export const ArticSchema = v.lazy(() => v.intersect([ArticBaseSchema]));
 
 export type ArticData = v.InferOutput<typeof ArticSchema>;

@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrTimestampGesSchema } from "..";
+import { AttrTimestampGesSchema } from "../attr/timestamp.ges";
 
 /**
  * Gestural domain attributes. The tstamp.ges and tstamp.real attributes encode the onset time of the measure. In reality, this is usually the same as the onset time of the first event in the measure..

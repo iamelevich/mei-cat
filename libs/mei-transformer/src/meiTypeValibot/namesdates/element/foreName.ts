@@ -1,18 +1,14 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	AttrEditSchema,
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	AttrBiblSchema,
-	AttrCommonSchema,
-	AttrLangSchema,
-	AttrNameSchema,
-	ModelTextPhraseLikeSchema,
-} from "../../shared";
+import { AttrEditSchema } from "../../edittrans/attr/edit";
+import { ModelEditLikeSchema } from "../../edittrans/model/editLike";
+import { ModelTranscriptionLikeSchema } from "../../edittrans/model/transcriptionLike";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrBiblSchema } from "../../shared/attr/bibl";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrLangSchema } from "../../shared/attr/lang";
+import { AttrNameSchema } from "../../shared/attr/name";
+import { ModelTextPhraseLikeSchema } from "../../shared/model/textPhraseLike";
 
 /**
  * Base schema with attribute, to simplify types for ForeNameSchema
@@ -31,11 +27,13 @@ const ForeNameBaseSchema = v.object({
  * Contains a forename, given or baptismal name.
  * @see https://music-encoding.org/guidelines/v5/elements/foreName.html
  */
-export const ForeNameSchema = v.intersect([
-	ForeNameBaseSchema,
-	ModelEditLikeSchema,
-	ModelTextPhraseLikeSchema,
-	ModelTranscriptionLikeSchema,
-]);
+export const ForeNameSchema = v.lazy(() =>
+	v.intersect([
+		ForeNameBaseSchema,
+		ModelEditLikeSchema,
+		ModelTextPhraseLikeSchema,
+		ModelTranscriptionLikeSchema,
+	]),
+);
 
 export type ForeNameData = v.InferOutput<typeof ForeNameSchema>;

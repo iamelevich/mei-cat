@@ -1,9 +1,7 @@
 import * as v from "valibot";
-import {
-	AttrCueSchema,
-	AttrDurationAdditiveSchema,
-	AttrEventSchema,
-} from "../../shared";
+import { AttrCueSchema } from "../../shared/attr/cue";
+import { AttrDurationAdditiveSchema } from "../../shared/attr/duration.additive";
+import { AttrEventSchema } from "../../shared/attr/event";
 
 /**
  * Logical domain attributes..

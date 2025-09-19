@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrChordAnlCmnSchema } from "../../cmn";
+import { AttrChordAnlCmnSchema } from "../../cmn/attr/chord.anl.cmn";
 
 /**
  * Analytical domain attributes..

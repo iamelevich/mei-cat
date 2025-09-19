@@ -1,18 +1,14 @@
 import * as v from "valibot";
-import { AttrNoteAnlCmnSchema } from "../../cmn";
-import { AttrNoteAnlMensuralSchema } from "../../mensural";
-import {
-	AttrAccidentalSchema,
-	AttrArticulationSchema,
-	AttrFermataPresentSchema,
-} from "../../shared";
-import {
-	AttrHarmonicFunctionSchema,
-	AttrIntervalMelodicSchema,
-	AttrMelodicFunctionSchema,
-	AttrPitchClassSchema,
-	AttrSolfaSchema,
-} from "..";
+import { AttrNoteAnlCmnSchema } from "../../cmn/attr/note.anl.cmn";
+import { AttrNoteAnlMensuralSchema } from "../../mensural/attr/note.anl.mensural";
+import { AttrAccidentalSchema } from "../../shared/attr/accidental";
+import { AttrArticulationSchema } from "../../shared/attr/articulation";
+import { AttrFermataPresentSchema } from "../../shared/attr/fermataPresent";
+import { AttrHarmonicFunctionSchema } from "../attr/harmonicFunction";
+import { AttrIntervalMelodicSchema } from "../attr/intervalMelodic";
+import { AttrMelodicFunctionSchema } from "../attr/melodicFunction";
+import { AttrPitchClassSchema } from "../attr/pitchClass";
+import { AttrSolfaSchema } from "../attr/solfa";
 
 /**
  * Analytical domain attributes..

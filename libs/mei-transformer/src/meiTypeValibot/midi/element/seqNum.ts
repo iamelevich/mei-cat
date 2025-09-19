@@ -1,7 +1,7 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrMidiEventSchema } from "..";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrMidiEventSchema } from "../attr/midi.event";
 
 /**
  * Base schema with attribute, to simplify types for SeqNumSchema
@@ -22,6 +22,6 @@ const SeqNumBaseSchema = v.object({
  * MIDI sequence number.
  * @see https://music-encoding.org/guidelines/v5/elements/seqNum.html
  */
-export const SeqNumSchema = v.intersect([SeqNumBaseSchema]);
+export const SeqNumSchema = v.lazy(() => v.intersect([SeqNumBaseSchema]));
 
 export type SeqNumData = v.InferOutput<typeof SeqNumSchema>;

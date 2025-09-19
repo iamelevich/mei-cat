@@ -1,5 +1,6 @@
 import * as v from "valibot";
-import { AttrHeightSchema, AttrWidthSchema } from "..";
+import { AttrHeightSchema } from "../attr/height";
+import { AttrWidthSchema } from "../attr/width";
 
 /**
  * Attributes that capture the dimensions of an entity..

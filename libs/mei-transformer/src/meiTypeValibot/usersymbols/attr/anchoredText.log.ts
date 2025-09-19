@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrStartIdSchema } from "../../shared";
+import { AttrStartIdSchema } from "../../shared/attr/startId";
 
 /**
  * Logical domain attributes..

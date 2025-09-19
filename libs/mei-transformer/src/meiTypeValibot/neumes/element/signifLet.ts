@@ -1,19 +1,15 @@
 import * as v from "valibot";
-import { AttrSignifLetAnlSchema } from "../../analytical";
+import { AttrSignifLetAnlSchema } from "../../analytical/attr/signifLet.anl";
 import { StandardTagSchema } from "../../common";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrSignifLetGesSchema } from "../../gestural";
-import {
-	AttrCommonSchema,
-	ModelTextPhraseLikeLimitedSchema,
-} from "../../shared";
-import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
-import { AttrSignifLetVisSchema } from "../../visual";
-import { AttrSignifLetLogSchema } from "..";
+import { ModelEditLikeSchema } from "../../edittrans/model/editLike";
+import { ModelTranscriptionLikeSchema } from "../../edittrans/model/transcriptionLike";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrSignifLetGesSchema } from "../../gestural/attr/signifLet.ges";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { ModelTextPhraseLikeLimitedSchema } from "../../shared/model/textPhraseLike.limited";
+import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols/model/graphicPrimitiveLike";
+import { AttrSignifLetVisSchema } from "../../visual/attr/signifLet.vis";
+import { AttrSignifLetLogSchema } from "../attr/signifLet.log";
 
 /**
  * Base schema with attribute, to simplify types for SignifLetSchema
@@ -32,12 +28,14 @@ const SignifLetBaseSchema = v.object({
  * Significantive letter(s).
  * @see https://music-encoding.org/guidelines/v5/elements/signifLet.html
  */
-export const SignifLetSchema = v.intersect([
-	SignifLetBaseSchema,
-	ModelEditLikeSchema,
-	ModelGraphicPrimitiveLikeSchema,
-	ModelTextPhraseLikeLimitedSchema,
-	ModelTranscriptionLikeSchema,
-]);
+export const SignifLetSchema = v.lazy(() =>
+	v.intersect([
+		SignifLetBaseSchema,
+		ModelEditLikeSchema,
+		ModelGraphicPrimitiveLikeSchema,
+		ModelTextPhraseLikeLimitedSchema,
+		ModelTranscriptionLikeSchema,
+	]),
+);
 
 export type SignifLetData = v.InferOutput<typeof SignifLetSchema>;

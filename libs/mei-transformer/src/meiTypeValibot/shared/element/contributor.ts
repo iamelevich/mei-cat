@@ -1,13 +1,11 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	AttrBiblSchema,
-	AttrCommonSchema,
-	AttrEvidenceSchema,
-	AttrLangSchema,
-	ModelTextPhraseLikeLimitedSchema,
-} from "..";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrBiblSchema } from "../attr/bibl";
+import { AttrCommonSchema } from "../attr/common";
+import { AttrEvidenceSchema } from "../attr/evidence";
+import { AttrLangSchema } from "../attr/lang";
+import { ModelTextPhraseLikeLimitedSchema } from "../model/textPhraseLike.limited";
 
 /**
  * Base schema with attribute, to simplify types for ContributorSchema
@@ -31,9 +29,8 @@ const ContributorBaseSchema = v.object({
  * Names of individuals, institutions, or organizations responsible for contributions to the intellectual content of a work, where the specialized elements for authors, editors, etc. do not suffice or do not apply.
  * @see https://music-encoding.org/guidelines/v5/elements/contributor.html
  */
-export const ContributorSchema = v.intersect([
-	ContributorBaseSchema,
-	ModelTextPhraseLikeLimitedSchema,
-]);
+export const ContributorSchema = v.lazy(() =>
+	v.intersect([ContributorBaseSchema, ModelTextPhraseLikeLimitedSchema]),
+);
 
 export type ContributorData = v.InferOutput<typeof ContributorSchema>;

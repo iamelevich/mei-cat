@@ -1,28 +1,24 @@
 import * as v from "valibot";
-import { AttrScoreDefVisCmnSchema } from "../../cmn";
-import { AttrScoreDefVisMensuralSchema } from "../../mensural";
-import {
-	AttrBarringSchema,
-	AttrDistancesSchema,
-	AttrEndingsSchema,
-	AttrLyricStyleSchema,
-	AttrMeasureNumbersSchema,
-	AttrMultinumMeasuresSchema,
-	AttrNotationStyleSchema,
-	AttrOneLineStaffSchema,
-	AttrOptimizationSchema,
-	AttrPagesSchema,
-	AttrSpacingSchema,
-	AttrStaffItemsSchema,
-	AttrSystemsSchema,
-	AttrTextStyleSchema,
-} from "../../shared";
-import { AttrScoreDefVisTablatureSchema } from "../../stringtab";
-import {
-	AttrCleffingVisSchema,
-	AttrKeySigDefaultVisSchema,
-	AttrMeterSigDefaultVisSchema,
-} from "..";
+import { AttrScoreDefVisCmnSchema } from "../../cmn/attr/scoreDef.vis.cmn";
+import { AttrScoreDefVisMensuralSchema } from "../../mensural/attr/scoreDef.vis.mensural";
+import { AttrBarringSchema } from "../../shared/attr/barring";
+import { AttrDistancesSchema } from "../../shared/attr/distances";
+import { AttrEndingsSchema } from "../../shared/attr/endings";
+import { AttrLyricStyleSchema } from "../../shared/attr/lyricStyle";
+import { AttrMeasureNumbersSchema } from "../../shared/attr/measureNumbers";
+import { AttrMultinumMeasuresSchema } from "../../shared/attr/multinumMeasures";
+import { AttrNotationStyleSchema } from "../../shared/attr/notationStyle";
+import { AttrOneLineStaffSchema } from "../../shared/attr/oneLineStaff";
+import { AttrOptimizationSchema } from "../../shared/attr/optimization";
+import { AttrPagesSchema } from "../../shared/attr/pages";
+import { AttrSpacingSchema } from "../../shared/attr/spacing";
+import { AttrStaffItemsSchema } from "../../shared/attr/staffItems";
+import { AttrSystemsSchema } from "../../shared/attr/systems";
+import { AttrTextStyleSchema } from "../../shared/attr/textStyle";
+import { AttrScoreDefVisTablatureSchema } from "../../stringtab/attr/scoreDef.vis.tablature";
+import { AttrCleffingVisSchema } from "../attr/cleffing.vis";
+import { AttrKeySigDefaultVisSchema } from "../attr/keySigDefault.vis";
+import { AttrMeterSigDefaultVisSchema } from "../attr/meterSigDefault.vis";
 
 /**
  * Visual domain attributes for scoreDef in the CMN repertoire..

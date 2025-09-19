@@ -1,9 +1,7 @@
 import * as v from "valibot";
-import {
-	AttrHandIdentSchema,
-	AttrSequenceSchema,
-	AttrSourceSchema,
-} from "../../shared";
+import { AttrHandIdentSchema } from "../../shared/attr/handIdent";
+import { AttrSequenceSchema } from "../../shared/attr/sequence";
+import { AttrSourceSchema } from "../../shared/attr/source";
 
 /**
  * Attributes common to all elements representing variant readings..

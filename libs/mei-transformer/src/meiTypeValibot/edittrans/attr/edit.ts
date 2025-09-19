@@ -1,5 +1,6 @@
 import * as v from "valibot";
-import { AttrEvidenceSchema, AttrSourceSchema } from "../../shared";
+import { AttrEvidenceSchema } from "../../shared/attr/evidence";
+import { AttrSourceSchema } from "../../shared/attr/source";
 
 /**
  * Attributes describing the nature of an encoded scholarly intervention or interpretation..

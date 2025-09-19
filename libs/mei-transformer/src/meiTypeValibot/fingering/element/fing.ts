@@ -1,18 +1,14 @@
 import * as v from "valibot";
-import { AttrFingAnlSchema } from "../../analytical";
+import { AttrFingAnlSchema } from "../../analytical/attr/fing.anl";
 import { StandardTagSchema } from "../../common";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrFingGesSchema } from "../../gestural";
-import {
-	AttrCommonSchema,
-	ModelTextPhraseLikeLimitedSchema,
-} from "../../shared";
-import { AttrFingVisSchema } from "../../visual";
-import { AttrFingLogSchema } from "..";
+import { ModelEditLikeSchema } from "../../edittrans/model/editLike";
+import { ModelTranscriptionLikeSchema } from "../../edittrans/model/transcriptionLike";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrFingGesSchema } from "../../gestural/attr/fing.ges";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { ModelTextPhraseLikeLimitedSchema } from "../../shared/model/textPhraseLike.limited";
+import { AttrFingVisSchema } from "../../visual/attr/fing.vis";
+import { AttrFingLogSchema } from "../attr/fing.log";
 
 /**
  * Base schema with attribute, to simplify types for FingSchema
@@ -31,11 +27,13 @@ const FingBaseSchema = v.object({
  * An individual finger in a fingering indication.
  * @see https://music-encoding.org/guidelines/v5/elements/fing.html
  */
-export const FingSchema = v.intersect([
-	FingBaseSchema,
-	ModelEditLikeSchema,
-	ModelTextPhraseLikeLimitedSchema,
-	ModelTranscriptionLikeSchema,
-]);
+export const FingSchema = v.lazy(() =>
+	v.intersect([
+		FingBaseSchema,
+		ModelEditLikeSchema,
+		ModelTextPhraseLikeLimitedSchema,
+		ModelTranscriptionLikeSchema,
+	]),
+);
 
 export type FingData = v.InferOutput<typeof FingSchema>;

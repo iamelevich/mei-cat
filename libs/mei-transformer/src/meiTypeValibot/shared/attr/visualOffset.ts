@@ -1,9 +1,7 @@
 import * as v from "valibot";
-import {
-	AttrVisualOffsetHoSchema,
-	AttrVisualOffsetToSchema,
-	AttrVisualOffsetVoSchema,
-} from "..";
+import { AttrVisualOffsetHoSchema } from "../attr/visualOffset.ho";
+import { AttrVisualOffsetToSchema } from "../attr/visualOffset.to";
+import { AttrVisualOffsetVoSchema } from "../attr/visualOffset.vo";
 
 /**
  * Visual offset attributes. Some items may have their location recorded in terms of offsets from their programmatically-determined location. The ho attribute records the horizontal offset while vo records the vertical. The to attribute holds a timestamp offset, the most common use of which is as an alternative to the ho attribute..

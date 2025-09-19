@@ -1,5 +1,6 @@
 import * as v from "valibot";
-import { AttrCurvatureSchema, AttrLineRendBaseSchema } from "../../shared";
+import { AttrCurvatureSchema } from "../../shared/attr/curvature";
+import { AttrLineRendBaseSchema } from "../../shared/attr/lineRend.base";
 
 /**
  * Visual domain attributes..

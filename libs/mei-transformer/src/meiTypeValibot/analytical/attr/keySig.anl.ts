@@ -1,9 +1,7 @@
 import * as v from "valibot";
-import {
-	AttrAccidentalSchema,
-	AttrKeyModeSchema,
-	AttrPitchSchema,
-} from "../../shared";
+import { AttrAccidentalSchema } from "../../shared/attr/accidental";
+import { AttrKeyModeSchema } from "../../shared/attr/keyMode";
+import { AttrPitchSchema } from "../../shared/attr/pitch";
 
 /**
  * Analytical domain attributes..

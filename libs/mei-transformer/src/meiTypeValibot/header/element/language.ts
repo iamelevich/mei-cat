@@ -1,12 +1,10 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	AttrAuthorizedSchema,
-	AttrBiblSchema,
-	AttrCommonSchema,
-	AttrLangSchema,
-	ModelTextPhraseLikeLimitedSchema,
-} from "../../shared";
+import { AttrAuthorizedSchema } from "../../shared/attr/authorized";
+import { AttrBiblSchema } from "../../shared/attr/bibl";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrLangSchema } from "../../shared/attr/lang";
+import { ModelTextPhraseLikeLimitedSchema } from "../../shared/model/textPhraseLike.limited";
 
 /**
  * Base schema with attribute, to simplify types for LanguageSchema
@@ -23,9 +21,8 @@ const LanguageBaseSchema = v.object({
  * Description of a language used in the document.
  * @see https://music-encoding.org/guidelines/v5/elements/language.html
  */
-export const LanguageSchema = v.intersect([
-	LanguageBaseSchema,
-	ModelTextPhraseLikeLimitedSchema,
-]);
+export const LanguageSchema = v.lazy(() =>
+	v.intersect([LanguageBaseSchema, ModelTextPhraseLikeLimitedSchema]),
+);
 
 export type LanguageData = v.InferOutput<typeof LanguageSchema>;

@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrKeySigDefaultAnlSchema } from "..";
+import { AttrKeySigDefaultAnlSchema } from "../attr/keySigDefault.anl";
 
 /**
  * Analytical domain attributes..

@@ -1,7 +1,7 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { ModelChoicePartSchema } from "..";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { ModelChoicePartSchema } from "../model/choicePart";
 
 /**
  * Base schema with attribute, to simplify types for ChoiceSchema
@@ -15,9 +15,8 @@ const ChoiceBaseSchema = v.object({
  * Groups a number of alternative encodings for the same point in a text.
  * @see https://music-encoding.org/guidelines/v5/elements/choice.html
  */
-export const ChoiceSchema = v.intersect([
-	ChoiceBaseSchema,
-	ModelChoicePartSchema,
-]);
+export const ChoiceSchema = v.lazy(() =>
+	v.intersect([ChoiceBaseSchema, ModelChoicePartSchema]),
+);
 
 export type ChoiceData = v.InferOutput<typeof ChoiceSchema>;

@@ -1,10 +1,8 @@
 import * as v from "valibot";
-import { AttrSpaceLogCmnSchema } from "../../cmn";
-import {
-	AttrAugmentDotsSchema,
-	AttrDurationLogSchema,
-	AttrEventSchema,
-} from "..";
+import { AttrSpaceLogCmnSchema } from "../../cmn/attr/space.log.cmn";
+import { AttrAugmentDotsSchema } from "../attr/augmentDots";
+import { AttrDurationLogSchema } from "../attr/duration.log";
+import { AttrEventSchema } from "../attr/event";
 
 /**
  * Logical domain attributes..

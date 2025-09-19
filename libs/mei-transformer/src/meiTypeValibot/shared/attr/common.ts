@@ -1,12 +1,10 @@
 import * as v from "valibot";
-import {
-	AttrBasicSchema,
-	AttrLabelledSchema,
-	AttrLinkingSchema,
-	AttrNNumberLikeSchema,
-	AttrResponsibilitySchema,
-	AttrTypedSchema,
-} from "..";
+import { AttrBasicSchema } from "../attr/basic";
+import { AttrLabelledSchema } from "../attr/labelled";
+import { AttrLinkingSchema } from "../attr/linking";
+import { AttrNNumberLikeSchema } from "../attr/nNumberLike";
+import { AttrResponsibilitySchema } from "../attr/responsibility";
+import { AttrTypedSchema } from "../attr/typed";
 
 /**
  * Attributes common to many elements..

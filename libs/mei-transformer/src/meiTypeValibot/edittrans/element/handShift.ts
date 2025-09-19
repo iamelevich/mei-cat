@@ -1,8 +1,9 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrCommonSchema, AttrMediumSchema } from "../../shared";
-import { AttrEditSchema } from "..";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrMediumSchema } from "../../shared/attr/medium";
+import { AttrEditSchema } from "../attr/edit";
 
 /**
  * Base schema with attribute, to simplify types for HandShiftSchema
@@ -33,6 +34,6 @@ const HandShiftBaseSchema = v.object({
  * Marks the beginning of a passage written in a new hand, or of a change in the scribe, writing style, ink or character of the document hand.
  * @see https://music-encoding.org/guidelines/v5/elements/handShift.html
  */
-export const HandShiftSchema = v.intersect([HandShiftBaseSchema]);
+export const HandShiftSchema = v.lazy(() => v.intersect([HandShiftBaseSchema]));
 
 export type HandShiftData = v.InferOutput<typeof HandShiftSchema>;

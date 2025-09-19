@@ -1,9 +1,7 @@
 import * as v from "valibot";
-import {
-	AttrControlEventSchema,
-	AttrStartEndIdSchema,
-	AttrTimestamp2LogSchema,
-} from "..";
+import { AttrControlEventSchema } from "../attr/controlEvent";
+import { AttrStartEndIdSchema } from "../attr/startEndId";
+import { AttrTimestamp2LogSchema } from "../attr/timestamp2.log";
 
 /**
  * Logical domain attributes..

@@ -1,12 +1,10 @@
 import * as v from "valibot";
-import {
-	AttrColorSchema,
-	AttrPlacementRelStaffSchema,
-	AttrVisualOffset2Schema,
-	AttrVisualOffsetSchema,
-	AttrXy2Schema,
-	AttrXySchema,
-} from "../../shared";
+import { AttrColorSchema } from "../../shared/attr/color";
+import { AttrPlacementRelStaffSchema } from "../../shared/attr/placementRelStaff";
+import { AttrVisualOffsetSchema } from "../../shared/attr/visualOffset";
+import { AttrVisualOffset2Schema } from "../../shared/attr/visualOffset2";
+import { AttrXySchema } from "../../shared/attr/xy";
+import { AttrXy2Schema } from "../../shared/attr/xy2";
 
 /**
  * Attributes for describing the visual appearance of a line..

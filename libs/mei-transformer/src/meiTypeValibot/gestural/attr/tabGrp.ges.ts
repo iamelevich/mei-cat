@@ -1,5 +1,6 @@
 import * as v from "valibot";
-import { AttrDurationGesSchema } from "..";
+import { AttrDurationGesSchema } from "../attr/duration.ges";
+import { AttrArticulationGesSchema } from "./articulation.ges";
 
 /**
  * Gestural domain attributes..
@@ -7,7 +8,7 @@ import { AttrDurationGesSchema } from "..";
  */
 export const AttrTabGrpGesSchema = v.object({
 	// Inherited attribute classes
-	...AttrArticulationGesturalSchema.entries,
+	...AttrArticulationGesSchema.entries,
 	...AttrDurationGesSchema.entries,
 });
 

@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrFermataPresentSchema } from "../../shared";
+import { AttrFermataPresentSchema } from "../../shared/attr/fermataPresent";
 
 /**
  * Analytical domain attributes in the CMN repertoire..

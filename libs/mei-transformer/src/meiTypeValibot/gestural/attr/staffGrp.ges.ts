@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrInstrumentIdentSchema } from "../../midi";
+import { AttrInstrumentIdentSchema } from "../../midi/attr/instrumentIdent";
 
 /**
  * Gestural domain attributes..

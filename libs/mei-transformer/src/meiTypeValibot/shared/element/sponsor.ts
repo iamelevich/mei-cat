@@ -1,13 +1,11 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	AttrBiblSchema,
-	AttrCommonSchema,
-	AttrEvidenceSchema,
-	AttrLangSchema,
-	ModelTextPhraseLikeLimitedSchema,
-} from "..";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrBiblSchema } from "../attr/bibl";
+import { AttrCommonSchema } from "../attr/common";
+import { AttrEvidenceSchema } from "../attr/evidence";
+import { AttrLangSchema } from "../attr/lang";
+import { ModelTextPhraseLikeLimitedSchema } from "../model/textPhraseLike.limited";
 
 /**
  * Base schema with attribute, to simplify types for SponsorSchema
@@ -25,9 +23,8 @@ const SponsorBaseSchema = v.object({
  * Names of sponsoring individuals, organizations or institutions. Sponsors give their intellectual authority to a project; they are to be distinguished from funders, who provide the funding but do not necessarily take intellectual responsibility.
  * @see https://music-encoding.org/guidelines/v5/elements/sponsor.html
  */
-export const SponsorSchema = v.intersect([
-	SponsorBaseSchema,
-	ModelTextPhraseLikeLimitedSchema,
-]);
+export const SponsorSchema = v.lazy(() =>
+	v.intersect([SponsorBaseSchema, ModelTextPhraseLikeLimitedSchema]),
+);
 
 export type SponsorData = v.InferOutput<typeof SponsorSchema>;

@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrMensuralLogSchema } from "..";
+import { AttrMensuralLogSchema } from "../attr/mensural.log";
 
 /**
  * Logical domain attributes for staffDef in the mensural repertoire..

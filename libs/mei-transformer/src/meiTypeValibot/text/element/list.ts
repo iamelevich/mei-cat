@@ -1,19 +1,17 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	AttrBasicSchema,
-	AttrClassedSchema,
-	AttrLabelledSchema,
-	AttrLangSchema,
-	AttrLinkingSchema,
-	AttrNNumberLikeSchema,
-	AttrResponsibilitySchema,
-	AttrXySchema,
-	LabelSchema,
-	ModelHeadLikeSchema,
-} from "../../shared";
-import { LiSchema } from ".";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrBasicSchema } from "../../shared/attr/basic";
+import { AttrClassedSchema } from "../../shared/attr/classed";
+import { AttrLabelledSchema } from "../../shared/attr/labelled";
+import { AttrLangSchema } from "../../shared/attr/lang";
+import { AttrLinkingSchema } from "../../shared/attr/linking";
+import { AttrNNumberLikeSchema } from "../../shared/attr/nNumberLike";
+import { AttrResponsibilitySchema } from "../../shared/attr/responsibility";
+import { AttrXySchema } from "../../shared/attr/xy";
+import { LabelSchema } from "../../shared/element/label";
+import { ModelHeadLikeSchema } from "../../shared/model/headLike";
+import { LiSchema } from "../element/li";
 
 /**
  * Base schema with attribute, to simplify types for ListSchema
@@ -45,25 +43,23 @@ const ListBaseSchema = v.object({
  * A formatting element that contains a series of items separated from one another and arranged in a linear, often vertical, sequence.
  * @see https://music-encoding.org/guidelines/v5/elements/list.html
  */
-export const ListSchema = v.intersect([
-	ListBaseSchema,
-	v.object({
-		/**
-		 * Reference to element label
-		 * @see https://music-encoding.org/guidelines/v5/elements/label.html
-		 */
-		label: v.optional(
-			v.union([v.lazy(() => LabelSchema), v.array(v.lazy(() => LabelSchema))]),
-		),
-		/**
-		 * Reference to element li
-		 * @see https://music-encoding.org/guidelines/v5/elements/li.html
-		 */
-		li: v.optional(
-			v.union([v.lazy(() => LiSchema), v.array(v.lazy(() => LiSchema))]),
-		),
-	}),
-	ModelHeadLikeSchema,
-]);
+export const ListSchema = v.lazy(() =>
+	v.intersect([
+		ListBaseSchema,
+		v.object({
+			/**
+			 * Reference to element label
+			 * @see https://music-encoding.org/guidelines/v5/elements/label.html
+			 */
+			label: v.optional(v.union([LabelSchema, v.array(LabelSchema)])),
+			/**
+			 * Reference to element li
+			 * @see https://music-encoding.org/guidelines/v5/elements/li.html
+			 */
+			li: v.optional(v.union([LiSchema, v.array(LiSchema)])),
+		}),
+		ModelHeadLikeSchema,
+	]),
+);
 
 export type ListData = v.InferOutput<typeof ListSchema>;

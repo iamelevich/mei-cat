@@ -1,13 +1,12 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	AttrCommonSchema,
-	AttrDataPointingSchema,
-	AttrMediaBoundsSchema,
-	AttrMetadataPointingSchema,
-	AttrStartIdSchema,
-} from "../../shared";
-import { AvFileSchema, WhenSchema } from ".";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrDataPointingSchema } from "../../shared/attr/dataPointing";
+import { AttrMediaBoundsSchema } from "../../shared/attr/mediaBounds";
+import { AttrMetadataPointingSchema } from "../../shared/attr/metadataPointing";
+import { AttrStartIdSchema } from "../../shared/attr/startId";
+import { AvFileSchema } from "../element/avFile";
+import { WhenSchema } from "../element/when";
 
 /**
  * Base schema with attribute, to simplify types for ClipSchema
@@ -25,27 +24,22 @@ const ClipBaseSchema = v.object({
  * Defines a time segment of interest within a recording or within a digital audio or video file.
  * @see https://music-encoding.org/guidelines/v5/elements/clip.html
  */
-export const ClipSchema = v.intersect([
-	ClipBaseSchema,
-	v.object({
-		/**
-		 * Reference to element avFile
-		 * @see https://music-encoding.org/guidelines/v5/elements/avFile.html
-		 */
-		avFile: v.optional(
-			v.union([
-				v.lazy(() => AvFileSchema),
-				v.array(v.lazy(() => AvFileSchema)),
-			]),
-		),
-		/**
-		 * Reference to element when
-		 * @see https://music-encoding.org/guidelines/v5/elements/when.html
-		 */
-		when: v.optional(
-			v.union([v.lazy(() => WhenSchema), v.array(v.lazy(() => WhenSchema))]),
-		),
-	}),
-]);
+export const ClipSchema = v.lazy(() =>
+	v.intersect([
+		ClipBaseSchema,
+		v.object({
+			/**
+			 * Reference to element avFile
+			 * @see https://music-encoding.org/guidelines/v5/elements/avFile.html
+			 */
+			avFile: v.optional(v.union([AvFileSchema, v.array(AvFileSchema)])),
+			/**
+			 * Reference to element when
+			 * @see https://music-encoding.org/guidelines/v5/elements/when.html
+			 */
+			when: v.optional(v.union([WhenSchema, v.array(WhenSchema)])),
+		}),
+	]),
+);
 
 export type ClipData = v.InferOutput<typeof ClipSchema>;

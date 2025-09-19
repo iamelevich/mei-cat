@@ -1,12 +1,10 @@
 import * as v from "valibot";
-import { AttrAlignmentSchema } from "../../performance";
-import {
-	AttrLayerIdentSchema,
-	AttrPartIdentSchema,
-	AttrPlistSchema,
-	AttrStaffIdentSchema,
-	AttrTargetEvalSchema,
-} from "../../shared";
+import { AttrAlignmentSchema } from "../../performance/attr/alignment";
+import { AttrLayerIdentSchema } from "../../shared/attr/layerIdent";
+import { AttrPartIdentSchema } from "../../shared/attr/partIdent";
+import { AttrPlistSchema } from "../../shared/attr/plist";
+import { AttrStaffIdentSchema } from "../../shared/attr/staffIdent";
+import { AttrTargetEvalSchema } from "../../shared/attr/targetEval";
 
 /**
  * Logical domain attributes..

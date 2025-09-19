@@ -1,7 +1,8 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, AttrLangSchema } from "../../shared";
-import { AttrMidiEventSchema } from "..";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrLangSchema } from "../../shared/attr/lang";
+import { AttrMidiEventSchema } from "../attr/midi.event";
 
 /**
  * Base schema with attribute, to simplify types for TrkNameSchema
@@ -17,6 +18,6 @@ const TrkNameBaseSchema = v.object({
  * MIDI track/sequence name.
  * @see https://music-encoding.org/guidelines/v5/elements/trkName.html
  */
-export const TrkNameSchema = v.intersect([TrkNameBaseSchema]);
+export const TrkNameSchema = v.lazy(() => v.intersect([TrkNameBaseSchema]));
 
 export type TrkNameData = v.InferOutput<typeof TrkNameSchema>;

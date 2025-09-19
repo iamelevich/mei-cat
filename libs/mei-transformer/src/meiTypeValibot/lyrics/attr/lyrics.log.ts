@@ -1,9 +1,7 @@
 import * as v from "valibot";
-import {
-	AttrLayerIdentSchema,
-	AttrPartIdentSchema,
-	AttrStaffIdentSchema,
-} from "../../shared";
+import { AttrLayerIdentSchema } from "../../shared/attr/layerIdent";
+import { AttrPartIdentSchema } from "../../shared/attr/partIdent";
+import { AttrStaffIdentSchema } from "../../shared/attr/staffIdent";
 
 /**
  * Logical domain attributes..

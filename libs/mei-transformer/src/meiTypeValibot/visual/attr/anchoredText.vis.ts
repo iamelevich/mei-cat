@@ -1,5 +1,6 @@
 import * as v from "valibot";
-import { AttrVisualOffsetSchema, AttrXySchema } from "../../shared";
+import { AttrVisualOffsetSchema } from "../../shared/attr/visualOffset";
+import { AttrXySchema } from "../../shared/attr/xy";
 
 /**
  * Visual domain attributes..

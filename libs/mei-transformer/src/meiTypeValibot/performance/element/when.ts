@@ -1,10 +1,8 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	AttrCommonSchema,
-	AttrDataPointingSchema,
-	ExtDataSchema,
-} from "../../shared";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrDataPointingSchema } from "../../shared/attr/dataPointing";
+import { ExtDataSchema } from "../../shared/element/extData";
 
 /**
  * Base schema with attribute, to simplify types for WhenSchema
@@ -41,20 +39,17 @@ const WhenBaseSchema = v.object({
  * Indicates a point in time either absolutely (using the absolute attribute), or relative to another when element (using the since, interval and inttype attributes).
  * @see https://music-encoding.org/guidelines/v5/elements/when.html
  */
-export const WhenSchema = v.intersect([
-	WhenBaseSchema,
-	v.object({
-		/**
-		 * Reference to element extData
-		 * @see https://music-encoding.org/guidelines/v5/elements/extData.html
-		 */
-		extData: v.optional(
-			v.union([
-				v.lazy(() => ExtDataSchema),
-				v.array(v.lazy(() => ExtDataSchema)),
-			]),
-		),
-	}),
-]);
+export const WhenSchema = v.lazy(() =>
+	v.intersect([
+		WhenBaseSchema,
+		v.object({
+			/**
+			 * Reference to element extData
+			 * @see https://music-encoding.org/guidelines/v5/elements/extData.html
+			 */
+			extData: v.optional(v.union([ExtDataSchema, v.array(ExtDataSchema)])),
+		}),
+	]),
+);
 
 export type WhenData = v.InferOutput<typeof WhenSchema>;

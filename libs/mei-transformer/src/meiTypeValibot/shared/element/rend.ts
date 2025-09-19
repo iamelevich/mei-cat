@@ -1,21 +1,17 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { AttrExtSymAuthSchema } from "../../externalsymbols";
-import {
-	AttrColorSchema,
-	AttrCommonSchema,
-	AttrHorizontalAlignSchema,
-	AttrLangSchema,
-	AttrTextRenditionSchema,
-	AttrTypographySchema,
-	AttrVerticalAlignSchema,
-	AttrWhitespaceSchema,
-	ModelTextPhraseLikeSchema,
-} from "..";
+import { ModelEditLikeSchema } from "../../edittrans/model/editLike";
+import { ModelTranscriptionLikeSchema } from "../../edittrans/model/transcriptionLike";
+import { AttrExtSymAuthSchema } from "../../externalsymbols/attr/extSym.auth";
+import { AttrColorSchema } from "../attr/color";
+import { AttrCommonSchema } from "../attr/common";
+import { AttrHorizontalAlignSchema } from "../attr/horizontalAlign";
+import { AttrLangSchema } from "../attr/lang";
+import { AttrTextRenditionSchema } from "../attr/textRendition";
+import { AttrTypographySchema } from "../attr/typography";
+import { AttrVerticalAlignSchema } from "../attr/verticalAlign";
+import { AttrWhitespaceSchema } from "../attr/whitespace";
+import { ModelTextPhraseLikeSchema } from "../model/textPhraseLike";
 
 /**
  * Base schema with attribute, to simplify types for RendSchema
@@ -43,11 +39,13 @@ const RendBaseSchema = v.object({
  * A formatting element indicating special visual rendering, <abbr>e.g.</abbr>, bold or italicized, of a text word or phrase.
  * @see https://music-encoding.org/guidelines/v5/elements/rend.html
  */
-export const RendSchema = v.intersect([
-	RendBaseSchema,
-	ModelEditLikeSchema,
-	ModelTextPhraseLikeSchema,
-	ModelTranscriptionLikeSchema,
-]);
+export const RendSchema = v.lazy(() =>
+	v.intersect([
+		RendBaseSchema,
+		ModelEditLikeSchema,
+		ModelTextPhraseLikeSchema,
+		ModelTranscriptionLikeSchema,
+	]),
+);
 
 export type RendData = v.InferOutput<typeof RendSchema>;

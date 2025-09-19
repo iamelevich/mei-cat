@@ -1,6 +1,7 @@
 import * as v from "valibot";
-import { AttrChannelizedSchema, AttrMidiInstrumentSchema } from "../../midi";
-import { AttrSoundLocationSchema } from "..";
+import { AttrChannelizedSchema } from "../../midi/attr/channelized";
+import { AttrMidiInstrumentSchema } from "../../midi/attr/midiInstrument";
+import { AttrSoundLocationSchema } from "../attr/soundLocation";
 
 /**
  * Gestural domain attributes..

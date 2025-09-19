@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrTupletVisSchema } from "..";
+import { AttrTupletVisSchema } from "../attr/tuplet.vis";
 
 /**
  * Visual domain attributes..

@@ -1,14 +1,12 @@
 import * as v from "valibot";
-import { AttrStaffDefLogCmnSchema } from "../../cmn";
-import { AttrStaffDefLogMensuralSchema } from "../../mensural";
-import {
-	AttrCleffingLogSchema,
-	AttrDurationDefaultSchema,
-	AttrKeySigDefaultLogSchema,
-	AttrMeterSigDefaultLogSchema,
-	AttrOctaveDefaultSchema,
-	AttrTranspositionSchema,
-} from "..";
+import { AttrStaffDefLogCmnSchema } from "../../cmn/attr/staffDef.log.cmn";
+import { AttrStaffDefLogMensuralSchema } from "../../mensural/attr/staffDef.log.mensural";
+import { AttrCleffingLogSchema } from "../attr/cleffing.log";
+import { AttrDurationDefaultSchema } from "../attr/duration.default";
+import { AttrKeySigDefaultLogSchema } from "../attr/keySigDefault.log";
+import { AttrMeterSigDefaultLogSchema } from "../attr/meterSigDefault.log";
+import { AttrOctaveDefaultSchema } from "../attr/octaveDefault";
+import { AttrTranspositionSchema } from "../attr/transposition";
 
 /**
  * Logical domain attributes for staffDef..
@@ -20,7 +18,7 @@ export const AttrStaffDefLogSchema = v.object({
 	...AttrDurationDefaultSchema.entries,
 	...AttrKeySigDefaultLogSchema.entries,
 	...AttrMeterSigDefaultLogSchema.entries,
-	...AttrNotationTypeSchema.entries,
+	// ...AttrNotationTypeSchema.entries,
 	...AttrOctaveDefaultSchema.entries,
 	...AttrStaffDefLogCmnSchema.entries,
 	...AttrStaffDefLogMensuralSchema.entries,

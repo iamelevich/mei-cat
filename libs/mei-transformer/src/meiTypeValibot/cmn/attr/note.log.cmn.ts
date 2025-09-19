@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrGracedSchema } from "..";
+import { AttrGracedSchema } from "../attr/graced";
 
 /**
  * Logical domain attributes..

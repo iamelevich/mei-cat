@@ -1,13 +1,11 @@
 import * as v from "valibot";
-import {
-	AttrColorSchema,
-	AttrPlacementRelStaffSchema,
-	AttrTypographySchema,
-	AttrVisualOffsetToSchema,
-	AttrVisualOffsetVoSchema,
-	AttrVoltaGroupingSymSchema,
-	AttrXySchema,
-} from "../../shared";
+import { AttrColorSchema } from "../../shared/attr/color";
+import { AttrPlacementRelStaffSchema } from "../../shared/attr/placementRelStaff";
+import { AttrTypographySchema } from "../../shared/attr/typography";
+import { AttrVisualOffsetToSchema } from "../../shared/attr/visualOffset.to";
+import { AttrVisualOffsetVoSchema } from "../../shared/attr/visualOffset.vo";
+import { AttrVoltaGroupingSymSchema } from "../../shared/attr/voltaGroupingSym";
+import { AttrXySchema } from "../../shared/attr/xy";
 
 /**
  * Visual domain attributes..

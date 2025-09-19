@@ -1,13 +1,11 @@
 import * as v from "valibot";
-import {
-	AttrColorSchema,
-	AttrCurvatureSchema,
-	AttrLineRendBaseSchema,
-	AttrVisualOffset2Schema,
-	AttrVisualOffsetSchema,
-	AttrXy2Schema,
-	AttrXySchema,
-} from "../../shared";
+import { AttrColorSchema } from "../../shared/attr/color";
+import { AttrCurvatureSchema } from "../../shared/attr/curvature";
+import { AttrLineRendBaseSchema } from "../../shared/attr/lineRend.base";
+import { AttrVisualOffsetSchema } from "../../shared/attr/visualOffset";
+import { AttrVisualOffset2Schema } from "../../shared/attr/visualOffset2";
+import { AttrXySchema } from "../../shared/attr/xy";
+import { AttrXy2Schema } from "../../shared/attr/xy2";
 
 /**
  * Visual domain attributes..

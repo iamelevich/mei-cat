@@ -1,5 +1,6 @@
 import * as v from "valibot";
-import { AttrEnclosingCharsSchema, AttrVisibilitySchema } from "../../shared";
+import { AttrEnclosingCharsSchema } from "../../shared/attr/enclosingChars";
+import { AttrVisibilitySchema } from "../../shared/attr/visibility";
 
 /**
  * Visual domain attributes..

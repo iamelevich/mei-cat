@@ -1,5 +1,7 @@
 import * as v from "valibot";
-import { AttrAuthorizedSchema, AttrDatableSchema, AttrFilingSchema } from "..";
+import { AttrAuthorizedSchema } from "../attr/authorized";
+import { AttrDatableSchema } from "../attr/datable";
+import { AttrFilingSchema } from "../attr/filing";
 
 /**
  * Attributes shared by names..

@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrCoordinatedUlSchema } from "..";
+import { AttrCoordinatedUlSchema } from "../attr/coordinated.ul";
 
 /**
  * This attribute class records the position of a feature within a two-dimensional coordinate system..

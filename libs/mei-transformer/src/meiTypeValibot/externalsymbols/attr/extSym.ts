@@ -1,5 +1,6 @@
 import * as v from "valibot";
-import { AttrExtSymAuthSchema, AttrExtSymNamesSchema } from "..";
+import { AttrExtSymAuthSchema } from "../attr/extSym.auth";
+import { AttrExtSymNamesSchema } from "../attr/extSym.names";
 
 /**
  * Attributes used to associate MEI features with corresponding glyphs in an externally-defined standard such as SMuFL..

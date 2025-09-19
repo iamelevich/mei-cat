@@ -1,7 +1,8 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, ModelHeadLikeSchema } from "../../shared";
-import { ModelExpressionLikeSchema } from "..";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { ModelHeadLikeSchema } from "../../shared/model/headLike";
+import { ModelExpressionLikeSchema } from "../model/expressionLike";
 
 /**
  * Base schema with attribute, to simplify types for ExpressionListSchema
@@ -15,10 +16,12 @@ const ExpressionListBaseSchema = v.object({
  * Gathers bibliographic expression entities.
  * @see https://music-encoding.org/guidelines/v5/elements/expressionList.html
  */
-export const ExpressionListSchema = v.intersect([
-	ExpressionListBaseSchema,
-	ModelExpressionLikeSchema,
-	ModelHeadLikeSchema,
-]);
+export const ExpressionListSchema = v.lazy(() =>
+	v.intersect([
+		ExpressionListBaseSchema,
+		ModelExpressionLikeSchema,
+		ModelHeadLikeSchema,
+	]),
+);
 
 export type ExpressionListData = v.InferOutput<typeof ExpressionListSchema>;

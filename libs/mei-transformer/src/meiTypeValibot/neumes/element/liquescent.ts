@@ -1,11 +1,11 @@
 import * as v from "valibot";
-import { AttrLiquescentAnlSchema } from "../../analytical";
+import { AttrLiquescentAnlSchema } from "../../analytical/attr/liquescent.anl";
 import { StandardTagSchema } from "../../common";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrLiquescentGesSchema } from "../../gestural";
-import { AttrCommonSchema } from "../../shared";
-import { AttrLiquescentVisSchema } from "../../visual";
-import { AttrLiquescentLogSchema } from "..";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrLiquescentGesSchema } from "../../gestural/attr/liquescent.ges";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrLiquescentVisSchema } from "../../visual/attr/liquescent.vis";
+import { AttrLiquescentLogSchema } from "../attr/liquescent.log";
 
 /**
  * Base schema with attribute, to simplify types for LiquescentSchema
@@ -24,6 +24,8 @@ const LiquescentBaseSchema = v.object({
  * Liquescent.
  * @see https://music-encoding.org/guidelines/v5/elements/liquescent.html
  */
-export const LiquescentSchema = v.intersect([LiquescentBaseSchema]);
+export const LiquescentSchema = v.lazy(() =>
+	v.intersect([LiquescentBaseSchema]),
+);
 
 export type LiquescentData = v.InferOutput<typeof LiquescentSchema>;

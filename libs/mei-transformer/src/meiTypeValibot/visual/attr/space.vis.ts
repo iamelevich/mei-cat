@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrCutoutSchema } from "../../cmn";
+import { AttrCutoutSchema } from "../../cmn/attr/cutout";
 
 /**
  * Visual domain attributes..

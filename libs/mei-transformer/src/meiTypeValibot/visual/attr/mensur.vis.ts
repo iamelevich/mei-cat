@@ -1,12 +1,10 @@
 import * as v from "valibot";
-import { AttrExtSymSchema } from "../../externalsymbols";
-import {
-	AttrColorSchema,
-	AttrSlashCountSchema,
-	AttrStaffLocSchema,
-	AttrTypographySchema,
-} from "../../shared";
-import { AttrAltSymSchema } from "../../usersymbols";
+import { AttrExtSymSchema } from "../../externalsymbols/attr/extSym";
+import { AttrColorSchema } from "../../shared/attr/color";
+import { AttrSlashCountSchema } from "../../shared/attr/slashCount";
+import { AttrStaffLocSchema } from "../../shared/attr/staffLoc";
+import { AttrTypographySchema } from "../../shared/attr/typography";
+import { AttrAltSymSchema } from "../../usersymbols/attr/altSym";
 
 /**
  * Visual domain attributes. These attributes describe the physical appearance of the mensuration sign/time signature of mensural notation..

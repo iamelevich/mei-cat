@@ -1,7 +1,8 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
-import { AttrMidiEventSchema, AttrMidiNumberSchema } from "..";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrMidiEventSchema } from "../attr/midi.event";
+import { AttrMidiNumberSchema } from "../attr/midiNumber";
 
 /**
  * Base schema with attribute, to simplify types for VelSchema
@@ -23,6 +24,6 @@ const VelBaseSchema = v.object({
  * MIDI Note-on/off velocity.
  * @see https://music-encoding.org/guidelines/v5/elements/vel.html
  */
-export const VelSchema = v.intersect([VelBaseSchema]);
+export const VelSchema = v.lazy(() => v.intersect([VelBaseSchema]));
 
 export type VelData = v.InferOutput<typeof VelSchema>;

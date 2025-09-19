@@ -1,16 +1,12 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	AttrCommonSchema,
-	AttrLangSchema,
-	ModelSylLikeSchema,
-	ModelTextPhraseLikeSchema,
-} from "../../shared";
+import { ModelEditLikeSchema } from "../../edittrans/model/editLike";
+import { ModelTranscriptionLikeSchema } from "../../edittrans/model/transcriptionLike";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrLangSchema } from "../../shared/attr/lang";
+import { ModelSylLikeSchema } from "../../shared/model/sylLike";
+import { ModelTextPhraseLikeSchema } from "../../shared/model/textPhraseLike";
 
 /**
  * Base schema with attribute, to simplify types for LSchema
@@ -32,12 +28,14 @@ const LBaseSchema = v.object({
  * Contains a single line of text within a line group.
  * @see https://music-encoding.org/guidelines/v5/elements/l.html
  */
-export const LSchema = v.intersect([
-	LBaseSchema,
-	ModelEditLikeSchema,
-	ModelSylLikeSchema,
-	ModelTextPhraseLikeSchema,
-	ModelTranscriptionLikeSchema,
-]);
+export const LSchema = v.lazy(() =>
+	v.intersect([
+		LBaseSchema,
+		ModelEditLikeSchema,
+		ModelSylLikeSchema,
+		ModelTextPhraseLikeSchema,
+		ModelTranscriptionLikeSchema,
+	]),
+);
 
 export type LData = v.InferOutput<typeof LSchema>;

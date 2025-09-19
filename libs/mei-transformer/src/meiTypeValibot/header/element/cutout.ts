@@ -1,14 +1,13 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrTransSchema } from "../../edittrans";
-import {
-	AttrCommonSchema,
-	AttrDimensionsSchema,
-	AttrEvidenceSchema,
-	AttrMeasurementSchema,
-	AttrXySchema,
-} from "../../shared";
-import { ModelBifoliumLikeSchema, ModelFoliumLikeSchema } from "..";
+import { AttrTransSchema } from "../../edittrans/attr/trans";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrDimensionsSchema } from "../../shared/attr/dimensions";
+import { AttrEvidenceSchema } from "../../shared/attr/evidence";
+import { AttrMeasurementSchema } from "../../shared/attr/measurement";
+import { AttrXySchema } from "../../shared/attr/xy";
+import { ModelBifoliumLikeSchema } from "../model/bifoliumLike";
+import { ModelFoliumLikeSchema } from "../model/foliumLike";
 
 /**
  * Base schema with attribute, to simplify types for CutoutSchema
@@ -37,10 +36,12 @@ const CutoutBaseSchema = v.object({
  * A cutout is a section of a document sheet that has been removed and is now missing.
  * @see https://music-encoding.org/guidelines/v5/elements/cutout.html
  */
-export const CutoutSchema = v.intersect([
-	CutoutBaseSchema,
-	ModelBifoliumLikeSchema,
-	ModelFoliumLikeSchema,
-]);
+export const CutoutSchema = v.lazy(() =>
+	v.intersect([
+		CutoutBaseSchema,
+		ModelBifoliumLikeSchema,
+		ModelFoliumLikeSchema,
+	]),
+);
 
 export type CutoutData = v.InferOutput<typeof CutoutSchema>;

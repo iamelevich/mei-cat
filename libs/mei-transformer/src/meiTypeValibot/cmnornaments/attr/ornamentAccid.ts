@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrOrnamentAccidGesSchema } from "../../gestural";
+import { AttrOrnamentAccidGesSchema } from "../../gestural/attr/ornamentAccid.ges";
 
 /**
  * Accidentals associated with ornaments..

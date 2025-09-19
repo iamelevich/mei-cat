@@ -1,11 +1,9 @@
 import * as v from "valibot";
-import { AttrTimestampGesSchema } from "../../gestural";
-import {
-	AttrLayerIdentSchema,
-	AttrPartIdentSchema,
-	AttrStaffIdentSchema,
-	AttrTimestampLogSchema,
-} from "../../shared";
+import { AttrTimestampGesSchema } from "../../gestural/attr/timestamp.ges";
+import { AttrLayerIdentSchema } from "../../shared/attr/layerIdent";
+import { AttrPartIdentSchema } from "../../shared/attr/partIdent";
+import { AttrStaffIdentSchema } from "../../shared/attr/staffIdent";
+import { AttrTimestampLogSchema } from "../../shared/attr/timestamp.log";
 
 /**
  * Attributes common to MIDI events..

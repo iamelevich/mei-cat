@@ -1,13 +1,10 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrCommonSchema, AttrLangSchema } from "..";
-import {
-	type CastItemData,
-	CastItemSchema,
-	type RoleDescData,
-	RoleDescSchema,
-} from ".";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrCommonSchema } from "../attr/common";
+import { AttrLangSchema } from "../attr/lang";
+import { type CastItemData, CastItemSchema } from "../element/castItem";
+import { type RoleDescData, RoleDescSchema } from "../element/roleDesc";
 
 /**
  * Base schema with attribute, to simplify types for CastGrpSchema
@@ -25,35 +22,28 @@ type CastGrpBaseData = v.InferOutput<typeof CastGrpBaseSchema>;
  * Groups one or more individual castItem elements within a cast list.
  * @see https://music-encoding.org/guidelines/v5/elements/castGrp.html
  */
-export const CastGrpSchema: v.GenericSchema<CastGrpData> = v.intersect([
-	CastGrpBaseSchema,
-	v.object({
-		/**
-		 * Reference to element castGrp
-		 * @see https://music-encoding.org/guidelines/v5/elements/castGrp.html
-		 */
-		castGrp: v.union([
-			v.lazy(() => CastGrpSchema),
-			v.array(v.lazy(() => CastGrpSchema)),
-		]),
-		/**
-		 * Reference to element castItem
-		 * @see https://music-encoding.org/guidelines/v5/elements/castItem.html
-		 */
-		castItem: v.union([
-			v.lazy(() => CastItemSchema),
-			v.array(v.lazy(() => CastItemSchema)),
-		]),
-		/**
-		 * Reference to element roleDesc
-		 * @see https://music-encoding.org/guidelines/v5/elements/roleDesc.html
-		 */
-		roleDesc: v.union([
-			v.lazy(() => RoleDescSchema),
-			v.array(v.lazy(() => RoleDescSchema)),
-		]),
-	}),
-]);
+export const CastGrpSchema: v.GenericSchema<CastGrpData> = v.lazy(() =>
+	v.intersect([
+		CastGrpBaseSchema,
+		v.object({
+			/**
+			 * Reference to element castGrp
+			 * @see https://music-encoding.org/guidelines/v5/elements/castGrp.html
+			 */
+			castGrp: v.union([CastGrpSchema, v.array(CastGrpSchema)]),
+			/**
+			 * Reference to element castItem
+			 * @see https://music-encoding.org/guidelines/v5/elements/castItem.html
+			 */
+			castItem: v.union([CastItemSchema, v.array(CastItemSchema)]),
+			/**
+			 * Reference to element roleDesc
+			 * @see https://music-encoding.org/guidelines/v5/elements/roleDesc.html
+			 */
+			roleDesc: v.union([RoleDescSchema, v.array(RoleDescSchema)]),
+		}),
+	]),
+);
 
 export type CastGrpData = CastGrpBaseData & {
 	castGrp: CastGrpData | CastGrpData[];

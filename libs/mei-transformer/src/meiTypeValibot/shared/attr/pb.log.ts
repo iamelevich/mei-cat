@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrAlignmentSchema } from "../../performance";
+import { AttrAlignmentSchema } from "../../performance/attr/alignment";
 
 /**
  * Logical domain attributes..

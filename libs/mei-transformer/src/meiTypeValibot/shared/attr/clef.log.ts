@@ -1,10 +1,8 @@
 import * as v from "valibot";
-import {
-	AttrClefShapeSchema,
-	AttrLineLocSchema,
-	AttrOctaveDisplacementSchema,
-	AttrOctaveSchema,
-} from "..";
+import { AttrClefShapeSchema } from "../attr/clefShape";
+import { AttrLineLocSchema } from "../attr/lineLoc";
+import { AttrOctaveSchema } from "../attr/octave";
+import { AttrOctaveDisplacementSchema } from "../attr/octaveDisplacement";
 
 /**
  * Logical domain attributes..

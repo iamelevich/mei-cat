@@ -1,5 +1,6 @@
 import * as v from "valibot";
-import { AttrOctaveSchema, AttrPitchSchema } from "..";
+import { AttrOctaveSchema } from "../attr/octave";
+import { AttrPitchSchema } from "../attr/pitch";
 
 /**
  * Attributes that record written pitch name and octave number..

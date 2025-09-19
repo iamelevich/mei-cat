@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrAdlibitumSchema } from "..";
+import { AttrAdlibitumSchema } from "../attr/adlibitum";
 
 /**
  * Attributes that define the characteristics and components of the performance resource or a performance resource list..

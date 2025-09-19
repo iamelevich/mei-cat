@@ -1,14 +1,12 @@
 import * as v from "valibot";
-import { AttrAlignmentSchema } from "../../performance";
-import {
-	AttrDurationAdditiveSchema,
-	AttrLayerIdentSchema,
-	AttrPartIdentSchema,
-	AttrStaffIdentSchema,
-	AttrStartEndIdSchema,
-	AttrTimestamp2LogSchema,
-	AttrTimestampLogSchema,
-} from "..";
+import { AttrAlignmentSchema } from "../../performance/attr/alignment";
+import { AttrDurationAdditiveSchema } from "../attr/duration.additive";
+import { AttrLayerIdentSchema } from "../attr/layerIdent";
+import { AttrPartIdentSchema } from "../attr/partIdent";
+import { AttrStaffIdentSchema } from "../attr/staffIdent";
+import { AttrStartEndIdSchema } from "../attr/startEndId";
+import { AttrTimestampLogSchema } from "../attr/timestamp.log";
+import { AttrTimestamp2LogSchema } from "../attr/timestamp2.log";
 
 /**
  * Logical domain attributes for annot. Values for the type attribute can be taken from any convenient typology of annotation suitable to the work in hand; <abbr>e.g.</abbr>, annotation, gloss, citation, digression, preliminary, temporary, etc..

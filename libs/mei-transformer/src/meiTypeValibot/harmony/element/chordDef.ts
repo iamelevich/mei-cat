@@ -1,12 +1,12 @@
 import * as v from "valibot";
-import { AttrChordDefAnlSchema } from "../../analytical";
+import { AttrChordDefAnlSchema } from "../../analytical/attr/chordDef.anl";
 import { StandardTagSchema } from "../../common";
-import { AttrChordDefGesSchema } from "../../gestural";
-import { AttrCommonSchema } from "../../shared";
-import { BarreSchema } from "../../stringtab";
-import { AttrChordDefVisSchema } from "../../visual";
-import { AttrChordDefLogSchema } from "..";
-import { ChordMemberSchema } from ".";
+import { AttrChordDefGesSchema } from "../../gestural/attr/chordDef.ges";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { BarreSchema } from "../../stringtab/element/barre";
+import { AttrChordDefVisSchema } from "../../visual/attr/chordDef.vis";
+import { AttrChordDefLogSchema } from "../attr/chordDef.log";
+import { ChordMemberSchema } from "../element/chordMember";
 
 /**
  * Base schema with attribute, to simplify types for ChordDefSchema
@@ -24,27 +24,24 @@ const ChordDefBaseSchema = v.object({
  * Chord tablature definition.
  * @see https://music-encoding.org/guidelines/v5/elements/chordDef.html
  */
-export const ChordDefSchema = v.intersect([
-	ChordDefBaseSchema,
-	v.object({
-		/**
-		 * Reference to element barre
-		 * @see https://music-encoding.org/guidelines/v5/elements/barre.html
-		 */
-		barre: v.optional(
-			v.union([v.lazy(() => BarreSchema), v.array(v.lazy(() => BarreSchema))]),
-		),
-		/**
-		 * Reference to element chordMember
-		 * @see https://music-encoding.org/guidelines/v5/elements/chordMember.html
-		 */
-		chordMember: v.optional(
-			v.union([
-				v.lazy(() => ChordMemberSchema),
-				v.array(v.lazy(() => ChordMemberSchema)),
-			]),
-		),
-	}),
-]);
+export const ChordDefSchema = v.lazy(() =>
+	v.intersect([
+		ChordDefBaseSchema,
+		v.object({
+			/**
+			 * Reference to element barre
+			 * @see https://music-encoding.org/guidelines/v5/elements/barre.html
+			 */
+			barre: v.optional(v.union([BarreSchema, v.array(BarreSchema)])),
+			/**
+			 * Reference to element chordMember
+			 * @see https://music-encoding.org/guidelines/v5/elements/chordMember.html
+			 */
+			chordMember: v.optional(
+				v.union([ChordMemberSchema, v.array(ChordMemberSchema)]),
+			),
+		}),
+	]),
+);
 
 export type ChordDefData = v.InferOutput<typeof ChordDefSchema>;

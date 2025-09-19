@@ -1,14 +1,12 @@
 import * as v from "valibot";
-import {
-	AttrControlEventSchema,
-	AttrOctaveDisplacementSchema,
-	AttrOriginLayerIdentSchema,
-	AttrOriginStaffIdentSchema,
-	AttrOriginStartEndIdSchema,
-	AttrOriginTimestampLogSchema,
-	AttrStartEndIdSchema,
-	AttrTimestamp2LogSchema,
-} from "../../shared";
+import { AttrControlEventSchema } from "../../shared/attr/controlEvent";
+import { AttrOctaveDisplacementSchema } from "../../shared/attr/octaveDisplacement";
+import { AttrOriginLayerIdentSchema } from "../../shared/attr/origin.layerIdent";
+import { AttrOriginStaffIdentSchema } from "../../shared/attr/origin.staffIdent";
+import { AttrOriginStartEndIdSchema } from "../../shared/attr/origin.startEndId";
+import { AttrOriginTimestampLogSchema } from "../../shared/attr/origin.timestamp.log";
+import { AttrStartEndIdSchema } from "../../shared/attr/startEndId";
+import { AttrTimestamp2LogSchema } from "../../shared/attr/timestamp2.log";
 
 /**
  * Logical domain attributes..

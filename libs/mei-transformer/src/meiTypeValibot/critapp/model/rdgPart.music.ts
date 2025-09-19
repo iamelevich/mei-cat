@@ -2,43 +2,41 @@ import * as v from "valibot";
 import {
 	type ModelControlEventLikeCmnData,
 	ModelControlEventLikeCmnSchema,
-} from "../../cmn";
+} from "../../cmn/model/controlEventLike.cmn";
+import { type VoltaData, VoltaSchema } from "../../lyrics/element/volta";
 import {
 	type ModelVerseLikeData,
 	ModelVerseLikeSchema,
-	type VoltaData,
-	VoltaSchema,
-} from "../../lyrics";
+} from "../../lyrics/model/verseLike";
 import {
 	type ModelControlEventLikeData,
 	ModelControlEventLikeSchema,
+} from "../../shared/model/controlEventLike";
+import {
 	type ModelLayerLikeData,
 	ModelLayerLikeSchema,
-} from "../../shared";
+} from "../../shared/model/layerLike";
 
 /**
  * Groups elements that may appear as part of a musical variant.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.rdgPart.music.html
  */
 export const ModelRdgPartMusicSchema: v.GenericSchema<ModelRdgPartMusicData> =
-	v.intersect([
-		v.object({
-			/**
-			 * Sung text for a specific iteration of a repeated section of music.
-			 * @see https://music-encoding.org/guidelines/v5/elements/volta.html
-			 */
-			volta: v.optional(
-				v.union([
-					v.lazy(() => VoltaSchema),
-					v.array(v.lazy(() => VoltaSchema)),
-				]),
-			),
-		}),
-		ModelControlEventLikeSchema,
-		ModelControlEventLikeCmnSchema,
-		ModelLayerLikeSchema,
-		ModelVerseLikeSchema,
-	]);
+	v.lazy(() =>
+		v.intersect([
+			v.object({
+				/**
+				 * Sung text for a specific iteration of a repeated section of music.
+				 * @see https://music-encoding.org/guidelines/v5/elements/volta.html
+				 */
+				volta: v.optional(v.union([VoltaSchema, v.array(VoltaSchema)])),
+			}),
+			ModelControlEventLikeSchema,
+			ModelControlEventLikeCmnSchema,
+			ModelLayerLikeSchema,
+			ModelVerseLikeSchema,
+		]),
+	);
 
 export type ModelRdgPartMusicData = {
 	volta?: VoltaData | VoltaData[];

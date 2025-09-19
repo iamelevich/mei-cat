@@ -1,8 +1,6 @@
 import * as v from "valibot";
-import {
-	AttrStringtabPositionSchema,
-	AttrStringtabTuningSchema,
-} from "../../stringtab";
+import { AttrStringtabPositionSchema } from "../../stringtab/attr/stringtab.position";
+import { AttrStringtabTuningSchema } from "../../stringtab/attr/stringtab.tuning";
 
 /**
  * Logical domain attributes..

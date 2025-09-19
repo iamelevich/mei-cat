@@ -1,11 +1,9 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	AttrBiblSchema,
-	AttrCommonSchema,
-	AttrLangSchema,
-	MacroStrucUnstrucContentSchema,
-} from "../../shared";
+import { AttrBiblSchema } from "../../shared/attr/bibl";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrLangSchema } from "../../shared/attr/lang";
+import { MacroStrucUnstrucContentSchema } from "../../shared/macro/struc-unstrucContent";
 
 /**
  * Base schema with attribute, to simplify types for SysReqSchema
@@ -21,9 +19,8 @@ const SysReqBaseSchema = v.object({
  * System requirements for using the electronic item.
  * @see https://music-encoding.org/guidelines/v5/elements/sysReq.html
  */
-export const SysReqSchema = v.intersect([
-	SysReqBaseSchema,
-	MacroStrucUnstrucContentSchema,
-]);
+export const SysReqSchema = v.lazy(() =>
+	v.intersect([SysReqBaseSchema, MacroStrucUnstrucContentSchema]),
+);
 
 export type SysReqData = v.InferOutput<typeof SysReqSchema>;

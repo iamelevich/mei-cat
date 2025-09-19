@@ -1,16 +1,17 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
+import { AttrBiblSchema } from "../../shared/attr/bibl";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { type DescData, DescSchema } from "../../shared/element/desc";
 import {
-	AttrBiblSchema,
-	AttrCommonSchema,
-	type DescData,
-	DescSchema,
 	type ModelBiblLikeData,
 	ModelBiblLikeSchema,
+} from "../../shared/model/biblLike";
+import {
 	type ModelHeadLikeData,
 	ModelHeadLikeSchema,
-} from "../../shared";
-import { type CategoryData, CategorySchema } from ".";
+} from "../../shared/model/headLike";
+import { type CategoryData, CategorySchema } from "../element/category";
 
 /**
  * Base schema with attribute, to simplify types for TaxonomySchema
@@ -27,40 +28,30 @@ type TaxonomyBaseData = v.InferOutput<typeof TaxonomyBaseSchema>;
  * Defines a typology either implicitly, by means of a bibliographic citation, or explicitly by a structured taxonomy.
  * @see https://music-encoding.org/guidelines/v5/elements/taxonomy.html
  */
-export const TaxonomySchema: v.GenericSchema<TaxonomyData> = v.intersect([
-	TaxonomyBaseSchema,
-	v.object({
-		/**
-		 * Reference to element category
-		 * @see https://music-encoding.org/guidelines/v5/elements/category.html
-		 */
-		category: v.optional(
-			v.union([
-				v.lazy(() => CategorySchema),
-				v.array(v.lazy(() => CategorySchema)),
-			]),
-		),
-		/**
-		 * Reference to element desc
-		 * @see https://music-encoding.org/guidelines/v5/elements/desc.html
-		 */
-		desc: v.optional(
-			v.union([v.lazy(() => DescSchema), v.array(v.lazy(() => DescSchema))]),
-		),
-		/**
-		 * Reference to element taxonomy
-		 * @see https://music-encoding.org/guidelines/v5/elements/taxonomy.html
-		 */
-		taxonomy: v.optional(
-			v.union([
-				v.lazy(() => TaxonomySchema),
-				v.array(v.lazy(() => TaxonomySchema)),
-			]),
-		),
-	}),
-	ModelBiblLikeSchema,
-	ModelHeadLikeSchema,
-]);
+export const TaxonomySchema: v.GenericSchema<TaxonomyData> = v.lazy(() =>
+	v.intersect([
+		TaxonomyBaseSchema,
+		v.object({
+			/**
+			 * Reference to element category
+			 * @see https://music-encoding.org/guidelines/v5/elements/category.html
+			 */
+			category: v.optional(v.union([CategorySchema, v.array(CategorySchema)])),
+			/**
+			 * Reference to element desc
+			 * @see https://music-encoding.org/guidelines/v5/elements/desc.html
+			 */
+			desc: v.optional(v.union([DescSchema, v.array(DescSchema)])),
+			/**
+			 * Reference to element taxonomy
+			 * @see https://music-encoding.org/guidelines/v5/elements/taxonomy.html
+			 */
+			taxonomy: v.optional(v.union([TaxonomySchema, v.array(TaxonomySchema)])),
+		}),
+		ModelBiblLikeSchema,
+		ModelHeadLikeSchema,
+	]),
+);
 
 export type TaxonomyData = TaxonomyBaseData & {
 	category?: CategoryData | CategoryData[];

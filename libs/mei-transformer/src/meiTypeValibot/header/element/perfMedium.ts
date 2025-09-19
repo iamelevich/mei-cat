@@ -1,14 +1,12 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	AttrAuthorizedSchema,
-	AttrBiblSchema,
-	AttrCommonSchema,
-	CastListSchema,
-	ModelAnnotLikeSchema,
-	ModelHeadLikeSchema,
-} from "../../shared";
-import { PerfResListSchema } from ".";
+import { AttrAuthorizedSchema } from "../../shared/attr/authorized";
+import { AttrBiblSchema } from "../../shared/attr/bibl";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { CastListSchema } from "../../shared/element/castList";
+import { ModelAnnotLikeSchema } from "../../shared/model/annotLike";
+import { ModelHeadLikeSchema } from "../../shared/model/headLike";
+import { PerfResListSchema } from "../element/perfResList";
 
 /**
  * Base schema with attribute, to simplify types for PerfMediumSchema
@@ -24,22 +22,24 @@ const PerfMediumBaseSchema = v.object({
  * Indicates the number and character of the performing forces used in a musical composition.
  * @see https://music-encoding.org/guidelines/v5/elements/perfMedium.html
  */
-export const PerfMediumSchema = v.intersect([
-	PerfMediumBaseSchema,
-	v.object({
-		/**
-		 * Reference to element castList
-		 * @see https://music-encoding.org/guidelines/v5/elements/castList.html
-		 */
-		castList: v.optional(v.lazy(() => CastListSchema)),
-		/**
-		 * Reference to element perfResList
-		 * @see https://music-encoding.org/guidelines/v5/elements/perfResList.html
-		 */
-		perfResList: v.optional(v.lazy(() => PerfResListSchema)),
-	}),
-	ModelAnnotLikeSchema,
-	ModelHeadLikeSchema,
-]);
+export const PerfMediumSchema = v.lazy(() =>
+	v.intersect([
+		PerfMediumBaseSchema,
+		v.object({
+			/**
+			 * Reference to element castList
+			 * @see https://music-encoding.org/guidelines/v5/elements/castList.html
+			 */
+			castList: v.optional(CastListSchema),
+			/**
+			 * Reference to element perfResList
+			 * @see https://music-encoding.org/guidelines/v5/elements/perfResList.html
+			 */
+			perfResList: v.optional(PerfResListSchema),
+		}),
+		ModelAnnotLikeSchema,
+		ModelHeadLikeSchema,
+	]),
+);
 
 export type PerfMediumData = v.InferOutput<typeof PerfMediumSchema>;

@@ -1,6 +1,6 @@
 import * as v from "valibot";
-import { AttrRestGesMensuralSchema } from "../../mensural";
-import { AttrDurationGesSchema } from "..";
+import { AttrRestGesMensuralSchema } from "../../mensural/attr/rest.ges.mensural";
+import { AttrDurationGesSchema } from "../attr/duration.ges";
 
 /**
  * Gestural domain attributes..

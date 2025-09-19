@@ -1,12 +1,10 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	AttrBiblSchema,
-	AttrCommonSchema,
-	AttrLangSchema,
-	AttrQuantitySchema,
-	ModelTextPhraseLikeLimitedSchema,
-} from "..";
+import { AttrBiblSchema } from "../attr/bibl";
+import { AttrCommonSchema } from "../attr/common";
+import { AttrLangSchema } from "../attr/lang";
+import { AttrQuantitySchema } from "../attr/quantity";
+import { ModelTextPhraseLikeLimitedSchema } from "../model/textPhraseLike.limited";
 
 /**
  * Base schema with attribute, to simplify types for DimSchema
@@ -29,9 +27,8 @@ const DimBaseSchema = v.object({
  * Any single dimensional specification.
  * @see https://music-encoding.org/guidelines/v5/elements/dim.html
  */
-export const DimSchema = v.intersect([
-	DimBaseSchema,
-	ModelTextPhraseLikeLimitedSchema,
-]);
+export const DimSchema = v.lazy(() =>
+	v.intersect([DimBaseSchema, ModelTextPhraseLikeLimitedSchema]),
+);
 
 export type DimData = v.InferOutput<typeof DimSchema>;

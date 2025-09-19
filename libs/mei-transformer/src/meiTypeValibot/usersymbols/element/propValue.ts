@@ -1,6 +1,6 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema } from "../../shared";
+import { AttrCommonSchema } from "../../shared/attr/common";
 
 /**
  * Base schema with attribute, to simplify types for PropValueSchema
@@ -14,6 +14,6 @@ const PropValueBaseSchema = v.object({
  * A single property value.
  * @see https://music-encoding.org/guidelines/v5/elements/propValue.html
  */
-export const PropValueSchema = v.intersect([PropValueBaseSchema]);
+export const PropValueSchema = v.lazy(() => v.intersect([PropValueBaseSchema]));
 
 export type PropValueData = v.InferOutput<typeof PropValueSchema>;

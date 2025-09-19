@@ -1,17 +1,13 @@
 import * as v from "valibot";
-import { AttrNoteLogCmnSchema } from "../../cmn";
-import {
-	AttrDurationQualitySchema,
-	AttrNoteLogMensuralSchema,
-} from "../../mensural";
-import {
-	AttrAugmentDotsSchema,
-	AttrColorationSchema,
-	AttrCueSchema,
-	AttrDurationLogSchema,
-	AttrEventSchema,
-	AttrPitchedSchema,
-} from "..";
+import { AttrNoteLogCmnSchema } from "../../cmn/attr/note.log.cmn";
+import { AttrDurationQualitySchema } from "../../mensural/attr/duration.quality";
+import { AttrNoteLogMensuralSchema } from "../../mensural/attr/note.log.mensural";
+import { AttrAugmentDotsSchema } from "../attr/augmentDots";
+import { AttrColorationSchema } from "../attr/coloration";
+import { AttrCueSchema } from "../attr/cue";
+import { AttrDurationLogSchema } from "../attr/duration.log";
+import { AttrEventSchema } from "../attr/event";
+import { AttrPitchedSchema } from "../attr/pitched";
 
 /**
  * Logical domain attributes..

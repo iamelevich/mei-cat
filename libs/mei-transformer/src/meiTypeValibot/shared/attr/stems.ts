@@ -1,6 +1,6 @@
 import * as v from "valibot";
-import { AttrStemsCmnSchema } from "../../cmn";
-import { AttrStemsMensuralSchema } from "../../mensural";
+import { AttrStemsCmnSchema } from "../../cmn/attr/stems.cmn";
+import { AttrStemsMensuralSchema } from "../../mensural/attr/stems.mensural";
 
 /**
  * Attributes that describe the properties of stemmed features; that is, chords and notes..

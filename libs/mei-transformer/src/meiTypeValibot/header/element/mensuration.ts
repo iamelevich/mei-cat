@@ -1,12 +1,10 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	AttrBiblSchema,
-	AttrCommonSchema,
-	AttrLangSchema,
-	AttrMensurLogSchema,
-} from "../../shared";
-import { AttrMensurVisSchema } from "../../visual";
+import { AttrBiblSchema } from "../../shared/attr/bibl";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrLangSchema } from "../../shared/attr/lang";
+import { AttrMensurLogSchema } from "../../shared/attr/mensur.log";
+import { AttrMensurVisSchema } from "../../visual/attr/mensur.vis";
 
 /**
  * Base schema with attribute, to simplify types for MensurationSchema
@@ -24,6 +22,8 @@ const MensurationBaseSchema = v.object({
  * Captures information about mensuration within bibliographic descriptions.
  * @see https://music-encoding.org/guidelines/v5/elements/mensuration.html
  */
-export const MensurationSchema = v.intersect([MensurationBaseSchema]);
+export const MensurationSchema = v.lazy(() =>
+	v.intersect([MensurationBaseSchema]),
+);
 
 export type MensurationData = v.InferOutput<typeof MensurationSchema>;

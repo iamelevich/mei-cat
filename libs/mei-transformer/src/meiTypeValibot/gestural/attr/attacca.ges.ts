@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrTimestamp2GesSchema } from "..";
+import { AttrTimestamp2GesSchema } from "../attr/timestamp2.ges";
 
 /**
  * Gestural domain attributes..

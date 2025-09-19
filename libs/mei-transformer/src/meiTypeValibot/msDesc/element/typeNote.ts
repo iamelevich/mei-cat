@@ -1,11 +1,9 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	AttrBiblSchema,
-	AttrCommonSchema,
-	AttrLangSchema,
-	MacroStrucUnstrucContentSchema,
-} from "../../shared";
+import { AttrBiblSchema } from "../../shared/attr/bibl";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrLangSchema } from "../../shared/attr/lang";
+import { MacroStrucUnstrucContentSchema } from "../../shared/macro/struc-unstrucContent";
 
 /**
  * Base schema with attribute, to simplify types for TypeNoteSchema
@@ -21,9 +19,8 @@ const TypeNoteBaseSchema = v.object({
  * Describes a particular font or other significant typographic feature of a printed resource.
  * @see https://music-encoding.org/guidelines/v5/elements/typeNote.html
  */
-export const TypeNoteSchema = v.intersect([
-	TypeNoteBaseSchema,
-	MacroStrucUnstrucContentSchema,
-]);
+export const TypeNoteSchema = v.lazy(() =>
+	v.intersect([TypeNoteBaseSchema, MacroStrucUnstrucContentSchema]),
+);
 
 export type TypeNoteData = v.InferOutput<typeof TypeNoteSchema>;

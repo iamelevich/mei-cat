@@ -1,5 +1,6 @@
 import * as v from "valibot";
-import { AttrStaffGroupingSymSchema, AttrStartEndIdSchema } from "..";
+import { AttrStaffGroupingSymSchema } from "../attr/staffGroupingSym";
+import { AttrStartEndIdSchema } from "../attr/startEndId";
 
 /**
  * Logical domain attributes..

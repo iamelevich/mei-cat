@@ -1,11 +1,9 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	AttrCommonSchema,
-	AttrLangSchema,
-	ModelTextPhraseLikeLimitedSchema,
-} from "..";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrCommonSchema } from "../attr/common";
+import { AttrLangSchema } from "../attr/lang";
+import { ModelTextPhraseLikeLimitedSchema } from "../model/textPhraseLike.limited";
 
 /**
  * Base schema with attribute, to simplify types for StackSchema
@@ -31,9 +29,8 @@ const StackBaseSchema = v.object({
  * An inline table with a single column.
  * @see https://music-encoding.org/guidelines/v5/elements/stack.html
  */
-export const StackSchema = v.intersect([
-	StackBaseSchema,
-	ModelTextPhraseLikeLimitedSchema,
-]);
+export const StackSchema = v.lazy(() =>
+	v.intersect([StackBaseSchema, ModelTextPhraseLikeLimitedSchema]),
+);
 
 export type StackData = v.InferOutput<typeof StackSchema>;

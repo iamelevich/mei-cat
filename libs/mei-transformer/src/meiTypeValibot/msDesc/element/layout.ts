@@ -1,11 +1,9 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	AttrBiblSchema,
-	AttrCommonSchema,
-	AttrLangSchema,
-	MacroStrucUnstrucContentSchema,
-} from "../../shared";
+import { AttrBiblSchema } from "../../shared/attr/bibl";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrLangSchema } from "../../shared/attr/lang";
+import { MacroStrucUnstrucContentSchema } from "../../shared/macro/struc-unstrucContent";
 
 /**
  * Base schema with attribute, to simplify types for LayoutSchema
@@ -43,9 +41,8 @@ const LayoutBaseSchema = v.object({
  * Describes how text is laid out on the page, including information about any ruling, pricking, or other evidence of page-preparation techniques.
  * @see https://music-encoding.org/guidelines/v5/elements/layout.html
  */
-export const LayoutSchema = v.intersect([
-	LayoutBaseSchema,
-	MacroStrucUnstrucContentSchema,
-]);
+export const LayoutSchema = v.lazy(() =>
+	v.intersect([LayoutBaseSchema, MacroStrucUnstrucContentSchema]),
+);
 
 export type LayoutData = v.InferOutput<typeof LayoutSchema>;

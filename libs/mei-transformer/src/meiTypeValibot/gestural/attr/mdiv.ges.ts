@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrAttackingSchema } from "..";
+import { AttrAttackingSchema } from "../attr/attacking";
 
 /**
  * Gestural domain attributes..

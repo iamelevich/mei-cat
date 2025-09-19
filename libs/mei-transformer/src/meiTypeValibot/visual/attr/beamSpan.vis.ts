@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrBeamVisSchema } from "..";
+import { AttrBeamVisSchema } from "../attr/beam.vis";
 
 /**
  * Visual domain attributes..

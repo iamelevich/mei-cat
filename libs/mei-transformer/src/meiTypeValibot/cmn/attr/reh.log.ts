@@ -1,12 +1,10 @@
 import * as v from "valibot";
-import { AttrTimestampGesSchema } from "../../gestural";
-import { AttrAlignmentSchema } from "../../performance";
-import {
-	AttrPartIdentSchema,
-	AttrStaffIdentSchema,
-	AttrStartIdSchema,
-	AttrTimestampLogSchema,
-} from "../../shared";
+import { AttrTimestampGesSchema } from "../../gestural/attr/timestamp.ges";
+import { AttrAlignmentSchema } from "../../performance/attr/alignment";
+import { AttrPartIdentSchema } from "../../shared/attr/partIdent";
+import { AttrStaffIdentSchema } from "../../shared/attr/staffIdent";
+import { AttrStartIdSchema } from "../../shared/attr/startId";
+import { AttrTimestampLogSchema } from "../../shared/attr/timestamp.log";
 
 /**
  * Logical domain attributes..

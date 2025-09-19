@@ -1,7 +1,10 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrBiblSchema, AttrCommonSchema, DescSchema } from "../../shared";
-import { AttUsageSchema, TagUsageSchema } from ".";
+import { AttrBiblSchema } from "../../shared/attr/bibl";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { DescSchema } from "../../shared/element/desc";
+import { AttUsageSchema } from "../element/attUsage";
+import { TagUsageSchema } from "../element/tagUsage";
 
 /**
  * Base schema with attribute, to simplify types for NamespaceSchema
@@ -26,31 +29,27 @@ const NamespaceBaseSchema = v.object({
  * Supplies the formal name of the namespace to which the elements documented by its children belong.
  * @see https://music-encoding.org/guidelines/v5/elements/namespace.html
  */
-export const NamespaceSchema = v.intersect([
-	NamespaceBaseSchema,
-	v.object({
-		/**
-		 * Reference to element attUsage
-		 * @see https://music-encoding.org/guidelines/v5/elements/attUsage.html
-		 */
-		attUsage: v.union([
-			v.lazy(() => AttUsageSchema),
-			v.array(v.lazy(() => AttUsageSchema)),
-		]),
-		/**
-		 * Reference to element desc
-		 * @see https://music-encoding.org/guidelines/v5/elements/desc.html
-		 */
-		desc: v.optional(v.lazy(() => DescSchema)),
-		/**
-		 * Reference to element tagUsage
-		 * @see https://music-encoding.org/guidelines/v5/elements/tagUsage.html
-		 */
-		tagUsage: v.union([
-			v.lazy(() => TagUsageSchema),
-			v.array(v.lazy(() => TagUsageSchema)),
-		]),
-	}),
-]);
+export const NamespaceSchema = v.lazy(() =>
+	v.intersect([
+		NamespaceBaseSchema,
+		v.object({
+			/**
+			 * Reference to element attUsage
+			 * @see https://music-encoding.org/guidelines/v5/elements/attUsage.html
+			 */
+			attUsage: v.union([AttUsageSchema, v.array(AttUsageSchema)]),
+			/**
+			 * Reference to element desc
+			 * @see https://music-encoding.org/guidelines/v5/elements/desc.html
+			 */
+			desc: v.optional(DescSchema),
+			/**
+			 * Reference to element tagUsage
+			 * @see https://music-encoding.org/guidelines/v5/elements/tagUsage.html
+			 */
+			tagUsage: v.union([TagUsageSchema, v.array(TagUsageSchema)]),
+		}),
+	]),
+);
 
 export type NamespaceData = v.InferOutput<typeof NamespaceSchema>;

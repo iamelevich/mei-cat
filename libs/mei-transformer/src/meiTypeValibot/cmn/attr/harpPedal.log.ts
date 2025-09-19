@@ -1,5 +1,6 @@
 import * as v from "valibot";
-import { AttrControlEventSchema, AttrStartEndIdSchema } from "../../shared";
+import { AttrControlEventSchema } from "../../shared/attr/controlEvent";
+import { AttrStartEndIdSchema } from "../../shared/attr/startEndId";
 
 /**
  * Logical domain attributes. The pedal setting, <abbr>i.e.</abbr>, flat, natural, or sharp, for each diatonic pitch name is indicated by the seven letter-named attributes..

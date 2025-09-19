@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrCanonicalSchema } from "..";
+import { AttrCanonicalSchema } from "../attr/canonical";
 
 /**
  * Attributes that describe the source of a controlled value..

@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrNeumeTypeSchema } from "../../neumes";
+import { AttrNeumeTypeSchema } from "../../neumes/attr/neumeType";
 
 /**
  * Analytical domain attributes..

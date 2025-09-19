@@ -1,11 +1,9 @@
 import * as v from "valibot";
-import { AttrBeamingVisSchema } from "../../visual";
-import {
-	AttrPianoPedalsSchema,
-	AttrRehearsalSchema,
-	AttrSlurRendSchema,
-	AttrTieRendSchema,
-} from "..";
+import { AttrBeamingVisSchema } from "../../visual/attr/beaming.vis";
+import { AttrPianoPedalsSchema } from "../attr/pianoPedals";
+import { AttrRehearsalSchema } from "../attr/rehearsal";
+import { AttrSlurRendSchema } from "../attr/slurRend";
+import { AttrTieRendSchema } from "../attr/tieRend";
 
 /**
  * Visual domain attributes for staffDef in the CMN repertoire..

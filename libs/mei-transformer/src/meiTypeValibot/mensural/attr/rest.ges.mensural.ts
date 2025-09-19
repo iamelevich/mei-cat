@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrDurationRatioSchema } from "../../shared";
+import { AttrDurationRatioSchema } from "../../shared/attr/duration.ratio";
 
 /**
  * Gestural domain attributes..

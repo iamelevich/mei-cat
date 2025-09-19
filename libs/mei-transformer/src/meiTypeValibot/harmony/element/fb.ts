@@ -1,12 +1,10 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrCommonSchema } from "../../shared";
-import { ModelFLikeSchema } from "..";
+import { ModelEditLikeSchema } from "../../edittrans/model/editLike";
+import { ModelTranscriptionLikeSchema } from "../../edittrans/model/transcriptionLike";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { ModelFLikeSchema } from "../model/fLike";
 
 /**
  * Base schema with attribute, to simplify types for FbSchema
@@ -21,11 +19,13 @@ const FbBaseSchema = v.object({
  * Symbols added to a bass line that indicate harmony. Used to improvise a chordal accompaniment. Sometimes called Generalbass, thoroughbass, or basso continuo.
  * @see https://music-encoding.org/guidelines/v5/elements/fb.html
  */
-export const FbSchema = v.intersect([
-	FbBaseSchema,
-	ModelEditLikeSchema,
-	ModelFLikeSchema,
-	ModelTranscriptionLikeSchema,
-]);
+export const FbSchema = v.lazy(() =>
+	v.intersect([
+		FbBaseSchema,
+		ModelEditLikeSchema,
+		ModelFLikeSchema,
+		ModelTranscriptionLikeSchema,
+	]),
+);
 
 export type FbData = v.InferOutput<typeof FbSchema>;

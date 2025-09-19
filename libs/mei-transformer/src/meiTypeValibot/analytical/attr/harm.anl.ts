@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrIntervalHarmonicSchema } from "..";
+import { AttrIntervalHarmonicSchema } from "../attr/intervalHarmonic";
 
 /**
  * Analytical domain attributes..

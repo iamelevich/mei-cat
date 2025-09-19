@@ -1,13 +1,12 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrTransSchema } from "../../edittrans";
-import {
-	AttrCommonSchema,
-	AttrEvidenceSchema,
-	AttrMeasurementSchema,
-	AttrXySchema,
-} from "../../shared";
-import { ModelBifoliumLikeSchema, ModelFoliumLikeSchema } from "..";
+import { AttrTransSchema } from "../../edittrans/attr/trans";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrEvidenceSchema } from "../../shared/attr/evidence";
+import { AttrMeasurementSchema } from "../../shared/attr/measurement";
+import { AttrXySchema } from "../../shared/attr/xy";
+import { ModelBifoliumLikeSchema } from "../model/bifoliumLike";
+import { ModelFoliumLikeSchema } from "../model/foliumLike";
 
 /**
  * Base schema with attribute, to simplify types for PatchSchema
@@ -35,10 +34,12 @@ const PatchBaseSchema = v.object({
  * Describes a physical writing surface attached to the original document.
  * @see https://music-encoding.org/guidelines/v5/elements/patch.html
  */
-export const PatchSchema = v.intersect([
-	PatchBaseSchema,
-	ModelBifoliumLikeSchema,
-	ModelFoliumLikeSchema,
-]);
+export const PatchSchema = v.lazy(() =>
+	v.intersect([
+		PatchBaseSchema,
+		ModelBifoliumLikeSchema,
+		ModelFoliumLikeSchema,
+	]),
+);
 
 export type PatchData = v.InferOutput<typeof PatchSchema>;

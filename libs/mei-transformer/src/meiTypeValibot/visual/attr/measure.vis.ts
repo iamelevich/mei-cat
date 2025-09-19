@@ -1,5 +1,6 @@
 import * as v from "valibot";
-import { AttrBarringSchema, AttrWidthSchema } from "../../shared";
+import { AttrBarringSchema } from "../../shared/attr/barring";
+import { AttrWidthSchema } from "../../shared/attr/width";
 
 /**
  * Visual domain attributes..

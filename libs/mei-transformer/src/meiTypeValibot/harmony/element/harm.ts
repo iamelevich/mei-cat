@@ -1,19 +1,16 @@
 import * as v from "valibot";
-import { AttrHarmAnlSchema } from "../../analytical";
+import { AttrHarmAnlSchema } from "../../analytical/attr/harm.anl";
 import { StandardTagSchema } from "../../common";
-import {
-	ModelEditLikeSchema,
-	ModelTranscriptionLikeSchema,
-} from "../../edittrans";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrHarmGesSchema } from "../../gestural";
-import {
-	AttrCommonSchema,
-	ModelTextPhraseLikeLimitedSchema,
-} from "../../shared";
-import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols";
-import { AttrHarmVisSchema } from "../../visual";
-import { AttrHarmLogSchema, ModelFigbassLikeSchema } from "..";
+import { ModelEditLikeSchema } from "../../edittrans/model/editLike";
+import { ModelTranscriptionLikeSchema } from "../../edittrans/model/transcriptionLike";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrHarmGesSchema } from "../../gestural/attr/harm.ges";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { ModelTextPhraseLikeLimitedSchema } from "../../shared/model/textPhraseLike.limited";
+import { ModelGraphicPrimitiveLikeSchema } from "../../usersymbols/model/graphicPrimitiveLike";
+import { AttrHarmVisSchema } from "../../visual/attr/harm.vis";
+import { AttrHarmLogSchema } from "../attr/harm.log";
+import { ModelFigbassLikeSchema } from "../model/figbassLike";
 
 /**
  * Base schema with attribute, to simplify types for HarmSchema
@@ -32,13 +29,15 @@ const HarmBaseSchema = v.object({
  * An indication of harmony, <abbr>e.g.</abbr>, chord names, tablature grids, harmonic analysis, figured bass.
  * @see https://music-encoding.org/guidelines/v5/elements/harm.html
  */
-export const HarmSchema = v.intersect([
-	HarmBaseSchema,
-	ModelEditLikeSchema,
-	ModelFigbassLikeSchema,
-	ModelGraphicPrimitiveLikeSchema,
-	ModelTextPhraseLikeLimitedSchema,
-	ModelTranscriptionLikeSchema,
-]);
+export const HarmSchema = v.lazy(() =>
+	v.intersect([
+		HarmBaseSchema,
+		ModelEditLikeSchema,
+		ModelFigbassLikeSchema,
+		ModelGraphicPrimitiveLikeSchema,
+		ModelTextPhraseLikeLimitedSchema,
+		ModelTranscriptionLikeSchema,
+	]),
+);
 
 export type HarmData = v.InferOutput<typeof HarmSchema>;

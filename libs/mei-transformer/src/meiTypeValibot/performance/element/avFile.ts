@@ -1,14 +1,12 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	AttrBiblSchema,
-	AttrCommonSchema,
-	AttrInternetMediaSchema,
-	AttrMetadataPointingSchema,
-	AttrPointingSchema,
-} from "../../shared";
-import { ClipSchema } from ".";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrBiblSchema } from "../../shared/attr/bibl";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrInternetMediaSchema } from "../../shared/attr/internetMedia";
+import { AttrMetadataPointingSchema } from "../../shared/attr/metadataPointing";
+import { AttrPointingSchema } from "../../shared/attr/pointing";
+import { ClipSchema } from "../element/clip";
 
 /**
  * Base schema with attribute, to simplify types for AvFileSchema
@@ -27,17 +25,17 @@ const AvFileBaseSchema = v.object({
  * References an external digital audio or video file.
  * @see https://music-encoding.org/guidelines/v5/elements/avFile.html
  */
-export const AvFileSchema = v.intersect([
-	AvFileBaseSchema,
-	v.object({
-		/**
-		 * Reference to element clip
-		 * @see https://music-encoding.org/guidelines/v5/elements/clip.html
-		 */
-		clip: v.optional(
-			v.union([v.lazy(() => ClipSchema), v.array(v.lazy(() => ClipSchema))]),
-		),
-	}),
-]);
+export const AvFileSchema = v.lazy(() =>
+	v.intersect([
+		AvFileBaseSchema,
+		v.object({
+			/**
+			 * Reference to element clip
+			 * @see https://music-encoding.org/guidelines/v5/elements/clip.html
+			 */
+			clip: v.optional(v.union([ClipSchema, v.array(ClipSchema)])),
+		}),
+	]),
+);
 
 export type AvFileData = v.InferOutput<typeof AvFileSchema>;

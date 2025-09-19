@@ -1,6 +1,6 @@
 import * as v from "valibot";
-import { AttrEventSchema } from "../../shared";
-import { AttrNumberedSchema } from "..";
+import { AttrEventSchema } from "../../shared/attr/event";
+import { AttrNumberedSchema } from "../attr/numbered";
 
 /**
  * Logical domain attributes..

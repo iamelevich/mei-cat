@@ -1,15 +1,11 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	AttrBiblSchema,
-	AttrCommonSchema,
-	AttrLangSchema,
-	type RendData,
-	RendSchema,
-	type SymbolData,
-	SymbolSchema,
-} from "../../shared";
-import { AttrFoliationSchemeSchema } from "..";
+import { AttrBiblSchema } from "../../shared/attr/bibl";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrLangSchema } from "../../shared/attr/lang";
+import { type RendData, RendSchema } from "../../shared/element/rend";
+import { type SymbolData, SymbolSchema } from "../../shared/element/symbol";
+import { AttrFoliationSchemeSchema } from "../attr/foliation.scheme";
 
 /**
  * Base schema with attribute, to simplify types for LocusSchema
@@ -38,35 +34,28 @@ type LocusBaseData = v.InferOutput<typeof LocusBaseSchema>;
  * Defines a location within a manuscript or manuscript component, usually as a (possibly discontinuous) sequence of folio references.
  * @see https://music-encoding.org/guidelines/v5/elements/locus.html
  */
-export const LocusSchema: v.GenericSchema<LocusData> = v.intersect([
-	LocusBaseSchema,
-	v.object({
-		/**
-		 * Reference to element locus
-		 * @see https://music-encoding.org/guidelines/v5/elements/locus.html
-		 */
-		locus: v.optional(
-			v.union([v.lazy(() => LocusSchema), v.array(v.lazy(() => LocusSchema))]),
-		),
-		/**
-		 * Reference to element rend
-		 * @see https://music-encoding.org/guidelines/v5/elements/rend.html
-		 */
-		rend: v.optional(
-			v.union([v.lazy(() => RendSchema), v.array(v.lazy(() => RendSchema))]),
-		),
-		/**
-		 * Reference to element symbol
-		 * @see https://music-encoding.org/guidelines/v5/elements/symbol.html
-		 */
-		symbol: v.optional(
-			v.union([
-				v.lazy(() => SymbolSchema),
-				v.array(v.lazy(() => SymbolSchema)),
-			]),
-		),
-	}),
-]);
+export const LocusSchema: v.GenericSchema<LocusData> = v.lazy(() =>
+	v.intersect([
+		LocusBaseSchema,
+		v.object({
+			/**
+			 * Reference to element locus
+			 * @see https://music-encoding.org/guidelines/v5/elements/locus.html
+			 */
+			locus: v.optional(v.union([LocusSchema, v.array(LocusSchema)])),
+			/**
+			 * Reference to element rend
+			 * @see https://music-encoding.org/guidelines/v5/elements/rend.html
+			 */
+			rend: v.optional(v.union([RendSchema, v.array(RendSchema)])),
+			/**
+			 * Reference to element symbol
+			 * @see https://music-encoding.org/guidelines/v5/elements/symbol.html
+			 */
+			symbol: v.optional(v.union([SymbolSchema, v.array(SymbolSchema)])),
+		}),
+	]),
+);
 
 export type LocusData = LocusBaseData & {
 	locus?: LocusData | LocusData[];

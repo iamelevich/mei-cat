@@ -1,16 +1,12 @@
 import * as v from "valibot";
-import { AttrOrnamPresentSchema } from "../../cmnOrnaments";
-import {
-	AttrSlurPresentSchema,
-	AttrSylTextSchema,
-	AttrTiePresentSchema,
-	AttrTupletPresentSchema,
-} from "../../shared";
-import {
-	AttrBeamPresentSchema,
-	AttrGlissPresentSchema,
-	AttrLvPresentSchema,
-} from "..";
+import { AttrOrnamPresentSchema } from "../../cmnOrnaments/attr/ornamPresent";
+import { AttrSlurPresentSchema } from "../../shared/attr/slurPresent";
+import { AttrSylTextSchema } from "../../shared/attr/sylText";
+import { AttrTiePresentSchema } from "../../shared/attr/tiePresent";
+import { AttrTupletPresentSchema } from "../../shared/attr/tupletPresent";
+import { AttrBeamPresentSchema } from "../attr/beamPresent";
+import { AttrGlissPresentSchema } from "../attr/glissPresent";
+import { AttrLvPresentSchema } from "../attr/lvPresent";
 
 /**
  * Analytical domain attributes in the CMN repertoire..

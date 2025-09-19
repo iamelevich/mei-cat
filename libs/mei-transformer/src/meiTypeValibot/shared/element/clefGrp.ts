@@ -1,11 +1,13 @@
 import * as v from "valibot";
-import { AttrClefGrpAnlSchema } from "../../analytical";
+import { AttrClefGrpAnlSchema } from "../../analytical/attr/clefGrp.anl";
 import { StandardTagSchema } from "../../common";
-import { AttrFacsimileSchema } from "../../facsimile";
-import { AttrClefGrpGesSchema } from "../../gestural";
-import { AttrClefGrpVisSchema } from "../../visual";
-import { AttrClefGrpLogSchema, AttrCommonSchema, AttrEventSchema } from "..";
-import { ClefSchema } from ".";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrClefGrpGesSchema } from "../../gestural/attr/clefGrp.ges";
+import { AttrClefGrpVisSchema } from "../../visual/attr/clefGrp.vis";
+import { AttrClefGrpLogSchema } from "../attr/clefGrp.log";
+import { AttrCommonSchema } from "../attr/common";
+import { AttrEventSchema } from "../attr/event";
+import { ClefSchema } from "../element/clef";
 
 /**
  * Base schema with attribute, to simplify types for ClefGrpSchema
@@ -25,18 +27,17 @@ const ClefGrpBaseSchema = v.object({
  * A set of simultaneously-occurring clefs.
  * @see https://music-encoding.org/guidelines/v5/elements/clefGrp.html
  */
-export const ClefGrpSchema = v.intersect([
-	ClefGrpBaseSchema,
-	v.object({
-		/**
-		 * Reference to element clef
-		 * @see https://music-encoding.org/guidelines/v5/elements/clef.html
-		 */
-		clef: v.union([
-			v.lazy(() => ClefSchema),
-			v.array(v.lazy(() => ClefSchema)),
-		]),
-	}),
-]);
+export const ClefGrpSchema = v.lazy(() =>
+	v.intersect([
+		ClefGrpBaseSchema,
+		v.object({
+			/**
+			 * Reference to element clef
+			 * @see https://music-encoding.org/guidelines/v5/elements/clef.html
+			 */
+			clef: v.union([ClefSchema, v.array(ClefSchema)]),
+		}),
+	]),
+);
 
 export type ClefGrpData = v.InferOutput<typeof ClefGrpSchema>;

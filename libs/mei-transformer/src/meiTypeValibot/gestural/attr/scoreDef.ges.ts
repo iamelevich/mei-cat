@@ -1,10 +1,9 @@
 import * as v from "valibot";
-import {
-	AttrChannelizedSchema,
-	AttrMidiTempoSchema,
-	AttrTimeBaseSchema,
-} from "../../midi";
-import { AttrMmTempoSchema, AttrTuningSchema } from "../../shared";
+import { AttrChannelizedSchema } from "../../midi/attr/channelized";
+import { AttrMidiTempoSchema } from "../../midi/attr/midiTempo";
+import { AttrTimeBaseSchema } from "../../midi/attr/timeBase";
+import { AttrMmTempoSchema } from "../../shared/attr/mmTempo";
+import { AttrTuningSchema } from "../../shared/attr/tuning";
 
 /**
  * Gestural domain attributes for scoreDef. The values set in these attributes act as score-wide defaults for attributes that are not set in descendant elements. For example, the grace attribute value here applies to all the grace attribute values in the score (or, more accurately, until the next <gi scheme="MEI">scoreDef</gi> element) without having to individually set each note’s grace attribute value. The midi.* attributes function as default values when creating sounding output. The tune.* attributes provide the capability of recording a tuning reference pitch..

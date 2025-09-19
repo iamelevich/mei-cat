@@ -1,14 +1,12 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	AttrBiblSchema,
-	AttrCommonSchema,
-	AttrDataPointingSchema,
-	AttrPointingSchema,
-	AttrTargetEvalSchema,
-	ModelBiblLikeSchema,
-} from "..";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrBiblSchema } from "../attr/bibl";
+import { AttrCommonSchema } from "../attr/common";
+import { AttrDataPointingSchema } from "../attr/dataPointing";
+import { AttrPointingSchema } from "../attr/pointing";
+import { AttrTargetEvalSchema } from "../attr/targetEval";
+import { ModelBiblLikeSchema } from "../model/biblLike";
 
 /**
  * Base schema with attribute, to simplify types for RelatedItemSchema
@@ -33,9 +31,8 @@ const RelatedItemBaseSchema = v.object({
  * Contains or references another bibliographic item which is related to the present one.
  * @see https://music-encoding.org/guidelines/v5/elements/relatedItem.html
  */
-export const RelatedItemSchema = v.intersect([
-	RelatedItemBaseSchema,
-	ModelBiblLikeSchema,
-]);
+export const RelatedItemSchema = v.lazy(() =>
+	v.intersect([RelatedItemBaseSchema, ModelBiblLikeSchema]),
+);
 
 export type RelatedItemData = v.InferOutput<typeof RelatedItemSchema>;

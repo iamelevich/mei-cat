@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrFermataPresentSchema } from "../../shared";
+import { AttrFermataPresentSchema } from "../../shared/attr/fermataPresent";
 
 /**
  * Analytical domain attributes in the CMN repertoire. Use the n attribute to explicitly encode this measure’s position in a string of measures containing only <gi scheme="MEI" >mRest</gi> elements..

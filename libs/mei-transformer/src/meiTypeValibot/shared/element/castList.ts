@@ -1,13 +1,12 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrFacsimileSchema } from "../../facsimile";
-import {
-	AttrBiblSchema,
-	AttrCommonSchema,
-	AttrLangSchema,
-	ModelHeadLikeSchema,
-} from "..";
-import { CastGrpSchema, CastItemSchema } from ".";
+import { AttrFacsimileSchema } from "../../facsimile/attr/facsimile";
+import { AttrBiblSchema } from "../attr/bibl";
+import { AttrCommonSchema } from "../attr/common";
+import { AttrLangSchema } from "../attr/lang";
+import { CastGrpSchema } from "../element/castGrp";
+import { CastItemSchema } from "../element/castItem";
+import { ModelHeadLikeSchema } from "../model/headLike";
 
 /**
  * Base schema with attribute, to simplify types for CastListSchema
@@ -24,27 +23,23 @@ const CastListBaseSchema = v.object({
  * Contains a single cast list or dramatis personae.
  * @see https://music-encoding.org/guidelines/v5/elements/castList.html
  */
-export const CastListSchema = v.intersect([
-	CastListBaseSchema,
-	v.object({
-		/**
-		 * Reference to element castGrp
-		 * @see https://music-encoding.org/guidelines/v5/elements/castGrp.html
-		 */
-		castGrp: v.union([
-			v.lazy(() => CastGrpSchema),
-			v.array(v.lazy(() => CastGrpSchema)),
-		]),
-		/**
-		 * Reference to element castItem
-		 * @see https://music-encoding.org/guidelines/v5/elements/castItem.html
-		 */
-		castItem: v.union([
-			v.lazy(() => CastItemSchema),
-			v.array(v.lazy(() => CastItemSchema)),
-		]),
-	}),
-	ModelHeadLikeSchema,
-]);
+export const CastListSchema = v.lazy(() =>
+	v.intersect([
+		CastListBaseSchema,
+		v.object({
+			/**
+			 * Reference to element castGrp
+			 * @see https://music-encoding.org/guidelines/v5/elements/castGrp.html
+			 */
+			castGrp: v.union([CastGrpSchema, v.array(CastGrpSchema)]),
+			/**
+			 * Reference to element castItem
+			 * @see https://music-encoding.org/guidelines/v5/elements/castItem.html
+			 */
+			castItem: v.union([CastItemSchema, v.array(CastItemSchema)]),
+		}),
+		ModelHeadLikeSchema,
+	]),
+);
 
 export type CastListData = v.InferOutput<typeof CastListSchema>;

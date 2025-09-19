@@ -1,16 +1,14 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import {
-	AttrBasicSchema,
-	AttrClassedSchema,
-	AttrLabelledSchema,
-	AttrLangSchema,
-	AttrLinkingSchema,
-	AttrNNumberLikeSchema,
-	AttrResponsibilitySchema,
-	AttrTextRenditionSchema,
-	ModelTextPhraseLikeSchema,
-} from "../../shared";
+import { AttrBasicSchema } from "../../shared/attr/basic";
+import { AttrClassedSchema } from "../../shared/attr/classed";
+import { AttrLabelledSchema } from "../../shared/attr/labelled";
+import { AttrLangSchema } from "../../shared/attr/lang";
+import { AttrLinkingSchema } from "../../shared/attr/linking";
+import { AttrNNumberLikeSchema } from "../../shared/attr/nNumberLike";
+import { AttrResponsibilitySchema } from "../../shared/attr/responsibility";
+import { AttrTextRenditionSchema } from "../../shared/attr/textRendition";
+import { ModelTextPhraseLikeSchema } from "../../shared/model/textPhraseLike";
 
 /**
  * Base schema with attribute, to simplify types for QSchema
@@ -37,6 +35,8 @@ const QBaseSchema = v.object({
  * Contains material which is distinguished from the surrounding phrase-level text using quotation marks or a similar method. Use <gi scheme="MEI">quote</gi> for block-level quotations.
  * @see https://music-encoding.org/guidelines/v5/elements/q.html
  */
-export const QSchema = v.intersect([QBaseSchema, ModelTextPhraseLikeSchema]);
+export const QSchema = v.lazy(() =>
+	v.intersect([QBaseSchema, ModelTextPhraseLikeSchema]),
+);
 
 export type QData = v.InferOutput<typeof QSchema>;

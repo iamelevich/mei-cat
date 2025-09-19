@@ -1,13 +1,11 @@
 import * as v from "valibot";
-import { AttrTuningAnlSchema } from "../../analytical";
+import { AttrTuningAnlSchema } from "../../analytical/attr/tuning.anl";
 import { StandardTagSchema } from "../../common";
-import { AttrTuningGesSchema } from "../../gestural";
-import { AttrTuningVisSchema } from "../../visual";
-import {
-	AttrCommonSchema,
-	AttrTuningLogSchema,
-	ModelTuningPartSchema,
-} from "..";
+import { AttrTuningGesSchema } from "../../gestural/attr/tuning.ges";
+import { AttrTuningVisSchema } from "../../visual/attr/tuning.vis";
+import { AttrCommonSchema } from "../attr/common";
+import { AttrTuningLogSchema } from "../attr/tuning.log";
+import { ModelTuningPartSchema } from "../model/tuningPart";
 
 /**
  * Base schema with attribute, to simplify types for TuningSchema
@@ -25,9 +23,8 @@ const TuningBaseSchema = v.object({
  * Describes the tuning of an instrument.
  * @see https://music-encoding.org/guidelines/v5/elements/tuning.html
  */
-export const TuningSchema = v.intersect([
-	TuningBaseSchema,
-	ModelTuningPartSchema,
-]);
+export const TuningSchema = v.lazy(() =>
+	v.intersect([TuningBaseSchema, ModelTuningPartSchema]),
+);
 
 export type TuningData = v.InferOutput<typeof TuningSchema>;

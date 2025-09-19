@@ -1,10 +1,8 @@
 import * as v from "valibot";
-import {
-	AttrAugmentDotsSchema,
-	AttrDurationLogSchema,
-	AttrEventSchema,
-} from "../../shared";
-import { AttrTremFormSchema } from "..";
+import { AttrAugmentDotsSchema } from "../../shared/attr/augmentDots";
+import { AttrDurationLogSchema } from "../../shared/attr/duration.log";
+import { AttrEventSchema } from "../../shared/attr/event";
+import { AttrTremFormSchema } from "../attr/tremForm";
 
 /**
  * Logical domain attributes..

@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrIdSchema } from "..";
+import { AttrIdSchema } from "../attr/id";
 
 /**
  * Attributes that form the basis of the att.common class..

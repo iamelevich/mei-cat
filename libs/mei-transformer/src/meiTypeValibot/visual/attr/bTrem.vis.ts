@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrNumberPlacementSchema } from "../../cmn";
+import { AttrNumberPlacementSchema } from "../../cmn/attr/numberPlacement";
 
 /**
  * Visual domain attributes..

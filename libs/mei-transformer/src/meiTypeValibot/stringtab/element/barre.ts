@@ -1,6 +1,7 @@
 import * as v from "valibot";
 import { StandardTagSchema } from "../../common";
-import { AttrCommonSchema, AttrStartEndIdSchema } from "../../shared";
+import { AttrCommonSchema } from "../../shared/attr/common";
+import { AttrStartEndIdSchema } from "../../shared/attr/startEndId";
 
 /**
  * Base schema with attribute, to simplify types for BarreSchema
@@ -21,6 +22,6 @@ const BarreBaseSchema = v.object({
  * A barre in a chord tablature grid.
  * @see https://music-encoding.org/guidelines/v5/elements/barre.html
  */
-export const BarreSchema = v.intersect([BarreBaseSchema]);
+export const BarreSchema = v.lazy(() => v.intersect([BarreBaseSchema]));
 
 export type BarreData = v.InferOutput<typeof BarreSchema>;

@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrJoinedSchema } from "../../shared";
+import { AttrJoinedSchema } from "../../shared/attr/joined";
 
 /**
  * Analytical domain attributes..

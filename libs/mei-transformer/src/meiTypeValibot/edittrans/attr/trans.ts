@@ -1,10 +1,8 @@
 import * as v from "valibot";
-import { AttrGeneticStateSchema } from "../../genetic";
-import {
-	AttrHandIdentSchema,
-	AttrMetadataPointingSchema,
-	AttrSequenceSchema,
-} from "../../shared";
+import { AttrGeneticStateSchema } from "../../genetic/attr/geneticState";
+import { AttrHandIdentSchema } from "../../shared/attr/handIdent";
+import { AttrMetadataPointingSchema } from "../../shared/attr/metadataPointing";
+import { AttrSequenceSchema } from "../../shared/attr/sequence";
 
 /**
  * Attributes for elements encoding authorial or scribal intervention when transcribing manuscript or similar sources..

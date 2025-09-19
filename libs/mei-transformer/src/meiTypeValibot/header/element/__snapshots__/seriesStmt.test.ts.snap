@@ -1,0 +1,16 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`SeriesStmtSchema should be a valid schema 1`] = `
+{
+  "@xml:id": "seriesStmt_N202E5",
+  "identifier": {
+    "#text": "CNW",
+    "@type": "file_collection",
+    "@xml:id": "identifier_47b68436",
+  },
+  "title": {
+    "#text": "Carl Nielsen Works",
+    "@xml:id": "title_adfefe6a",
+  },
+}
+`;

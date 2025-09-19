@@ -1,0 +1,67 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`EncodingDescSchema should be a valid schema 1`] = `
+{
+  "@xml:id": "encodingDesc_N21011",
+  "appInfo": {
+    "@xml:id": "appInfo_N21012",
+    "application": [
+      {
+        "@version": "2013",
+        "@xml:id": "application_N21013",
+        "name": {
+          "#text": "MerMEId",
+          "@xml:id": "name_N21015",
+        },
+        "ptr": {
+          "@label": "MerMEId project home page",
+          "@target": "http://www.kb.dk/en/nb/dcm/projekter/mermeid.html",
+          "@xml:id": "ptr_N21017",
+        },
+      },
+      {
+        "@version": "v1.0",
+        "@xml:id": "mei40To51",
+        "name": {
+          "#text": "mei40To51.xsl",
+        },
+        "ptr": {
+          "@target": "https://github.com/music-encoding/encoding-tools/blob/main/mei40To51/mei40To51.xsl",
+        },
+      },
+    ],
+  },
+  "classDecls": {
+    "taxonomy": {
+      "@xml:id": "DcmSourceClassification",
+      "category": [
+        {
+          "@xml:id": "DcmContentClass",
+        },
+        {
+          "@xml:id": "DcmPresentationClass",
+        },
+        {
+          "@xml:id": "DcmAuthorityClass",
+        },
+        {
+          "@xml:id": "DcmScoringClass",
+        },
+        {
+          "@xml:id": "DcmStateClass",
+        },
+        {
+          "@xml:id": "DcmCompletenessClass",
+        },
+      ],
+    },
+  },
+  "projectDesc": {
+    "@xml:id": "projectDesc_3d523cff",
+    "p": {
+      "#text": "Metadata created using MerMEId 2013.",
+      "@xml:id": "idm992",
+    },
+  },
+}
+`;

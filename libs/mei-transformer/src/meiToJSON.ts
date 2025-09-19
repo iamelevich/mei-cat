@@ -1,13 +1,14 @@
 import { $ } from "bun";
 import { XMLParser } from "fast-xml-parser";
-import type { MeiJSON } from "./meiType";
+import * as v from "valibot";
+import { MeiJsonSchema, type MeiJsonData } from "./meiTypeValibot";
 
 /**
  * Transforms MEI XML string to JSON.
  * @param xml - MEI XML as string
  * @returns JSON representation of MEI XML
  */
-export function meiXmlToJson(xml: string): MeiJSON {
+export function meiXmlToJson(xml: string): MeiJsonData {
 	const parser = new XMLParser({
 		// ignoreAttributes: (attrName: string, jPath: string) => {
 		// 	if (attrName === "xml:id") {
@@ -19,9 +20,11 @@ export function meiXmlToJson(xml: string): MeiJSON {
 		ignoreAttributes: false,
 		attributeNamePrefix: "@",
 	});
-	const doc = parser.parse(xml) as unknown as MeiJSON;
+	const doc = parser.parse(xml);
 
-	return doc;
+	const parsedMei = v.parse(MeiJsonSchema, doc);
+
+	return parsedMei;
 }
 
 /**

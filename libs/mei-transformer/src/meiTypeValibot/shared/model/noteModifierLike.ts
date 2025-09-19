@@ -1,11 +1,44 @@
 import * as v from "valibot";
+import {
+	type AccidData,
+	AccidSchema,
+	type ArticData,
+	ArticSchema,
+	type DotData,
+	DotSchema,
+} from "..";
 
 /**
- * Groups elements that represent note modifier-like elements.
+ * Groups elements that modify note-like features.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.noteModifierLike.html
  */
-export const NoteModifierLikeSchema = v.object({
-  // TODO: Add note modifier-like elements
-});
+export const ModelNoteModifierLikeSchema: v.GenericSchema<ModelNoteModifierLikeData> =
+	v.object({
+		/**
+		 * Records a temporary alteration to the pitch of a note.
+		 * @see https://music-encoding.org/guidelines/v5/elements/accid.html
+		 */
+		accid: v.optional(
+			v.union([v.lazy(() => AccidSchema), v.array(v.lazy(() => AccidSchema))]),
+		),
+		/**
+		 * An indication of how to play a note or chord.
+		 * @see https://music-encoding.org/guidelines/v5/elements/artic.html
+		 */
+		artic: v.optional(
+			v.union([v.lazy(() => ArticSchema), v.array(v.lazy(() => ArticSchema))]),
+		),
+		/**
+		 * Dot of augmentation or division.
+		 * @see https://music-encoding.org/guidelines/v5/elements/dot.html
+		 */
+		dot: v.optional(
+			v.union([v.lazy(() => DotSchema), v.array(v.lazy(() => DotSchema))]),
+		),
+	});
 
-export type NoteModifierLikeData = v.InferOutput<typeof NoteModifierLikeSchema>;
+export type ModelNoteModifierLikeData = {
+	accid?: AccidData | AccidData[];
+	artic?: ArticData | ArticData[];
+	dot?: DotData | DotData[];
+};

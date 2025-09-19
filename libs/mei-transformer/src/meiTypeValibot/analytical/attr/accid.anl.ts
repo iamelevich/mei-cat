@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for accid.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.accid.anl.html
  */
 export const AttrAccidAnlSchema = v.object({
-  // TODO: Add accid.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrAccidAnlData = v.InferOutput<typeof AttrAccidAnlSchema>;

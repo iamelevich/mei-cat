@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrKeySigDefaultAnlSchema } from "..";
 
 /**
- * Attributes for staffDef.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.staffDef.anl.html
  */
 export const AttrStaffDefAnlSchema = v.object({
-  // TODO: Add staffDef.anl attributes
+	// Inherited attribute classes
+	...AttrKeySigDefaultAnlSchema.entries,
 });
 
 export type AttrStaffDefAnlData = v.InferOutput<typeof AttrStaffDefAnlSchema>;

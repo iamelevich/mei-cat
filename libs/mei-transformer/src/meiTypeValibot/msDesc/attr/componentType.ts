@@ -1,23 +1,17 @@
 import * as v from "valibot";
 
 /**
- * att.componentType — Attributes for denoting component type of an entity.
+ * Attributes that express the relationship between a component and its host..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.componentType.html
  */
 export const AttrComponentTypeSchema = v.object({
+	// Direct attributes
 	/**
-	 * Characterizes how this entity relates to the larger object of which it is a part.
-	 * Allowed values: "constituent", "boundwith", "separated".
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.componentType.html#comptype
+	 * A physical and logical part of entity.
 	 */
-	"@comptype": v.optional(
-		v.union([
-			v.literal("constituent"),
-			v.literal("boundwith"),
-			v.literal("separated"),
-			v.string(),
-		]),
-	),
+	"@comptype": v.optional(v.string()),
 });
 
-export type AttrComponentTypeData = v.InferOutput<typeof AttrComponentTypeSchema>;
+export type AttrComponentTypeData = v.InferOutput<
+	typeof AttrComponentTypeSchema
+>;

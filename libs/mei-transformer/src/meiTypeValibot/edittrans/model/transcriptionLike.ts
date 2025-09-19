@@ -1,22 +1,36 @@
 import * as v from "valibot";
-import { type AddData, AddSchema } from "../add";
-import { type CorrData, CorrSchema } from "../corr";
-import { type DamageData, DamageSchema } from "../damage";
-import { type DelData, DelSchema } from "../del";
-import { type GapData, GapSchema } from "../gap";
-import { type HandShiftData, HandShiftSchema } from "../handShift";
-import { type OrigData, OrigSchema } from "../orig";
-import { type RegData, RegSchema } from "../reg";
-import { type RestoreData, RestoreSchema } from "../restore";
-import { type SicData, SicSchema } from "../sic";
-import { type SuppliedData, SuppliedSchema } from "../supplied";
-import { type UnclearData, UnclearSchema } from "../unclear";
+import {
+	type AddData,
+	AddSchema,
+	type CorrData,
+	CorrSchema,
+	type DamageData,
+	DamageSchema,
+	type DelData,
+	DelSchema,
+	type GapData,
+	GapSchema,
+	type HandShiftData,
+	HandShiftSchema,
+	type OrigData,
+	OrigSchema,
+	type RegData,
+	RegSchema,
+	type RestoreData,
+	RestoreSchema,
+	type SicData,
+	SicSchema,
+	type SuppliedData,
+	SuppliedSchema,
+	type UnclearData,
+	UnclearSchema,
+} from "..";
 
 /**
  * Groups elements used for editorial transcription of pre-existing source materials.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.transcriptionLike.html
  */
-export const TranscriptionLikeSchema: v.GenericSchema<TranscriptionLikeData> =
+export const ModelTranscriptionLikeSchema: v.GenericSchema<ModelTranscriptionLikeData> =
 	v.object({
 		/**
 		 * Marks an addition to the text.
@@ -119,7 +133,7 @@ export const TranscriptionLikeSchema: v.GenericSchema<TranscriptionLikeData> =
 		),
 	});
 
-export type TranscriptionLikeData = {
+export type ModelTranscriptionLikeData = {
 	add?: AddData | AddData[];
 	corr?: CorrData | CorrData[];
 	damage?: DamageData | DamageData[];

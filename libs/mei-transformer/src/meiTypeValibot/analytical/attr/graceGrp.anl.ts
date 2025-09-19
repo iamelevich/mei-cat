@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for graceGrp.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.graceGrp.anl.html
  */
 export const AttrGraceGrpAnlSchema = v.object({
-  // TODO: Add graceGrp.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrGraceGrpAnlData = v.InferOutput<typeof AttrGraceGrpAnlSchema>;

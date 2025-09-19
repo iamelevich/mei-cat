@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for refrain.log.
+ * Logical domain attributes. The n attribute should be used for verse numbers. Numbers need not be consecutive; they may also be expressed as ranges, <abbr>e.g.</abbr>, 2-3,6..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.refrain.log.html
  */
 export const AttrRefrainLogSchema = v.object({
-  // TODO: Add refrain.log attributes
+	// No attributes in MEI schema
 });
 
 export type AttrRefrainLogData = v.InferOutput<typeof AttrRefrainLogSchema>;

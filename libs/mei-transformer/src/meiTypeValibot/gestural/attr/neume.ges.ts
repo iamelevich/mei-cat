@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrTimestampGesSchema } from "..";
 
 /**
- * Attributes for neume.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.neume.ges.html
  */
 export const AttrNeumeGesSchema = v.object({
-  // TODO: Add neume.ges attributes
+	// Inherited attribute classes
+	...AttrTimestampGesSchema.entries,
 });
 
 export type AttrNeumeGesData = v.InferOutput<typeof AttrNeumeGesSchema>;

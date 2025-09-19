@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrBeamingLogSchema } from "..";
 
 /**
- * Attributes for layerDef.log.cmn.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.layerDef.log.cmn.html
  */
 export const AttrLayerDefLogCmnSchema = v.object({
-	// TODO: Add layerDef.log.cmn attributes
+	// Inherited attribute classes
+	...AttrBeamingLogSchema.entries,
 });
 
 export type AttrLayerDefLogCmnData = v.InferOutput<

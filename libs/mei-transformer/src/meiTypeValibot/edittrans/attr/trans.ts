@@ -7,10 +7,11 @@ import {
 } from "../../shared";
 
 /**
- * Transcription attributes for genetic and editorial information.
+ * Attributes for elements encoding authorial or scribal intervention when transcribing manuscript or similar sources..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.trans.html
  */
 export const AttrTransSchema = v.object({
+	// Inherited attribute classes
 	...AttrGeneticStateSchema.entries,
 	...AttrHandIdentSchema.entries,
 	...AttrMetadataPointingSchema.entries,

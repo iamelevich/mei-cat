@@ -1,11 +1,15 @@
 import * as v from "valibot";
 
 /**
- * Attributes for annot.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.annot.vis.html
  */
 export const AttrAnnotVisSchema = v.object({
-  // TODO: Add annot.vis attributes
+	// Direct attributes
+	/**
+	 * Location of the annotation.
+	 */
+	"@place": v.optional(v.string()),
 });
 
 export type AttrAnnotVisData = v.InferOutput<typeof AttrAnnotVisSchema>;

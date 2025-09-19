@@ -1,11 +1,65 @@
 import * as v from "valibot";
+import {
+	type ClefData,
+	ClefSchema,
+	type ClefGrpData,
+	ClefGrpSchema,
+	type TuningData,
+	TuningSchema,
+	type ModelKeySigLikeData,
+	ModelKeySigLikeSchema,
+	type ModelMeterSigLikeData,
+	ModelMeterSigLikeSchema,
+} from "..";
+import {
+	type ModelStaffDefPartMensuralData,
+	ModelStaffDefPartMensuralSchema,
+} from "../../mensural";
 
 /**
- * Groups elements that represent staff definition parts.
+ * Groups elements that may appear in the declaration of staff features.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.staffDefPart.html
  */
-export const StaffDefPartSchema = v.object({
-  // TODO: Add staff definition part elements
-});
+export const ModelStaffDefPartSchema: v.GenericSchema<ModelStaffDefPartData> =
+	v.intersect([
+		v.object({
+			/**
+			 * Indication of the exact location of a particular note on the staff and, therefore, the other notes as well.
+			 * @see https://music-encoding.org/guidelines/v5/elements/clef.html
+			 */
+			clef: v.optional(
+				v.union([v.lazy(() => ClefSchema), v.array(v.lazy(() => ClefSchema))]),
+			),
+			/**
+			 * A set of simultaneously-occurring clefs.
+			 * @see https://music-encoding.org/guidelines/v5/elements/clefGrp.html
+			 */
+			clefGrp: v.optional(
+				v.union([
+					v.lazy(() => ClefGrpSchema),
+					v.array(v.lazy(() => ClefGrpSchema)),
+				]),
+			),
+			/**
+			 * Describes the tuning of an instrument.
+			 * @see https://music-encoding.org/guidelines/v5/elements/tuning.html
+			 */
+			tuning: v.optional(
+				v.union([
+					v.lazy(() => TuningSchema),
+					v.array(v.lazy(() => TuningSchema)),
+				]),
+			),
+		}),
+		ModelKeySigLikeSchema,
+		ModelMeterSigLikeSchema,
+		ModelStaffDefPartMensuralSchema,
+	]);
 
-export type StaffDefPartData = v.InferOutput<typeof StaffDefPartSchema>;
+export type ModelStaffDefPartData = {
+	clef?: ClefData | ClefData[];
+	clefGrp?: ClefGrpData | ClefGrpData[];
+	tuning?: TuningData | TuningData[];
+} & ModelKeySigLikeData &
+	ModelMeterSigLikeData &
+	ModelStaffDefPartMensuralData;

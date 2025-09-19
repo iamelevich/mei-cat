@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { AttrAlignmentSchema } from "../../performance/attr/alignment";
+import { AttrAlignmentSchema } from "../../performance";
 import {
 	AttrLayerIdentSchema,
 	AttrPartIdentSchema,
@@ -9,10 +9,11 @@ import {
 } from "../../shared";
 
 /**
- * Logical domain attributes.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.breath.log.html
  */
 export const AttrBreathLogSchema = v.object({
+	// Inherited attribute classes
 	...AttrAlignmentSchema.entries,
 	...AttrLayerIdentSchema.entries,
 	...AttrPartIdentSchema.entries,

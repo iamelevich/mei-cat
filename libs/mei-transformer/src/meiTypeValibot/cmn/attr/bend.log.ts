@@ -7,10 +7,11 @@ import {
 } from "../../shared";
 
 /**
- * Logical domain attributes.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.bend.log.html
  */
 export const AttrBendLogSchema = v.object({
+	// Inherited attribute classes
 	...AttrControlEventSchema.entries,
 	...AttrDurationAdditiveSchema.entries,
 	...AttrStartEndIdSchema.entries,

@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrTimestampGesSchema } from "..";
 
 /**
- * Attributes for ncGrp.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.ncGrp.ges.html
  */
 export const AttrNcGrpGesSchema = v.object({
-  // TODO: Add ncGrp.ges attributes
+	// Inherited attribute classes
+	...AttrTimestampGesSchema.entries,
 });
 
 export type AttrNcGrpGesData = v.InferOutput<typeof AttrNcGrpGesSchema>;

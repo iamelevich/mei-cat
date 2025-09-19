@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for part.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.part.vis.html
  */
 export const AttrPartVisSchema = v.object({
-  // TODO: Add part.vis attributes
+	// No attributes in MEI schema
 });
 
 export type AttrPartVisData = v.InferOutput<typeof AttrPartVisSchema>;

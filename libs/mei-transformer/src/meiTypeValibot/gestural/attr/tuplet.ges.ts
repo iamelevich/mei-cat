@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrDurationGesSchema } from "..";
 
 /**
- * Attributes for tuplet.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.tuplet.ges.html
  */
 export const AttrTupletGesSchema = v.object({
-  // TODO: Add tuplet.ges attributes
+	// Inherited attribute classes
+	...AttrDurationGesSchema.entries,
 });
 
 export type AttrTupletGesData = v.InferOutput<typeof AttrTupletGesSchema>;

@@ -1,11 +1,21 @@
 import * as v from "valibot";
+import {
+	AttrArticulationSchema,
+	AttrAugmentDotsSchema,
+	AttrDurationLogSchema,
+	AttrEventSchema,
+} from "../../shared";
 
 /**
- * Attributes for tabGrp.log.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.tabGrp.log.html
  */
 export const AttrTabGrpLogSchema = v.object({
-  // TODO: Add tabGrp.log attributes
+	// Inherited attribute classes
+	...AttrArticulationSchema.entries,
+	...AttrAugmentDotsSchema.entries,
+	...AttrDurationLogSchema.entries,
+	...AttrEventSchema.entries,
 });
 
 export type AttrTabGrpLogData = v.InferOutput<typeof AttrTabGrpLogSchema>;

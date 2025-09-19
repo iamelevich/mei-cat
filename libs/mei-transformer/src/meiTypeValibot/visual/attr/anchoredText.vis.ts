@@ -1,11 +1,16 @@
 import * as v from "valibot";
+import { AttrVisualOffsetSchema, AttrXySchema } from "../../shared";
 
 /**
- * Attributes for anchoredText.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.anchoredText.vis.html
  */
 export const AttrAnchoredTextVisSchema = v.object({
-  // TODO: Add anchoredText.vis attributes
+	// Inherited attribute classes
+	...AttrVisualOffsetSchema.entries,
+	...AttrXySchema.entries,
 });
 
-export type AttrAnchoredTextVisData = v.InferOutput<typeof AttrAnchoredTextVisSchema>;
+export type AttrAnchoredTextVisData = v.InferOutput<
+	typeof AttrAnchoredTextVisSchema
+>;

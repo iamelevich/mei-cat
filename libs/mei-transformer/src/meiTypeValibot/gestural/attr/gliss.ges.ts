@@ -1,11 +1,14 @@
 import * as v from "valibot";
+import { AttrDurationGesSchema, AttrTimestamp2GesSchema } from "..";
 
 /**
- * Attributes for gliss.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.gliss.ges.html
  */
 export const AttrGlissGesSchema = v.object({
-  // TODO: Add gliss.ges attributes
+	// Inherited attribute classes
+	...AttrDurationGesSchema.entries,
+	...AttrTimestamp2GesSchema.entries,
 });
 
 export type AttrGlissGesData = v.InferOutput<typeof AttrGlissGesSchema>;

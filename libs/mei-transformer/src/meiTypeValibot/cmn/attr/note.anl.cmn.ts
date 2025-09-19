@@ -1,11 +1,31 @@
 import * as v from "valibot";
+import {
+	AttrBeamPresentSchema,
+	AttrGlissPresentSchema,
+	AttrLvPresentSchema,
+} from "..";
+import { AttrOrnamPresentSchema } from "../../cmnOrnaments";
+import {
+	AttrSlurPresentSchema,
+	AttrSylTextSchema,
+	AttrTiePresentSchema,
+	AttrTupletPresentSchema,
+} from "../../shared";
 
 /**
- * Attributes for note.anl.cmn.
+ * Analytical domain attributes in the CMN repertoire..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.note.anl.cmn.html
  */
 export const AttrNoteAnlCmnSchema = v.object({
-	// TODO: Add note.anl.cmn attributes
+	// Inherited attribute classes
+	...AttrBeamPresentSchema.entries,
+	...AttrGlissPresentSchema.entries,
+	...AttrLvPresentSchema.entries,
+	...AttrOrnamPresentSchema.entries,
+	...AttrSlurPresentSchema.entries,
+	...AttrSylTextSchema.entries,
+	...AttrTiePresentSchema.entries,
+	...AttrTupletPresentSchema.entries,
 });
 
 export type AttrNoteAnlCmnData = v.InferOutput<typeof AttrNoteAnlCmnSchema>;

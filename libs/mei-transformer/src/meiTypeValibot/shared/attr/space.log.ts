@@ -1,11 +1,21 @@
 import * as v from "valibot";
+import {
+	AttrAugmentDotsSchema,
+	AttrDurationLogSchema,
+	AttrEventSchema,
+} from "..";
+import { AttrSpaceLogCmnSchema } from "../../cmn";
 
 /**
- * Attributes for space logging.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.space.log.html
  */
 export const AttrSpaceLogSchema = v.object({
-  // TODO: Add space logging attributes
+	// Inherited attribute classes
+	...AttrAugmentDotsSchema.entries,
+	...AttrDurationLogSchema.entries,
+	...AttrEventSchema.entries,
+	...AttrSpaceLogCmnSchema.entries,
 });
 
 export type AttrSpaceLogData = v.InferOutput<typeof AttrSpaceLogSchema>;

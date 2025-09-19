@@ -1,11 +1,16 @@
 import * as v from "valibot";
+import { AttrChannelizedSchema, AttrMidiInstrumentSchema } from "../../midi";
+import { AttrSoundLocationSchema } from "..";
 
 /**
- * Attributes for instrDef.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.instrDef.ges.html
  */
 export const AttrInstrDefGesSchema = v.object({
-  // TODO: Add instrDef.ges attributes
+	// Inherited attribute classes
+	...AttrChannelizedSchema.entries,
+	...AttrMidiInstrumentSchema.entries,
+	...AttrSoundLocationSchema.entries,
 });
 
 export type AttrInstrDefGesData = v.InferOutput<typeof AttrInstrDefGesSchema>;

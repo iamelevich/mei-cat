@@ -1,11 +1,20 @@
 import * as v from "valibot";
+import { AttrCueSchema, AttrMeterConformanceSchema } from "..";
 
 /**
- * Attributes for layer logging.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.layer.log.html
  */
 export const AttrLayerLogSchema = v.object({
-  // TODO: Add layer logging attributes
+	// Inherited attribute classes
+	...AttrCueSchema.entries,
+	...AttrMeterConformanceSchema.entries,
+
+	// Direct attributes
+	/**
+	 * Provides a mechanism for linking the layer to a layerDef element.
+	 */
+	"@def": v.optional(v.string()),
 });
 
 export type AttrLayerLogData = v.InferOutput<typeof AttrLayerLogSchema>;

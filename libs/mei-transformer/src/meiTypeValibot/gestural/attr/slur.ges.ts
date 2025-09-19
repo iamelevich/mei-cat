@@ -1,11 +1,14 @@
 import * as v from "valibot";
+import { AttrDurationGesSchema, AttrTimestamp2GesSchema } from "..";
 
 /**
- * Attributes for slur.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.slur.ges.html
  */
 export const AttrSlurGesSchema = v.object({
-  // TODO: Add slur.ges attributes
+	// Inherited attribute classes
+	...AttrDurationGesSchema.entries,
+	...AttrTimestamp2GesSchema.entries,
 });
 
 export type AttrSlurGesData = v.InferOutput<typeof AttrSlurGesSchema>;

@@ -1,11 +1,14 @@
 import * as v from "valibot";
+import { AttrDurationGesSchema, AttrTimestamp2GesSchema } from "..";
 
 /**
- * Attributes for octave.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.octave.ges.html
  */
 export const AttrOctaveGesSchema = v.object({
-  // TODO: Add octave.ges attributes
+	// Inherited attribute classes
+	...AttrDurationGesSchema.entries,
+	...AttrTimestamp2GesSchema.entries,
 });
 
 export type AttrOctaveGesData = v.InferOutput<typeof AttrOctaveGesSchema>;

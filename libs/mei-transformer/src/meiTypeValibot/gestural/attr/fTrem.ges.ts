@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrTremMeasuredSchema } from "../../cmn";
 
 /**
- * Attributes for fTrem.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.fTrem.ges.html
  */
 export const AttrFTremGesSchema = v.object({
-  // TODO: Add fTrem.ges attributes
+	// Inherited attribute classes
+	...AttrTremMeasuredSchema.entries,
 });
 
 export type AttrFTremGesData = v.InferOutput<typeof AttrFTremGesSchema>;

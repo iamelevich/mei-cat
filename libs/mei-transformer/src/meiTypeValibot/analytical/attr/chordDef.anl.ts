@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for chordDef.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.chordDef.anl.html
  */
 export const AttrChordDefAnlSchema = v.object({
-  // TODO: Add chordDef.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrChordDefAnlData = v.InferOutput<typeof AttrChordDefAnlSchema>;

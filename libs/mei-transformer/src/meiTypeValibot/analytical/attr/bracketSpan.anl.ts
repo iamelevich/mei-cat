@@ -1,11 +1,13 @@
 import * as v from "valibot";
 
 /**
- * Attributes for bracketSpan.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.bracketSpan.anl.html
  */
 export const AttrBracketSpanAnlSchema = v.object({
-  // TODO: Add bracketSpan.anl attributes
+	// No attributes in MEI schema
 });
 
-export type AttrBracketSpanAnlData = v.InferOutput<typeof AttrBracketSpanAnlSchema>;
+export type AttrBracketSpanAnlData = v.InferOutput<
+	typeof AttrBracketSpanAnlSchema
+>;

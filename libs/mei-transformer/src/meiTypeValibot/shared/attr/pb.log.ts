@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrAlignmentSchema } from "../../performance";
 
 /**
- * Attributes for page break logging.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.pb.log.html
  */
 export const AttrPbLogSchema = v.object({
-  // TODO: Add page break logging attributes
+	// Inherited attribute classes
+	...AttrAlignmentSchema.entries,
 });
 
 export type AttrPbLogData = v.InferOutput<typeof AttrPbLogSchema>;

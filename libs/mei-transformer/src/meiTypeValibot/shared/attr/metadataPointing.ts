@@ -1,11 +1,17 @@
 import * as v from "valibot";
 
 /**
- * Attributes for metadata pointing.
+ * Provides attributes for elements which may be associated with particular contextual elements within the header..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.metadataPointing.html
  */
 export const AttrMetadataPointingSchema = v.object({
-  // TODO: Add metadata pointing attributes
+	// Direct attributes
+	/**
+	 * Identifies one or more metadata elements (other than classification terms) within the header, which are understood to apply to the element bearing this attribute and its content.
+	 */
+	"@decls": v.optional(v.string()),
 });
 
-export type AttrMetadataPointingData = v.InferOutput<typeof AttrMetadataPointingSchema>;
+export type AttrMetadataPointingData = v.InferOutput<
+	typeof AttrMetadataPointingSchema
+>;

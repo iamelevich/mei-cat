@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for reh.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.reh.anl.html
  */
 export const AttrRehAnlSchema = v.object({
-  // TODO: Add reh.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrRehAnlData = v.InferOutput<typeof AttrRehAnlSchema>;

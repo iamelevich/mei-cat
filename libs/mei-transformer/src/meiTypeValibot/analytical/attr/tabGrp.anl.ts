@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrFermataPresentSchema } from "../../shared";
 
 /**
- * Attributes for tabGrp.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.tabGrp.anl.html
  */
 export const AttrTabGrpAnlSchema = v.object({
-  // TODO: Add tabGrp.anl attributes
+	// Inherited attribute classes
+	...AttrFermataPresentSchema.entries,
 });
 
 export type AttrTabGrpAnlData = v.InferOutput<typeof AttrTabGrpAnlSchema>;

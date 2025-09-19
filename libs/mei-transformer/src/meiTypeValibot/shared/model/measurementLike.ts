@@ -1,11 +1,11 @@
 import * as v from "valibot";
+import { type ModelNumLikeData, ModelNumLikeSchema } from "..";
 
 /**
- * Groups elements that represent measurement-like elements.
+ * Groups elements that represent a measurement.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.measurementLike.html
  */
-export const MeasurementLikeSchema = v.object({
-  // TODO: Add measurement-like elements
-});
+export const ModelMeasurementLikeSchema: v.GenericSchema<ModelMeasurementLikeData> =
+	v.intersect([ModelNumLikeSchema]);
 
-export type MeasurementLikeData = v.InferOutput<typeof MeasurementLikeSchema>;
+export type ModelMeasurementLikeData = ModelNumLikeData;

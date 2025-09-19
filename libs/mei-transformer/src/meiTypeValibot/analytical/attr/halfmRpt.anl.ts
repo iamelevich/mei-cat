@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for halfmRpt.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.halfmRpt.anl.html
  */
 export const AttrHalfmRptAnlSchema = v.object({
-  // TODO: Add halfmRpt.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrHalfmRptAnlData = v.InferOutput<typeof AttrHalfmRptAnlSchema>;

@@ -1,11 +1,17 @@
 import * as v from "valibot";
+import {
+	type ModelEventLikeNeumesData,
+	ModelEventLikeNeumesSchema,
+	type ModelSyllableLikeData,
+	ModelSyllableLikeSchema,
+} from "..";
 
 /**
- * Groups elements that represent layerpart.neumes parts.
+ * Groups notated events that may appear at the layer level in the neume repertoire.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.layerPart.neumes.html
  */
-export const LayerPartNeumesSchema = v.object({
-  // TODO: Add layerpart.neumes elements
-});
+export const ModelLayerPartNeumesSchema: v.GenericSchema<ModelLayerPartNeumesData> =
+	v.intersect([ModelEventLikeNeumesSchema, ModelSyllableLikeSchema]);
 
-export type LayerPartNeumesData = v.InferOutput<typeof LayerPartNeumesSchema>;
+export type ModelLayerPartNeumesData = ModelEventLikeNeumesData &
+	ModelSyllableLikeData;

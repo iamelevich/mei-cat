@@ -1,11 +1,15 @@
 import * as v from "valibot";
+import { AttrMensuralLogSchema } from "..";
 
 /**
- * Attributes for staffDef.log.mensural.
+ * Logical domain attributes for staffDef in the mensural repertoire..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.staffDef.log.mensural.html
  */
 export const AttrStaffDefLogMensuralSchema = v.object({
-  // TODO: Add staffDef.log.mensural attributes
+	// Inherited attribute classes
+	...AttrMensuralLogSchema.entries,
 });
 
-export type AttrStaffDefLogMensuralData = v.InferOutput<typeof AttrStaffDefLogMensuralSchema>;
+export type AttrStaffDefLogMensuralData = v.InferOutput<
+	typeof AttrStaffDefLogMensuralSchema
+>;

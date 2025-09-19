@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for symbol.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.symbol.anl.html
  */
 export const AttrSymbolAnlSchema = v.object({
-  // TODO: Add symbol.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrSymbolAnlData = v.InferOutput<typeof AttrSymbolAnlSchema>;

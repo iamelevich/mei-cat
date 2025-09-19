@@ -1,11 +1,23 @@
 import * as v from "valibot";
+import {
+	AttrHorizontalAlignSchema,
+	AttrPlacementRelStaffSchema,
+	AttrTypographySchema,
+	AttrVisualOffsetSchema,
+	AttrXySchema,
+} from "../../shared";
 
 /**
- * Attributes for syl.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.syl.vis.html
  */
 export const AttrSylVisSchema = v.object({
-  // TODO: Add syl.vis attributes
+	// Inherited attribute classes
+	...AttrHorizontalAlignSchema.entries,
+	...AttrPlacementRelStaffSchema.entries,
+	...AttrTypographySchema.entries,
+	...AttrVisualOffsetSchema.entries,
+	...AttrXySchema.entries,
 });
 
 export type AttrSylVisData = v.InferOutput<typeof AttrSylVisSchema>;

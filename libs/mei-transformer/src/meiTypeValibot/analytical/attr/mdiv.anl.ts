@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for mdiv.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.mdiv.anl.html
  */
 export const AttrMdivAnlSchema = v.object({
-  // TODO: Add mdiv.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrMdivAnlData = v.InferOutput<typeof AttrMdivAnlSchema>;

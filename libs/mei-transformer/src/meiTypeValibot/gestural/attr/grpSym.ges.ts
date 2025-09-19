@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for grpSym.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.grpSym.ges.html
  */
 export const AttrGrpSymGesSchema = v.object({
-  // TODO: Add grpSym.ges attributes
+	// No attributes in MEI schema
 });
 
 export type AttrGrpSymGesData = v.InferOutput<typeof AttrGrpSymGesSchema>;

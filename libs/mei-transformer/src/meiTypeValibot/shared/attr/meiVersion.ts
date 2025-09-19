@@ -1,11 +1,15 @@
 import * as v from "valibot";
 
 /**
- * Attributes for MEI version.
+ * Attributes that record the version of MEI in use..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.meiVersion.html
  */
 export const AttrMeiVersionSchema = v.object({
-  // TODO: Add MEI version attributes
+	// Direct attributes
+	/**
+	 * Specifies a generic MEI version label.
+	 */
+	"@meiversion": v.optional(v.string()),
 });
 
 export type AttrMeiVersionData = v.InferOutput<typeof AttrMeiVersionSchema>;

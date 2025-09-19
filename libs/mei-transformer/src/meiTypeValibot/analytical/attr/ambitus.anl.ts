@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrIntervalHarmonicSchema } from "..";
 
 /**
- * Attributes for ambitus.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.ambitus.anl.html
  */
 export const AttrAmbitusAnlSchema = v.object({
-  // TODO: Add ambitus.anl attributes
+	// Inherited attribute classes
+	...AttrIntervalHarmonicSchema.entries,
 });
 
 export type AttrAmbitusAnlData = v.InferOutput<typeof AttrAmbitusAnlSchema>;

@@ -1,11 +1,33 @@
 import * as v from "valibot";
+import { AttrAltSymSchema } from "../../usersymbols";
+import {
+	AttrColorSchema,
+	AttrExtenderSchema,
+	AttrPlacementRelStaffSchema,
+	AttrVerticalGroupSchema,
+	AttrVisualOffsetSchema,
+	AttrXySchema,
+} from "../../shared";
 
 /**
- * Attributes for fingGrp.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.fingGrp.vis.html
  */
 export const AttrFingGrpVisSchema = v.object({
-  // TODO: Add fingGrp.vis attributes
+	// Inherited attribute classes
+	...AttrAltSymSchema.entries,
+	...AttrColorSchema.entries,
+	...AttrExtenderSchema.entries,
+	...AttrPlacementRelStaffSchema.entries,
+	...AttrVerticalGroupSchema.entries,
+	...AttrVisualOffsetSchema.entries,
+	...AttrXySchema.entries,
+
+	// Direct attributes
+	/**
+	 * Combination expressed horizontally, as for brass instruments.
+	 */
+	"@orient": v.optional(v.string()),
 });
 
 export type AttrFingGrpVisData = v.InferOutput<typeof AttrFingGrpVisSchema>;

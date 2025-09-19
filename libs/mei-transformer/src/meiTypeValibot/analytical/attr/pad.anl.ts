@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for pad.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.pad.anl.html
  */
 export const AttrPadAnlSchema = v.object({
-  // TODO: Add pad.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrPadAnlData = v.InferOutput<typeof AttrPadAnlSchema>;

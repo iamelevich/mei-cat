@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for quilisma.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.quilisma.ges.html
  */
 export const AttrQuilismaGesSchema = v.object({
-  // TODO: Add quilisma.ges attributes
+	// No attributes in MEI schema
 });
 
 export type AttrQuilismaGesData = v.InferOutput<typeof AttrQuilismaGesSchema>;

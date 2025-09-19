@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for layerDef.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.layerDef.anl.html
  */
 export const AttrLayerDefAnlSchema = v.object({
-  // TODO: Add layerDef.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrLayerDefAnlData = v.InferOutput<typeof AttrLayerDefAnlSchema>;

@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for metaMark.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.metaMark.anl.html
  */
 export const AttrMetaMarkAnlSchema = v.object({
-  // TODO: Add metaMark.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrMetaMarkAnlData = v.InferOutput<typeof AttrMetaMarkAnlSchema>;

@@ -1,11 +1,17 @@
 import * as v from "valibot";
 
 /**
- * Attributes for rest.vis.mensural.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.rest.vis.mensural.html
  */
 export const AttrRestVisMensuralSchema = v.object({
-  // TODO: Add rest.vis.mensural attributes
+	// Direct attributes
+	/**
+	 * States how many spaces are covered by the rest.
+	 */
+	"@spaces": v.optional(v.string()),
 });
 
-export type AttrRestVisMensuralData = v.InferOutput<typeof AttrRestVisMensuralSchema>;
+export type AttrRestVisMensuralData = v.InferOutput<
+	typeof AttrRestVisMensuralSchema
+>;

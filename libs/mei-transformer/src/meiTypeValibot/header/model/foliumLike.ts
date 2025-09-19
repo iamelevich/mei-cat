@@ -1,11 +1,24 @@
 import * as v from "valibot";
+import { type FoliumData, FoliumSchema } from "..";
 
 /**
- * Groups elements that represent folium-like elements.
+ * Collects foliumlike elements.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.foliumLike.html
  */
-export const FoliumLikeSchema = v.object({
-  // TODO: Add folium-like elements
-});
+export const ModelFoliumLikeSchema: v.GenericSchema<ModelFoliumLikeData> =
+	v.object({
+		/**
+		 * Describes a single leaf of paper.
+		 * @see https://music-encoding.org/guidelines/v5/elements/folium.html
+		 */
+		folium: v.optional(
+			v.union([
+				v.lazy(() => FoliumSchema),
+				v.array(v.lazy(() => FoliumSchema)),
+			]),
+		),
+	});
 
-export type FoliumLikeData = v.InferOutput<typeof FoliumLikeSchema>;
+export type ModelFoliumLikeData = {
+	folium?: FoliumData | FoliumData[];
+};

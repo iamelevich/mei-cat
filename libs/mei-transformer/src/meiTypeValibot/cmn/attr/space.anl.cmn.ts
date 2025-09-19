@@ -1,11 +1,19 @@
 import * as v from "valibot";
+import { AttrBeamPresentSchema } from "..";
+import {
+	AttrFermataPresentSchema,
+	AttrTupletPresentSchema,
+} from "../../shared";
 
 /**
- * Attributes for space.anl.cmn.
+ * Analytical domain attributes in the CMN repertoire..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.space.anl.cmn.html
  */
 export const AttrSpaceAnlCmnSchema = v.object({
-	// TODO: Add space.anl.cmn attributes
+	// Inherited attribute classes
+	...AttrBeamPresentSchema.entries,
+	...AttrFermataPresentSchema.entries,
+	...AttrTupletPresentSchema.entries,
 });
 
 export type AttrSpaceAnlCmnData = v.InferOutput<typeof AttrSpaceAnlCmnSchema>;

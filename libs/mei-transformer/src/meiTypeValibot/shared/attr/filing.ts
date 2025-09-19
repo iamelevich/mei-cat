@@ -1,15 +1,15 @@
 import * as v from "valibot";
 
 /**
- * Attributes that provide filing information.
+ * Attributes that deal with string filing characteristics..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.filing.html
  */
 export const AttrFilingSchema = v.object({
+	// Direct attributes
 	/**
-	 * Indicates the sort order of the filing element.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.filing.html#sortorder
+	 * Holds the number of initial characters (such as those constituting an article or preposition) that should not be used for sorting a title or name.
 	 */
-	"@sortorder": v.optional(v.string()),
+	"@nonfiling": v.optional(v.string()),
 });
 
 export type AttrFilingData = v.InferOutput<typeof AttrFilingSchema>;

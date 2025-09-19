@@ -1,11 +1,14 @@
 import * as v from "valibot";
+import { AttrLayerIdentSchema, AttrPartIdentSchema } from "../../shared";
 
 /**
- * Attributes for tabDurSym.log.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.tabDurSym.log.html
  */
 export const AttrTabDurSymLogSchema = v.object({
-  // TODO: Add tabDurSym.log attributes
+	// Inherited attribute classes
+	...AttrLayerIdentSchema.entries,
+	...AttrPartIdentSchema.entries,
 });
 
 export type AttrTabDurSymLogData = v.InferOutput<typeof AttrTabDurSymLogSchema>;

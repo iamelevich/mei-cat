@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for plica.anl.
+ * Analytical domain attributes that describe the properties of a plica in the mensural repertoire..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.plica.anl.html
  */
 export const AttrPlicaAnlSchema = v.object({
-  // TODO: Add plica.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrPlicaAnlData = v.InferOutput<typeof AttrPlicaAnlSchema>;

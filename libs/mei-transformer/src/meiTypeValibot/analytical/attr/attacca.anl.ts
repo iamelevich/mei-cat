@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for attacca.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.attacca.anl.html
  */
 export const AttrAttaccaAnlSchema = v.object({
-  // TODO: Add attacca.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrAttaccaAnlData = v.InferOutput<typeof AttrAttaccaAnlSchema>;

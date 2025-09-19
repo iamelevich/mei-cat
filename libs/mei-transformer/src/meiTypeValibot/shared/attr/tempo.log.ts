@@ -1,11 +1,27 @@
 import * as v from "valibot";
+import {
+	AttrControlEventSchema,
+	AttrMmTempoSchema,
+	AttrStartEndIdSchema,
+	AttrTimestamp2LogSchema,
+} from "..";
 
 /**
- * Attributes for tempo logging.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.tempo.log.html
  */
 export const AttrTempoLogSchema = v.object({
-  // TODO: Add tempo logging attributes
+	// Inherited attribute classes
+	...AttrControlEventSchema.entries,
+	...AttrMmTempoSchema.entries,
+	...AttrStartEndIdSchema.entries,
+	...AttrTimestamp2LogSchema.entries,
+
+	// Direct attributes
+	/**
+	 * Records the function of a tempo indication.
+	 */
+	"@func": v.optional(v.string()),
 });
 
 export type AttrTempoLogData = v.InferOutput<typeof AttrTempoLogSchema>;

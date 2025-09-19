@@ -1,11 +1,13 @@
 import * as v from "valibot";
 
 /**
- * Attributes for note.log.mensural.
+ * Logical domain attributes in the Mensural repertoire..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.note.log.mensural.html
  */
 export const AttrNoteLogMensuralSchema = v.object({
-  // TODO: Add note.log.mensural attributes
+	// No attributes in MEI schema
 });
 
-export type AttrNoteLogMensuralData = v.InferOutput<typeof AttrNoteLogMensuralSchema>;
+export type AttrNoteLogMensuralData = v.InferOutput<
+	typeof AttrNoteLogMensuralSchema
+>;

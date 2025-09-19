@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for beam.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.beam.ges.html
  */
 export const AttrBeamGesSchema = v.object({
-  // TODO: Add beam.ges attributes
+	// No attributes in MEI schema
 });
 
 export type AttrBeamGesData = v.InferOutput<typeof AttrBeamGesSchema>;

@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for rdg.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.rdg.vis.html
  */
 export const AttrRdgVisSchema = v.object({
-  // TODO: Add rdg.vis attributes
+	// No attributes in MEI schema
 });
 
 export type AttrRdgVisData = v.InferOutput<typeof AttrRdgVisSchema>;

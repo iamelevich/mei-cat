@@ -1,11 +1,14 @@
 import * as v from "valibot";
+import {
+	type ModelStaffPartMensuralData,
+	ModelStaffPartMensuralSchema,
+} from "../../mensural";
 
 /**
- * Groups elements that represent staff parts in mensural and neumes notation.
+ * Groups elements that are components of a staff in the mensural and neume repertoires.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.staffPart.mensuralAndNeumes.html
  */
-export const StaffPartMensuralAndNeumesSchema = v.object({
-  // TODO: Add staff part mensural and neumes elements
-});
+export const ModelStaffPartMensuralAndNeumesSchema: v.GenericSchema<ModelStaffPartMensuralAndNeumesData> =
+	v.intersect([ModelStaffPartMensuralSchema]);
 
-export type StaffPartMensuralAndNeumesData = v.InferOutput<typeof StaffPartMensuralAndNeumesSchema>;
+export type ModelStaffPartMensuralAndNeumesData = ModelStaffPartMensuralData;

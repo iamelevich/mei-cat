@@ -1,11 +1,19 @@
 import * as v from "valibot";
+import {
+	type ModelNameLikeGeogNameData,
+	ModelNameLikeGeogNameSchema,
+} from "..";
+import {
+	type ModelRepositoryLikeData,
+	ModelRepositoryLikeSchema,
+} from "../../shared";
 
 /**
- * Groups elements that represent name-like elements for places.
+ * Groups place name elements.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.nameLike.place.html
  */
-export const NameLikePlaceSchema = v.object({
-  // TODO: Add name-like place elements
-});
+export const ModelNameLikePlaceSchema: v.GenericSchema<ModelNameLikePlaceData> =
+	v.intersect([ModelNameLikeGeogNameSchema, ModelRepositoryLikeSchema]);
 
-export type NameLikePlaceData = v.InferOutput<typeof NameLikePlaceSchema>;
+export type ModelNameLikePlaceData = ModelNameLikeGeogNameData &
+	ModelRepositoryLikeData;

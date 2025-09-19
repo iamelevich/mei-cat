@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for hairpin.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.hairpin.anl.html
  */
 export const AttrHairpinAnlSchema = v.object({
-  // TODO: Add hairpin.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrHairpinAnlData = v.InferOutput<typeof AttrHairpinAnlSchema>;

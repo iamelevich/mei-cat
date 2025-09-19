@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrJoinedSchema } from "../../shared";
 
 /**
- * Attributes for measure.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.measure.anl.html
  */
 export const AttrMeasureAnlSchema = v.object({
-  // TODO: Add measure.anl attributes
+	// Inherited attribute classes
+	...AttrJoinedSchema.entries,
 });
 
 export type AttrMeasureAnlData = v.InferOutput<typeof AttrMeasureAnlSchema>;

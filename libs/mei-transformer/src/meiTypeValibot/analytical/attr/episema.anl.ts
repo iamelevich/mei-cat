@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for episema.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.episema.anl.html
  */
 export const AttrEpisemaAnlSchema = v.object({
-  // TODO: Add episema.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrEpisemaAnlData = v.InferOutput<typeof AttrEpisemaAnlSchema>;

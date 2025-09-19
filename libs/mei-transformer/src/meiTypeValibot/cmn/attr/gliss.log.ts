@@ -7,10 +7,11 @@ import {
 } from "../../shared";
 
 /**
- * Attributes for gliss.log.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.gliss.log.html
  */
 export const AttrGlissLogSchema = v.object({
+	// Inherited attribute classes
 	...AttrControlEventSchema.entries,
 	...AttrDurationAdditiveSchema.entries,
 	...AttrStartEndIdSchema.entries,

@@ -1,11 +1,21 @@
 import * as v from "valibot";
+import {
+	AttrControlEventSchema,
+	AttrDurationAdditiveSchema,
+	AttrStartEndIdSchema,
+	AttrTimestamp2LogSchema,
+} from "..";
 
 /**
- * Attributes for phrase logging.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.phrase.log.html
  */
 export const AttrPhraseLogSchema = v.object({
-  // TODO: Add phrase logging attributes
+	// Inherited attribute classes
+	...AttrControlEventSchema.entries,
+	...AttrDurationAdditiveSchema.entries,
+	...AttrStartEndIdSchema.entries,
+	...AttrTimestamp2LogSchema.entries,
 });
 
 export type AttrPhraseLogData = v.InferOutput<typeof AttrPhraseLogSchema>;

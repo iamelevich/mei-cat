@@ -1,11 +1,14 @@
 import * as v from "valibot";
+import {
+	type ModelEventLikeMensuralData,
+	ModelEventLikeMensuralSchema,
+} from "..";
 
 /**
- * Groups elements that represent layerpart.mensural parts.
+ * Groups notated events that may appear at the layer level in the mensural repertoire.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.layerPart.mensural.html
  */
-export const LayerPartMensuralSchema = v.object({
-  // TODO: Add layerpart.mensural elements
-});
+export const ModelLayerPartMensuralSchema: v.GenericSchema<ModelLayerPartMensuralData> =
+	v.intersect([ModelEventLikeMensuralSchema]);
 
-export type LayerPartMensuralData = v.InferOutput<typeof LayerPartMensuralSchema>;
+export type ModelLayerPartMensuralData = ModelEventLikeMensuralData;

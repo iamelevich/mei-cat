@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrAccidentalGesSchema } from "..";
 
 /**
- * Attributes for accid.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.accid.ges.html
  */
 export const AttrAccidGesSchema = v.object({
-  // TODO: Add accid.ges attributes
+	// Inherited attribute classes
+	...AttrAccidentalGesSchema.entries,
 });
 
 export type AttrAccidGesData = v.InferOutput<typeof AttrAccidGesSchema>;

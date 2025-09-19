@@ -1,11 +1,17 @@
 import * as v from "valibot";
+import { AttrPitchedSchema } from "../../shared";
+import { AttrStringtabSchema } from "../../stringtab";
 
 /**
- * Attributes for chord member logging.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.chordMember.log.html
  */
 export const AttrChordMemberLogSchema = v.object({
-  // TODO: Add chordMember.log attributes
+	// Inherited attribute classes
+	...AttrPitchedSchema.entries,
+	...AttrStringtabSchema.entries,
 });
 
-export type AttrChordMemberLogData = v.InferOutput<typeof AttrChordMemberLogSchema>;
+export type AttrChordMemberLogData = v.InferOutput<
+	typeof AttrChordMemberLogSchema
+>;

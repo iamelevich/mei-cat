@@ -5,6 +5,8 @@
 	"type": "module",
 	"scripts": {
 		"transform": "bun run files/transform.ts",
+		"manage-modules": "bun run scripts/manage-modules.ts",
+		"generate-tree": "bun run scripts/generate-tree.ts",
 		"check": "biome check",
 		"format": "biome format",
 		"format:write": "biome format --write .",
@@ -23,8 +25,9 @@
 		"typescript": "^5.9.2"
 	},
 	"dependencies": {
-		"@sinclair/typebox": "^0.34.41",
 		"fast-xml-parser": "^5.2.5",
-		"saxon-js": "^2.7.0"
+		"saxon-js": "^2.7.0",
+		"typebox": "^1.0.7",
+		"valibot": "^1.1.0"
 	}
 }

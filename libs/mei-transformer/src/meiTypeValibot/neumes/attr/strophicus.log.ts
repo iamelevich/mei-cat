@@ -1,11 +1,13 @@
 import * as v from "valibot";
 
 /**
- * Attributes for strophicus.log.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.strophicus.log.html
  */
 export const AttrStrophicusLogSchema = v.object({
-  // TODO: Add strophicus.log attributes
+	// No attributes in MEI schema
 });
 
-export type AttrStrophicusLogData = v.InferOutput<typeof AttrStrophicusLogSchema>;
+export type AttrStrophicusLogData = v.InferOutput<
+	typeof AttrStrophicusLogSchema
+>;

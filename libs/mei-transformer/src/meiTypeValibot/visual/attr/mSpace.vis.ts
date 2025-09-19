@@ -1,11 +1,17 @@
 import * as v from "valibot";
+import { AttrAltSymSchema } from "../../usersymbols";
+import { AttrCutoutSchema } from "../../cmn";
+import { AttrXySchema } from "../../shared";
 
 /**
- * Attributes for mSpace.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.mSpace.vis.html
  */
 export const AttrMSpaceVisSchema = v.object({
-  // TODO: Add mSpace.vis attributes
+	// Inherited attribute classes
+	...AttrAltSymSchema.entries,
+	...AttrCutoutSchema.entries,
+	...AttrXySchema.entries,
 });
 
 export type AttrMSpaceVisData = v.InferOutput<typeof AttrMSpaceVisSchema>;

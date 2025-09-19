@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrStartIdSchema } from "..";
 
 /**
- * Attributes for symbol logging.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.symbol.log.html
  */
 export const AttrSymbolLogSchema = v.object({
-  // TODO: Add symbol logging attributes
+	// Inherited attribute classes
+	...AttrStartIdSchema.entries,
 });
 
 export type AttrSymbolLogData = v.InferOutput<typeof AttrSymbolLogSchema>;

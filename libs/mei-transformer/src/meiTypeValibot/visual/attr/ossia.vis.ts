@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for ossia.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.ossia.vis.html
  */
 export const AttrOssiaVisSchema = v.object({
-  // TODO: Add ossia.vis attributes
+	// No attributes in MEI schema
 });
 
 export type AttrOssiaVisData = v.InferOutput<typeof AttrOssiaVisSchema>;

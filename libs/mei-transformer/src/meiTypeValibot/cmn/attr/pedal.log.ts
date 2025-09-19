@@ -6,37 +6,24 @@ import {
 } from "../../shared";
 
 /**
- * Logical domain attributes.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.pedal.log.html
  */
 export const AttrPedalLogSchema = v.object({
+	// Inherited attribute classes
 	...AttrControlEventSchema.entries,
 	...AttrStartEndIdSchema.entries,
 	...AttrTimestamp2LogSchema.entries,
 
+	// Direct attributes
 	/**
 	 * Records the position of the piano damper pedal.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.pedal.log.html#dir
 	 */
-	"@dir": v.union([
-		v.literal("down"),
-		v.literal("up"),
-		v.literal("half"),
-		v.literal("bounce"),
-	]),
-
+	"@dir": v.optional(v.string()),
 	/**
-	 * Indicates the function of the depressed pedal, but not necessarily the text associated with its use. Use the dir element for such text.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.pedal.log.html#func
+	 * Indicates the function of the depressed pedal, but not necessarily the text associated with its use. Use the <gi scheme="MEI">dir</gi> element for such text.
 	 */
-	"@func": v.optional(
-		v.union([
-			v.literal("sustain"),
-			v.literal("soft"),
-			v.literal("sostenuto"),
-			v.literal("silent"),
-		]),
-	),
+	"@func": v.optional(v.string()),
 });
 
 export type AttrPedalLogData = v.InferOutput<typeof AttrPedalLogSchema>;

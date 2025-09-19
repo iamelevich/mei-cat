@@ -1,11 +1,19 @@
 import * as v from "valibot";
 
 /**
- * Attributes for slurRend.
+ * Attributes that describe the rendition of slurs..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.slurRend.html
  */
 export const AttrSlurRendSchema = v.object({
-	// TODO: Add slurRend attributes
+	// Direct attributes
+	/**
+	 *
+	 */
+	"@slur.lform": v.optional(v.string()),
+	/**
+	 *
+	 */
+	"@slur.lwidth": v.optional(v.string()),
 });
 
 export type AttrSlurRendData = v.InferOutput<typeof AttrSlurRendSchema>;

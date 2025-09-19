@@ -1,11 +1,15 @@
 import * as v from "valibot";
 
 /**
- * Attributes for record type.
+ * Attributes that define the characteristics and components of the bibliographic description..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.recordType.html
  */
 export const AttrRecordTypeSchema = v.object({
-  // TODO: Add record type attributes
+	// Direct attributes
+	/**
+	 * Language material.
+	 */
+	"@recordtype": v.optional(v.string()),
 });
 
 export type AttrRecordTypeData = v.InferOutput<typeof AttrRecordTypeSchema>;

@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for tempo.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.tempo.anl.html
  */
 export const AttrTempoAnlSchema = v.object({
-  // TODO: Add tempo.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrTempoAnlData = v.InferOutput<typeof AttrTempoAnlSchema>;

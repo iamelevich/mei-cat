@@ -1,11 +1,14 @@
 import * as v from "valibot";
+import { AttrArticulationSchema, AttrControlEventSchema } from "..";
 
 /**
- * Attributes for articulation logging.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.artic.log.html
  */
 export const AttrArticLogSchema = v.object({
-  // TODO: Add articulation logging attributes
+	// Inherited attribute classes
+	...AttrArticulationSchema.entries,
+	...AttrControlEventSchema.entries,
 });
 
 export type AttrArticLogData = v.InferOutput<typeof AttrArticLogSchema>;

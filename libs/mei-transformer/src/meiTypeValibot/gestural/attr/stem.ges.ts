@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for stem.ges.
+ * Gestural domain attributes that describe the properties of a stem in the mensural repertoire..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.stem.ges.html
  */
 export const AttrStemGesSchema = v.object({
-  // TODO: Add stem.ges attributes
+	// No attributes in MEI schema
 });
 
 export type AttrStemGesData = v.InferOutput<typeof AttrStemGesSchema>;

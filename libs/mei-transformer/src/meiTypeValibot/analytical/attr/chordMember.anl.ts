@@ -1,11 +1,15 @@
 import * as v from "valibot";
+import { AttrIntervalHarmonicSchema } from "..";
 
 /**
- * Attributes for chordMember.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.chordMember.anl.html
  */
 export const AttrChordMemberAnlSchema = v.object({
-  // TODO: Add chordMember.anl attributes
+	// Inherited attribute classes
+	...AttrIntervalHarmonicSchema.entries,
 });
 
-export type AttrChordMemberAnlData = v.InferOutput<typeof AttrChordMemberAnlSchema>;
+export type AttrChordMemberAnlData = v.InferOutput<
+	typeof AttrChordMemberAnlSchema
+>;

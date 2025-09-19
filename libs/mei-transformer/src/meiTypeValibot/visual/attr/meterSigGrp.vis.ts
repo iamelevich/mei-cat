@@ -1,11 +1,16 @@
 import * as v from "valibot";
+import { AttrEnclosingCharsSchema, AttrVisibilitySchema } from "../../shared";
 
 /**
- * Attributes for meterSigGrp.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.meterSigGrp.vis.html
  */
 export const AttrMeterSigGrpVisSchema = v.object({
-  // TODO: Add meterSigGrp.vis attributes
+	// Inherited attribute classes
+	...AttrEnclosingCharsSchema.entries,
+	...AttrVisibilitySchema.entries,
 });
 
-export type AttrMeterSigGrpVisData = v.InferOutput<typeof AttrMeterSigGrpVisSchema>;
+export type AttrMeterSigGrpVisData = v.InferOutput<
+	typeof AttrMeterSigGrpVisSchema
+>;

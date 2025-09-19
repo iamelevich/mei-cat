@@ -1,28 +1,48 @@
 import * as v from "valibot";
-import { ControlEventLikeCmnSchema } from "../../cmn";
-import { VerseLikeSchema, VoltaSchema } from "../../lyrics";
-import { ControlEventLikeSchema, LayerLikeSchema } from "../../shared";
+import {
+	type VoltaData,
+	VoltaSchema,
+	type ModelVerseLikeData,
+	ModelVerseLikeSchema,
+} from "../../lyrics";
+import {
+	type ModelControlEventLikeData,
+	ModelControlEventLikeSchema,
+	type ModelLayerLikeData,
+	ModelLayerLikeSchema,
+} from "../../shared";
+import {
+	type ModelControlEventLikeCmnData,
+	ModelControlEventLikeCmnSchema,
+} from "../../cmn";
 
 /**
  * Groups elements that may appear as part of editorial and transcription elements in music notation.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.editTransPart.music.html
  */
-export const EditTransPartMusicSchema = v.intersect([
-	v.object({
-		/**
-		 * Alternative ending for a repeated passage of music; i.e., prima volta, seconda volta, etc.
-		 * @see https://music-encoding.org/guidelines/v5/elements/volta.html
-		 */
-		volta: v.optional(
-			v.union([v.lazy(() => VoltaSchema), v.array(v.lazy(() => VoltaSchema))]),
-		),
-	}),
-	ControlEventLikeSchema,
-	ControlEventLikeCmnSchema,
-	LayerLikeSchema,
-	VerseLikeSchema,
-]);
+export const ModelEditTransPartMusicSchema: v.GenericSchema<ModelEditTransPartMusicData> =
+	v.intersect([
+		v.object({
+			/**
+			 * Sung text for a specific iteration of a repeated section of music.
+			 * @see https://music-encoding.org/guidelines/v5/elements/volta.html
+			 */
+			volta: v.optional(
+				v.union([
+					v.lazy(() => VoltaSchema),
+					v.array(v.lazy(() => VoltaSchema)),
+				]),
+			),
+		}),
+		ModelControlEventLikeSchema,
+		ModelControlEventLikeCmnSchema,
+		ModelLayerLikeSchema,
+		ModelVerseLikeSchema,
+	]);
 
-export type EditTransPartMusicData = v.InferOutput<
-	typeof EditTransPartMusicSchema
->;
+export type ModelEditTransPartMusicData = {
+	volta?: VoltaData | VoltaData[];
+} & ModelControlEventLikeData &
+	ModelControlEventLikeCmnData &
+	ModelLayerLikeData &
+	ModelVerseLikeData;

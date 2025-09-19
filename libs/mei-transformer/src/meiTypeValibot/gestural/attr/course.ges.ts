@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for course.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.course.ges.html
  */
 export const AttrCourseGesSchema = v.object({
-  // TODO: Add course.ges attributes
+	// No attributes in MEI schema
 });
 
 export type AttrCourseGesData = v.InferOutput<typeof AttrCourseGesSchema>;

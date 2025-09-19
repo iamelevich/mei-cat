@@ -1,11 +1,24 @@
 import * as v from "valibot";
+import { type CaptionData, CaptionSchema } from "..";
 
 /**
- * Groups elements that represent caption-like elements.
+ * Groups elements that contain the text of a caption or other text displayed along with a figure.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.captionLike.html
  */
-export const CaptionLikeSchema = v.object({
-  // TODO: Add caption-like elements
-});
+export const ModelCaptionLikeSchema: v.GenericSchema<ModelCaptionLikeData> =
+	v.object({
+		/**
+		 * A label which accompanies an illustration or a table.
+		 * @see https://music-encoding.org/guidelines/v5/elements/caption.html
+		 */
+		caption: v.optional(
+			v.union([
+				v.lazy(() => CaptionSchema),
+				v.array(v.lazy(() => CaptionSchema)),
+			]),
+		),
+	});
 
-export type CaptionLikeData = v.InferOutput<typeof CaptionLikeSchema>;
+export type ModelCaptionLikeData = {
+	caption?: CaptionData | CaptionData[];
+};

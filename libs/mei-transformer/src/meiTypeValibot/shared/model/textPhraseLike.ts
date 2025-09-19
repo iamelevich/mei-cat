@@ -1,14 +1,17 @@
 import * as v from "valibot";
-import { PbLikeSchema } from "./pbLike";
-import { TextPhraseLikeLimitedSchema } from "./textPhraseLike.limited";
+import {
+	type ModelPbLikeData,
+	ModelPbLikeSchema,
+	type ModelTextPhraseLikeLimitedData,
+	ModelTextPhraseLikeLimitedSchema,
+} from "..";
 
 /**
- * Groups elements that represent text phrase-like elements.
+ * Groups textual elements that occur at the level of individual words or phrases.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.textPhraseLike.html
  */
-export const TextPhraseLikeSchema = v.intersect([
-	PbLikeSchema,
-	TextPhraseLikeLimitedSchema,
-]);
+export const ModelTextPhraseLikeSchema: v.GenericSchema<ModelTextPhraseLikeData> =
+	v.intersect([ModelPbLikeSchema, ModelTextPhraseLikeLimitedSchema]);
 
-export type TextPhraseLikeData = v.InferOutput<typeof TextPhraseLikeSchema>;
+export type ModelTextPhraseLikeData = ModelPbLikeData &
+	ModelTextPhraseLikeLimitedData;

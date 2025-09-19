@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for custos.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.custos.ges.html
  */
 export const AttrCustosGesSchema = v.object({
-  // TODO: Add custos.ges attributes
+	// No attributes in MEI schema
 });
 
 export type AttrCustosGesData = v.InferOutput<typeof AttrCustosGesSchema>;

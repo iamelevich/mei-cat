@@ -1,11 +1,41 @@
 import * as v from "valibot";
+import { AttrAltSymSchema } from "../../usersymbols";
+import {
+	AttrColorSchema,
+	AttrEnclosingCharsSchema,
+	AttrStaffLocSchema,
+	AttrTypographySchema,
+	AttrVisibilitySchema,
+	AttrVisualOffsetHoSchema,
+	AttrXySchema,
+} from "../../shared";
+import { AttrCurvatureDirectionSchema } from "..";
+import { AttrExtSymSchema } from "../../externalsymbols";
 
 /**
- * Attributes for liquescent.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.liquescent.vis.html
  */
 export const AttrLiquescentVisSchema = v.object({
-  // TODO: Add liquescent.vis attributes
+	// Inherited attribute classes
+	...AttrAltSymSchema.entries,
+	...AttrColorSchema.entries,
+	...AttrCurvatureDirectionSchema.entries,
+	...AttrEnclosingCharsSchema.entries,
+	...AttrExtSymSchema.entries,
+	...AttrStaffLocSchema.entries,
+	...AttrTypographySchema.entries,
+	...AttrVisibilitySchema.entries,
+	...AttrVisualOffsetHoSchema.entries,
+	...AttrXySchema.entries,
+
+	// Direct attributes
+	/**
+	 * Indicates whether curve is closed.
+	 */
+	"@looped": v.optional(v.string()),
 });
 
-export type AttrLiquescentVisData = v.InferOutput<typeof AttrLiquescentVisSchema>;
+export type AttrLiquescentVisData = v.InferOutput<
+	typeof AttrLiquescentVisSchema
+>;

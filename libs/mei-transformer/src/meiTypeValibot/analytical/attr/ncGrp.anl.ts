@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for ncGrp.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.ncGrp.anl.html
  */
 export const AttrNcGrpAnlSchema = v.object({
-  // TODO: Add ncGrp.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrNcGrpAnlData = v.InferOutput<typeof AttrNcGrpAnlSchema>;

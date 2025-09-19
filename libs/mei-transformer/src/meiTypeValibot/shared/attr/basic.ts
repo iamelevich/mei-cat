@@ -1,11 +1,19 @@
 import * as v from "valibot";
+import { AttrIdSchema } from "..";
 
 /**
- * Attributes for basic elements.
+ * Attributes that form the basis of the att.common class..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.basic.html
  */
 export const AttrBasicSchema = v.object({
-  // TODO: Add basic attributes
+	// Inherited attribute classes
+	...AttrIdSchema.entries,
+
+	// Direct attributes
+	/**
+	 * Provides a base URI reference with which applications can resolve relative URI references into absolute URI references.
+	 */
+	"@base": v.optional(v.string()),
 });
 
 export type AttrBasicData = v.InferOutput<typeof AttrBasicSchema>;

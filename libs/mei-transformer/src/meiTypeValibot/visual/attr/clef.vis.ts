@@ -1,11 +1,27 @@
 import * as v from "valibot";
+import { AttrAltSymSchema } from "../../usersymbols";
+import {
+	AttrColorSchema,
+	AttrEnclosingCharsSchema,
+	AttrTypographySchema,
+	AttrVisibilitySchema,
+	AttrVisualOffsetSchema,
+} from "../../shared";
+import { AttrExtSymSchema } from "../../externalsymbols";
 
 /**
- * Attributes for clef.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.clef.vis.html
  */
 export const AttrClefVisSchema = v.object({
-  // TODO: Add clef.vis attributes
+	// Inherited attribute classes
+	...AttrAltSymSchema.entries,
+	...AttrColorSchema.entries,
+	...AttrEnclosingCharsSchema.entries,
+	...AttrExtSymSchema.entries,
+	...AttrTypographySchema.entries,
+	...AttrVisibilitySchema.entries,
+	...AttrVisualOffsetSchema.entries,
 });
 
 export type AttrClefVisData = v.InferOutput<typeof AttrClefVisSchema>;

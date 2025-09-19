@@ -1,10 +1,3 @@
-// Elements
-export * from "./fing";
-export * from "./fingGrp";
-
-// Attributes
-export * from "./attr/fing.log";
-export * from "./attr/fingGrp.log";
-
-// Models
-export * from "./model/fingeringLike";
+export * from "./attr";
+export * from "./element";
+export * from "./model";

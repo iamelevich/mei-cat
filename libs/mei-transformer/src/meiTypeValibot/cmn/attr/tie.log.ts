@@ -6,10 +6,11 @@ import {
 } from "../../shared";
 
 /**
- * Attributes for tie.log.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.tie.log.html
  */
 export const AttrTieLogSchema = v.object({
+	// Inherited attribute classes
 	...AttrControlEventSchema.entries,
 	...AttrStartEndIdSchema.entries,
 	...AttrTimestamp2LogSchema.entries,

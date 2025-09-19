@@ -1,11 +1,17 @@
 import * as v from "valibot";
+import {
+	AttrPlacementRelStaffSchema,
+	AttrTypographySchema,
+} from "../../shared";
 
 /**
- * Attributes for lyrics.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.lyrics.vis.html
  */
 export const AttrLyricsVisSchema = v.object({
-  // TODO: Add lyrics.vis attributes
+	// Inherited attribute classes
+	...AttrPlacementRelStaffSchema.entries,
+	...AttrTypographySchema.entries,
 });
 
 export type AttrLyricsVisData = v.InferOutput<typeof AttrLyricsVisSchema>;

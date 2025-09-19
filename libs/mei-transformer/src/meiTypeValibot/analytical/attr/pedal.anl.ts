@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for pedal.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.pedal.anl.html
  */
 export const AttrPedalAnlSchema = v.object({
-  // TODO: Add pedal.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrPedalAnlData = v.InferOutput<typeof AttrPedalAnlSchema>;

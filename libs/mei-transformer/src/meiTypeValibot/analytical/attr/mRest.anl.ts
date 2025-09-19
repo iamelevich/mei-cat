@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrFermataPresentSchema } from "../../shared";
 
 /**
- * Attributes for mRest.anl.
+ * Analytical domain attributes in the CMN repertoire..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.mRest.anl.html
  */
 export const AttrMRestAnlSchema = v.object({
-  // TODO: Add mRest.anl attributes
+	// Inherited attribute classes
+	...AttrFermataPresentSchema.entries,
 });
 
 export type AttrMRestAnlData = v.InferOutput<typeof AttrMRestAnlSchema>;

@@ -4,17 +4,17 @@ import {
 	AttrDurationLogSchema,
 	AttrEventSchema,
 } from "../../shared";
-import { AttrNumberedSchema } from "./numbered";
-import { AttrTremFormSchema } from "./tremForm";
+import { AttrNumberedSchema, AttrTremFormSchema } from "..";
 
 /**
- * Logical domain attributes.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.bTrem.log.html
  */
 export const AttrBTremLogSchema = v.object({
-	...AttrEventSchema.entries,
+	// Inherited attribute classes
 	...AttrAugmentDotsSchema.entries,
 	...AttrDurationLogSchema.entries,
+	...AttrEventSchema.entries,
 	...AttrNumberedSchema.entries,
 	...AttrTremFormSchema.entries,
 });

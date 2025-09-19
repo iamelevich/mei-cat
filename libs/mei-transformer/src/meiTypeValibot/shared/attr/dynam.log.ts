@@ -1,11 +1,21 @@
 import * as v from "valibot";
+import {
+	AttrControlEventSchema,
+	AttrDurationAdditiveSchema,
+	AttrStartEndIdSchema,
+	AttrTimestamp2LogSchema,
+} from "..";
 
 /**
- * Attributes for dynamics logging.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.dynam.log.html
  */
 export const AttrDynamLogSchema = v.object({
-  // TODO: Add dynamics logging attributes
+	// Inherited attribute classes
+	...AttrControlEventSchema.entries,
+	...AttrDurationAdditiveSchema.entries,
+	...AttrStartEndIdSchema.entries,
+	...AttrTimestamp2LogSchema.entries,
 });
 
 export type AttrDynamLogData = v.InferOutput<typeof AttrDynamLogSchema>;

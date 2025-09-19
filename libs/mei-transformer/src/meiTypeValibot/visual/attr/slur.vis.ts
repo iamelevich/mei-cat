@@ -1,11 +1,27 @@
 import * as v from "valibot";
+import {
+	AttrColorSchema,
+	AttrCurvatureSchema,
+	AttrLineRendBaseSchema,
+	AttrVisualOffsetSchema,
+	AttrVisualOffset2Schema,
+	AttrXySchema,
+	AttrXy2Schema,
+} from "../../shared";
 
 /**
- * Attributes for slur.vis.
+ * Visual domain attributes for slur. The vo attribute is the vertical offset (from its normal position) of the entire rendered slur/phrase mark..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.slur.vis.html
  */
 export const AttrSlurVisSchema = v.object({
-  // TODO: Add slur.vis attributes
+	// Inherited attribute classes
+	...AttrColorSchema.entries,
+	...AttrCurvatureSchema.entries,
+	...AttrLineRendBaseSchema.entries,
+	...AttrVisualOffsetSchema.entries,
+	...AttrVisualOffset2Schema.entries,
+	...AttrXySchema.entries,
+	...AttrXy2Schema.entries,
 });
 
 export type AttrSlurVisData = v.InferOutput<typeof AttrSlurVisSchema>;

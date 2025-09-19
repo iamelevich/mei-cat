@@ -1,11 +1,15 @@
 import * as v from "valibot";
+import { AttrMensuralVisSchema } from "../../visual";
 
 /**
- * Attributes for staffDef.vis.mensural.
+ * Visual domain attributes for the mensural repertoire..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.staffDef.vis.mensural.html
  */
 export const AttrStaffDefVisMensuralSchema = v.object({
-  // TODO: Add staffDef.vis.mensural attributes
+	// Inherited attribute classes
+	...AttrMensuralVisSchema.entries,
 });
 
-export type AttrStaffDefVisMensuralData = v.InferOutput<typeof AttrStaffDefVisMensuralSchema>;
+export type AttrStaffDefVisMensuralData = v.InferOutput<
+	typeof AttrStaffDefVisMensuralSchema
+>;

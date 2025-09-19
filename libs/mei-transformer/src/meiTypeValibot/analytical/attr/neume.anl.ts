@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrNeumeTypeSchema } from "../../neumes";
 
 /**
- * Attributes for neume.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.neume.anl.html
  */
 export const AttrNeumeAnlSchema = v.object({
-  // TODO: Add neume.anl attributes
+	// Inherited attribute classes
+	...AttrNeumeTypeSchema.entries,
 });
 
 export type AttrNeumeAnlData = v.InferOutput<typeof AttrNeumeAnlSchema>;

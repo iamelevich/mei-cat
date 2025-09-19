@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for tuning.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.tuning.vis.html
  */
 export const AttrTuningVisSchema = v.object({
-  // TODO: Add tuning.vis attributes
+	// No attributes in MEI schema
 });
 
 export type AttrTuningVisData = v.InferOutput<typeof AttrTuningVisSchema>;

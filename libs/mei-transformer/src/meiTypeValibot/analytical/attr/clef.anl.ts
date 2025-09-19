@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for clef.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.clef.anl.html
  */
 export const AttrClefAnlSchema = v.object({
-  // TODO: Add clef.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrClefAnlData = v.InferOutput<typeof AttrClefAnlSchema>;

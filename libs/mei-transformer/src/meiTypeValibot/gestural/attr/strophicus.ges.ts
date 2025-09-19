@@ -1,11 +1,13 @@
 import * as v from "valibot";
 
 /**
- * Attributes for strophicus.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.strophicus.ges.html
  */
 export const AttrStrophicusGesSchema = v.object({
-  // TODO: Add strophicus.ges attributes
+	// No attributes in MEI schema
 });
 
-export type AttrStrophicusGesData = v.InferOutput<typeof AttrStrophicusGesSchema>;
+export type AttrStrophicusGesData = v.InferOutput<
+	typeof AttrStrophicusGesSchema
+>;

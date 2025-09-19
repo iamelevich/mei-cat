@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for chord.ges.cmn.
+ * Gestural domain attributes for CMN features..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.chord.ges.cmn.html
  */
 export const AttrChordGesCmnSchema = v.object({
-  // TODO: Add chord.ges.cmn attributes
+	// No attributes in MEI schema
 });
 
 export type AttrChordGesCmnData = v.InferOutput<typeof AttrChordGesCmnSchema>;

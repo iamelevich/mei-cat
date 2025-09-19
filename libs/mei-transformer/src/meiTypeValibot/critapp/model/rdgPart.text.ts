@@ -1,16 +1,17 @@
 import * as v from "valibot";
 import {
-	TextComponentLikeSchema,
-	TextPhraseLikeLimitedSchema,
+	type ModelTextComponentLikeData,
+	ModelTextComponentLikeSchema,
+	type ModelTextPhraseLikeLimitedData,
+	ModelTextPhraseLikeLimitedSchema,
 } from "../../shared";
 
 /**
- * Groups elements that represent reading parts in text.
+ * Groups elements that may appear as part of a textual variant.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.rdgPart.text.html
  */
-export const RdgPartTextSchema = v.intersect([
-	TextComponentLikeSchema,
-	TextPhraseLikeLimitedSchema,
-]);
+export const ModelRdgPartTextSchema: v.GenericSchema<ModelRdgPartTextData> =
+	v.intersect([ModelTextComponentLikeSchema, ModelTextPhraseLikeLimitedSchema]);
 
-export type RdgPartTextData = v.InferOutput<typeof RdgPartTextSchema>;
+export type ModelRdgPartTextData = ModelTextComponentLikeData &
+	ModelTextPhraseLikeLimitedData;

@@ -2,54 +2,43 @@ import * as v from "valibot";
 import { AttrControlEventSchema, AttrStartEndIdSchema } from "../../shared";
 
 /**
- * Logical domain attributes. The pedal setting, i.e., flat, natural, or sharp, for each diatonic pitch name is indicated by the seven letter-named attributes.
+ * Logical domain attributes. The pedal setting, <abbr>i.e.</abbr>, flat, natural, or sharp, for each diatonic pitch name is indicated by the seven letter-named attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.harpPedal.log.html
  */
 export const AttrHarpPedalLogSchema = v.object({
+	// Inherited attribute classes
 	...AttrControlEventSchema.entries,
 	...AttrStartEndIdSchema.entries,
 
+	// Direct attributes
 	/**
-	 * Indicates the pedal setting for the harp's C strings.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.harpPedal.log.html#c
+	 * Indicates the pedal setting for the harp’s A strings.
 	 */
-	"@c": v.optional(v.union([v.literal("f"), v.literal("n"), v.literal("s")])),
-
+	"@a": v.optional(v.string()),
 	/**
-	 * Indicates the pedal setting for the harp's D strings.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.harpPedal.log.html#d
+	 * Indicates the pedal setting for the harp’s B strings.
 	 */
-	"@d": v.optional(v.union([v.literal("f"), v.literal("n"), v.literal("s")])),
-
+	"@b": v.optional(v.string()),
 	/**
-	 * Indicates the pedal setting for the harp's E strings.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.harpPedal.log.html#e
+	 * Indicates the pedal setting for the harp’s C strings.
 	 */
-	"@e": v.optional(v.union([v.literal("f"), v.literal("n"), v.literal("s")])),
-
+	"@c": v.optional(v.string()),
 	/**
-	 * Indicates the pedal setting for the harp's F strings.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.harpPedal.log.html#f
+	 * Indicates the pedal setting for the harp’s D strings.
 	 */
-	"@f": v.optional(v.union([v.literal("f"), v.literal("n"), v.literal("s")])),
-
+	"@d": v.optional(v.string()),
 	/**
-	 * Indicates the pedal setting for the harp's G strings.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.harpPedal.log.html#g
+	 * Indicates the pedal setting for the harp’s E strings.
 	 */
-	"@g": v.optional(v.union([v.literal("f"), v.literal("n"), v.literal("s")])),
-
+	"@e": v.optional(v.string()),
 	/**
-	 * Indicates the pedal setting for the harp's A strings.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.harpPedal.log.html#a
+	 * Indicates the pedal setting for the harp’s F strings.
 	 */
-	"@a": v.optional(v.union([v.literal("f"), v.literal("n"), v.literal("s")])),
-
+	"@f": v.optional(v.string()),
 	/**
-	 * Indicates the pedal setting for the harp's B strings.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.harpPedal.log.html#b
+	 * Indicates the pedal setting for the harp’s G strings.
 	 */
-	"@b": v.optional(v.union([v.literal("f"), v.literal("n"), v.literal("s")])),
+	"@g": v.optional(v.string()),
 });
 
 export type AttrHarpPedalLogData = v.InferOutput<typeof AttrHarpPedalLogSchema>;

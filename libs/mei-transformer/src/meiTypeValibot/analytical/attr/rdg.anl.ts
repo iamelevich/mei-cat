@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for rdg.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.rdg.anl.html
  */
 export const AttrRdgAnlSchema = v.object({
-  // TODO: Add rdg.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrRdgAnlData = v.InferOutput<typeof AttrRdgAnlSchema>;

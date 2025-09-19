@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for staff.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.staff.anl.html
  */
 export const AttrStaffAnlSchema = v.object({
-  // TODO: Add staff.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrStaffAnlData = v.InferOutput<typeof AttrStaffAnlSchema>;

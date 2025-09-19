@@ -1,4 +1,5 @@
 import * as v from "valibot";
+import { AttrBeamedWithSchema } from "..";
 import {
 	AttrControlEventSchema,
 	AttrDurationAdditiveSchema,
@@ -6,13 +7,13 @@ import {
 	AttrStartEndIdSchema,
 	AttrTimestamp2LogSchema,
 } from "../../shared";
-import { AttrBeamedWithSchema } from "./beamedWith";
 
 /**
- * Attributes for tupletSpan.log.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.tupletSpan.log.html
  */
 export const AttrTupletSpanLogSchema = v.object({
+	// Inherited attribute classes
 	...AttrBeamedWithSchema.entries,
 	...AttrControlEventSchema.entries,
 	...AttrDurationAdditiveSchema.entries,

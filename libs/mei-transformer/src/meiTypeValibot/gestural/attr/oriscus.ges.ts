@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for oriscus.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.oriscus.ges.html
  */
 export const AttrOriscusGesSchema = v.object({
-  // TODO: Add oriscus.ges attributes
+	// No attributes in MEI schema
 });
 
 export type AttrOriscusGesData = v.InferOutput<typeof AttrOriscusGesSchema>;

@@ -1,16 +1,24 @@
 import * as v from "valibot";
-import { type MRestData, MRestSchema } from "../mRest";
-import { type MRptData, MRptSchema } from "../mRpt";
-import { type MRpt2Data, MRpt2Schema } from "../mRpt2";
-import { type MSpaceData, MSpaceSchema } from "../mSpace";
-import { type MultiRestData, MultiRestSchema } from "../multiRest";
-import { type MultiRptData, MultiRptSchema } from "../multiRpt";
+import {
+	type MRestData,
+	MRestSchema,
+	type MRptData,
+	MRptSchema,
+	type MRpt2Data,
+	MRpt2Schema,
+	type MSpaceData,
+	MSpaceSchema,
+	type MultiRestData,
+	MultiRestSchema,
+	type MultiRptData,
+	MultiRptSchema,
+} from "..";
 
 /**
  * Groups events that completely fill a CMN measure.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.eventLike.measureFilling.html
  */
-export const EventLikeMeasureFillingSchema: v.GenericSchema<EventLikeMeasureFillingData> =
+export const ModelEventLikeMeasureFillingSchema: v.GenericSchema<ModelEventLikeMeasureFillingData> =
 	v.object({
 		/**
 		 * Complete measure rest in any meter.
@@ -65,7 +73,7 @@ export const EventLikeMeasureFillingSchema: v.GenericSchema<EventLikeMeasureFill
 		),
 	});
 
-export type EventLikeMeasureFillingData = {
+export type ModelEventLikeMeasureFillingData = {
 	mRest?: MRestData | MRestData[];
 	mRpt?: MRptData | MRptData[];
 	mRpt2?: MRpt2Data | MRpt2Data[];

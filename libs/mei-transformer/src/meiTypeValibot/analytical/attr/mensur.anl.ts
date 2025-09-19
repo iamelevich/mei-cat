@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for mensur.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.mensur.anl.html
  */
 export const AttrMensurAnlSchema = v.object({
-  // TODO: Add mensur.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrMensurAnlData = v.InferOutput<typeof AttrMensurAnlSchema>;

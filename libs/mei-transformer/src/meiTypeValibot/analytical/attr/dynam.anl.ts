@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for dynam.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.dynam.anl.html
  */
 export const AttrDynamAnlSchema = v.object({
-  // TODO: Add dynam.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrDynamAnlData = v.InferOutput<typeof AttrDynamAnlSchema>;

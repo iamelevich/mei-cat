@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for arpeg.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.arpeg.anl.html
  */
 export const AttrArpegAnlSchema = v.object({
-  // TODO: Add arpeg.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrArpegAnlData = v.InferOutput<typeof AttrArpegAnlSchema>;

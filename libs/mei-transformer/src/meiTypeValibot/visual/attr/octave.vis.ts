@@ -1,11 +1,27 @@
 import * as v from "valibot";
+import {
+	AttrColorSchema,
+	AttrExtenderSchema,
+	AttrVerticalGroupSchema,
+	AttrVisualOffsetSchema,
+	AttrVisualOffset2HoSchema,
+	AttrVisualOffset2ToSchema,
+	AttrXySchema,
+} from "../../shared";
 
 /**
- * Attributes for octave.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.octave.vis.html
  */
 export const AttrOctaveVisSchema = v.object({
-  // TODO: Add octave.vis attributes
+	// Inherited attribute classes
+	...AttrColorSchema.entries,
+	...AttrExtenderSchema.entries,
+	...AttrVerticalGroupSchema.entries,
+	...AttrVisualOffsetSchema.entries,
+	...AttrVisualOffset2HoSchema.entries,
+	...AttrVisualOffset2ToSchema.entries,
+	...AttrXySchema.entries,
 });
 
 export type AttrOctaveVisData = v.InferOutput<typeof AttrOctaveVisSchema>;

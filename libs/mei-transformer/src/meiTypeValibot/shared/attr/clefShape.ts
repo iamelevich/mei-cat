@@ -1,11 +1,15 @@
 import * as v from "valibot";
 
 /**
- * Attributes for clef shape.
+ * Attributes that record the shape of a clef..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.clefShape.html
  */
 export const AttrClefShapeSchema = v.object({
-  // TODO: Add clef shape attributes
+	// Direct attributes
+	/**
+	 * Describes a clef’s shape.
+	 */
+	"@shape": v.optional(v.string()),
 });
 
 export type AttrClefShapeData = v.InferOutput<typeof AttrClefShapeSchema>;

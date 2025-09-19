@@ -1,11 +1,25 @@
 import * as v from "valibot";
+import { AttrAltSymSchema } from "../../usersymbols";
+import {
+	AttrColorSchema,
+	AttrTypographySchema,
+	AttrVisualOffsetSchema,
+	AttrXySchema,
+} from "../../shared";
+import { AttrExtSymSchema } from "../../externalsymbols";
 
 /**
- * Attributes for grpSym.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.grpSym.vis.html
  */
 export const AttrGrpSymVisSchema = v.object({
-  // TODO: Add grpSym.vis attributes
+	// Inherited attribute classes
+	...AttrAltSymSchema.entries,
+	...AttrColorSchema.entries,
+	...AttrExtSymSchema.entries,
+	...AttrTypographySchema.entries,
+	...AttrVisualOffsetSchema.entries,
+	...AttrXySchema.entries,
 });
 
 export type AttrGrpSymVisData = v.InferOutput<typeof AttrGrpSymVisSchema>;

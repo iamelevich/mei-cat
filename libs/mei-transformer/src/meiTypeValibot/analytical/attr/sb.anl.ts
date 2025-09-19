@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for sb.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.sb.anl.html
  */
 export const AttrSbAnlSchema = v.object({
-  // TODO: Add sb.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrSbAnlData = v.InferOutput<typeof AttrSbAnlSchema>;

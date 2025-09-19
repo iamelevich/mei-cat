@@ -1,11 +1,19 @@
 import * as v from "valibot";
+import {
+	AttrControlEventSchema,
+	AttrStartEndIdSchema,
+	AttrTimestamp2LogSchema,
+} from "../../shared";
 
 /**
- * Attributes for stageDir.log.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.stageDir.log.html
  */
 export const AttrStageDirLogSchema = v.object({
-  // TODO: Add stageDir.log attributes
+	// Inherited attribute classes
+	...AttrControlEventSchema.entries,
+	...AttrStartEndIdSchema.entries,
+	...AttrTimestamp2LogSchema.entries,
 });
 
 export type AttrStageDirLogData = v.InferOutput<typeof AttrStageDirLogSchema>;

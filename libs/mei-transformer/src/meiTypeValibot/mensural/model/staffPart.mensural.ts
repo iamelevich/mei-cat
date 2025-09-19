@@ -1,11 +1,14 @@
 import * as v from "valibot";
+import {
+	type ModelControlEventLikeData,
+	ModelControlEventLikeSchema,
+} from "../../shared";
 
 /**
- * Groups elements that represent staffpart.mensural parts.
+ * Groups elements that are components of a staff in the mensural repertoire.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.staffPart.mensural.html
  */
-export const StaffPartMensuralSchema = v.object({
-  // TODO: Add staffpart.mensural elements
-});
+export const ModelStaffPartMensuralSchema: v.GenericSchema<ModelStaffPartMensuralData> =
+	v.intersect([ModelControlEventLikeSchema]);
 
-export type StaffPartMensuralData = v.InferOutput<typeof StaffPartMensuralSchema>;
+export type ModelStaffPartMensuralData = ModelControlEventLikeData;

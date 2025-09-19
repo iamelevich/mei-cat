@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrSpaceAnlCmnSchema } from "../../cmn";
 
 /**
- * Attributes for space.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.space.anl.html
  */
 export const AttrSpaceAnlSchema = v.object({
-  // TODO: Add space.anl attributes
+	// Inherited attribute classes
+	...AttrSpaceAnlCmnSchema.entries,
 });
 
 export type AttrSpaceAnlData = v.InferOutput<typeof AttrSpaceAnlSchema>;

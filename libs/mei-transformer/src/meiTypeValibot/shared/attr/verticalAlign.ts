@@ -1,15 +1,17 @@
 import * as v from "valibot";
 
 /**
- * Attributes that provide vertical alignment information.
+ * Attributes that record vertical alignment..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.verticalAlign.html
  */
 export const AttrVerticalAlignSchema = v.object({
+	// Direct attributes
 	/**
-	 * Indicates vertical alignment.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.verticalAlign.html#valign
+	 * Records vertical alignment.
 	 */
-	"@valign": v.optional(v.union([v.literal("top"), v.literal("middle"), v.literal("bottom"), v.literal("baseline")])),
+	"@valign": v.optional(v.string()),
 });
 
-export type AttrVerticalAlignData = v.InferOutput<typeof AttrVerticalAlignSchema>;
+export type AttrVerticalAlignData = v.InferOutput<
+	typeof AttrVerticalAlignSchema
+>;

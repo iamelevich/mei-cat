@@ -1,33 +1,27 @@
 import * as v from "valibot";
+import { AttrCoordinatedUlSchema } from "..";
 
 /**
- * Attributes that provide coordinate information.
+ * This attribute class records the position of a feature within a two-dimensional coordinate system..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.coordinated.html
  */
 export const AttrCoordinatedSchema = v.object({
-	/**
-	 * Encodes the upper left corner x coordinate for a feature in an output coordinate system.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.coordinated.html#ulx
-	 */
-	"@ulx": v.optional(v.number()),
+	// Inherited attribute classes
+	...AttrCoordinatedUlSchema.entries,
 
+	// Direct attributes
 	/**
-	 * Encodes the upper left corner y coordinate for a feature in an output coordinate system.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.coordinated.html#uly
+	 * Indicates the lower-right corner x coordinate.
 	 */
-	"@uly": v.optional(v.number()),
-
+	"@lrx": v.optional(v.string()),
 	/**
-	 * Encodes the lower right corner x coordinate for a feature in an output coordinate system.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.coordinated.html#lrx
+	 * Indicates the lower-right corner y coordinate.
 	 */
-	"@lrx": v.optional(v.number()),
-
+	"@lry": v.optional(v.string()),
 	/**
-	 * Encodes the lower right corner y coordinate for a feature in an output coordinate system.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.coordinated.html#lry
+	 * Indicates the amount by which the contents of this element have been rotated clockwise or, if applicable, how the orientation of the element self should be interpreted, with respect to the normal orientation of the parent surface. The orientation is expressed in arc degrees.
 	 */
-	"@lry": v.optional(v.number()),
+	"@rotate": v.optional(v.string()),
 });
 
 export type AttrCoordinatedData = v.InferOutput<typeof AttrCoordinatedSchema>;

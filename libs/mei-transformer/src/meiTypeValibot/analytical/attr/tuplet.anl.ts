@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for tuplet.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.tuplet.anl.html
  */
 export const AttrTupletAnlSchema = v.object({
-  // TODO: Add tuplet.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrTupletAnlData = v.InferOutput<typeof AttrTupletAnlSchema>;

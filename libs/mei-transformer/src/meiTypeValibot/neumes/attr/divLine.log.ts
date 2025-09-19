@@ -1,11 +1,15 @@
 import * as v from "valibot";
 
 /**
- * Attributes for divLine.log.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.divLine.log.html
  */
 export const AttrDivLineLogSchema = v.object({
-  // TODO: Add divLine.log attributes
+	// Direct attributes
+	/**
+	 * Identifies the different kinds of division.
+	 */
+	"@form": v.optional(v.string()),
 });
 
 export type AttrDivLineLogData = v.InferOutput<typeof AttrDivLineLogSchema>;

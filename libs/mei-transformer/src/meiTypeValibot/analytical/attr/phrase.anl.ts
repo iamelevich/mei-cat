@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrJoinedSchema } from "../../shared";
 
 /**
- * Attributes for phrase.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.phrase.anl.html
  */
 export const AttrPhraseAnlSchema = v.object({
-  // TODO: Add phrase.anl attributes
+	// Inherited attribute classes
+	...AttrJoinedSchema.entries,
 });
 
 export type AttrPhraseAnlData = v.InferOutput<typeof AttrPhraseAnlSchema>;

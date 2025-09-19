@@ -2,10 +2,11 @@ import * as v from "valibot";
 import { AttrDurationAdditiveSchema, AttrEventSchema } from "../../shared";
 
 /**
- * Attributes for mSpace.log.
+ * Logical domain attributes in the CMN repertoire..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.mSpace.log.html
  */
 export const AttrMSpaceLogSchema = v.object({
+	// Inherited attribute classes
 	...AttrDurationAdditiveSchema.entries,
 	...AttrEventSchema.entries,
 });

@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for bTrem.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.bTrem.anl.html
  */
 export const AttrBTremAnlSchema = v.object({
-  // TODO: Add bTrem.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrBTremAnlData = v.InferOutput<typeof AttrBTremAnlSchema>;

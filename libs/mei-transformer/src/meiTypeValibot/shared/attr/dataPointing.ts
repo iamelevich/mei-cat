@@ -1,13 +1,13 @@
 import * as v from "valibot";
 
 /**
- * Attributes that specify element-to-element relationships using data attributes.
+ * Attributes for linking metadata to data..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.dataPointing.html
  */
 export const AttrDataPointingSchema = v.object({
+	// Direct attributes
 	/**
-	 * Used to point to other elements. Its value must be the ID of a different element.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.dataPointing.html#data
+	 * Used to link metadata elements to one or more data-containing elements.
 	 */
 	"@data": v.optional(v.string()),
 });

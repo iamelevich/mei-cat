@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for ligature.log.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.ligature.log.html
  */
 export const AttrLigatureLogSchema = v.object({
-  // TODO: Add ligature.log attributes
+	// No attributes in MEI schema
 });
 
 export type AttrLigatureLogData = v.InferOutput<typeof AttrLigatureLogSchema>;

@@ -1,11 +1,24 @@
 import * as v from "valibot";
+import { type BifoliumData, BifoliumSchema } from "..";
 
 /**
- * Groups elements that represent bifolium-like elements.
+ * Collects bifoliumlike elements.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.bifoliumLike.html
  */
-export const BifoliumLikeSchema = v.object({
-  // TODO: Add bifolium-like elements
-});
+export const ModelBifoliumLikeSchema: v.GenericSchema<ModelBifoliumLikeData> =
+	v.object({
+		/**
+		 * Describes a folded sheet of paper.
+		 * @see https://music-encoding.org/guidelines/v5/elements/bifolium.html
+		 */
+		bifolium: v.optional(
+			v.union([
+				v.lazy(() => BifoliumSchema),
+				v.array(v.lazy(() => BifoliumSchema)),
+			]),
+		),
+	});
 
-export type BifoliumLikeData = v.InferOutput<typeof BifoliumLikeSchema>;
+export type ModelBifoliumLikeData = {
+	bifolium?: BifoliumData | BifoliumData[];
+};

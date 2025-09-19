@@ -1,15 +1,17 @@
 import * as v from "valibot";
 
 /**
- * Attributes that provide horizontal alignment information.
+ * Attributes that record horizontal alignment..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.horizontalAlign.html
  */
 export const AttrHorizontalAlignSchema = v.object({
+	// Direct attributes
 	/**
-	 * Indicates horizontal alignment.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.horizontalAlign.html#halign
+	 * Records horizontal alignment.
 	 */
-	"@halign": v.optional(v.union([v.literal("left"), v.literal("center"), v.literal("right"), v.literal("justify")])),
+	"@halign": v.optional(v.string()),
 });
 
-export type AttrHorizontalAlignData = v.InferOutput<typeof AttrHorizontalAlignSchema>;
+export type AttrHorizontalAlignData = v.InferOutput<
+	typeof AttrHorizontalAlignSchema
+>;

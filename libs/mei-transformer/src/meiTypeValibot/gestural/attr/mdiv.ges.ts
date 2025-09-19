@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrAttackingSchema } from "..";
 
 /**
- * Attributes for mdiv.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.mdiv.ges.html
  */
 export const AttrMdivGesSchema = v.object({
-  // TODO: Add mdiv.ges attributes
+	// Inherited attribute classes
+	...AttrAttackingSchema.entries,
 });
 
 export type AttrMdivGesData = v.InferOutput<typeof AttrMdivGesSchema>;

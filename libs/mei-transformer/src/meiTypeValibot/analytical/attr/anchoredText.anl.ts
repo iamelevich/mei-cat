@@ -1,11 +1,13 @@
 import * as v from "valibot";
 
 /**
- * Attributes for anchoredText.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.anchoredText.anl.html
  */
 export const AttrAnchoredTextAnlSchema = v.object({
-  // TODO: Add anchoredText.anl attributes
+	// No attributes in MEI schema
 });
 
-export type AttrAnchoredTextAnlData = v.InferOutput<typeof AttrAnchoredTextAnlSchema>;
+export type AttrAnchoredTextAnlData = v.InferOutput<
+	typeof AttrAnchoredTextAnlSchema
+>;

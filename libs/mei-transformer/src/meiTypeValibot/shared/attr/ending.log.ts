@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrAlignmentSchema } from "../../performance";
 
 /**
- * Attributes for ending logging.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.ending.log.html
  */
 export const AttrEndingLogSchema = v.object({
-  // TODO: Add ending logging attributes
+	// Inherited attribute classes
+	...AttrAlignmentSchema.entries,
 });
 
 export type AttrEndingLogData = v.InferOutput<typeof AttrEndingLogSchema>;

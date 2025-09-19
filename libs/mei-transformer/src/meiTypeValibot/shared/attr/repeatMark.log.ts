@@ -1,11 +1,29 @@
 import * as v from "valibot";
+import {
+	AttrControlEventSchema,
+	AttrDurationAdditiveSchema,
+	AttrStartEndIdSchema,
+	AttrTimestamp2LogSchema,
+} from "..";
 
 /**
- * Attributes for repeat mark logging.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.repeatMark.log.html
  */
 export const AttrRepeatMarkLogSchema = v.object({
-  // TODO: Add repeat mark logging attributes
+	// Inherited attribute classes
+	...AttrControlEventSchema.entries,
+	...AttrDurationAdditiveSchema.entries,
+	...AttrStartEndIdSchema.entries,
+	...AttrTimestamp2LogSchema.entries,
+
+	// Direct attributes
+	/**
+	 * Indicates the function of the mark, usually implying a corresponding form.
+	 */
+	"@func": v.optional(v.string()),
 });
 
-export type AttrRepeatMarkLogData = v.InferOutput<typeof AttrRepeatMarkLogSchema>;
+export type AttrRepeatMarkLogData = v.InferOutput<
+	typeof AttrRepeatMarkLogSchema
+>;

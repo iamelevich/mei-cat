@@ -1,11 +1,13 @@
 import * as v from "valibot";
 
 /**
- * Attributes for liquescent.log.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.liquescent.log.html
  */
 export const AttrLiquescentLogSchema = v.object({
-  // TODO: Add liquescent.log attributes
+	// No attributes in MEI schema
 });
 
-export type AttrLiquescentLogData = v.InferOutput<typeof AttrLiquescentLogSchema>;
+export type AttrLiquescentLogData = v.InferOutput<
+	typeof AttrLiquescentLogSchema
+>;

@@ -1,11 +1,15 @@
 import * as v from "valibot";
 
 /**
- * Attributes for cutout.
+ * Attributes that indicate how to render the staff lines of the measure containing an element belonging to this attribute class..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.cutout.html
  */
 export const AttrCutoutSchema = v.object({
-	// TODO: Add cutout attributes
+	// Direct attributes
+	/**
+	 * "Cut-out" style.
+	 */
+	"@cutout": v.optional(v.string()),
 });
 
 export type AttrCutoutData = v.InferOutput<typeof AttrCutoutSchema>;

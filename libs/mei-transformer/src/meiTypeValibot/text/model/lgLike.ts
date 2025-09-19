@@ -1,18 +1,20 @@
 import * as v from "valibot";
-import { LSchema } from "../l";
+import { type LgData, LgSchema } from "../../shared";
 
 /**
- * Groups elements used to represent a line group.
+ * Groups elements that have a line-grouping function.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.lgLike.html
  */
-export const LgLikeSchema = v.object({
-  /**
-   * A visual line consisting of text. May include text and other inline elements.
-   * @see https://music-encoding.org/guidelines/v5/elements/l.html
-   */
-  l: v.optional(
-    v.union([v.lazy(() => LSchema), v.array(v.lazy(() => LSchema))]),
-  ),
+export const ModelLgLikeSchema: v.GenericSchema<ModelLgLikeData> = v.object({
+	/**
+	 * May be used for any section of text that is organized as a group of lines; however, it is most often used for a group of verse lines functioning as a formal unit, e.g. , a stanza, refrain, verse paragraph, etc.
+	 * @see https://music-encoding.org/guidelines/v5/elements/lg.html
+	 */
+	lg: v.optional(
+		v.union([v.lazy(() => LgSchema), v.array(v.lazy(() => LgSchema))]),
+	),
 });
 
-export type LgLikeData = v.InferOutput<typeof LgLikeSchema>;
+export type ModelLgLikeData = {
+	lg?: LgData | LgData[];
+};

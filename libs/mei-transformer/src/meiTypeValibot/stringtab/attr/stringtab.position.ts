@@ -1,11 +1,17 @@
 import * as v from "valibot";
 
 /**
- * Attributes for stringtab.position.
+ * String tablature position information..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.stringtab.position.html
  */
 export const AttrStringtabPositionSchema = v.object({
-  // TODO: Add stringtab.position attributes
+	// Direct attributes
+	/**
+	 * Records fret position.
+	 */
+	"@tab.pos": v.optional(v.string()),
 });
 
-export type AttrStringtabPositionData = v.InferOutput<typeof AttrStringtabPositionSchema>;
+export type AttrStringtabPositionData = v.InferOutput<
+	typeof AttrStringtabPositionSchema
+>;

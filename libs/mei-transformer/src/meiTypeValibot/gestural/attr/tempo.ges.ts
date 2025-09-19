@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrMidiTempoSchema } from "../../midi";
 
 /**
- * Attributes for tempo.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.tempo.ges.html
  */
 export const AttrTempoGesSchema = v.object({
-  // TODO: Add tempo.ges attributes
+	// Inherited attribute classes
+	...AttrMidiTempoSchema.entries,
 });
 
 export type AttrTempoGesData = v.InferOutput<typeof AttrTempoGesSchema>;

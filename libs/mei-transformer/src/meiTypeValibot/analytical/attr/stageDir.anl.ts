@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for stageDir.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.stageDir.anl.html
  */
 export const AttrStageDirAnlSchema = v.object({
-  // TODO: Add stageDir.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrStageDirAnlData = v.InferOutput<typeof AttrStageDirAnlSchema>;

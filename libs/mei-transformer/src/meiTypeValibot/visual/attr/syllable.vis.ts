@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for syllable.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.syllable.vis.html
  */
 export const AttrSyllableVisSchema = v.object({
-  // TODO: Add syllable.vis attributes
+	// No attributes in MEI schema
 });
 
 export type AttrSyllableVisData = v.InferOutput<typeof AttrSyllableVisSchema>;

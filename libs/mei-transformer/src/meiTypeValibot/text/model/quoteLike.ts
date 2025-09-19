@@ -1,27 +1,21 @@
 import * as v from "valibot";
-import { QSchema } from "../q";
-import { QuoteSchema } from "../quote";
+import { type QuoteData, QuoteSchema } from "..";
 
 /**
- * Groups elements used to represent block-level quotations.
+ * Groups elements used to directly contain quotations.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.quoteLike.html
  */
-export const QuoteLikeSchema = v.object({
-  /**
-   * Contains material which is distinguished from the surrounding phrase-level text using quotation marks or a similar method. Use quote for block-level quotations.
-   * @see https://music-encoding.org/guidelines/v5/elements/q.html
-   */
-  q: v.optional(
-    v.union([v.lazy(() => QSchema), v.array(v.lazy(() => QSchema))]),
-  ),
+export const ModelQuoteLikeSchema: v.GenericSchema<ModelQuoteLikeData> =
+	v.object({
+		/**
+		 * Contains a paragraph-like block of text attributed to an external source, normally set off from the surrounding text by spacing or other typographic distinction.
+		 * @see https://music-encoding.org/guidelines/v5/elements/quote.html
+		 */
+		quote: v.optional(
+			v.union([v.lazy(() => QuoteSchema), v.array(v.lazy(() => QuoteSchema))]),
+		),
+	});
 
-  /**
-   * Contains a passage which is distinguished from the surrounding text using quotation marks or a similar method. Use q for inline quotations.
-   * @see https://music-encoding.org/guidelines/v5/elements/quote.html
-   */
-  quote: v.optional(
-    v.union([v.lazy(() => QuoteSchema), v.array(v.lazy(() => QuoteSchema))]),
-  ),
-});
-
-export type QuoteLikeData = v.InferOutput<typeof QuoteLikeSchema>;
+export type ModelQuoteLikeData = {
+	quote?: QuoteData | QuoteData[];
+};

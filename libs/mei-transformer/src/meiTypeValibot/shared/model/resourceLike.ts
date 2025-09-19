@@ -1,11 +1,48 @@
 import * as v from "valibot";
+import { type FacsimileData, FacsimileSchema } from "../../facsimile";
+import { type GenDescData, GenDescSchema } from "../../genetic";
+import { type PerformanceData, PerformanceSchema } from "../../performance";
 
 /**
- * Groups elements that represent resource-like elements.
+ * Groups non-text components that represent the content of the musical text.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.resourceLike.html
  */
-export const ResourceLikeSchema = v.object({
-  // TODO: Add resource-like elements
-});
+export const ModelResourceLikeSchema: v.GenericSchema<ModelResourceLikeData> =
+	v.object({
+		/**
+		 * Contains a representation of a written source in the form of a set of images rather than as transcribed or encoded text.
+		 * @see https://music-encoding.org/guidelines/v5/elements/facsimile.html
+		 */
+		facsimile: v.optional(
+			v.union([
+				v.lazy(() => FacsimileSchema),
+				v.array(v.lazy(() => FacsimileSchema)),
+			]),
+		),
+		/**
+		 * Bundles information about the textual development of a work.
+		 * @see https://music-encoding.org/guidelines/v5/elements/genDesc.html
+		 */
+		genDesc: v.optional(
+			v.union([
+				v.lazy(() => GenDescSchema),
+				v.array(v.lazy(() => GenDescSchema)),
+			]),
+		),
+		/**
+		 * A presentation of one or more musical works.
+		 * @see https://music-encoding.org/guidelines/v5/elements/performance.html
+		 */
+		performance: v.optional(
+			v.union([
+				v.lazy(() => PerformanceSchema),
+				v.array(v.lazy(() => PerformanceSchema)),
+			]),
+		),
+	});
 
-export type ResourceLikeData = v.InferOutput<typeof ResourceLikeSchema>;
+export type ModelResourceLikeData = {
+	facsimile?: FacsimileData | FacsimileData[];
+	genDesc?: GenDescData | GenDescData[];
+	performance?: PerformanceData | PerformanceData[];
+};

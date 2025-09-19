@@ -1,11 +1,14 @@
 import * as v from "valibot";
+import { AttrHeightSchema, AttrWidthSchema } from "..";
 
 /**
- * Attributes for dimensions.
+ * Attributes that capture the dimensions of an entity..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.dimensions.html
  */
 export const AttrDimensionsSchema = v.object({
-  // TODO: Add dimensions attributes
+	// Inherited attribute classes
+	...AttrHeightSchema.entries,
+	...AttrWidthSchema.entries,
 });
 
 export type AttrDimensionsData = v.InferOutput<typeof AttrDimensionsSchema>;

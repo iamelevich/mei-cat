@@ -1,11 +1,13 @@
 import * as v from "valibot";
 
 /**
- * Attributes for meterSigGrp.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.meterSigGrp.anl.html
  */
 export const AttrMeterSigGrpAnlSchema = v.object({
-  // TODO: Add meterSigGrp.anl attributes
+	// No attributes in MEI schema
 });
 
-export type AttrMeterSigGrpAnlData = v.InferOutput<typeof AttrMeterSigGrpAnlSchema>;
+export type AttrMeterSigGrpAnlData = v.InferOutput<
+	typeof AttrMeterSigGrpAnlSchema
+>;

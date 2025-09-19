@@ -1,11 +1,20 @@
 import * as v from "valibot";
+import { type PData, PSchema } from "..";
 
 /**
- * Groups elements that represent paragraph-like elements.
+ * Groups paragraph-like elements.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.pLike.html
  */
-export const PLikeSchema = v.object({
-  // TODO: Add paragraph-like elements
+export const ModelPLikeSchema: v.GenericSchema<ModelPLikeData> = v.object({
+	/**
+	 * One or more text phrases that form a logical prose passage.
+	 * @see https://music-encoding.org/guidelines/v5/elements/p.html
+	 */
+	p: v.optional(
+		v.union([v.lazy(() => PSchema), v.array(v.lazy(() => PSchema))]),
+	),
 });
 
-export type PLikeData = v.InferOutput<typeof PLikeSchema>;
+export type ModelPLikeData = {
+	p?: PData | PData[];
+};

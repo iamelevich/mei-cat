@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for grpSym.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.grpSym.anl.html
  */
 export const AttrGrpSymAnlSchema = v.object({
-  // TODO: Add grpSym.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrGrpSymAnlData = v.InferOutput<typeof AttrGrpSymAnlSchema>;

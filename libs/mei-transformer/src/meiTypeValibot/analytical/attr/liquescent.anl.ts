@@ -1,11 +1,13 @@
 import * as v from "valibot";
 
 /**
- * Attributes for liquescent.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.liquescent.anl.html
  */
 export const AttrLiquescentAnlSchema = v.object({
-  // TODO: Add liquescent.anl attributes
+	// No attributes in MEI schema
 });
 
-export type AttrLiquescentAnlData = v.InferOutput<typeof AttrLiquescentAnlSchema>;
+export type AttrLiquescentAnlData = v.InferOutput<
+	typeof AttrLiquescentAnlSchema
+>;

@@ -1,11 +1,22 @@
 import * as v from "valibot";
+import { type ItemData, ItemSchema } from "..";
 
 /**
- * Groups elements that represent item-like elements.
+ * Collects FRBR item-like elements.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.itemLike.html
  */
-export const ItemLikeSchema = v.object({
-  // TODO: Add item-like elements
-});
+export const ModelItemLikeSchema: v.GenericSchema<ModelItemLikeData> = v.object(
+	{
+		/**
+		 * Single instance or exemplar of a source/manifestation.
+		 * @see https://music-encoding.org/guidelines/v5/elements/item.html
+		 */
+		item: v.optional(
+			v.union([v.lazy(() => ItemSchema), v.array(v.lazy(() => ItemSchema))]),
+		),
+	},
+);
 
-export type ItemLikeData = v.InferOutput<typeof ItemLikeSchema>;
+export type ModelItemLikeData = {
+	item?: ItemData | ItemData[];
+};

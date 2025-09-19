@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrJoinedSchema } from "../../shared";
 
 /**
- * Attributes for slur.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.slur.anl.html
  */
 export const AttrSlurAnlSchema = v.object({
-  // TODO: Add slur.anl attributes
+	// Inherited attribute classes
+	...AttrJoinedSchema.entries,
 });
 
 export type AttrSlurAnlData = v.InferOutput<typeof AttrSlurAnlSchema>;

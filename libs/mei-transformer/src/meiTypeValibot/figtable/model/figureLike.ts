@@ -1,11 +1,21 @@
 import * as v from "valibot";
+import { type FigData, FigSchema } from "..";
 
 /**
- * Groups elements that represent figure-like elements.
+ * Groups elements representing or containing graphic information such as an illustration or figure.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.figureLike.html
  */
-export const FigureLikeSchema = v.object({
-  // TODO: Add figure-like elements
-});
+export const ModelFigureLikeSchema: v.GenericSchema<ModelFigureLikeData> =
+	v.object({
+		/**
+		 * Groups elements representing or containing graphic information such as an illustration or figure.
+		 * @see https://music-encoding.org/guidelines/v5/elements/fig.html
+		 */
+		fig: v.optional(
+			v.union([v.lazy(() => FigSchema), v.array(v.lazy(() => FigSchema))]),
+		),
+	});
 
-export type FigureLikeData = v.InferOutput<typeof FigureLikeSchema>;
+export type ModelFigureLikeData = {
+	fig?: FigData | FigData[];
+};

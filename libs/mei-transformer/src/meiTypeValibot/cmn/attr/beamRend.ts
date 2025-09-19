@@ -1,28 +1,27 @@
 import * as v from "valibot";
 
 /**
- * Attributes that record the visual rendition of beams.
+ * Attributes that record the visual rendition of beams..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.beamRend.html
  */
 export const AttrBeamRendSchema = v.object({
+	// Direct attributes
 	/**
 	 * Captures whether a beam is "feathered" and in which direction.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.beamRend.html#form
 	 */
-	"@form": v.optional(
-		v.union([
-			v.literal("acc"),
-			v.literal("mixed"),
-			v.literal("rit"),
-			v.literal("norm"),
-		]),
-	),
-
+	"@form": v.optional(v.string()),
 	/**
 	 * Records the placement of the beam relative to the events it affects.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.beamRend.html#place
 	 */
 	"@place": v.optional(v.string()),
+	/**
+	 * Indicates presence of slash through the beam.
+	 */
+	"@slash": v.optional(v.string()),
+	/**
+	 * Records the slope of the beam.
+	 */
+	"@slope": v.optional(v.string()),
 });
 
 export type AttrBeamRendData = v.InferOutput<typeof AttrBeamRendSchema>;

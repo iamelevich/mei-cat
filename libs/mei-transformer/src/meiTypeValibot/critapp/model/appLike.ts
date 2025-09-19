@@ -1,13 +1,13 @@
 import * as v from "valibot";
-import { type AppData, AppSchema } from "../app";
+import { type AppData, AppSchema } from "..";
 
 /**
- * Groups elements that represent app-like elements.
+ * Groups elements that contain a critical apparatus entry.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.appLike.html
  */
-export const AppLikeSchema: v.GenericSchema<AppLikeData> = v.object({
+export const ModelAppLikeSchema: v.GenericSchema<ModelAppLikeData> = v.object({
 	/**
-	 * Contains one or more alternative encodings for the same point in a text.
+	 * Contains one or more alternative encodings.
 	 * @see https://music-encoding.org/guidelines/v5/elements/app.html
 	 */
 	app: v.optional(
@@ -15,6 +15,6 @@ export const AppLikeSchema: v.GenericSchema<AppLikeData> = v.object({
 	),
 });
 
-export type AppLikeData = {
+export type ModelAppLikeData = {
 	app?: AppData | AppData[];
 };

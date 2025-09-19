@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrNumberPlacementSchema } from "../../cmn";
 
 /**
- * Attributes for bTrem.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.bTrem.vis.html
  */
 export const AttrBTremVisSchema = v.object({
-  // TODO: Add bTrem.vis attributes
+	// Inherited attribute classes
+	...AttrNumberPlacementSchema.entries,
 });
 
 export type AttrBTremVisData = v.InferOutput<typeof AttrBTremVisSchema>;

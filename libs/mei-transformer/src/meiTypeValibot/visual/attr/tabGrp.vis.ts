@@ -1,11 +1,25 @@
 import * as v from "valibot";
+import { AttrAltSymSchema } from "../../usersymbols";
+import { AttrExtSymSchema } from "../../externalsymbols";
+import {
+	AttrVisibilitySchema,
+	AttrVisualOffsetHoSchema,
+	AttrVisualOffsetToSchema,
+	AttrXySchema,
+} from "../../shared";
 
 /**
- * Attributes for tabGrp.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.tabGrp.vis.html
  */
 export const AttrTabGrpVisSchema = v.object({
-  // TODO: Add tabGrp.vis attributes
+	// Inherited attribute classes
+	...AttrAltSymSchema.entries,
+	...AttrExtSymSchema.entries,
+	...AttrVisibilitySchema.entries,
+	...AttrVisualOffsetHoSchema.entries,
+	...AttrVisualOffsetToSchema.entries,
+	...AttrXySchema.entries,
 });
 
 export type AttrTabGrpVisData = v.InferOutput<typeof AttrTabGrpVisSchema>;

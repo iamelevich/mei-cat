@@ -1,11 +1,17 @@
 import * as v from "valibot";
 
 /**
- * Attributes for melodicFunction.
+ * Attributes describing melodic function..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.melodicFunction.html
  */
 export const AttrMelodicFunctionSchema = v.object({
-  // TODO: Add melodicFunction attributes
+	// Direct attributes
+	/**
+	 * Describes melodic function using <ref target="https://www.humdrum.org/rep/embel/">Humdrum **embel syntax</ref>.
+	 */
+	"@mfunc": v.optional(v.string()),
 });
 
-export type AttrMelodicFunctionData = v.InferOutput<typeof AttrMelodicFunctionSchema>;
+export type AttrMelodicFunctionData = v.InferOutput<
+	typeof AttrMelodicFunctionSchema
+>;

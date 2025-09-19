@@ -1,11 +1,33 @@
 import * as v from "valibot";
+import { AttrAltSymSchema } from "../../usersymbols";
+import {
+	AttrColorSchema,
+	AttrEnclosingCharsSchema,
+	AttrStaffLocSchema,
+	AttrTypographySchema,
+	AttrVisibilitySchema,
+	AttrVisualOffsetHoSchema,
+	AttrXySchema,
+} from "../../shared";
+import { AttrExtSymSchema } from "../../externalsymbols";
 
 /**
- * Attributes for strophicus.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.strophicus.vis.html
  */
 export const AttrStrophicusVisSchema = v.object({
-  // TODO: Add strophicus.vis attributes
+	// Inherited attribute classes
+	...AttrAltSymSchema.entries,
+	...AttrColorSchema.entries,
+	...AttrEnclosingCharsSchema.entries,
+	...AttrExtSymSchema.entries,
+	...AttrStaffLocSchema.entries,
+	...AttrTypographySchema.entries,
+	...AttrVisibilitySchema.entries,
+	...AttrVisualOffsetHoSchema.entries,
+	...AttrXySchema.entries,
 });
 
-export type AttrStrophicusVisData = v.InferOutput<typeof AttrStrophicusVisSchema>;
+export type AttrStrophicusVisData = v.InferOutput<
+	typeof AttrStrophicusVisSchema
+>;

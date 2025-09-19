@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for sb.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.sb.ges.html
  */
 export const AttrSbGesSchema = v.object({
-  // TODO: Add sb.ges attributes
+	// No attributes in MEI schema
 });
 
 export type AttrSbGesData = v.InferOutput<typeof AttrSbGesSchema>;

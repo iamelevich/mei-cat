@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for refrain.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.refrain.ges.html
  */
 export const AttrRefrainGesSchema = v.object({
-  // TODO: Add refrain.ges attributes
+	// No attributes in MEI schema
 });
 
 export type AttrRefrainGesData = v.InferOutput<typeof AttrRefrainGesSchema>;

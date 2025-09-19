@@ -1,11 +1,24 @@
 import * as v from "valibot";
+import { type KeySigData, KeySigSchema } from "..";
 
 /**
- * Groups elements that represent key signature-like elements.
+ * Groups elements that have the same function as a key signature.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.keySigLike.html
  */
-export const KeySigLikeSchema = v.object({
-  // TODO: Add key signature-like elements
-});
+export const ModelKeySigLikeSchema: v.GenericSchema<ModelKeySigLikeData> =
+	v.object({
+		/**
+		 * Written key signature.
+		 * @see https://music-encoding.org/guidelines/v5/elements/keySig.html
+		 */
+		keySig: v.optional(
+			v.union([
+				v.lazy(() => KeySigSchema),
+				v.array(v.lazy(() => KeySigSchema)),
+			]),
+		),
+	});
 
-export type KeySigLikeData = v.InferOutput<typeof KeySigLikeSchema>;
+export type ModelKeySigLikeData = {
+	keySig?: KeySigData | KeySigData[];
+};

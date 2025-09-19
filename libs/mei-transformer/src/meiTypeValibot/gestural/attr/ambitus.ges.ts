@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for ambitus.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.ambitus.ges.html
  */
 export const AttrAmbitusGesSchema = v.object({
-  // TODO: Add ambitus.ges attributes
+	// No attributes in MEI schema
 });
 
 export type AttrAmbitusGesData = v.InferOutput<typeof AttrAmbitusGesSchema>;

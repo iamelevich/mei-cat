@@ -1,11 +1,14 @@
 import * as v from "valibot";
+import { AttrDurationGesSchema, AttrTimestamp2GesSchema } from "..";
 
 /**
- * Attributes for phrase.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.phrase.ges.html
  */
 export const AttrPhraseGesSchema = v.object({
-  // TODO: Add phrase.ges attributes
+	// Inherited attribute classes
+	...AttrDurationGesSchema.entries,
+	...AttrTimestamp2GesSchema.entries,
 });
 
 export type AttrPhraseGesData = v.InferOutput<typeof AttrPhraseGesSchema>;

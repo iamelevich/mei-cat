@@ -1,11 +1,17 @@
 import * as v from "valibot";
 
 /**
- * Attributes for instrumentIdent.
+ * Attributes which identify a MIDI instrument..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.instrumentIdent.html
  */
 export const AttrInstrumentIdentSchema = v.object({
-  // TODO: Add instrumentIdent attributes
+	// Direct attributes
+	/**
+	 * Provides a way of pointing to a MIDI instrument definition. It must contain the ID of an <gi scheme="MEI">instrDef</gi> element elsewhere in the document.
+	 */
+	"@instr": v.optional(v.string()),
 });
 
-export type AttrInstrumentIdentData = v.InferOutput<typeof AttrInstrumentIdentSchema>;
+export type AttrInstrumentIdentData = v.InferOutput<
+	typeof AttrInstrumentIdentSchema
+>;

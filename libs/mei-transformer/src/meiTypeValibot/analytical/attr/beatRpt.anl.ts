@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for beatRpt.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.beatRpt.anl.html
  */
 export const AttrBeatRptAnlSchema = v.object({
-  // TODO: Add beatRpt.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrBeatRptAnlData = v.InferOutput<typeof AttrBeatRptAnlSchema>;

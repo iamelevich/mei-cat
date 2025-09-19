@@ -1,11 +1,24 @@
 import * as v from "valibot";
+import { type ExpressionData, ExpressionSchema } from "..";
 
 /**
- * Groups elements that represent expression-like elements.
+ * Collects FRBR expression-like elements.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.expressionLike.html
  */
-export const ExpressionLikeSchema = v.object({
-  // TODO: Add expression-like elements
-});
+export const ModelExpressionLikeSchema: v.GenericSchema<ModelExpressionLikeData> =
+	v.object({
+		/**
+		 * Intellectual or artistic realization of a work.
+		 * @see https://music-encoding.org/guidelines/v5/elements/expression.html
+		 */
+		expression: v.optional(
+			v.union([
+				v.lazy(() => ExpressionSchema),
+				v.array(v.lazy(() => ExpressionSchema)),
+			]),
+		),
+	});
 
-export type ExpressionLikeData = v.InferOutput<typeof ExpressionLikeSchema>;
+export type ModelExpressionLikeData = {
+	expression?: ExpressionData | ExpressionData[];
+};

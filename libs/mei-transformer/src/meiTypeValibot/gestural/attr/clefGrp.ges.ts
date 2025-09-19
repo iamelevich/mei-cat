@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for clefGrp.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.clefGrp.ges.html
  */
 export const AttrClefGrpGesSchema = v.object({
-  // TODO: Add clefGrp.ges attributes
+	// No attributes in MEI schema
 });
 
 export type AttrClefGrpGesData = v.InferOutput<typeof AttrClefGrpGesSchema>;

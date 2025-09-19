@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for chordDef.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.chordDef.vis.html
  */
 export const AttrChordDefVisSchema = v.object({
-  // TODO: Add chordDef.vis attributes
+	// No attributes in MEI schema
 });
 
 export type AttrChordDefVisData = v.InferOutput<typeof AttrChordDefVisSchema>;

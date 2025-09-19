@@ -1,11 +1,15 @@
 import * as v from "valibot";
 
 /**
- * Attributes for tuning logging.
+ * Logical domain attributes for tuning..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.tuning.log.html
  */
 export const AttrTuningLogSchema = v.object({
-  // TODO: Add tuning logging attributes
+	// Direct attributes
+	/**
+	 * Describes the tuning standard used.
+	 */
+	"@tuning.standard": v.optional(v.string()),
 });
 
 export type AttrTuningLogData = v.InferOutput<typeof AttrTuningLogSchema>;

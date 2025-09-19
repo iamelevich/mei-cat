@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for line.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.line.anl.html
  */
 export const AttrLineAnlSchema = v.object({
-  // TODO: Add line.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrLineAnlData = v.InferOutput<typeof AttrLineAnlSchema>;

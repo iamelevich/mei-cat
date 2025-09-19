@@ -1,11 +1,21 @@
 import * as v from "valibot";
+import { AttrStartIdSchema } from "../../shared";
 
 /**
- * Attributes for anchoredText.log.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.anchoredText.log.html
  */
 export const AttrAnchoredTextLogSchema = v.object({
-  // TODO: Add anchoredText.log attributes
+	// Inherited attribute classes
+	...AttrStartIdSchema.entries,
+
+	// Direct attributes
+	/**
+	 * Indicates the function of the text.
+	 */
+	"@func": v.optional(v.string()),
 });
 
-export type AttrAnchoredTextLogData = v.InferOutput<typeof AttrAnchoredTextLogSchema>;
+export type AttrAnchoredTextLogData = v.InferOutput<
+	typeof AttrAnchoredTextLogSchema
+>;

@@ -1,11 +1,20 @@
 import * as v from "valibot";
+import { AttrColorSchema, AttrVisibilitySchema } from "../../shared";
 
 /**
- * Attributes for keySig.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.keySig.vis.html
  */
 export const AttrKeySigVisSchema = v.object({
-  // TODO: Add keySig.vis attributes
+	// Inherited attribute classes
+	...AttrColorSchema.entries,
+	...AttrVisibilitySchema.entries,
+
+	// Direct attributes
+	/**
+	 * Determines where cautionary accidentals should be displayed at a key change.
+	 */
+	"@cancelaccid": v.optional(v.string()),
 });
 
 export type AttrKeySigVisData = v.InferOutput<typeof AttrKeySigVisSchema>;

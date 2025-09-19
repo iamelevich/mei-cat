@@ -1,11 +1,24 @@
 import * as v from "valibot";
+import {
+	type ModelHeadLikeData,
+	ModelHeadLikeSchema,
+	type ModelPLikeData,
+	ModelPLikeSchema,
+	type ModelTextPhraseLikeLimitedData,
+	ModelTextPhraseLikeLimitedSchema,
+} from "..";
 
 /**
- * Macro group for structured and unstructured content.
+ * Provides a choice between structured and unstructured/mixed content.
  * @see https://music-encoding.org/guidelines/v5/macro-groups/macro.struc-unstrucContent.html
  */
-export const MacroStrucUnstrucContentSchema = v.object({
-  // TODO: Add structured and unstructured content elements
-});
+export const MacroStrucUnstrucContentSchema: v.GenericSchema<MacroStrucUnstrucContentData> =
+	v.intersect([
+		ModelHeadLikeSchema,
+		ModelPLikeSchema,
+		ModelTextPhraseLikeLimitedSchema,
+	]);
 
-export type MacroStrucUnstrucContentData = v.InferOutput<typeof MacroStrucUnstrucContentSchema>;
+export type MacroStrucUnstrucContentData = ModelHeadLikeData &
+	ModelPLikeData &
+	ModelTextPhraseLikeLimitedData;

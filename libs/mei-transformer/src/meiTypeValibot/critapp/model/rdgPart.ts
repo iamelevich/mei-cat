@@ -1,16 +1,23 @@
 import * as v from "valibot";
-import { SylLikeSchema } from "../../shared";
-import { RdgPartMusicSchema } from "./rdgPart.music";
-import { RdgPartTextSchema } from "./rdgPart.text";
+import {
+	type ModelRdgPartMusicData,
+	ModelRdgPartMusicSchema,
+	type ModelRdgPartTextData,
+	ModelRdgPartTextSchema,
+} from "..";
+import { type ModelSylLikeData, ModelSylLikeSchema } from "../../shared";
 
 /**
- * Groups elements that represent reading parts.
+ * Groups elements that may appear as part of a textual or musical variant.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.rdgPart.html
  */
-export const RdgPartSchema = v.intersect([
-	RdgPartMusicSchema,
-	RdgPartTextSchema,
-	SylLikeSchema,
-]);
+export const ModelRdgPartSchema: v.GenericSchema<ModelRdgPartData> =
+	v.intersect([
+		ModelRdgPartMusicSchema,
+		ModelRdgPartTextSchema,
+		ModelSylLikeSchema,
+	]);
 
-export type RdgPartData = v.InferOutput<typeof RdgPartSchema>;
+export type ModelRdgPartData = ModelRdgPartMusicData &
+	ModelRdgPartTextData &
+	ModelSylLikeData;

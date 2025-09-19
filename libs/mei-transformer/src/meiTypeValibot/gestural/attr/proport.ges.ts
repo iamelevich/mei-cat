@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for proport.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.proport.ges.html
  */
 export const AttrProportGesSchema = v.object({
-  // TODO: Add proport.ges attributes
+	// No attributes in MEI schema
 });
 
 export type AttrProportGesData = v.InferOutput<typeof AttrProportGesSchema>;

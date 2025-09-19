@@ -6,10 +6,11 @@ import {
 } from "../../shared";
 
 /**
- * Attributes for mRest.log.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.mRest.log.html
  */
 export const AttrMRestLogSchema = v.object({
+	// Inherited attribute classes
 	...AttrCueSchema.entries,
 	...AttrDurationAdditiveSchema.entries,
 	...AttrEventSchema.entries,

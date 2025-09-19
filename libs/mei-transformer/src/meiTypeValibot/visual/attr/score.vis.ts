@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for score.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.score.vis.html
  */
 export const AttrScoreVisSchema = v.object({
-  // TODO: Add score.vis attributes
+	// No attributes in MEI schema
 });
 
 export type AttrScoreVisData = v.InferOutput<typeof AttrScoreVisSchema>;

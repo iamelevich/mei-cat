@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for syl.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.syl.anl.html
  */
 export const AttrSylAnlSchema = v.object({
-  // TODO: Add syl.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrSylAnlData = v.InferOutput<typeof AttrSylAnlSchema>;

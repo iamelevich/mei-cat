@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for ambitus.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.ambitus.vis.html
  */
 export const AttrAmbitusVisSchema = v.object({
-  // TODO: Add ambitus.vis attributes
+	// No attributes in MEI schema
 });
 
 export type AttrAmbitusVisData = v.InferOutput<typeof AttrAmbitusVisSchema>;

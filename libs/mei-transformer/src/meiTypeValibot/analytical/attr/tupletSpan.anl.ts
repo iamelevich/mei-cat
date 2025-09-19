@@ -1,11 +1,15 @@
 import * as v from "valibot";
+import { AttrTupletAnlSchema } from "..";
 
 /**
- * Attributes for tupletSpan.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.tupletSpan.anl.html
  */
 export const AttrTupletSpanAnlSchema = v.object({
-  // TODO: Add tupletSpan.anl attributes
+	// Inherited attribute classes
+	...AttrTupletAnlSchema.entries,
 });
 
-export type AttrTupletSpanAnlData = v.InferOutput<typeof AttrTupletSpanAnlSchema>;
+export type AttrTupletSpanAnlData = v.InferOutput<
+	typeof AttrTupletSpanAnlSchema
+>;

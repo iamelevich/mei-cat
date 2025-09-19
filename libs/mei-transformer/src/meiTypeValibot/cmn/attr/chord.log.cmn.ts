@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrGracedSchema } from "..";
 
 /**
- * Attributes for chord.log.cmn.
+ * Logical domain attributes in the CMN repertoire..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.chord.log.cmn.html
  */
 export const AttrChordLogCmnSchema = v.object({
-  // TODO: Add chord.log.cmn attributes
+	// Inherited attribute classes
+	...AttrGracedSchema.entries,
 });
 
 export type AttrChordLogCmnData = v.InferOutput<typeof AttrChordLogCmnSchema>;

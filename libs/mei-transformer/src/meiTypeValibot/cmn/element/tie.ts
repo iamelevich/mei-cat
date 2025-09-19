@@ -1,0 +1,41 @@
+import * as v from "valibot";
+import { StandardTagSchema } from "../../common";
+import { AttrCommonSchema } from "../../shared";
+import { AttrFacsimileSchema } from "../../facsimile";
+import { AttrTieAnlSchema } from "../../analytical";
+import { AttrTieGesSchema } from "../../gestural";
+import { AttrTieLogSchema } from "..";
+import { AttrTieVisSchema } from "../../visual";
+import { CurveSchema } from "../../usersymbols";
+
+/**
+ * Base schema with attribute, to simplify types for TieSchema
+ */
+const TieBaseSchema = v.object({
+	...StandardTagSchema.entries,
+	...AttrCommonSchema.entries,
+	...AttrFacsimileSchema.entries,
+	...AttrTieAnlSchema.entries,
+	...AttrTieGesSchema.entries,
+	...AttrTieLogSchema.entries,
+	...AttrTieVisSchema.entries,
+});
+
+/**
+ * An indication that two notes of the same pitch form a single note with their combined rhythmic values.
+ * @see https://music-encoding.org/guidelines/v5/elements/tie.html
+ */
+export const TieSchema = v.intersect([
+	TieBaseSchema,
+	v.object({
+		/**
+		 * Reference to element curve
+		 * @see https://music-encoding.org/guidelines/v5/elements/curve.html
+		 */
+		curve: v.optional(
+			v.union([v.lazy(() => CurveSchema), v.array(v.lazy(() => CurveSchema))]),
+		),
+	}),
+]);
+
+export type TieData = v.InferOutput<typeof TieSchema>;

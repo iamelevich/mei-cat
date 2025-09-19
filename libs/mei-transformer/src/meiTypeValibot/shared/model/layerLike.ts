@@ -1,11 +1,21 @@
 import * as v from "valibot";
+import { type LayerData, LayerSchema } from "..";
 
 /**
- * Groups elements that represent layers.
+ * Groups elements that function as notational layers within a staff.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.layerLike.html
  */
-export const LayerLikeSchema = v.object({
-  // TODO: Add layer elements
-});
+export const ModelLayerLikeSchema: v.GenericSchema<ModelLayerLikeData> =
+	v.object({
+		/**
+		 * An independent stream of events on a staff.
+		 * @see https://music-encoding.org/guidelines/v5/elements/layer.html
+		 */
+		layer: v.optional(
+			v.union([v.lazy(() => LayerSchema), v.array(v.lazy(() => LayerSchema))]),
+		),
+	});
 
-export type LayerLikeData = v.InferOutput<typeof LayerLikeSchema>;
+export type ModelLayerLikeData = {
+	layer?: LayerData | LayerData[];
+};

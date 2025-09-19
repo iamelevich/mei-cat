@@ -1,11 +1,21 @@
 import * as v from "valibot";
+import { type IncipData, IncipSchema } from "..";
 
 /**
- * Groups elements that represent incipit-like elements.
+ * Groups elements used to represent a textual or musical incipit.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.incipLike.html
  */
-export const IncipLikeSchema = v.object({
-  // TODO: Add incipit-like elements
-});
+export const ModelIncipLikeSchema: v.GenericSchema<ModelIncipLikeData> =
+	v.object({
+		/**
+		 * The opening music and/or words of a musical or textual work.
+		 * @see https://music-encoding.org/guidelines/v5/elements/incip.html
+		 */
+		incip: v.optional(
+			v.union([v.lazy(() => IncipSchema), v.array(v.lazy(() => IncipSchema))]),
+		),
+	});
 
-export type IncipLikeData = v.InferOutput<typeof IncipLikeSchema>;
+export type ModelIncipLikeData = {
+	incip?: IncipData | IncipData[];
+};

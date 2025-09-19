@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for pb.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.pb.anl.html
  */
 export const AttrPbAnlSchema = v.object({
-  // TODO: Add pb.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrPbAnlData = v.InferOutput<typeof AttrPbAnlSchema>;

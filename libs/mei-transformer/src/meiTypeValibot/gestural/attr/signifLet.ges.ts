@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for signifLet.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.signifLet.ges.html
  */
 export const AttrSignifLetGesSchema = v.object({
-  // TODO: Add signifLet.ges attributes
+	// No attributes in MEI schema
 });
 
 export type AttrSignifLetGesData = v.InferOutput<typeof AttrSignifLetGesSchema>;

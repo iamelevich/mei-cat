@@ -1,11 +1,13 @@
 import * as v from "valibot";
+import { AttrBeamVisSchema } from "..";
 
 /**
- * Attributes for beamSpan.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.beamSpan.vis.html
  */
 export const AttrBeamSpanVisSchema = v.object({
-  // TODO: Add beamSpan.vis attributes
+	// Inherited attribute classes
+	...AttrBeamVisSchema.entries,
 });
 
 export type AttrBeamSpanVisData = v.InferOutput<typeof AttrBeamSpanVisSchema>;

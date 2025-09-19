@@ -1,11 +1,13 @@
 import * as v from "valibot";
 
 /**
- * Attributes for scoreDef.vis.tablature.
+ * Visual domain attributes for scoreDef in the tablature repertoire..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.scoreDef.vis.tablature.html
  */
 export const AttrScoreDefVisTablatureSchema = v.object({
-  // TODO: Add scoreDef.vis.tablature attributes
+	// No attributes in MEI schema
 });
 
-export type AttrScoreDefVisTablatureData = v.InferOutput<typeof AttrScoreDefVisTablatureSchema>;
+export type AttrScoreDefVisTablatureData = v.InferOutput<
+	typeof AttrScoreDefVisTablatureSchema
+>;

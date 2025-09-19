@@ -11,16 +11,17 @@ import {
 } from "../../shared";
 
 /**
- * Logical domain attributes for cpMark.
+ * Logical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.cpMark.log.html
  */
 export const AttrCpMarkLogSchema = v.object({
+	// Inherited attribute classes
 	...AttrControlEventSchema.entries,
-	...AttrOriginTimestampLogSchema.entries,
-	...AttrOriginStaffIdentSchema.entries,
-	...AttrOriginLayerIdentSchema.entries,
-	...AttrOriginStartEndIdSchema.entries,
 	...AttrOctaveDisplacementSchema.entries,
+	...AttrOriginLayerIdentSchema.entries,
+	...AttrOriginStaffIdentSchema.entries,
+	...AttrOriginStartEndIdSchema.entries,
+	...AttrOriginTimestampLogSchema.entries,
 	...AttrStartEndIdSchema.entries,
 	...AttrTimestamp2LogSchema.entries,
 });

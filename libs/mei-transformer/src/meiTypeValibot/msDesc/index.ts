@@ -1,36 +1,3 @@
-// Elements
-export * from "./accMat";
-export * from "./addDesc";
-export * from "./binding";
-export * from "./bindingDesc";
-export * from "./catchwords";
-export * from "./collation";
-export * from "./colophon";
-export * from "./decoDesc";
-export * from "./decoNote";
-export * from "./explicit";
-export * from "./foliation";
-export * from "./heraldry";
-export * from "./layout";
-export * from "./layoutDesc";
-export * from "./locus";
-export * from "./locusGrp";
-export * from "./rubric";
-export * from "./scriptDesc";
-export * from "./scriptNote";
-export * from "./seal";
-export * from "./sealDesc";
-export * from "./secFolio";
-export * from "./signatures";
-export * from "./stamp";
-export * from "./support";
-export * from "./supportDesc";
-export * from "./typeDesc";
-export * from "./typeNote";
-
-// Attributes
-export * from "./attr/componentType";
-export * from "./attr/foliation.scheme";
-
-// Models
-export * from "./model/msInline";
+export * from "./attr";
+export * from "./element";
+export * from "./model";

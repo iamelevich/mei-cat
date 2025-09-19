@@ -1,11 +1,21 @@
 import * as v from "valibot";
+import { AttrPerfResBasicSchema } from "..";
+import { AttrTranspositionSchema } from "../../shared";
 
 /**
- * Attributes for performance responsibility.
+ * Attributes that define the characteristics and components of the performance resource..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.perfRes.html
  */
 export const AttrPerfResSchema = v.object({
-  // TODO: Add performance responsibility attributes
+	// Inherited attribute classes
+	...AttrPerfResBasicSchema.entries,
+	...AttrTranspositionSchema.entries,
+
+	// Direct attributes
+	/**
+	 * Use this attribute to identify the performance resource as a soloist especially in an accompanied work, such as a concerto or vocal solo.
+	 */
+	"@solo": v.optional(v.string()),
 });
 
 export type AttrPerfResData = v.InferOutput<typeof AttrPerfResSchema>;

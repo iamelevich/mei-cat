@@ -1,11 +1,13 @@
 import * as v from "valibot";
 
 /**
- * Attributes for anchoredText.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.anchoredText.ges.html
  */
 export const AttrAnchoredTextGesSchema = v.object({
-  // TODO: Add anchoredText.ges attributes
+	// No attributes in MEI schema
 });
 
-export type AttrAnchoredTextGesData = v.InferOutput<typeof AttrAnchoredTextGesSchema>;
+export type AttrAnchoredTextGesData = v.InferOutput<
+	typeof AttrAnchoredTextGesSchema
+>;

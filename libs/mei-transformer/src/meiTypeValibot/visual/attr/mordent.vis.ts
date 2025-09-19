@@ -1,11 +1,29 @@
 import * as v from "valibot";
+import { AttrAltSymSchema } from "../../usersymbols";
+import {
+	AttrColorSchema,
+	AttrEnclosingCharsSchema,
+	AttrPlacementRelStaffSchema,
+	AttrTypographySchema,
+	AttrVerticalGroupSchema,
+	AttrVisualOffsetSchema,
+} from "../../shared";
+import { AttrExtSymSchema } from "../../externalsymbols";
 
 /**
- * Attributes for mordent.vis.
+ * Visual domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.mordent.vis.html
  */
 export const AttrMordentVisSchema = v.object({
-  // TODO: Add mordent.vis attributes
+	// Inherited attribute classes
+	...AttrAltSymSchema.entries,
+	...AttrColorSchema.entries,
+	...AttrEnclosingCharsSchema.entries,
+	...AttrExtSymSchema.entries,
+	...AttrPlacementRelStaffSchema.entries,
+	...AttrTypographySchema.entries,
+	...AttrVerticalGroupSchema.entries,
+	...AttrVisualOffsetSchema.entries,
 });
 
 export type AttrMordentVisData = v.InferOutput<typeof AttrMordentVisSchema>;

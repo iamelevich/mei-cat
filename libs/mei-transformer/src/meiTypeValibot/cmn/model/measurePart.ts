@@ -1,39 +1,33 @@
 import * as v from "valibot";
 import {
-	type ControlEventLikeData,
-	ControlEventLikeSchema,
-	type MidiLikeData,
-	MidiLikeSchema,
-	type StaffLikeData,
-	StaffLikeSchema,
+	type ModelControlEventLikeData,
+	ModelControlEventLikeSchema,
+	type ModelStaffLikeData,
+	ModelStaffLikeSchema,
 } from "../../shared";
 import {
-	type ControlEventLikeCmnData,
-	ControlEventLikeCmnSchema,
-} from "./controlEventLike.cmn";
-import { type OssiaLikeData, OssiaLikeSchema } from "./ossiaLike";
-
-// Base schema with attributes only
-const MeasurePartBaseSchema = v.object({});
-
-type MeasurePartBaseData = v.InferOutput<typeof MeasurePartBaseSchema>;
+	type ModelControlEventLikeCmnData,
+	ModelControlEventLikeCmnSchema,
+	type ModelOssiaLikeData,
+	ModelOssiaLikeSchema,
+} from "..";
+import { type ModelMidiLikeData, ModelMidiLikeSchema } from "../../midi";
 
 /**
  * Groups elements that may appear within a CMN measure.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.measurePart.html
  */
-export const MeasurePartSchema: v.GenericSchema<MeasurePartData> = v.intersect([
-	MeasurePartBaseSchema,
-	ControlEventLikeSchema,
-	ControlEventLikeCmnSchema,
-	MidiLikeSchema,
-	OssiaLikeSchema,
-	StaffLikeSchema,
-]);
+export const ModelMeasurePartSchema: v.GenericSchema<ModelMeasurePartData> =
+	v.intersect([
+		ModelControlEventLikeSchema,
+		ModelControlEventLikeCmnSchema,
+		ModelMidiLikeSchema,
+		ModelOssiaLikeSchema,
+		ModelStaffLikeSchema,
+	]);
 
-export type MeasurePartData = MeasurePartBaseData &
-	ControlEventLikeData &
-	ControlEventLikeCmnData &
-	MidiLikeData &
-	OssiaLikeData &
-	StaffLikeData;
+export type ModelMeasurePartData = ModelControlEventLikeData &
+	ModelControlEventLikeCmnData &
+	ModelMidiLikeData &
+	ModelOssiaLikeData &
+	ModelStaffLikeData;

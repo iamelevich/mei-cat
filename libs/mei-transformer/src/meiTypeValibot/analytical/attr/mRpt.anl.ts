@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for mRpt.anl.
+ * Analytical domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.mRpt.anl.html
  */
 export const AttrMRptAnlSchema = v.object({
-  // TODO: Add mRpt.anl attributes
+	// No attributes in MEI schema
 });
 
 export type AttrMRptAnlData = v.InferOutput<typeof AttrMRptAnlSchema>;

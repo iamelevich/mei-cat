@@ -1,27 +1,31 @@
 import * as v from "valibot";
 
 /**
- * Attributes that provide date information.
+ * Attributes common to dates..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.datable.html
  */
 export const AttrDatableSchema = v.object({
+	// Direct attributes
 	/**
-	 * Specifies the standard or normalized form of a date according to ISO 8601.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.datable.html#isodate
+	 * Contains the end point of a date range in standard ISO form.
+	 */
+	"@enddate": v.optional(v.string()),
+	/**
+	 * Provides the value of a textual date in standard ISO form.
 	 */
 	"@isodate": v.optional(v.string()),
-
 	/**
-	 * Indicates the certainty of the date.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.datable.html#notafter
+	 * Contains an upper boundary for an uncertain date in standard ISO form.
 	 */
 	"@notafter": v.optional(v.string()),
-
 	/**
-	 * Indicates the certainty of the date.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.datable.html#notbefore
+	 * Contains a lower boundary, in standard ISO form, for an uncertain date.
 	 */
 	"@notbefore": v.optional(v.string()),
+	/**
+	 * Contains the starting point of a date range in standard ISO form.
+	 */
+	"@startdate": v.optional(v.string()),
 });
 
 export type AttrDatableData = v.InferOutput<typeof AttrDatableSchema>;

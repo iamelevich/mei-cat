@@ -1,11 +1,15 @@
 import * as v from "valibot";
 
 /**
- * Attributes for midiValue.
+ * Attributes that record MIDI values..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.midiValue.html
  */
 export const AttrMidiValueSchema = v.object({
-  // TODO: Add midiValue attributes
+	// Direct attributes
+	/**
+	 * MIDI number.
+	 */
+	"@val": v.optional(v.string()),
 });
 
 export type AttrMidiValueData = v.InferOutput<typeof AttrMidiValueSchema>;

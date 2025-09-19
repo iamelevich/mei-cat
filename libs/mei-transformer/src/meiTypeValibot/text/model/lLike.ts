@@ -1,18 +1,20 @@
 import * as v from "valibot";
-import { LSchema } from "../l";
+import { type LData, LSchema } from "..";
 
 /**
- * Groups elements used to represent a line.
+ * Groups elements representing metrical components such as verse lines.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.lLike.html
  */
-export const LLikeSchema = v.object({
-  /**
-   * A visual line consisting of text. May include text and other inline elements.
-   * @see https://music-encoding.org/guidelines/v5/elements/l.html
-   */
-  l: v.optional(
-    v.union([v.lazy(() => LSchema), v.array(v.lazy(() => LSchema))]),
-  ),
+export const ModelLLikeSchema: v.GenericSchema<ModelLLikeData> = v.object({
+	/**
+	 * Contains a single line of text within a line group.
+	 * @see https://music-encoding.org/guidelines/v5/elements/l.html
+	 */
+	l: v.optional(
+		v.union([v.lazy(() => LSchema), v.array(v.lazy(() => LSchema))]),
+	),
 });
 
-export type LLikeData = v.InferOutput<typeof LLikeSchema>;
+export type ModelLLikeData = {
+	l?: LData | LData[];
+};

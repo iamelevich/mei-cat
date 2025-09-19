@@ -1,4 +1,3 @@
-// Attributes
 export * from "./agentIdent";
 export * from "./cpMark.log";
 export * from "./edit";

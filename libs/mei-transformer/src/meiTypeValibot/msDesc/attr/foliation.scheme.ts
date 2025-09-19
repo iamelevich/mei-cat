@@ -1,11 +1,17 @@
 import * as v from "valibot";
 
 /**
- * Attributes for foliation.scheme.
+ * Attributes that describe foliation schemes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.foliation.scheme.html
  */
 export const AttrFoliationSchemeSchema = v.object({
-  // TODO: Add foliation.scheme attributes
+	// Direct attributes
+	/**
+	 * Identifies the foliation scheme in terms of which the location is being specified by pointing to some foliation element defining it, or to some other equivalent resource.
+	 */
+	"@scheme": v.optional(v.string()),
 });
 
-export type AttrFoliationSchemeData = v.InferOutput<typeof AttrFoliationSchemeSchema>;
+export type AttrFoliationSchemeData = v.InferOutput<
+	typeof AttrFoliationSchemeSchema
+>;

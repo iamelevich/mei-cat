@@ -1,11 +1,16 @@
 import * as v from "valibot";
+import { AttrDurationGesSchema, AttrTimestamp2GesSchema } from "..";
 
 /**
- * Attributes for repeatMark.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.repeatMark.ges.html
  */
 export const AttrRepeatMarkGesSchema = v.object({
-  // TODO: Add repeatMark.ges attributes
+	// Inherited attribute classes
+	...AttrDurationGesSchema.entries,
+	...AttrTimestamp2GesSchema.entries,
 });
 
-export type AttrRepeatMarkGesData = v.InferOutput<typeof AttrRepeatMarkGesSchema>;
+export type AttrRepeatMarkGesData = v.InferOutput<
+	typeof AttrRepeatMarkGesSchema
+>;

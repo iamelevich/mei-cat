@@ -1,11 +1,13 @@
 import * as v from "valibot";
 
 /**
- * Attributes for meterSigGrp.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.meterSigGrp.ges.html
  */
 export const AttrMeterSigGrpGesSchema = v.object({
-  // TODO: Add meterSigGrp.ges attributes
+	// No attributes in MEI schema
 });
 
-export type AttrMeterSigGrpGesData = v.InferOutput<typeof AttrMeterSigGrpGesSchema>;
+export type AttrMeterSigGrpGesData = v.InferOutput<
+	typeof AttrMeterSigGrpGesSchema
+>;

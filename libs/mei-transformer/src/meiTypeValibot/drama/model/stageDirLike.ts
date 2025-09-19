@@ -1,11 +1,24 @@
 import * as v from "valibot";
+import { type StageDirData, StageDirSchema } from "..";
 
 /**
- * Groups elements that represent stagedirlike parts.
+ * Groups elements containing stage directions in performance texts.
  * @see https://music-encoding.org/guidelines/v5/model-classes/model.stageDirLike.html
  */
-export const StageDirLikeSchema = v.object({
-  // TODO: Add stagedirlike elements
-});
+export const ModelStageDirLikeSchema: v.GenericSchema<ModelStageDirLikeData> =
+	v.object({
+		/**
+		 * Contains any kind of stage direction within a dramatic text or fragment.
+		 * @see https://music-encoding.org/guidelines/v5/elements/stageDir.html
+		 */
+		stageDir: v.optional(
+			v.union([
+				v.lazy(() => StageDirSchema),
+				v.array(v.lazy(() => StageDirSchema)),
+			]),
+		),
+	});
 
-export type StageDirLikeData = v.InferOutput<typeof StageDirLikeSchema>;
+export type ModelStageDirLikeData = {
+	stageDir?: StageDirData | StageDirData[];
+};

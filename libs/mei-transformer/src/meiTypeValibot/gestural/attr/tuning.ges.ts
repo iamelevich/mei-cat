@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for tuning.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.tuning.ges.html
  */
 export const AttrTuningGesSchema = v.object({
-  // TODO: Add tuning.ges attributes
+	// No attributes in MEI schema
 });
 
 export type AttrTuningGesData = v.InferOutput<typeof AttrTuningGesSchema>;

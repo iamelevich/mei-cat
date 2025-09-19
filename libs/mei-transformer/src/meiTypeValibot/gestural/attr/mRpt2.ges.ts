@@ -1,11 +1,11 @@
 import * as v from "valibot";
 
 /**
- * Attributes for mRpt2.ges.
+ * Gestural domain attributes..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.mRpt2.ges.html
  */
 export const AttrMRpt2GesSchema = v.object({
-  // TODO: Add mRpt2.ges attributes
+	// No attributes in MEI schema
 });
 
 export type AttrMRpt2GesData = v.InferOutput<typeof AttrMRpt2GesSchema>;

@@ -1,21 +1,21 @@
 import * as v from "valibot";
 
 /**
- * Attributes that provide text rendition information.
+ * Attributes that record renditional characteristics..
  * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.textRendition.html
  */
 export const AttrTextRenditionSchema = v.object({
+	// Direct attributes
 	/**
-	 * Indicates the function of the text.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.textRendition.html#rend
+	 * Used to extend the values of the rend attribute.
+	 */
+	"@altrend": v.optional(v.string()),
+	/**
+	 * Captures the appearance of the element’s contents using MEI-defined descriptors.
 	 */
 	"@rend": v.optional(v.string()),
-
-	/**
-	 * Indicates the function of the text.
-	 * @see https://music-encoding.org/guidelines/v5/attribute-classes/att.textRendition.html#rendition
-	 */
-	"@rendition": v.optional(v.string()),
 });
 
-export type AttrTextRenditionData = v.InferOutput<typeof AttrTextRenditionSchema>;
+export type AttrTextRenditionData = v.InferOutput<
+	typeof AttrTextRenditionSchema
+>;

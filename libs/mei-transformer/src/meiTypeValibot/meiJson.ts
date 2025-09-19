@@ -1,7 +1,7 @@
 import * as v from "valibot";
 import { MeiSchema } from "./shared";
 
-export const MeiJsonSchema = v.object({
+export const MeiJsonSchema = v.looseObject({
 	mei: MeiSchema,
 });
 

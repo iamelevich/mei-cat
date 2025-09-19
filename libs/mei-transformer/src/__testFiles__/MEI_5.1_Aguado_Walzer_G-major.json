@@ -1,0 +1,2502 @@
+{
+  "?xml": {
+    "@version": "1.0",
+    "@encoding": "UTF-8"
+  },
+  "?xml-model": [
+    {
+      "@href": "https://music-encoding.org/schema/5.1/mei-all.rng",
+      "@type": "application/xml",
+      "@schematypens": "http://relaxng.org/ns/structure/1.0"
+    },
+    {
+      "@href": "https://music-encoding.org/schema/5.1/mei-all.rng",
+      "@type": "application/xml",
+      "@schematypens": "http://purl.oclc.org/dsdl/schematron"
+    }
+  ],
+  "mei": {
+    "meiHead": {
+      "fileDesc": {
+        "titleStmt": {
+          "title": {
+            "titlePart": {
+              "#text": "an electronic transcription",
+              "@type": "subordinate"
+            },
+            "#text": "Walzer G-Dur"
+          },
+          "composer": {
+            "persName": {
+              "#text": "Dionisio Aguado y García",
+              "@role": "creator",
+              "@codedval": "133912027",
+              "@auth.uri": "http://d-nb.info/gnd/",
+              "@auth": "GND"
+            }
+          },
+          "respStmt": {
+            "persName": [
+              {
+                "#text": "Maja Hartwig",
+                "@role": "encoder"
+              },
+              {
+                "#text": "Kristina Richts",
+                "@role": "encoder"
+              }
+            ]
+          }
+        },
+        "pubStmt": {
+          "publisher": {
+            "corpName": {
+              "#text": "Musikwissenschaftliches Seminar, Detmold",
+              "@role": "publisher",
+              "@codedval": "5115204-6",
+              "@auth.uri": "http://d-nb.info/gnd/",
+              "@auth": "GND"
+            }
+          },
+          "address": {
+            "addrLine": [
+              {
+                "#text": "Gartenstrasse 20"
+              },
+              {
+                "geogName": {
+                  "#text": "Detmold",
+                  "@codedval": "7004442",
+                  "@auth.uri": "http://vocab.getty.edu/page/tgn/",
+                  "@auth": "TGN"
+                },
+                "#text": "32756"
+              },
+              {
+                "geogName": {
+                  "#text": "Germany",
+                  "@codedval": "7000084",
+                  "@auth.uri": "http://vocab.getty.edu/page/tgn/",
+                  "@auth": "TGN"
+                }
+              }
+            ]
+          },
+          "date": {
+            "#text": "2011"
+          },
+          "availability": {
+            "useRestrict": {
+              "#text": "This encoding is in the public domain. However, the sources used to create it may be under copyright. We believe their use by the MEI project for educational and research purposes is covered by the Fair Use doctrine. However, we will remove any material from the project archive when requested to do so by the copyright owner."
+            }
+          }
+        },
+        "seriesStmt": {
+          "title": {
+            "#text": "MEI Sample Collection"
+          },
+          "funder": [
+            {
+              "corpName": {
+                "address": {
+                  "addrLine": [
+                    {
+                      "#text": "Kennedyallee 40"
+                    },
+                    {
+                      "geogName": {
+                        "#text": "Bonn",
+                        "@codedval": "7005090",
+                        "@auth.uri": "http://vocab.getty.edu/page/tgn/",
+                        "@auth": "TGN"
+                      }
+                    },
+                    {
+                      "geogName": {
+                        "#text": "Germany",
+                        "@codedval": "7000084",
+                        "@auth.uri": "http://vocab.getty.edu/page/tgn/",
+                        "@auth": "TGN"
+                      }
+                    }
+                  ]
+                },
+                "#text": "German Research Foundation",
+                "@role": "funder",
+                "@codedval": "2007744-0",
+                "@auth.uri": "http://d-nb.info/gnd/",
+                "@auth": "GND"
+              }
+            },
+            {
+              "corpName": {
+                "address": {
+                  "addrLine": [
+                    {
+                      "#text": "1100 Pennsylvania Avenue N.W."
+                    },
+                    {
+                      "geogName": {
+                        "#text": "Washington, DC",
+                        "@codedval": "7013962",
+                        "@auth.uri": "http://vocab.getty.edu/page/tgn/",
+                        "@auth": "TGN"
+                      },
+                      "#text": "20004"
+                    },
+                    {
+                      "geogName": {
+                        "#text": "United States",
+                        "@codedval": "7012149",
+                        "@auth.uri": "http://vocab.getty.edu/page/tgn/",
+                        "@auth": "TGN"
+                      }
+                    }
+                  ]
+                },
+                "#text": "National Endowment for the Humanities",
+                "@role": "funder",
+                "@codedval": "18183-3",
+                "@auth.uri": "http://d-nb.info/gnd/",
+                "@auth": "GND"
+              }
+            }
+          ],
+          "respStmt": {
+            "corpName": {
+              "#text": "MEI Project",
+              "@role": "publisher"
+            }
+          },
+          "identifier": {
+            "ref": {
+              "@target": "http://music-encoding.org/Support/MEI_Sample_Collection"
+            }
+          }
+        },
+        "sourceDesc": {
+          "source": [
+            {
+              "bibl": {
+                "identifier": {
+                  "#text": "http://www.hausmusik.ch/notenisodateal/a/aguado_dionisio(1788-1847)/walzer_g-dur/walzer_g-dur.xml",
+                  "@type": "URI"
+                },
+                "title": {
+                  "#text": "Walzer G-Dur"
+                },
+                "composer": {
+                  "persName": {
+                    "#text": "Dionisio Aguado y García",
+                    "@role": "composer",
+                    "@codedval": "133912027",
+                    "@auth.uri": "http://d-nb.info/gnd/",
+                    "@auth": "GND"
+                  }
+                },
+                "imprint": {
+                  "respStmt": {
+                    "corpName": {
+                      "#text": "Verein zur Förderung der Hausmusik",
+                      "@role": "publisher"
+                    }
+                  },
+                  "address": {
+                    "addrLine": [
+                      {
+                        "#text": "CH-4143 Dornach"
+                      },
+                      {
+                        "#text": "Postfach 68"
+                      }
+                    ]
+                  },
+                  "annot": {
+                    "#text": "(C) Jürgen W. Knuth"
+                  }
+                }
+              }
+            },
+            {
+              "bibl": {
+                "identifier": {
+                  "#text": "http://www.hausmusik.ch/notenregal/a/aguado_dionisio(1788-1847)/walzer_g-dur/walzer_g-dur.pdf",
+                  "@type": "URI"
+                },
+                "title": {
+                  "#text": "Walzer G-Dur"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "encodingDesc": {
+        "appInfo": {
+          "application": [
+            {
+              "name": {
+                "#text": "mei2012To2013.xsl"
+              },
+              "ptr": {
+                "@target": "https://github.com/music-encoding/encoding-tools/blob/main/mei2012To2013/mei2012To2013.xsl"
+              },
+              "@version": "v1.0_beta",
+              "@xml:id": "mei2012To2013"
+            },
+            {
+              "name": {
+                "#text": "mei21To30.xsl"
+              },
+              "ptr": {
+                "@target": "https://github.com/music-encoding/encoding-tools/blob/main/mei21To30/mei21To30.xsl"
+              },
+              "@version": "v1.0_beta",
+              "@xml:id": "mei21To30"
+            },
+            {
+              "name": {
+                "#text": "MusicXML2MEI"
+              },
+              "@xml:id": "xsl_mxl2mei_2.2.3",
+              "@version": "2.2.3"
+            },
+            {
+              "name": {
+                "#text": "mei30To40.xsl"
+              },
+              "ptr": {
+                "@target": "https://github.com/music-encoding/encoding-tools/blob/main/mei30To40/mei30To40.xsl"
+              },
+              "@version": "v1.0_beta",
+              "@xml:id": "mei30To40"
+            },
+            {
+              "name": {
+                "#text": "mei40To50.xsl"
+              },
+              "ptr": {
+                "@target": "https://github.com/music-encoding/encoding-tools/blob/main/mei40To50/mei40To50.xsl"
+              },
+              "@version": "v1.0",
+              "@xml:id": "mei40To50.xsl"
+            },
+            {
+              "name": {
+                "#text": "meiLint.xsl"
+              },
+              "ptr": {
+                "@target": "https://github.com/music-encoding/encoding-tools/blob/main/meiLint/meiLint.xsl"
+              },
+              "@version": "v0.0.1-alpha",
+              "@xml:id": "meiLint_v0.0.1-alpha"
+            },
+            {
+              "name": {
+                "#text": "mei50To51.xsl"
+              },
+              "ptr": {
+                "@target": "https://github.com/music-encoding/encoding-tools/blob/main/mei50To51/mei50To51.xsl"
+              },
+              "@version": "v1.0",
+              "@xml:id": "mei50To51"
+            },
+            {
+              "name": {
+                "#text": "meiLint.xsl"
+              },
+              "ptr": {
+                "@target": "https://github.com/music-encoding/encoding-tools/blob/main/meiLint/meiLint.xsl"
+              },
+              "@version": "v1.0.0",
+              "@xml:id": "meiLint_v1.0.0"
+            }
+          ]
+        },
+        "classDecls": {
+          "taxonomy": [
+            {
+              "bibl": {
+                "#text": "OCLC_DDC",
+                "@xml:id": "OCLC_DDC",
+                "@target": "http://www.oclc.org/dewey/resources/summaries/default.htm#700"
+              },
+              "category": {
+                "altId": {
+                  "#text": "787"
+                },
+                "label": {
+                  "#text": "Stringed instruments"
+                },
+                "@xml:id": "_787"
+              }
+            },
+            {
+              "bibl": {
+                "#text": "OSWD",
+                "@xml:id": "OSWD",
+                "@target": "http://www.bsz-bw.de/cgi-bin/oswd-suche.pl"
+              },
+              "category": [
+                {
+                  "altId": {
+                    "#text": "4021100-9"
+                  },
+                  "label": {
+                    "#text": "Gitarrenmusik"
+                  },
+                  "@xml:id": "_4021100-9"
+                },
+                {
+                  "altId": {
+                    "#text": "4129951-6"
+                  },
+                  "label": {
+                    "#text": "Instrumentalmusik"
+                  },
+                  "@xml:id": "_4129951-6"
+                },
+                {
+                  "altId": {
+                    "#text": "4302724-6"
+                  },
+                  "label": {
+                    "#text": "Zupfmusik"
+                  },
+                  "@xml:id": "_4302724-6"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "workList": {
+        "work": {
+          "title": {
+            "#text": "Walzer G-Dur"
+          },
+          "composer": {
+            "persName": {
+              "#text": "Dionisio Aguado y García",
+              "@role": "composer",
+              "@codedval": "133912027",
+              "@auth.uri": "http://d-nb.info/gnd/",
+              "@auth": "GND"
+            }
+          },
+          "key": {
+            "#text": "G major",
+            "@pname": "g",
+            "@mode": "major"
+          },
+          "meter": {
+            "@count": "3",
+            "@unit": "8"
+          },
+          "incip": {
+            "incipCode": {
+              "#text": "Incipit is not available",
+              "@form": "notAvailable"
+            }
+          },
+          "creation": {
+            "date": {
+              "@notbefore": "1784",
+              "@notafter": "1849"
+            }
+          },
+          "perfMedium": {
+            "perfResList": {
+              "perfRes": {
+                "#text": "Guitar",
+                "@n": "1",
+                "@codedval": "tb"
+              }
+            }
+          },
+          "classification": {
+            "termList": {
+              "term": [
+                {
+                  "#text": "Gitarrenmusik",
+                  "@class": "#_4021100-9"
+                },
+                {
+                  "#text": "Instrumentalmusik",
+                  "@class": "#_4129951-6"
+                },
+                {
+                  "#text": "Zupfmusik",
+                  "@class": "#_4302724-6"
+                },
+                {
+                  "#text": "Stringed instruments",
+                  "@class": "#_787"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "revisionDesc": {
+        "change": [
+          {
+            "respStmt": {
+              "name": {
+                "#text": "Unknown"
+              }
+            },
+            "changeDesc": {
+              "p": {
+                "#text": "The original MusicXML file was generated using CapToMusic.py CapXML to MusicXML converter version 1.11."
+              }
+            },
+            "date": {
+              "@isodate": "2010-04-04"
+            },
+            "@n": "1"
+          },
+          {
+            "respStmt": {
+              "persName": {
+                "#text": "Maja Hartwig",
+                "@xml:id": "MH"
+              }
+            },
+            "changeDesc": {
+              "p": {
+                "ref": {
+                  "#text": "musicxml2mei",
+                  "@target": "#xsl_mxl2mei_2.2.3"
+                },
+                "#text": "Transcoded from a MusicXML version 1.1 file on 2011-05-12 using thestylesheet."
+              }
+            },
+            "date": {
+              "@isodate": "2011-05-12"
+            },
+            "@n": "2"
+          },
+          {
+            "respStmt": {
+              "persName": {
+                "#text": "Kristina Richts",
+                "@xml:id": "KR"
+              }
+            },
+            "changeDesc": {
+              "p": {
+                "ref": {
+                  "#text": "ppq.xsl",
+                  "@target": "#xsl_ppq"
+                },
+                "#text": "Cleaned up MEI file automatically using."
+              }
+            },
+            "date": {
+              "@isodate": "2011-10-21"
+            },
+            "@n": "3"
+          },
+          {
+            "changeDesc": {
+              "p": {
+                "ref": {
+                  "#text": "Header.xsl",
+                  "@target": "#xsl_header"
+                },
+                "#text": "Cleaned up MEI file automatically using."
+              }
+            },
+            "date": {
+              "@isodate": "2011-12-01"
+            },
+            "@n": "4",
+            "@resp": "#KR"
+          },
+          {
+            "respStmt": {
+              "persName": {
+                "#text": "Kristina Richts"
+              }
+            },
+            "changeDesc": {
+              "p": {
+                "#text": "Revised the header."
+              }
+            },
+            "date": {
+              "@isodate": "2013-01-28"
+            },
+            "@n": "5"
+          },
+          {
+            "changeDesc": {
+              "p": {
+                "#text": "Converted to MEI 2013 using mei2012To2013.xsl, version 1.0 beta"
+              }
+            },
+            "date": {
+              "@isodate": "2014-05-30"
+            },
+            "@n": "6",
+            "@resp": "#mei2012To2013"
+          },
+          {
+            "changeDesc": {
+              "p": {
+                "#text": "Converted to version 3.0.0 using mei21To30.xsl, version 1.0 beta"
+              }
+            },
+            "date": {
+              "@isodate": "2015-10-15"
+            },
+            "@n": "7",
+            "@resp": "#mei21To30"
+          },
+          {
+            "changeDesc": {
+              "p": {
+                "#text": "Converted to MEI version 4.0.0 using mei30To40.xsl, version 1.0 beta"
+              }
+            },
+            "date": {
+              "@isodate": "2019-01-03"
+            },
+            "@n": "8",
+            "@resp": "#mei30To40"
+          },
+          {
+            "respStmt": {
+              "persName": [
+                {
+                  "#text": "Benjamin W. Bohl"
+                },
+                {
+                  "#text": "Stefan Münnich"
+                }
+              ]
+            },
+            "changeDesc": {
+              "p": {
+                "list": {
+                  "li": [
+                    {
+                      "#text": "update xml-model schema references to v4.0.1"
+                    },
+                    {
+                      "#text": "update meiversion attributes to 4.0.1"
+                    },
+                    {
+                      "#text": "add missing responsibility statements to change elements"
+                    },
+                    {
+                      "#text": "unify documentation of mei version upgrades (appInfo and revisionDesc)"
+                    },
+                    {
+                      "ref": {
+                        "#text": "meiLint.xsl",
+                        "@target": "#meiLint_v0.0.1-alpha"
+                      },
+                      "#text": "linted with"
+                    }
+                  ]
+                }
+              }
+            },
+            "date": {
+              "@isodate": "2023-07-27T17:08:22+02:00"
+            },
+            "@n": "9"
+          },
+          {
+            "changeDesc": {
+              "p": {
+                "#text": "Converted to MEI version 5.0 using mei40To50.xsl, version 1.0"
+              }
+            },
+            "date": {
+              "@isodate": "2023-07-31"
+            },
+            "@n": "10",
+            "@resp": "#mei40To50.xsl"
+          },
+          {
+            "changeDesc": {
+              "p": {
+                "#text": "Applied lint mode."
+              }
+            },
+            "date": {
+              "@isodate": "2023-07-31T15:39:56+02:00"
+            },
+            "@n": "11",
+            "@resp": "#meiLint_v0.0.1-alpha"
+          },
+          {
+            "changeDesc": {
+              "p": {
+                "#text": "Converted to MEI version 5.1 using mei50To51.xsl, version 1.0"
+              }
+            },
+            "date": {
+              "@isodate": "2025-01-17"
+            },
+            "@n": "12",
+            "@resp": "#mei50To51"
+          },
+          {
+            "changeDesc": {
+              "p": {
+                "#text": "Applied lint mode."
+              }
+            },
+            "date": {
+              "@isodate": "2025-01-17"
+            },
+            "@n": "13",
+            "@resp": "#meiLint_v1.0.0"
+          }
+        ]
+      }
+    },
+    "music": {
+      "body": {
+        "mdiv": {
+          "score": {
+            "scoreDef": {
+              "pgHead": {
+                "title": {
+                  "rend": {
+                    "#text": "WALZER G-DUR"
+                  }
+                },
+                "persName": {
+                  "rend": {
+                    "lb": {
+                      "#text": ""
+                    },
+                    "#text": "Dionisio Aguado1784-1849",
+                    "@halign": "right",
+                    "@valign": "top"
+                  },
+                  "@role": "composer"
+                }
+              },
+              "pgFoot": {
+                "p": {
+                  "rend": {
+                    "#text": "© Jürgen Knuth",
+                    "@halign": "center",
+                    "@valign": "bottom"
+                  }
+                }
+              },
+              "staffGrp": {
+                "staffDef": {
+                  "@n": "1",
+                  "@clef.line": "2",
+                  "@clef.shape": "G",
+                  "@clef.dis": "8",
+                  "@clef.dis.place": "below",
+                  "@lines": "5"
+                }
+              },
+              "@meter.count": "3",
+              "@meter.unit": "8",
+              "@keysig": "1s",
+              "@key.mode": "major"
+            },
+            "section": {
+              "measure": [
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "rest": {
+                          "@xml:id": "d30278e84",
+                          "@dur": "8"
+                        },
+                        "beam": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e96",
+                              "@pname": "b",
+                              "@oct": "5",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "@xml:id": "d30278e118",
+                              "@pname": "c",
+                              "@oct": "6",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "@xml:id": "d30278e140",
+                              "@pname": "d",
+                              "@oct": "6",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            }
+                          ]
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "chord": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e178",
+                              "@pname": "g",
+                              "@oct": "4"
+                            },
+                            {
+                              "@xml:id": "d30278e193",
+                              "@pname": "b",
+                              "@oct": "4"
+                            }
+                          ],
+                          "@xml:id": "d30281e1",
+                          "@dur": "4",
+                          "@dots": "1",
+                          "@stem.dir": "down"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "dir": [
+                    {
+                      "#text": "0",
+                      "@tstamp": "1",
+                      "@place": "within",
+                      "@staff": "1"
+                    },
+                    {
+                      "#text": "0",
+                      "@tstamp": "1",
+                      "@place": "within",
+                      "@staff": "1"
+                    },
+                    {
+                      "#text": "1",
+                      "@tstamp": "2",
+                      "@place": "above",
+                      "@staff": "1"
+                    },
+                    {
+                      "#text": "2",
+                      "@tstamp": "2.5",
+                      "@place": "above",
+                      "@staff": "1"
+                    },
+                    {
+                      "#text": "4",
+                      "@tstamp": "3",
+                      "@place": "above",
+                      "@staff": "1"
+                    }
+                  ],
+                  "tempo": {
+                    "@tstamp": "1",
+                    "@place": "above",
+                    "@staff": "1",
+                    "@mm": "92"
+                  },
+                  "@n": "1",
+                  "@xml:id": "d30278e50"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "rest": {
+                          "@xml:id": "d30278e210",
+                          "@dur": "8"
+                        },
+                        "beam": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e222",
+                              "@pname": "g",
+                              "@oct": "5",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "@xml:id": "d30278e244",
+                              "@pname": "a",
+                              "@oct": "5",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "@xml:id": "d30278e266",
+                              "@pname": "b",
+                              "@oct": "5",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            }
+                          ]
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "chord": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e287",
+                              "@pname": "g",
+                              "@oct": "4"
+                            },
+                            {
+                              "@xml:id": "d30278e302",
+                              "@pname": "b",
+                              "@oct": "4"
+                            }
+                          ],
+                          "@xml:id": "d30292e1",
+                          "@dur": "4",
+                          "@dots": "1",
+                          "@stem.dir": "down"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "dir": [
+                    {
+                      "#text": "1",
+                      "@tstamp": "2",
+                      "@place": "within",
+                      "@staff": "1"
+                    },
+                    {
+                      "#text": "3",
+                      "@tstamp": "2.5",
+                      "@place": "above",
+                      "@staff": "1"
+                    },
+                    {
+                      "#text": "4",
+                      "@tstamp": "3",
+                      "@place": "above",
+                      "@staff": "1"
+                    }
+                  ],
+                  "@n": "2",
+                  "@xml:id": "d30278e208"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "rest": {
+                          "@xml:id": "d30278e319",
+                          "@dur": "8"
+                        },
+                        "beam": {
+                          "chord": [
+                            {
+                              "note": [
+                                {
+                                  "@xml:id": "d30278e335",
+                                  "@pname": "c",
+                                  "@oct": "5"
+                                },
+                                {
+                                  "@xml:id": "d30278e351",
+                                  "@pname": "f",
+                                  "@oct": "5",
+                                  "@accid.ges": "s"
+                                }
+                              ],
+                              "@xml:id": "d30303e1",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "note": [
+                                {
+                                  "@xml:id": "d30278e370",
+                                  "@pname": "c",
+                                  "@oct": "5"
+                                },
+                                {
+                                  "@xml:id": "d30278e386",
+                                  "@pname": "f",
+                                  "@oct": "5",
+                                  "@accid.ges": "s"
+                                }
+                              ],
+                              "@xml:id": "d30307e1",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            }
+                          ]
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "note": {
+                          "@xml:id": "d30278e406",
+                          "@pname": "d",
+                          "@oct": "4",
+                          "@dur": "4",
+                          "@dots": "1",
+                          "@stem.dir": "down"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "dir": [
+                    {
+                      "#text": "3",
+                      "@tstamp": "2",
+                      "@place": "within",
+                      "@staff": "1"
+                    },
+                    {
+                      "#text": "1",
+                      "@tstamp": "2",
+                      "@place": "within",
+                      "@staff": "1"
+                    }
+                  ],
+                  "@n": "3",
+                  "@xml:id": "d30278e317"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "chord": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e423",
+                              "@pname": "b",
+                              "@oct": "4"
+                            },
+                            {
+                              "@xml:id": "d30278e438",
+                              "@pname": "g",
+                              "@oct": "5"
+                            }
+                          ],
+                          "@xml:id": "d30318e1",
+                          "@dur": "4",
+                          "@dots": "1",
+                          "@stem.dir": "up"
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "beam": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e456",
+                              "@pname": "g",
+                              "@oct": "4",
+                              "@dur": "8",
+                              "@stem.dir": "down"
+                            },
+                            {
+                              "@xml:id": "d30278e472",
+                              "@pname": "d",
+                              "@oct": "4",
+                              "@dur": "16",
+                              "@stem.dir": "down"
+                            },
+                            {
+                              "@xml:id": "d30278e490",
+                              "@pname": "b",
+                              "@oct": "3",
+                              "@dur": "16",
+                              "@stem.dir": "down"
+                            },
+                            {
+                              "@xml:id": "d30278e508",
+                              "@pname": "g",
+                              "@oct": "3",
+                              "@dur": "8",
+                              "@stem.dir": "down"
+                            }
+                          ]
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "@n": "4",
+                  "@xml:id": "d30278e421"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "rest": {
+                          "@xml:id": "d30278e532",
+                          "@dur": "8"
+                        },
+                        "beam": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e540",
+                              "@pname": "b",
+                              "@oct": "5",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "@xml:id": "d30278e558",
+                              "@pname": "c",
+                              "@oct": "6",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "@xml:id": "d30278e576",
+                              "@pname": "d",
+                              "@oct": "6",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            }
+                          ]
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "chord": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e597",
+                              "@pname": "g",
+                              "@oct": "4"
+                            },
+                            {
+                              "@xml:id": "d30278e612",
+                              "@pname": "b",
+                              "@oct": "4"
+                            }
+                          ],
+                          "@xml:id": "d30329e1",
+                          "@dur": "4",
+                          "@dots": "1",
+                          "@stem.dir": "down"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "@n": "5",
+                  "@xml:id": "d30278e526"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "rest": {
+                          "@xml:id": "d30278e641",
+                          "@dur": "8"
+                        },
+                        "beam": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e649",
+                              "@pname": "g",
+                              "@oct": "5",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "@xml:id": "d30278e667",
+                              "@pname": "a",
+                              "@oct": "5",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "@xml:id": "d30278e685",
+                              "@pname": "b",
+                              "@oct": "5",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            }
+                          ]
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "chord": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e706",
+                              "@pname": "g",
+                              "@oct": "4"
+                            },
+                            {
+                              "@xml:id": "d30278e721",
+                              "@pname": "b",
+                              "@oct": "4"
+                            }
+                          ],
+                          "@xml:id": "d30340e1",
+                          "@dur": "4",
+                          "@dots": "1",
+                          "@stem.dir": "down"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "@n": "6",
+                  "@xml:id": "d30278e627"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "beam": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e738",
+                              "@pname": "c",
+                              "@accid": "s",
+                              "@oct": "5",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "@xml:id": "d30278e758",
+                              "@pname": "a",
+                              "@oct": "5",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "@xml:id": "d30278e774",
+                              "@pname": "a",
+                              "@oct": "5",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            }
+                          ]
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "chord": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e793",
+                              "@pname": "a",
+                              "@oct": "3"
+                            },
+                            {
+                              "@xml:id": "d30278e808",
+                              "@pname": "g",
+                              "@oct": "4"
+                            }
+                          ],
+                          "@xml:id": "d30351e1",
+                          "@dur": "4",
+                          "@dots": "1",
+                          "@stem.dir": "down"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "@n": "7",
+                  "@xml:id": "d30278e736"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "note": {
+                          "@xml:id": "d30278e825",
+                          "@pname": "d",
+                          "@oct": "5",
+                          "@dur": "4",
+                          "@stem.dir": "up"
+                        },
+                        "rest": {
+                          "@xml:id": "d30278e839",
+                          "@dur": "8",
+                          "@vo": "-7"
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "chord": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e862",
+                              "@pname": "d",
+                              "@oct": "4"
+                            },
+                            {
+                              "@xml:id": "d30278e876",
+                              "@pname": "f",
+                              "@oct": "4",
+                              "@accid.ges": "s"
+                            }
+                          ],
+                          "@xml:id": "d30362e1",
+                          "@dur": "4",
+                          "@stem.dir": "down"
+                        },
+                        "rest": {
+                          "@xml:id": "d30278e893",
+                          "@dur": "8",
+                          "@vo": "-7"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "dir": [
+                    {
+                      "#text": "2",
+                      "@tstamp": "1",
+                      "@place": "within",
+                      "@staff": "1"
+                    },
+                    {
+                      "#text": "3",
+                      "@tstamp": "1",
+                      "@place": "within",
+                      "@staff": "1"
+                    }
+                  ],
+                  "@n": "8",
+                  "@xml:id": "d30278e823",
+                  "@right": "rptstart"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "rest": {
+                          "@xml:id": "d30278e912",
+                          "@dur": "8"
+                        },
+                        "beam": {
+                          "chord": [
+                            {
+                              "note": [
+                                {
+                                  "@xml:id": "d30278e928",
+                                  "@pname": "d",
+                                  "@oct": "5"
+                                },
+                                {
+                                  "@xml:id": "d30278e946",
+                                  "@pname": "f",
+                                  "@oct": "5",
+                                  "@accid.ges": "s"
+                                }
+                              ],
+                              "@xml:id": "d30373e1",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "note": [
+                                {
+                                  "@xml:id": "d30278e967",
+                                  "@pname": "c",
+                                  "@accid": "s",
+                                  "@oct": "5"
+                                },
+                                {
+                                  "@xml:id": "d30278e989",
+                                  "@pname": "e",
+                                  "@accid": "s",
+                                  "@oct": "5"
+                                }
+                              ],
+                              "@xml:id": "d30377e1",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "note": [
+                                {
+                                  "@xml:id": "d30278e1012",
+                                  "@pname": "d",
+                                  "@oct": "5"
+                                },
+                                {
+                                  "@xml:id": "d30278e1030",
+                                  "@pname": "f",
+                                  "@oct": "5",
+                                  "@accid.ges": "s"
+                                }
+                              ],
+                              "@xml:id": "d30381e1",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            }
+                          ]
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "note": {
+                          "@xml:id": "d30278e1051",
+                          "@pname": "d",
+                          "@oct": "4",
+                          "@dur": "4",
+                          "@dots": "1",
+                          "@stem.dir": "down"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "dir": [
+                    {
+                      "#text": "1",
+                      "@tstamp": "2",
+                      "@place": "within",
+                      "@staff": "1"
+                    },
+                    {
+                      "#text": "2",
+                      "@tstamp": "2",
+                      "@place": "within",
+                      "@staff": "1"
+                    },
+                    {
+                      "#text": "-",
+                      "@tstamp": "2.5",
+                      "@place": "within",
+                      "@staff": "1"
+                    },
+                    {
+                      "#text": "-",
+                      "@tstamp": "2.5",
+                      "@place": "within",
+                      "@staff": "1"
+                    },
+                    {
+                      "#text": "-",
+                      "@tstamp": "3",
+                      "@place": "within",
+                      "@staff": "1"
+                    },
+                    {
+                      "#text": "-",
+                      "@tstamp": "3",
+                      "@place": "within",
+                      "@staff": "1"
+                    }
+                  ],
+                  "@n": "9",
+                  "@xml:id": "d30278e906",
+                  "@left": "rptstart"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "rest": {
+                          "@xml:id": "d30278e1068",
+                          "@dur": "8"
+                        },
+                        "beam": {
+                          "chord": [
+                            {
+                              "note": [
+                                {
+                                  "@xml:id": "d30278e1084",
+                                  "@pname": "f",
+                                  "@oct": "5",
+                                  "@accid.ges": "s"
+                                },
+                                {
+                                  "@xml:id": "d30278e1104",
+                                  "@pname": "a",
+                                  "@oct": "5"
+                                }
+                              ],
+                              "@xml:id": "d30392e1",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "note": [
+                                {
+                                  "@xml:id": "d30278e1123",
+                                  "@pname": "e",
+                                  "@accid": "s",
+                                  "@oct": "5"
+                                },
+                                {
+                                  "@xml:id": "d30278e1145",
+                                  "@pname": "g",
+                                  "@accid": "s",
+                                  "@oct": "5"
+                                }
+                              ],
+                              "@xml:id": "d30396e1",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "note": [
+                                {
+                                  "@xml:id": "d30278e1168",
+                                  "@pname": "f",
+                                  "@oct": "5",
+                                  "@accid.ges": "s"
+                                },
+                                {
+                                  "@xml:id": "d30278e1188",
+                                  "@pname": "a",
+                                  "@oct": "5"
+                                }
+                              ],
+                              "@xml:id": "d30400e1",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            }
+                          ]
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "note": {
+                          "@xml:id": "d30278e1206",
+                          "@pname": "d",
+                          "@oct": "4",
+                          "@dur": "4",
+                          "@dots": "1",
+                          "@stem.dir": "down"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "dir": [
+                    {
+                      "#text": "1",
+                      "@tstamp": "2",
+                      "@place": "within",
+                      "@staff": "1"
+                    },
+                    {
+                      "#text": "3",
+                      "@tstamp": "2",
+                      "@place": "within",
+                      "@staff": "1"
+                    }
+                  ],
+                  "@n": "10",
+                  "@xml:id": "d30278e1066"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "rest": {
+                          "@xml:id": "d30278e1235",
+                          "@dur": "8"
+                        },
+                        "beam": {
+                          "chord": [
+                            {
+                              "note": [
+                                {
+                                  "@xml:id": "d30278e1243",
+                                  "@pname": "a",
+                                  "@oct": "5"
+                                },
+                                {
+                                  "@xml:id": "d30278e1259",
+                                  "@pname": "c",
+                                  "@oct": "6"
+                                }
+                              ],
+                              "@xml:id": "d30411e1",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "note": [
+                                {
+                                  "@xml:id": "d30278e1276",
+                                  "@pname": "g",
+                                  "@oct": "5"
+                                },
+                                {
+                                  "@xml:id": "d30278e1292",
+                                  "@pname": "b",
+                                  "@oct": "5"
+                                }
+                              ],
+                              "@xml:id": "d30415e1",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            }
+                          ]
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "note": {
+                          "@xml:id": "d30278e1310",
+                          "@pname": "d",
+                          "@oct": "4",
+                          "@dur": "4",
+                          "@dots": "1",
+                          "@tie": "i",
+                          "@stem.dir": "down"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "tie": {
+                    "@tstamp": "1",
+                    "@staff": "1",
+                    "@curvedir": "below",
+                    "@startid": "#d30278e1310",
+                    "@endid": "#d30278e1393"
+                  },
+                  "@n": "11",
+                  "@xml:id": "d30278e1221"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "chord": [
+                          {
+                            "note": [
+                              {
+                                "@xml:id": "d30278e1330",
+                                "@pname": "g",
+                                "@oct": "5"
+                              },
+                              {
+                                "@xml:id": "d30278e1344",
+                                "@pname": "b",
+                                "@oct": "5"
+                              }
+                            ],
+                            "@xml:id": "d30426e1",
+                            "@dur": "4",
+                            "@stem.dir": "up"
+                          },
+                          {
+                            "note": [
+                              {
+                                "@xml:id": "d30278e1359",
+                                "@pname": "f",
+                                "@oct": "5",
+                                "@accid.ges": "s"
+                              },
+                              {
+                                "@xml:id": "d30278e1375",
+                                "@pname": "a",
+                                "@oct": "5"
+                              }
+                            ],
+                            "@xml:id": "d30430e1",
+                            "@dur": "8",
+                            "@stem.dir": "up"
+                          }
+                        ],
+                        "@n": "1"
+                      },
+                      {
+                        "note": {
+                          "@xml:id": "d30278e1393",
+                          "@pname": "d",
+                          "@oct": "4",
+                          "@dur": "4",
+                          "@dots": "1",
+                          "@tie": "t",
+                          "@stem.dir": "down"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "@n": "12",
+                  "@xml:id": "d30278e1328"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "rest": {
+                          "@xml:id": "d30278e1413",
+                          "@dur": "8"
+                        },
+                        "beam": {
+                          "chord": [
+                            {
+                              "note": [
+                                {
+                                  "@xml:id": "d30278e1421",
+                                  "@pname": "d",
+                                  "@oct": "5"
+                                },
+                                {
+                                  "@xml:id": "d30278e1439",
+                                  "@pname": "f",
+                                  "@oct": "5",
+                                  "@accid.ges": "s"
+                                }
+                              ],
+                              "@xml:id": "d30441e1",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "note": [
+                                {
+                                  "@xml:id": "d30278e1460",
+                                  "@pname": "c",
+                                  "@accid": "s",
+                                  "@oct": "5"
+                                },
+                                {
+                                  "@xml:id": "d30278e1482",
+                                  "@pname": "e",
+                                  "@accid": "s",
+                                  "@oct": "5"
+                                }
+                              ],
+                              "@xml:id": "d30445e1",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "note": [
+                                {
+                                  "@xml:id": "d30278e1505",
+                                  "@pname": "d",
+                                  "@oct": "5"
+                                },
+                                {
+                                  "@xml:id": "d30278e1523",
+                                  "@pname": "f",
+                                  "@oct": "5",
+                                  "@accid.ges": "s"
+                                }
+                              ],
+                              "@xml:id": "d30449e1",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            }
+                          ]
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "note": {
+                          "@xml:id": "d30278e1543",
+                          "@pname": "d",
+                          "@oct": "4",
+                          "@dur": "4",
+                          "@dots": "1",
+                          "@stem.dir": "down"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "@n": "13",
+                  "@xml:id": "d30278e1411"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "rest": {
+                          "@xml:id": "d30278e1560",
+                          "@dur": "8"
+                        },
+                        "beam": {
+                          "chord": [
+                            {
+                              "note": [
+                                {
+                                  "@xml:id": "d30278e1568",
+                                  "@pname": "f",
+                                  "@oct": "5",
+                                  "@accid.ges": "s"
+                                },
+                                {
+                                  "@xml:id": "d30278e1588",
+                                  "@pname": "a",
+                                  "@oct": "5"
+                                }
+                              ],
+                              "@xml:id": "d30460e1",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "note": [
+                                {
+                                  "@xml:id": "d30278e1607",
+                                  "@pname": "e",
+                                  "@accid": "s",
+                                  "@oct": "5"
+                                },
+                                {
+                                  "@xml:id": "d30278e1629",
+                                  "@pname": "g",
+                                  "@accid": "s",
+                                  "@oct": "5"
+                                }
+                              ],
+                              "@xml:id": "d30464e1",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "note": [
+                                {
+                                  "@xml:id": "d30278e1652",
+                                  "@pname": "f",
+                                  "@oct": "5",
+                                  "@accid.ges": "s"
+                                },
+                                {
+                                  "@xml:id": "d30278e1672",
+                                  "@pname": "a",
+                                  "@oct": "5"
+                                }
+                              ],
+                              "@xml:id": "d30468e1",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            }
+                          ]
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "note": {
+                          "@xml:id": "d30278e1690",
+                          "@pname": "d",
+                          "@oct": "4",
+                          "@dur": "4",
+                          "@dots": "1",
+                          "@stem.dir": "down"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "@n": "14",
+                  "@xml:id": "d30278e1558"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "chord": [
+                          {
+                            "note": [
+                              {
+                                "@xml:id": "d30278e1719",
+                                "@pname": "e",
+                                "@oct": "5"
+                              },
+                              {
+                                "@xml:id": "d30278e1733",
+                                "@pname": "g",
+                                "@oct": "5"
+                              }
+                            ],
+                            "@xml:id": "d30479e1",
+                            "@dur": "4",
+                            "@stem.dir": "up"
+                          },
+                          {
+                            "note": [
+                              {
+                                "@xml:id": "d30278e1756",
+                                "@pname": "g",
+                                "@oct": "5"
+                              },
+                              {
+                                "@xml:id": "d30278e1770",
+                                "@pname": "c",
+                                "@accid": "s",
+                                "@oct": "6"
+                              }
+                            ],
+                            "@xml:id": "d30483e1",
+                            "@dur": "8",
+                            "@stem.dir": "up"
+                          }
+                        ],
+                        "@n": "1"
+                      },
+                      {
+                        "rest": {
+                          "@xml:id": "d30278e1792",
+                          "@dur": "8"
+                        },
+                        "beam": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e1801",
+                              "@pname": "a",
+                              "@oct": "3",
+                              "@dur": "8",
+                              "@stem.dir": "down"
+                            },
+                            {
+                              "@xml:id": "d30278e1821",
+                              "@pname": "a",
+                              "@oct": "4",
+                              "@dur": "8",
+                              "@stem.dir": "down"
+                            }
+                          ]
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "dir": [
+                    {
+                      "#text": "3",
+                      "@tstamp": "1",
+                      "@place": "within",
+                      "@staff": "1"
+                    },
+                    {
+                      "#text": "0",
+                      "@tstamp": "1",
+                      "@place": "within",
+                      "@staff": "1"
+                    },
+                    {
+                      "#text": "2",
+                      "@tstamp": "1",
+                      "@place": "above",
+                      "@staff": "1"
+                    },
+                    {
+                      "#text": "4",
+                      "@tstamp": "3",
+                      "@place": "within",
+                      "@staff": "1"
+                    },
+                    {
+                      "#text": "3",
+                      "@tstamp": "3",
+                      "@place": "within",
+                      "@staff": "1"
+                    },
+                    {
+                      "#text": "1",
+                      "@tstamp": "3",
+                      "@place": "within",
+                      "@staff": "1"
+                    }
+                  ],
+                  "@n": "15",
+                  "@xml:id": "d30278e1705"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "chord": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e1859",
+                              "@pname": "f",
+                              "@oct": "5",
+                              "@accid.ges": "s"
+                            },
+                            {
+                              "@xml:id": "d30278e1875",
+                              "@pname": "d",
+                              "@oct": "6"
+                            }
+                          ],
+                          "@xml:id": "d30494e1",
+                          "@dur": "4",
+                          "@stem.dir": "up"
+                        },
+                        "rest": {
+                          "@xml:id": "d30278e1890",
+                          "@dur": "8",
+                          "@vo": "-7"
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "note": {
+                          "@xml:id": "d30278e1905",
+                          "@pname": "d",
+                          "@oct": "4",
+                          "@dur": "4",
+                          "@stem.dir": "down"
+                        },
+                        "rest": {
+                          "@xml:id": "d30278e1919",
+                          "@dur": "8",
+                          "@vo": "-7"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "dir": [
+                    {
+                      "#text": "4",
+                      "@tstamp": "1",
+                      "@place": "within",
+                      "@staff": "1"
+                    },
+                    {
+                      "#text": "1",
+                      "@tstamp": "1",
+                      "@place": "within",
+                      "@staff": "1"
+                    }
+                  ],
+                  "@n": "16",
+                  "@xml:id": "d30278e1837"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "rest": {
+                          "@xml:id": "d30278e1933",
+                          "@dur": "8"
+                        },
+                        "beam": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e1941",
+                              "@pname": "b",
+                              "@oct": "5",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "@xml:id": "d30278e1959",
+                              "@pname": "c",
+                              "@oct": "6",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "@xml:id": "d30278e1977",
+                              "@pname": "d",
+                              "@oct": "6",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            }
+                          ]
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "chord": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e1998",
+                              "@pname": "g",
+                              "@oct": "4"
+                            },
+                            {
+                              "@xml:id": "d30278e2013",
+                              "@pname": "b",
+                              "@oct": "4"
+                            }
+                          ],
+                          "@xml:id": "d30505e1",
+                          "@dur": "4",
+                          "@dots": "1",
+                          "@stem.dir": "down"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "@n": "17",
+                  "@xml:id": "d30278e1931"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "rest": {
+                          "@xml:id": "d30278e2030",
+                          "@dur": "8"
+                        },
+                        "beam": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e2038",
+                              "@pname": "g",
+                              "@oct": "5",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "@xml:id": "d30278e2056",
+                              "@pname": "a",
+                              "@oct": "5",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "@xml:id": "d30278e2074",
+                              "@pname": "b",
+                              "@oct": "5",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            }
+                          ]
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "chord": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e2095",
+                              "@pname": "g",
+                              "@oct": "4"
+                            },
+                            {
+                              "@xml:id": "d30278e2110",
+                              "@pname": "b",
+                              "@oct": "4"
+                            }
+                          ],
+                          "@xml:id": "d30516e1",
+                          "@dur": "4",
+                          "@dots": "1",
+                          "@stem.dir": "down"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "@n": "18",
+                  "@xml:id": "d30278e2028"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "rest": {
+                          "@xml:id": "d30278e2127",
+                          "@dur": "8"
+                        },
+                        "beam": {
+                          "chord": [
+                            {
+                              "note": [
+                                {
+                                  "@xml:id": "d30278e2135",
+                                  "@pname": "c",
+                                  "@oct": "5"
+                                },
+                                {
+                                  "@xml:id": "d30278e2151",
+                                  "@pname": "f",
+                                  "@oct": "5",
+                                  "@accid.ges": "s"
+                                }
+                              ],
+                              "@xml:id": "d30527e1",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "note": [
+                                {
+                                  "@xml:id": "d30278e2170",
+                                  "@pname": "c",
+                                  "@oct": "5"
+                                },
+                                {
+                                  "@xml:id": "d30278e2186",
+                                  "@pname": "f",
+                                  "@oct": "5",
+                                  "@accid.ges": "s"
+                                }
+                              ],
+                              "@xml:id": "d30531e1",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            }
+                          ]
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "note": {
+                          "@xml:id": "d30278e2206",
+                          "@pname": "d",
+                          "@oct": "4",
+                          "@dur": "4",
+                          "@dots": "1",
+                          "@stem.dir": "down"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "@n": "19",
+                  "@xml:id": "d30278e2125"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "chord": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e2236",
+                              "@pname": "b",
+                              "@oct": "4"
+                            },
+                            {
+                              "@xml:id": "d30278e2251",
+                              "@pname": "g",
+                              "@oct": "5"
+                            }
+                          ],
+                          "@xml:id": "d30542e1",
+                          "@dur": "4",
+                          "@dots": "1",
+                          "@stem.dir": "up"
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "beam": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e2269",
+                              "@pname": "g",
+                              "@oct": "4",
+                              "@dur": "8",
+                              "@stem.dir": "down"
+                            },
+                            {
+                              "@xml:id": "d30278e2285",
+                              "@pname": "d",
+                              "@oct": "4",
+                              "@dur": "16",
+                              "@stem.dir": "down"
+                            },
+                            {
+                              "@xml:id": "d30278e2303",
+                              "@pname": "b",
+                              "@oct": "3",
+                              "@dur": "16",
+                              "@stem.dir": "down"
+                            },
+                            {
+                              "@xml:id": "d30278e2321",
+                              "@pname": "g",
+                              "@oct": "3",
+                              "@dur": "8",
+                              "@stem.dir": "down"
+                            }
+                          ]
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "@n": "20",
+                  "@xml:id": "d30278e2222"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "rest": {
+                          "@xml:id": "d30278e2341",
+                          "@dur": "8"
+                        },
+                        "beam": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e2349",
+                              "@pname": "b",
+                              "@oct": "5",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "@xml:id": "d30278e2367",
+                              "@pname": "c",
+                              "@oct": "6",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "@xml:id": "d30278e2385",
+                              "@pname": "d",
+                              "@oct": "6",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            }
+                          ]
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "chord": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e2406",
+                              "@pname": "g",
+                              "@oct": "4"
+                            },
+                            {
+                              "@xml:id": "d30278e2421",
+                              "@pname": "b",
+                              "@oct": "4"
+                            }
+                          ],
+                          "@xml:id": "d30553e1",
+                          "@dur": "4",
+                          "@dots": "1",
+                          "@stem.dir": "down"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "@n": "21",
+                  "@xml:id": "d30278e2339"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "rest": {
+                          "@xml:id": "d30278e2438",
+                          "@dur": "8"
+                        },
+                        "chord": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e2446",
+                              "@pname": "c",
+                              "@oct": "5"
+                            },
+                            {
+                              "@xml:id": "d30278e2460",
+                              "@pname": "a",
+                              "@oct": "5"
+                            }
+                          ],
+                          "@xml:id": "d30564e1",
+                          "@dur": "4",
+                          "@stem.dir": "up"
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "note": {
+                          "@xml:id": "d30278e2482",
+                          "@pname": "c",
+                          "@oct": "4",
+                          "@dur": "4",
+                          "@dots": "1",
+                          "@stem.dir": "down"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "@n": "22",
+                  "@xml:id": "d30278e2436"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "rest": {
+                          "@xml:id": "d30278e2499",
+                          "@dur": "8"
+                        },
+                        "beam": {
+                          "chord": [
+                            {
+                              "note": [
+                                {
+                                  "@xml:id": "d30278e2507",
+                                  "@pname": "c",
+                                  "@oct": "5"
+                                },
+                                {
+                                  "@xml:id": "d30278e2525",
+                                  "@pname": "f",
+                                  "@oct": "5",
+                                  "@accid.ges": "s"
+                                }
+                              ],
+                              "@xml:id": "d30575e1",
+                              "@dur": "16",
+                              "@stem.dir": "up"
+                            },
+                            {
+                              "note": [
+                                {
+                                  "@xml:id": "d30278e2564",
+                                  "@pname": "c",
+                                  "@oct": "5"
+                                },
+                                {
+                                  "@xml:id": "d30278e2582",
+                                  "@pname": "f",
+                                  "@oct": "5",
+                                  "@accid.ges": "s"
+                                }
+                              ],
+                              "@xml:id": "d30579e1",
+                              "@dur": "8",
+                              "@stem.dir": "up"
+                            }
+                          ],
+                          "note": {
+                            "@xml:id": "d30278e2546",
+                            "@pname": "e",
+                            "@oct": "5",
+                            "@dur": "16",
+                            "@stem.dir": "up"
+                          }
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "note": {
+                          "@xml:id": "d30278e2602",
+                          "@pname": "d",
+                          "@oct": "4",
+                          "@dur": "4",
+                          "@dots": "1",
+                          "@stem.dir": "down"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "@n": "23",
+                  "@xml:id": "d30278e2497"
+                },
+                {
+                  "staff": {
+                    "layer": [
+                      {
+                        "chord": {
+                          "note": [
+                            {
+                              "@xml:id": "d30278e2619",
+                              "@pname": "b",
+                              "@oct": "4"
+                            },
+                            {
+                              "@xml:id": "d30278e2633",
+                              "@pname": "g",
+                              "@oct": "5"
+                            }
+                          ],
+                          "@xml:id": "d30590e1",
+                          "@dur": "4",
+                          "@stem.dir": "up"
+                        },
+                        "rest": {
+                          "@xml:id": "d30278e2648",
+                          "@dur": "8"
+                        },
+                        "@n": "1"
+                      },
+                      {
+                        "note": {
+                          "@xml:id": "d30278e2663",
+                          "@pname": "g",
+                          "@oct": "3",
+                          "@dur": "4",
+                          "@stem.dir": "down"
+                        },
+                        "rest": {
+                          "@xml:id": "d30278e2677",
+                          "@dur": "8"
+                        },
+                        "@n": "2"
+                      }
+                    ],
+                    "@n": "1"
+                  },
+                  "@n": "24",
+                  "@xml:id": "d30278e2617",
+                  "@right": "rptend"
+                }
+              ],
+              "sb": [
+                {
+                  "#text": ""
+                },
+                {
+                  "#text": ""
+                },
+                {
+                  "#text": ""
+                },
+                {
+                  "#text": ""
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "@xmlns": "http://www.music-encoding.org/ns/mei",
+    "@meiversion": "5.1"
+  }
+}

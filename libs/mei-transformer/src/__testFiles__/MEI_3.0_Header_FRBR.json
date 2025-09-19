@@ -1,0 +1,2766 @@
+{
+  "?xml": {
+    "@version": "1.0",
+    "@encoding": "UTF-8",
+    "@standalone": "no"
+  },
+  "mei": {
+    "meiHead": {
+      "fileDesc": {
+        "titleStmt": {
+          "title": {
+            "#text": "Example of of a header including FRBR"
+          },
+          "composer": {
+            "persName": {
+              "#text": "Robert Schumann",
+              "@role": "creator",
+              "@auth": "GND",
+              "@auth.uri": "http://d-nb.info/gnd/",
+              "@codedval": "118611666"
+            }
+          },
+          "respStmt": {
+            "persName": {
+              "#text": "Kristina Richts",
+              "@role": "encoder"
+            }
+          }
+        },
+        "pubStmt": {
+          "unpub": {
+            "#text": ""
+          }
+        }
+      },
+      "encodingDesc": {
+        "appInfo": {
+          "application": {
+            "name": {
+              "#text": "mei30To40.xsl"
+            },
+            "@version": "v1.0_beta",
+            "@xml:id": "app_202526302213705"
+          }
+        },
+        "samplingDecl": {
+          "p": {
+            "#text": "The encoding includes the first four songs of op. 79 and demonstrates the use of FRBR\n          entities."
+          }
+        },
+        "classDecls": {
+          "taxonomy": [
+            {
+              "bibl": {
+                "#text": "OCLC",
+                "@xml:id": "OCLC",
+                "@target": "http://www.oclc.org/dewey/resources/summaries/default.htm#700"
+              },
+              "category": [
+                {
+                  "altId": {
+                    "#text": "782.42"
+                  },
+                  "label": {
+                    "#text": "Song"
+                  },
+                  "@xml:id": "_782.42"
+                },
+                {
+                  "altId": {
+                    "#text": "782"
+                  },
+                  "label": {
+                    "#text": "Vocal music"
+                  },
+                  "@xml:id": "_782"
+                }
+              ]
+            },
+            {
+              "bibl": {
+                "#text": "OSWD",
+                "@xml:id": "OSWD",
+                "@target": "http://www.bsz-bw.de/cgi-bin/oswd-suche.pl"
+              },
+              "category": [
+                {
+                  "altId": {
+                    "#text": "4035669-3"
+                  },
+                  "label": {
+                    "#text": "Lied"
+                  },
+                  "@xml:id": "_4035669-3"
+                },
+                {
+                  "altId": {
+                    "#text": "4063783-9"
+                  },
+                  "label": {
+                    "#text": "Vokalmusik"
+                  },
+                  "@xml:id": "_4063783-9"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "workList": {
+        "work": {
+          "title": {
+            "#text": "Lieder für die Jugend"
+          },
+          "langUsage": {
+            "language": {
+              "#text": "German"
+            }
+          },
+          "perfMedium": {
+            "perfResList": {
+              "perfRes": [
+                {
+                  "#text": "Voice",
+                  "@n": "1",
+                  "@codedval": "vu"
+                },
+                {
+                  "#text": "Piano",
+                  "@n": "2",
+                  "@codedval": "ka"
+                }
+              ]
+            }
+          },
+          "componentList": {
+            "work": [
+              {
+                "title": [
+                  {
+                    "#text": "Der Abendstern",
+                    "@type": "main"
+                  },
+                  {
+                    "#text": "Lieder für die Jugend <Der Abendstern>",
+                    "@type": "uniform"
+                  }
+                ],
+                "composer": {
+                  "persName": {
+                    "#text": "Robert Schumann",
+                    "@role": "composer",
+                    "@auth": "GND",
+                    "@auth.uri": "http://d-nb.info/gnd/",
+                    "@codedval": "118611666"
+                  }
+                },
+                "lyricist": {
+                  "persName": {
+                    "#text": "August Heinrich Hoffmann von Fallersleben",
+                    "@role": "lyricist",
+                    "@auth": "GND",
+                    "@auth.uri": "http://d-nb.info/gnd/",
+                    "@codedval": "118552589"
+                  }
+                },
+                "key": {
+                  "#text": "A major"
+                },
+                "meter": {
+                  "@count": "2",
+                  "@unit": "4"
+                },
+                "incip": {
+                  "incipText": {
+                    "p": {
+                      "#text": "Du lieblicher Stern"
+                    }
+                  },
+                  "score": {
+                    "scoreDef": {
+                      "staffGrp": {
+                        "staffDef": {
+                          "label": {
+                            "#text": "Singstimme"
+                          },
+                          "@n": "1",
+                          "@lines": "5",
+                          "@meter.count": "2",
+                          "@meter.unit": "4",
+                          "@clef.shape": "G",
+                          "@clef.line": "2",
+                          "@keysig": "3s"
+                        },
+                        "staffGrp": {
+                          "label": {
+                            "#text": "Pianoforte"
+                          },
+                          "staffDef": [
+                            {
+                              "@n": "2",
+                              "@lines": "5",
+                              "@meter.count": "2",
+                              "@meter.unit": "4",
+                              "@clef.shape": "G",
+                              "@clef.line": "2",
+                              "@keysig": "3s"
+                            },
+                            {
+                              "@n": "3",
+                              "@lines": "5",
+                              "@meter.count": "2",
+                              "@meter.unit": "4",
+                              "@clef.shape": "F",
+                              "@clef.line": "4",
+                              "@keysig": "3s"
+                            }
+                          ],
+                          "@symbol": "brace"
+                        }
+                      }
+                    },
+                    "section": {
+                      "measure": [
+                        {
+                          "staff": [
+                            {
+                              "layer": {
+                                "note": {
+                                  "verse": [
+                                    {
+                                      "syl": {
+                                        "#text": "Du"
+                                      },
+                                      "@n": "1"
+                                    },
+                                    {
+                                      "syl": {
+                                        "#text": "Wie"
+                                      },
+                                      "@n": "2"
+                                    },
+                                    {
+                                      "syl": {
+                                        "#text": "So"
+                                      },
+                                      "@n": "3"
+                                    },
+                                    {
+                                      "syl": {
+                                        "#text": "Wie"
+                                      },
+                                      "@n": "4"
+                                    }
+                                  ],
+                                  "@pname": "a",
+                                  "@oct": "4",
+                                  "@dur": "8"
+                                }
+                              },
+                              "@n": "1"
+                            },
+                            {
+                              "layer": {
+                                "note": {
+                                  "@pname": "a",
+                                  "@oct": "4",
+                                  "@dur": "8"
+                                }
+                              },
+                              "@n": "2"
+                            },
+                            {
+                              "layer": {
+                                "note": {
+                                  "@pname": "a",
+                                  "@oct": "3",
+                                  "@dur": "8"
+                                }
+                              },
+                              "@n": "3"
+                            }
+                          ],
+                          "slur": {
+                            "@tstamp": "0.5",
+                            "@curvedir": "below",
+                            "@tstamp2": "1m+2.5",
+                            "@staff": "2"
+                          },
+                          "dynam": [
+                            {
+                              "#text": "p",
+                              "@place": "below",
+                              "@tstamp": "0.5",
+                              "@staff": "1"
+                            },
+                            {
+                              "#text": "p",
+                              "@place": "below",
+                              "@tstamp": "0.5",
+                              "@staff": "2"
+                            }
+                          ],
+                          "dir": {
+                            "#text": "Langsam.",
+                            "@place": "above",
+                            "@staff": "1",
+                            "@layer": "1",
+                            "@tstamp": "0"
+                          },
+                          "@n": "0",
+                          "@metcon": "false"
+                        },
+                        {
+                          "staff": [
+                            {
+                              "layer": {
+                                "note": [
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "lieb",
+                                          "@con": "d"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "lieb'"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "blick'"
+                                        },
+                                        "@n": "3"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "nickst"
+                                        },
+                                        "@n": "4"
+                                      }
+                                    ],
+                                    "@pname": "c",
+                                    "@oct": "5",
+                                    "@dur": "4"
+                                  },
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "li",
+                                          "@con": "d"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "ich"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "ich"
+                                        },
+                                        "@n": "3"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "du"
+                                        },
+                                        "@n": "4"
+                                      }
+                                    ],
+                                    "@pname": "b",
+                                    "@oct": "4",
+                                    "@dur": "8"
+                                  },
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "cher"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "doch"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "nach"
+                                        },
+                                        "@n": "3"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "mir"
+                                        },
+                                        "@n": "4"
+                                      }
+                                    ],
+                                    "@pname": "a",
+                                    "@oct": "4",
+                                    "@dur": "8"
+                                  }
+                                ]
+                              },
+                              "@n": "1"
+                            },
+                            {
+                              "layer": {
+                                "chord": {
+                                  "note": [
+                                    {
+                                      "@pname": "c",
+                                      "@oct": "4"
+                                    },
+                                    {
+                                      "@pname": "e",
+                                      "@oct": "4"
+                                    },
+                                    {
+                                      "@pname": "a",
+                                      "@oct": "4"
+                                    },
+                                    {
+                                      "@pname": "c",
+                                      "@oct": "5"
+                                    }
+                                  ],
+                                  "@dur": "4"
+                                },
+                                "beam": {
+                                  "chord": [
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "d",
+                                          "@oct": "4"
+                                        },
+                                        {
+                                          "@pname": "e",
+                                          "@oct": "4"
+                                        },
+                                        {
+                                          "@pname": "g",
+                                          "@oct": "4"
+                                        },
+                                        {
+                                          "@pname": "b",
+                                          "@oct": "4"
+                                        }
+                                      ],
+                                      "@dur": "8"
+                                    },
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "e",
+                                          "@oct": "4"
+                                        },
+                                        {
+                                          "@pname": "a",
+                                          "@oct": "4"
+                                        }
+                                      ],
+                                      "@dur": "8"
+                                    }
+                                  ]
+                                }
+                              },
+                              "@n": "2"
+                            },
+                            {
+                              "layer": {
+                                "chord": {
+                                  "note": [
+                                    {
+                                      "@pname": "a",
+                                      "@oct": "2"
+                                    },
+                                    {
+                                      "@pname": "e",
+                                      "@oct": "3"
+                                    },
+                                    {
+                                      "@pname": "a",
+                                      "@oct": "3"
+                                    }
+                                  ],
+                                  "@dur": "4"
+                                },
+                                "beam": {
+                                  "chord": [
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "b",
+                                          "@oct": "2"
+                                        },
+                                        {
+                                          "@pname": "e",
+                                          "@oct": "3"
+                                        }
+                                      ],
+                                      "@dur": "8"
+                                    },
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "c",
+                                          "@oct": "3"
+                                        },
+                                        {
+                                          "@pname": "e",
+                                          "@oct": "3"
+                                        },
+                                        {
+                                          "@pname": "a",
+                                          "@oct": "3"
+                                        }
+                                      ],
+                                      "@dur": "8"
+                                    }
+                                  ]
+                                }
+                              },
+                              "@n": "3"
+                            }
+                          ],
+                          "@n": "1"
+                        },
+                        {
+                          "staff": [
+                            {
+                              "layer": {
+                                "note": {
+                                  "verse": [
+                                    {
+                                      "syl": {
+                                        "#text": "Stern,"
+                                      },
+                                      "@n": "1"
+                                    },
+                                    {
+                                      "syl": {
+                                        "#text": "dich"
+                                      },
+                                      "@n": "2"
+                                    },
+                                    {
+                                      "syl": {
+                                        "#text": "dir,"
+                                      },
+                                      "@n": "3"
+                                    },
+                                    {
+                                      "syl": {
+                                        "#text": "zu"
+                                      },
+                                      "@n": "4"
+                                    }
+                                  ],
+                                  "@pname": "f",
+                                  "@oct": "4",
+                                  "@dur": "4",
+                                  "@dots": "1"
+                                }
+                              },
+                              "@n": "1"
+                            },
+                            {
+                              "layer": {
+                                "chord": {
+                                  "note": [
+                                    {
+                                      "@pname": "d",
+                                      "@oct": "4"
+                                    },
+                                    {
+                                      "@pname": "f",
+                                      "@oct": "4"
+                                    }
+                                  ],
+                                  "@dur": "2"
+                                }
+                              },
+                              "@n": "2"
+                            },
+                            {
+                              "layer": {
+                                "chord": {
+                                  "note": [
+                                    {
+                                      "@pname": "d",
+                                      "@oct": "3"
+                                    },
+                                    {
+                                      "@pname": "a",
+                                      "@oct": "3"
+                                    }
+                                  ],
+                                  "@dur": "2"
+                                }
+                              },
+                              "@n": "3"
+                            }
+                          ],
+                          "@n": "2"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "@n": "1"
+              },
+              {
+                "title": [
+                  {
+                    "#text": "Schmetterling",
+                    "@type": "main"
+                  },
+                  {
+                    "#text": "Lieder für die Jugend <Schmetterling>",
+                    "@type": "uniform"
+                  }
+                ],
+                "composer": {
+                  "persName": {
+                    "#text": "Robert Schumann",
+                    "@role": "composer",
+                    "@auth": "GND",
+                    "@auth.uri": "http://d-nb.info/gnd/",
+                    "@codedval": "118611666"
+                  }
+                },
+                "lyricist": {
+                  "persName": {
+                    "#text": "August Heinrich Hoffmann von Fallersleben",
+                    "@role": "lyricist",
+                    "@auth": "GND",
+                    "@auth.uri": "http://d-nb.info/gnd/",
+                    "@codedval": "118552589"
+                  }
+                },
+                "key": {
+                  "#text": "D major"
+                },
+                "meter": {
+                  "@count": "3",
+                  "@unit": "8"
+                },
+                "incip": {
+                  "incipText": {
+                    "p": {
+                      "#text": "O Schmetterling sprich,"
+                    }
+                  },
+                  "score": {
+                    "scoreDef": {
+                      "staffGrp": {
+                        "staffDef": {
+                          "label": {
+                            "#text": "Singstimme"
+                          },
+                          "@n": "1",
+                          "@lines": "5",
+                          "@meter.count": "3",
+                          "@meter.unit": "8",
+                          "@clef.shape": "G",
+                          "@clef.line": "2",
+                          "@keysig": "2s"
+                        },
+                        "staffGrp": {
+                          "label": {
+                            "#text": "Pianoforte"
+                          },
+                          "staffDef": [
+                            {
+                              "@n": "2",
+                              "@lines": "5",
+                              "@meter.count": "3",
+                              "@meter.unit": "8",
+                              "@clef.shape": "G",
+                              "@clef.line": "2",
+                              "@keysig": "2s"
+                            },
+                            {
+                              "@n": "3",
+                              "@lines": "5",
+                              "@meter.count": "3",
+                              "@meter.unit": "8",
+                              "@clef.shape": "F",
+                              "@clef.line": "4",
+                              "@keysig": "2s"
+                            }
+                          ],
+                          "@symbol": "brace"
+                        }
+                      }
+                    },
+                    "section": {
+                      "measure": [
+                        {
+                          "staff": [
+                            {
+                              "layer": {
+                                "rest": {
+                                  "@dur": "8"
+                                }
+                              },
+                              "@n": "1"
+                            },
+                            {
+                              "layer": {
+                                "note": {
+                                  "@pname": "a",
+                                  "@oct": "4",
+                                  "@dur": "8",
+                                  "@artic": "stacc"
+                                }
+                              },
+                              "@n": "2"
+                            },
+                            {
+                              "layer": {
+                                "note": {
+                                  "@pname": "a",
+                                  "@oct": "3",
+                                  "@dur": "8",
+                                  "@artic": "stacc"
+                                }
+                              },
+                              "@n": "3"
+                            }
+                          ],
+                          "dir": {
+                            "#text": "Schnell.",
+                            "@tstamp": "0.5",
+                            "@place": "above",
+                            "@staff": "1"
+                          },
+                          "dynam": {
+                            "#text": "p",
+                            "@place": "below",
+                            "@staff": "2"
+                          },
+                          "@n": "0"
+                        },
+                        {
+                          "staff": [
+                            {
+                              "layer": {
+                                "mRest": {
+                                  "#text": ""
+                                }
+                              },
+                              "@n": "1"
+                            },
+                            {
+                              "layer": {
+                                "beam": {
+                                  "chord": [
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "a",
+                                          "@oct": "4"
+                                        },
+                                        {
+                                          "@pname": "d",
+                                          "@oct": "5"
+                                        }
+                                      ],
+                                      "@dur": "8",
+                                      "@artic": "stacc"
+                                    },
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "c",
+                                          "@oct": "5"
+                                        },
+                                        {
+                                          "@pname": "e",
+                                          "@oct": "5"
+                                        }
+                                      ],
+                                      "@dur": "8",
+                                      "@artic": "stacc"
+                                    },
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "d",
+                                          "@oct": "5"
+                                        },
+                                        {
+                                          "@pname": "f",
+                                          "@oct": "5"
+                                        }
+                                      ],
+                                      "@dur": "8",
+                                      "@artic": "stacc"
+                                    }
+                                  ]
+                                }
+                              },
+                              "@n": "2"
+                            },
+                            {
+                              "layer": {
+                                "beam": {
+                                  "chord": [
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "f",
+                                          "@oct": "3"
+                                        },
+                                        {
+                                          "@pname": "d",
+                                          "@oct": "4"
+                                        }
+                                      ],
+                                      "@dur": "8",
+                                      "@artic": "stacc"
+                                    },
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "a",
+                                          "@oct": "3"
+                                        },
+                                        {
+                                          "@pname": "e",
+                                          "@oct": "4"
+                                        }
+                                      ],
+                                      "@dur": "8",
+                                      "@artic": "stacc"
+                                    },
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "d",
+                                          "@oct": "4"
+                                        },
+                                        {
+                                          "@pname": "f",
+                                          "@oct": "4"
+                                        }
+                                      ],
+                                      "@dur": "8",
+                                      "@artic": "stacc"
+                                    }
+                                  ]
+                                }
+                              },
+                              "@n": "3"
+                            }
+                          ],
+                          "@n": "1"
+                        },
+                        {
+                          "staff": [
+                            {
+                              "layer": {
+                                "rest": [
+                                  {
+                                    "@dur": "8"
+                                  },
+                                  {
+                                    "@dur": "8"
+                                  }
+                                ],
+                                "note": {
+                                  "verse": [
+                                    {
+                                      "syl": {
+                                        "#text": "O"
+                                      },
+                                      "@n": "1",
+                                      "@label": "V. 1."
+                                    },
+                                    {
+                                      "syl": {
+                                        "#text": "Jetzt"
+                                      },
+                                      "@n": "2",
+                                      "@label": "V. 2."
+                                    },
+                                    {
+                                      "syl": {
+                                        "#text": "Ich"
+                                      },
+                                      "@n": "3",
+                                      "@label": "V. 3."
+                                    },
+                                    {
+                                      "syl": {
+                                        "#text": "So"
+                                      },
+                                      "@n": "4",
+                                      "@label": "V. 4."
+                                    }
+                                  ],
+                                  "@pname": "a",
+                                  "@oct": "4",
+                                  "@dur": "8"
+                                }
+                              },
+                              "@n": "1"
+                            },
+                            {
+                              "layer": {
+                                "chord": {
+                                  "note": [
+                                    {
+                                      "@pname": "c",
+                                      "@oct": "5"
+                                    },
+                                    {
+                                      "@pname": "e",
+                                      "@oct": "5"
+                                    }
+                                  ],
+                                  "@dur": "8",
+                                  "@artic": "stacc"
+                                },
+                                "rest": {
+                                  "@dur": "8"
+                                },
+                                "note": {
+                                  "@pname": "a",
+                                  "@oct": "4",
+                                  "@dur": "8",
+                                  "@artic": "stacc"
+                                }
+                              },
+                              "@n": "2"
+                            },
+                            {
+                              "layer": {
+                                "chord": {
+                                  "note": [
+                                    {
+                                      "@pname": "a",
+                                      "@oct": "3"
+                                    },
+                                    {
+                                      "@pname": "e",
+                                      "@oct": "4"
+                                    }
+                                  ],
+                                  "@dur": "8",
+                                  "@artic": "stacc"
+                                },
+                                "rest": [
+                                  {
+                                    "@dur": "8"
+                                  },
+                                  {
+                                    "@dur": "8"
+                                  }
+                                ]
+                              },
+                              "@n": "3"
+                            }
+                          ],
+                          "dynam": {
+                            "#text": "p",
+                            "@tstamp": "1.5",
+                            "@place": "above",
+                            "@staff": "1"
+                          },
+                          "@n": "2"
+                        },
+                        {
+                          "staff": [
+                            {
+                              "layer": {
+                                "note": [
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "Schmet",
+                                          "@con": "d",
+                                          "@wordpos": "i"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "fern"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "thu'"
+                                        },
+                                        "@n": "3"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "spräch'"
+                                        },
+                                        "@n": "4"
+                                      }
+                                    ],
+                                    "@pname": "d",
+                                    "@oct": "5",
+                                    "@dur": "8"
+                                  },
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "ter",
+                                          "@con": "d",
+                                          "@wordpos": "m"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "und"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "dir"
+                                        },
+                                        "@n": "3"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "ich"
+                                        },
+                                        "@n": "4"
+                                      }
+                                    ],
+                                    "@pname": "e",
+                                    "@oct": "5",
+                                    "@dur": "8"
+                                  },
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "ling",
+                                          "@wordpos": "t"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "dann"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "kein"
+                                        },
+                                        "@n": "3"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "zu"
+                                        },
+                                        "@n": "4"
+                                      }
+                                    ],
+                                    "@pname": "f",
+                                    "@oct": "5",
+                                    "@dur": "8"
+                                  }
+                                ]
+                              },
+                              "@n": "1"
+                            },
+                            {
+                              "layer": {
+                                "beam": {
+                                  "chord": [
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "f",
+                                          "@oct": "4"
+                                        },
+                                        {
+                                          "@pname": "a",
+                                          "@oct": "4"
+                                        },
+                                        {
+                                          "@pname": "d",
+                                          "@oct": "5"
+                                        }
+                                      ],
+                                      "@dur": "8",
+                                      "@artic": "stacc"
+                                    },
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "a",
+                                          "@oct": "4"
+                                        },
+                                        {
+                                          "@pname": "c",
+                                          "@oct": "5"
+                                        },
+                                        {
+                                          "@pname": "e",
+                                          "@oct": "5"
+                                        }
+                                      ],
+                                      "@dur": "8",
+                                      "@artic": "stacc"
+                                    },
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "d",
+                                          "@oct": "5"
+                                        },
+                                        {
+                                          "@pname": "f",
+                                          "@oct": "5"
+                                        }
+                                      ],
+                                      "@dur": "8",
+                                      "@artic": "stacc"
+                                    }
+                                  ]
+                                }
+                              },
+                              "@n": "2"
+                            },
+                            {
+                              "layer": {
+                                "mRest": {
+                                  "#text": ""
+                                }
+                              },
+                              "@n": "3"
+                            }
+                          ],
+                          "@n": "3"
+                        },
+                        {
+                          "staff": [
+                            {
+                              "layer": {
+                                "note": {
+                                  "verse": [
+                                    {
+                                      "syl": {
+                                        "#text": "sprich,"
+                                      },
+                                      "@n": "1"
+                                    },
+                                    {
+                                      "syl": {
+                                        "#text": "nah,"
+                                      },
+                                      "@n": "2"
+                                    },
+                                    {
+                                      "syl": {
+                                        "#text": "Leid:"
+                                      },
+                                      "@n": "3"
+                                    },
+                                    {
+                                      "syl": {
+                                        "#text": "dir:"
+                                      },
+                                      "@n": "4"
+                                    }
+                                  ],
+                                  "@pname": "e",
+                                  "@oct": "5",
+                                  "@dur": "8"
+                                },
+                                "rest": [
+                                  {
+                                    "@dur": "8"
+                                  },
+                                  {
+                                    "@dur": "8"
+                                  }
+                                ]
+                              },
+                              "@n": "1"
+                            },
+                            {
+                              "layer": {
+                                "chord": {
+                                  "note": [
+                                    {
+                                      "@pname": "a",
+                                      "@oct": "4"
+                                    },
+                                    {
+                                      "@pname": "c",
+                                      "@oct": "5"
+                                    },
+                                    {
+                                      "@pname": "e",
+                                      "@oct": "5"
+                                    }
+                                  ],
+                                  "@dur": "8",
+                                  "@artic": "stacc"
+                                },
+                                "rest": {
+                                  "@dur": "8"
+                                },
+                                "note": {
+                                  "@pname": "a",
+                                  "@oct": "4",
+                                  "@artic": "stacc"
+                                }
+                              },
+                              "@n": "2"
+                            },
+                            {
+                              "layer": {
+                                "rest": [
+                                  {
+                                    "@dur": "8"
+                                  },
+                                  {
+                                    "@dur": "8"
+                                  }
+                                ],
+                                "note": {
+                                  "@pname": "a",
+                                  "@oct": "3",
+                                  "@dur": "8",
+                                  "@artic": "stacc"
+                                }
+                              },
+                              "@n": "3"
+                            }
+                          ],
+                          "@n": "4"
+                        }
+                      ],
+                      "sb": {
+                        "#text": ""
+                      }
+                    }
+                  }
+                },
+                "@n": "2"
+              },
+              {
+                "title": [
+                  {
+                    "#text": "Frühlingsbotschaft",
+                    "@type": "main"
+                  },
+                  {
+                    "#text": "Lieder für die Jugend <Frühlingsbotschaft>",
+                    "@type": "uniform"
+                  }
+                ],
+                "composer": {
+                  "persName": {
+                    "#text": "Robert Schumann",
+                    "@role": "composer",
+                    "@auth": "GND",
+                    "@auth.uri": "http://d-nb.info/gnd/",
+                    "@codedval": "118611666"
+                  }
+                },
+                "lyricist": {
+                  "persName": {
+                    "#text": "August Heinrich Hoffmann von Fallersleben",
+                    "@role": "lyricist",
+                    "@auth": "GND",
+                    "@auth.uri": "http://d-nb.info/gnd/",
+                    "@codedval": "118552589"
+                  }
+                },
+                "key": {
+                  "#text": "G major"
+                },
+                "meter": {
+                  "@count": "2",
+                  "@unit": "4"
+                },
+                "incip": {
+                  "incipText": {
+                    "p": {
+                      "#text": "Kuckuck, Kuckuck ruft aus dem Wald"
+                    }
+                  },
+                  "score": {
+                    "scoreDef": {
+                      "staffGrp": {
+                        "staffDef": {
+                          "label": {
+                            "#text": "Singstimme"
+                          },
+                          "@n": "1",
+                          "@lines": "5",
+                          "@meter.count": "2",
+                          "@meter.unit": "4",
+                          "@clef.shape": "G",
+                          "@clef.line": "2",
+                          "@keysig": "1s"
+                        },
+                        "staffGrp": {
+                          "label": {
+                            "#text": "Pianoforte"
+                          },
+                          "staffDef": [
+                            {
+                              "@n": "2",
+                              "@lines": "5",
+                              "@meter.count": "2",
+                              "@meter.unit": "4",
+                              "@clef.shape": "G",
+                              "@clef.line": "2",
+                              "@keysig": "1s"
+                            },
+                            {
+                              "@n": "3",
+                              "@lines": "5",
+                              "@meter.count": "2",
+                              "@meter.unit": "4",
+                              "@clef.shape": "F",
+                              "@clef.line": "4",
+                              "@keysig": "1s"
+                            }
+                          ],
+                          "@symbol": "brace"
+                        }
+                      }
+                    },
+                    "section": {
+                      "measure": [
+                        {
+                          "staff": [
+                            {
+                              "layer": {
+                                "note": [
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "Kuc",
+                                          "@wordpos": "i"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "Kuc",
+                                          "@wordpos": "i"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "Kuc",
+                                          "@wordpos": "i"
+                                        },
+                                        "@n": "3"
+                                      }
+                                    ],
+                                    "@pname": "g",
+                                    "@oct": "4",
+                                    "@dur": "8",
+                                    "@artic": "stacc"
+                                  },
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "kuck,",
+                                          "@wordpos": "t"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "kuck,",
+                                          "@wordpos": "t"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "kuck,",
+                                          "@wordpos": "t"
+                                        },
+                                        "@n": "3"
+                                      }
+                                    ],
+                                    "@pname": "a",
+                                    "@oct": "4",
+                                    "@dur": "8",
+                                    "@artic": "stacc"
+                                  },
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "Kuc",
+                                          "@wordpos": "i"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "Kuc",
+                                          "@wordpos": "i"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "Kuc",
+                                          "@wordpos": "i"
+                                        },
+                                        "@n": "3"
+                                      }
+                                    ],
+                                    "@pname": "b",
+                                    "@oct": "4",
+                                    "@dur": "8",
+                                    "@artic": "stacc"
+                                  },
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "kuck",
+                                          "@wordpos": "t"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "kuck",
+                                          "@wordpos": "t"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "kuck,",
+                                          "@wordpos": "t"
+                                        },
+                                        "@n": "3"
+                                      }
+                                    ],
+                                    "@pname": "g",
+                                    "@oct": "4",
+                                    "@dur": "8",
+                                    "@artic": "stacc"
+                                  }
+                                ]
+                              },
+                              "@n": "1"
+                            },
+                            {
+                              "layer": {
+                                "beam": {
+                                  "chord": [
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "b",
+                                          "@oct": "3"
+                                        },
+                                        {
+                                          "@pname": "g",
+                                          "@oct": "4"
+                                        }
+                                      ],
+                                      "@dur": "8",
+                                      "@artic": "stacc"
+                                    },
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "d",
+                                          "@oct": "4"
+                                        },
+                                        {
+                                          "@pname": "a",
+                                          "@oct": "4"
+                                        }
+                                      ],
+                                      "@dur": "8",
+                                      "@artic": "stacc"
+                                    },
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "g",
+                                          "@oct": "4"
+                                        },
+                                        {
+                                          "@pname": "b",
+                                          "@oct": "4"
+                                        }
+                                      ],
+                                      "@dur": "8",
+                                      "@artic": "stacc"
+                                    },
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "b",
+                                          "@oct": "3"
+                                        },
+                                        {
+                                          "@pname": "g",
+                                          "@oct": "4"
+                                        }
+                                      ],
+                                      "@dur": "8",
+                                      "@artic": "stacc"
+                                    }
+                                  ]
+                                }
+                              },
+                              "@n": "2"
+                            },
+                            {
+                              "layer": {
+                                "beam": {
+                                  "chord": [
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "b",
+                                          "@oct": "2"
+                                        },
+                                        {
+                                          "@pname": "g",
+                                          "@oct": "3"
+                                        }
+                                      ],
+                                      "@dur": "8",
+                                      "@artic": "stacc"
+                                    },
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "d",
+                                          "@oct": "3"
+                                        },
+                                        {
+                                          "@pname": "a",
+                                          "@oct": "3"
+                                        }
+                                      ],
+                                      "@dur": "8",
+                                      "@artic": "stacc"
+                                    },
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "g",
+                                          "@oct": "3"
+                                        },
+                                        {
+                                          "@pname": "b",
+                                          "@oct": "3"
+                                        }
+                                      ],
+                                      "@dur": "8",
+                                      "@artic": "stacc"
+                                    },
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "b",
+                                          "@oct": "2"
+                                        },
+                                        {
+                                          "@pname": "g",
+                                          "@oct": "3"
+                                        }
+                                      ],
+                                      "@dur": "8",
+                                      "@artic": "stacc"
+                                    }
+                                  ]
+                                }
+                              },
+                              "@n": "3"
+                            }
+                          ],
+                          "hairpin": {
+                            "@form": "cres",
+                            "@staff": "2",
+                            "@tstamp": "1",
+                            "@tstamp2": "0m+2.5"
+                          },
+                          "@n": "1"
+                        },
+                        {
+                          "staff": [
+                            {
+                              "layer": {
+                                "note": [
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "ruft"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "lässt"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "treff",
+                                          "@con": "d",
+                                          "@wordpos": "i"
+                                        },
+                                        "@n": "3"
+                                      }
+                                    ],
+                                    "@pname": "c",
+                                    "@oct": "5",
+                                    "@dur": "8"
+                                  },
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "aus"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "nicht"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "li",
+                                          "@con": "d",
+                                          "@wordpos": "m"
+                                        },
+                                        "@n": "3"
+                                      }
+                                    ],
+                                    "@pname": "d",
+                                    "@oct": "5",
+                                    "@dur": "16"
+                                  },
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "dem"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "sein"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "cher",
+                                          "@wordpos": "t"
+                                        },
+                                        "@n": "3"
+                                      }
+                                    ],
+                                    "@pname": "e",
+                                    "@oct": "5",
+                                    "@dur": "16"
+                                  },
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "Wald:"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "Schrein:"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "Held!"
+                                        },
+                                        "@n": "3"
+                                      }
+                                    ],
+                                    "@pname": "d",
+                                    "@oct": "5",
+                                    "@dur": "4"
+                                  }
+                                ]
+                              },
+                              "@n": "1"
+                            },
+                            {
+                              "layer": {
+                                "chord": [
+                                  {
+                                    "note": [
+                                      {
+                                        "@pname": "e",
+                                        "@oct": "4"
+                                      },
+                                      {
+                                        "@pname": "g",
+                                        "@oct": "4"
+                                      },
+                                      {
+                                        "@pname": "c",
+                                        "@oct": "5"
+                                      }
+                                    ],
+                                    "@dur": "4"
+                                  },
+                                  {
+                                    "note": [
+                                      {
+                                        "@pname": "d",
+                                        "@oct": "4"
+                                      },
+                                      {
+                                        "@pname": "g",
+                                        "@oct": "4"
+                                      },
+                                      {
+                                        "@pname": "b",
+                                        "@oct": "4"
+                                      }
+                                    ],
+                                    "@dur": "4"
+                                  }
+                                ]
+                              },
+                              "@n": "2"
+                            },
+                            {
+                              "layer": {
+                                "chord": [
+                                  {
+                                    "note": [
+                                      {
+                                        "@pname": "g",
+                                        "@oct": "3"
+                                      },
+                                      {
+                                        "@pname": "c",
+                                        "@oct": "4"
+                                      }
+                                    ],
+                                    "@dur": "4"
+                                  },
+                                  {
+                                    "note": [
+                                      {
+                                        "@pname": "g",
+                                        "@oct": "3"
+                                      },
+                                      {
+                                        "@pname": "b",
+                                        "@oct": "3"
+                                      }
+                                    ],
+                                    "@dur": "4"
+                                  }
+                                ]
+                              },
+                              "@n": "3"
+                            }
+                          ],
+                          "dynam": {
+                            "#text": "fp",
+                            "@tstamp": "1",
+                            "@place": "below",
+                            "@staff": "2"
+                          },
+                          "@n": "2"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "@n": "3"
+              },
+              {
+                "title": [
+                  {
+                    "#text": "Frühlingsgruss",
+                    "@type": "main"
+                  },
+                  {
+                    "#text": "Lieder für die Jugend <Frühlingsgruss>",
+                    "@type": "uniform"
+                  }
+                ],
+                "composer": {
+                  "persName": {
+                    "#text": "Robert Schumann",
+                    "@role": "composer",
+                    "@auth": "GND",
+                    "@auth.uri": "http://d-nb.info/gnd/",
+                    "@codedval": "118611666"
+                  }
+                },
+                "lyricist": {
+                  "persName": {
+                    "#text": "August Heinrich Hoffmann von Fallersleben",
+                    "@role": "lyricist",
+                    "@auth": "GND",
+                    "@auth.uri": "http://d-nb.info/gnd/",
+                    "@codedval": "118552589"
+                  }
+                },
+                "key": {
+                  "#text": "G major"
+                },
+                "incip": {
+                  "incipText": {
+                    "p": {
+                      "#text": "So sei gegrüsst viel tausendmal"
+                    }
+                  },
+                  "score": {
+                    "scoreDef": {
+                      "staffGrp": {
+                        "staffDef": {
+                          "label": {
+                            "#text": "Singstimme"
+                          },
+                          "@n": "1",
+                          "@lines": "5",
+                          "@meter.count": "3",
+                          "@meter.unit": "4",
+                          "@clef.shape": "G",
+                          "@clef.line": "2",
+                          "@keysig": "1s"
+                        },
+                        "staffGrp": {
+                          "label": {
+                            "#text": "Pianoforte"
+                          },
+                          "staffDef": [
+                            {
+                              "@n": "2",
+                              "@lines": "5",
+                              "@meter.count": "3",
+                              "@meter.unit": "4",
+                              "@clef.shape": "G",
+                              "@clef.line": "2",
+                              "@keysig": "1s"
+                            },
+                            {
+                              "@n": "3",
+                              "@lines": "5",
+                              "@meter.count": "3",
+                              "@meter.unit": "4",
+                              "@clef.shape": "F",
+                              "@clef.line": "4",
+                              "@keysig": "1s"
+                            }
+                          ],
+                          "@symbol": "brace"
+                        }
+                      }
+                    },
+                    "section": {
+                      "measure": [
+                        {
+                          "staff": [
+                            {
+                              "layer": {
+                                "note": {
+                                  "verse": [
+                                    {
+                                      "syl": {
+                                        "#text": "So"
+                                      },
+                                      "@n": "1"
+                                    },
+                                    {
+                                      "syl": {
+                                        "#text": "Du"
+                                      },
+                                      "@n": "2"
+                                    },
+                                    {
+                                      "syl": {
+                                        "#text": "So"
+                                      },
+                                      "@n": "3"
+                                    }
+                                  ],
+                                  "@pname": "d",
+                                  "@oct": "4",
+                                  "@dur": "4"
+                                }
+                              },
+                              "@n": "1"
+                            },
+                            {
+                              "layer": {
+                                "note": {
+                                  "@pname": "d",
+                                  "@oct": "4",
+                                  "@dur": "4"
+                                }
+                              },
+                              "@n": "2"
+                            },
+                            {
+                              "layer": {
+                                "note": {
+                                  "@pname": "d",
+                                  "@oct": "3",
+                                  "@dur": "4"
+                                }
+                              },
+                              "@n": "3"
+                            }
+                          ],
+                          "@n": "0",
+                          "@metcon": "false"
+                        },
+                        {
+                          "staff": [
+                            {
+                              "layer": {
+                                "note": [
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "sei"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "kommst,"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "sei"
+                                        },
+                                        "@n": "3"
+                                      }
+                                    ],
+                                    "@pname": "g",
+                                    "@oct": "4",
+                                    "@dur": "8",
+                                    "@dots": "1"
+                                  },
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "ge",
+                                          "@wordpos": "i"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "und"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "ge",
+                                          "@wordpos": "i"
+                                        },
+                                        "@n": "3"
+                                      }
+                                    ],
+                                    "@pname": "b",
+                                    "@oct": "4",
+                                    "@dur": "16"
+                                  },
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "grüsst",
+                                          "@wordpos": "t"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "froh"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "grüsst",
+                                          "@wordpos": "t"
+                                        },
+                                        "@n": "3"
+                                      }
+                                    ],
+                                    "@pname": "a",
+                                    "@oct": "4",
+                                    "@dur": "4"
+                                  },
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "viel"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "ist"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "viel"
+                                        },
+                                        "@n": "3"
+                                      }
+                                    ],
+                                    "@pname": "g",
+                                    "@oct": "4",
+                                    "@dur": "4"
+                                  }
+                                ]
+                              },
+                              "@n": "1"
+                            },
+                            {
+                              "layer": {
+                                "beam": {
+                                  "chord": [
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "b",
+                                          "@oct": "3"
+                                        },
+                                        {
+                                          "@pname": "g",
+                                          "@oct": "4"
+                                        }
+                                      ],
+                                      "@dur": "8",
+                                      "@dots": "1"
+                                    },
+                                    {
+                                      "note": [
+                                        {
+                                          "@pname": "d",
+                                          "@oct": "4"
+                                        },
+                                        {
+                                          "@pname": "b",
+                                          "@oct": "4"
+                                        }
+                                      ],
+                                      "@dur": "16"
+                                    }
+                                  ]
+                                },
+                                "chord": [
+                                  {
+                                    "note": [
+                                      {
+                                        "@pname": "c",
+                                        "@oct": "4"
+                                      },
+                                      {
+                                        "@pname": "g",
+                                        "@oct": "4"
+                                      },
+                                      {
+                                        "@pname": "a",
+                                        "@oct": "4"
+                                      }
+                                    ],
+                                    "@dur": "4"
+                                  },
+                                  {
+                                    "note": [
+                                      {
+                                        "@pname": "b",
+                                        "@oct": "3"
+                                      },
+                                      {
+                                        "@pname": "g",
+                                        "@oct": "4"
+                                      }
+                                    ],
+                                    "@dur": "4"
+                                  }
+                                ]
+                              },
+                              "@n": "2"
+                            },
+                            {
+                              "layer": [
+                                {
+                                  "beam": {
+                                    "note": [
+                                      {
+                                        "@pname": "g",
+                                        "@oct": "2",
+                                        "@dur": "8",
+                                        "@dots": "1"
+                                      },
+                                      {
+                                        "@pname": "g",
+                                        "@oct": "3",
+                                        "@dur": "16"
+                                      }
+                                    ]
+                                  },
+                                  "note": [
+                                    {
+                                      "@pname": "g",
+                                      "@oct": "3",
+                                      "@dur": "4"
+                                    },
+                                    {
+                                      "@pname": "g",
+                                      "@oct": "3",
+                                      "@dur": "4"
+                                    }
+                                  ],
+                                  "@n": "1"
+                                },
+                                {
+                                  "note": {
+                                    "@pname": "g",
+                                    "@oct": "2",
+                                    "@dur": "2",
+                                    "@dots": "1"
+                                  },
+                                  "@n": "2"
+                                }
+                              ],
+                              "@n": "3"
+                            }
+                          ],
+                          "@n": "1"
+                        },
+                        {
+                          "staff": [
+                            {
+                              "layer": {
+                                "note": [
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "tau",
+                                          "@wordpos": "i"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "al",
+                                          "@con": "d",
+                                          "@wordpos": "i"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "tau",
+                                          "@wordpos": "i"
+                                        },
+                                        "@n": "3"
+                                      }
+                                    ],
+                                    "@pname": "e",
+                                    "@oct": "5",
+                                    "@dur": "8",
+                                    "@dots": "1"
+                                  },
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "send",
+                                          "@con": "d",
+                                          "@wordpos": "m"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "le",
+                                          "@wordpos": "t"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "send",
+                                          "@con": "d",
+                                          "@wordpos": "m"
+                                        },
+                                        "@n": "3"
+                                      }
+                                    ],
+                                    "@pname": "c",
+                                    "@oct": "5",
+                                    "@dur": "16"
+                                  },
+                                  {
+                                    "verse": [
+                                      {
+                                        "syl": {
+                                          "#text": "mal,",
+                                          "@wordpos": "t"
+                                        },
+                                        "@n": "1"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "Welt,"
+                                        },
+                                        "@n": "2"
+                                      },
+                                      {
+                                        "syl": {
+                                          "#text": "mal,",
+                                          "@wordpos": "t"
+                                        },
+                                        "@n": "3"
+                                      }
+                                    ],
+                                    "@pname": "a",
+                                    "@oct": "4",
+                                    "@dur": "2"
+                                  }
+                                ]
+                              },
+                              "@n": "1"
+                            },
+                            {
+                              "layer": {
+                                "chord": [
+                                  {
+                                    "note": [
+                                      {
+                                        "@pname": "e",
+                                        "@oct": "4"
+                                      },
+                                      {
+                                        "@pname": "g",
+                                        "@oct": "4"
+                                      },
+                                      {
+                                        "@pname": "e",
+                                        "@oct": "5"
+                                      }
+                                    ],
+                                    "@dur": "4"
+                                  },
+                                  {
+                                    "note": [
+                                      {
+                                        "@pname": "d",
+                                        "@oct": "4"
+                                      },
+                                      {
+                                        "@pname": "f",
+                                        "@oct": "4"
+                                      },
+                                      {
+                                        "@pname": "a",
+                                        "@oct": "4"
+                                      }
+                                    ],
+                                    "@dur": "2"
+                                  }
+                                ]
+                              },
+                              "@n": "2"
+                            },
+                            {
+                              "layer": {
+                                "note": [
+                                  {
+                                    "@pname": "c",
+                                    "@oct": "3",
+                                    "@dur": "4"
+                                  },
+                                  {
+                                    "@pname": "d",
+                                    "@oct": "3",
+                                    "@dur": "2"
+                                  }
+                                ]
+                              },
+                              "@n": "3"
+                            }
+                          ],
+                          "@n": "2"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "@n": "4"
+              }
+            ]
+          }
+        }
+      },
+      "manifestationList": {
+        "manifestation": {
+          "titleStmt": {
+            "title": [
+              {
+                "#text": "Lieder-Album für die Jugend"
+              },
+              {
+                "#text": "für Singstimme(n) und Klavier",
+                "@type": "subordinate"
+              },
+              {
+                "#text": "op. 79",
+                "@type": "subordinate"
+              },
+              {
+                "#text": "Lieder für die Jugend",
+                "@type": "uniform"
+              }
+            ],
+            "respStmt": {
+              "persName": [
+                {
+                  "#text": "Robert Schumann",
+                  "@role": "composer",
+                  "@auth": "GND",
+                  "@auth.uri": "http://d-nb.info/gnd/",
+                  "@codedval": "118611666"
+                },
+                {
+                  "#text": "Ulrich Mahlert",
+                  "@role": "editor",
+                  "@auth.uri": "http://d-nb.info/gnd/",
+                  "@auth": "GND",
+                  "@codedval": "10400097X"
+                }
+              ],
+              "resp": {
+                "#text": "Herausgegeben von"
+              }
+            }
+          },
+          "editionStmt": {
+            "edition": {
+              "#text": "Reprint der Erstausgabe Leipzig 1849"
+            }
+          },
+          "pubStmt": {
+            "respStmt": {
+              "corpName": [
+                {
+                  "#text": "Breitkopf und Härtel",
+                  "@role": "publisher",
+                  "@auth": "GND",
+                  "@auth.uri": "http://d-nb.info/gnd/",
+                  "@codedval": "330001418"
+                },
+                {
+                  "#text": "PIROL Notendruckerei, Minden",
+                  "@role": "printer"
+                }
+              ],
+              "resp": {
+                "#text": "Druck:"
+              }
+            },
+            "address": {
+              "addrLine": [
+                {
+                  "#text": "Wiesbaden"
+                },
+                {
+                  "#text": "Germany"
+                }
+              ]
+            },
+            "identifier": {
+              "#text": "Breitkopf & Härtel 8307",
+              "@type": "ordernumber"
+            },
+            "availability": {
+              "useRestrict": {
+                "#text": "© 1991 by Breitkopf & Härtel, Wiesbaden"
+              }
+            }
+          },
+          "physDesc": {
+            "dimensions": {
+              "#text": "30 cm"
+            },
+            "extent": {
+              "#text": "57 S."
+            },
+            "plateNum": {
+              "#text": "EB 8307"
+            },
+            "titlePage": [
+              {
+                "p": [
+                  {
+                    "lb": [
+                      {
+                        "#text": ""
+                      },
+                      {
+                        "#text": ""
+                      }
+                    ],
+                    "#text": "Breitkopf ArchivFrühdrucke und bibliophile Ausgaben von hohem\n                QuellenwertEarly printings and bibliophiles' editions of a high documentary\n                value"
+                  },
+                  {
+                    "lb": {
+                      "#text": ""
+                    },
+                    "#text": "herausgegen von / edited byJoachim Draheim"
+                  },
+                  {
+                    "lb": {
+                      "#text": ""
+                    },
+                    "#text": "Robert Schumann(1810-1856)"
+                  },
+                  {
+                    "lb": [
+                      {
+                        "#text": ""
+                      },
+                      {
+                        "#text": ""
+                      },
+                      {
+                        "#text": ""
+                      }
+                    ],
+                    "#text": "Lieder-Album für die Jugendfür Singstimme(n) und Klavierfor Voice(s) and\n                Pianoop. 79"
+                  },
+                  {
+                    "lb": {
+                      "#text": ""
+                    },
+                    "#text": "Reprint der Erstausgabe Leipzig 1849Reprint of the First Printing Leipzig\n                1849"
+                  },
+                  {
+                    "lb": {
+                      "#text": ""
+                    },
+                    "#text": "herausgegeben von / edited byUlrich Mahlert"
+                  },
+                  {
+                    "lb": [
+                      {
+                        "#text": ""
+                      },
+                      {
+                        "#text": ""
+                      }
+                    ],
+                    "#text": "Breitkopf & Härtel, WiesbadenEdition Breitkopf 8307Printed in\n                Germany"
+                  }
+                ],
+                "@n": "1"
+              },
+              {
+                "p": [
+                  {
+                    "lb": [
+                      {
+                        "#text": ""
+                      },
+                      {
+                        "#text": ""
+                      },
+                      {
+                        "#text": ""
+                      },
+                      {
+                        "#text": ""
+                      },
+                      {
+                        "#text": ""
+                      }
+                    ],
+                    "#text": "Liederfür dieJugendvonRobert Schumannop. 79"
+                  },
+                  {
+                    "#text": "Leipzig, Breitkopf & Härtel."
+                  },
+                  {
+                    "#text": "C.Hahn.lith."
+                  }
+                ],
+                "@n": "2"
+              }
+            ]
+          },
+          "seriesStmt": {
+            "title": {
+              "#text": "Breitkopf-Archiv"
+            },
+            "editor": {
+              "persName": {
+                "#text": "Joachim Draheim",
+                "@role": "editor",
+                "@auth.uri": "http://d-nb.info/gnd/",
+                "@auth": "GND",
+                "@codedval": "123921228"
+              }
+            }
+          },
+          "contents": {
+            "head": {
+              "#text": "INHALT."
+            },
+            "label": {
+              "#text": "Kinderlieder von Hoffmann von Fallersleben."
+            },
+            "contentItem": [
+              {
+                "#text": "1. Der Abendstern.",
+                "@n": "1"
+              },
+              {
+                "#text": "2. Schmetterling.",
+                "@n": "2"
+              },
+              {
+                "#text": "3. Frühlingsbotschaft.",
+                "@n": "3"
+              },
+              {
+                "#text": "4. Frühlingsgruss.",
+                "@n": "4"
+              },
+              {
+                "#text": "5. Schlaraffenland.",
+                "@n": "5"
+              },
+              {
+                "#text": "6. Sonntag.",
+                "@n": "6"
+              },
+              {
+                "#text": "Zwei Zigeunerliedchen, aus dem Spanischen von E.\n              Geibel.",
+                "@n": "7"
+              },
+              {
+                "#text": "Des Knaben Berglied, v. L. Uhland.",
+                "@n": "8"
+              },
+              {
+                "#text": "Mailied.",
+                "@n": "9"
+              },
+              {
+                "#text": "Käuzlein, aus des Knaben Wunderhorn.",
+                "@n": "10"
+              },
+              {
+                "#text": "Hinaus in's Freie, von Hoffmann von Fallersleben.",
+                "@n": "11"
+              },
+              {
+                "#text": "Der Sandmann, von H. Kletke.",
+                "@n": "12"
+              },
+              {
+                "#text": "Marienwürmchen, aus des Knaben Wunderhorn.",
+                "@n": "13"
+              },
+              {
+                "#text": "Die Waise, von Hoffmann von Fallersleben.",
+                "@n": "14"
+              },
+              {
+                "#text": "Das Glück, von F. Hebbel. Zweistimmig.",
+                "@n": "15"
+              },
+              {
+                "#text": "Weihnachtlied, von H. C. Andersen",
+                "@n": "16"
+              },
+              {
+                "#text": "Die wandelnde Glocke, von Goethe.",
+                "@n": "17"
+              },
+              {
+                "#text": "Frühlingslied, von Hoffmann von Fallersleben.",
+                "@n": "18"
+              },
+              {
+                "#text": "Frühlings Ankunft, von Hoffmann von Fallersleben.",
+                "@n": "19"
+              },
+              {
+                "#text": "Die Schwalben. Fliegendes Blatt. Zweistimmig.",
+                "@n": "20"
+              },
+              {
+                "#text": "Kinderwacht. Fliegendes Blatt.",
+                "@n": "21"
+              },
+              {
+                "#text": "Des Sennen Abschied, von Schiller.",
+                "@n": "22"
+              },
+              {
+                "#text": "Er ist's, von E. Mörike.",
+                "@n": "23"
+              },
+              {
+                "#text": "Spinnelied. Fliegendes Blatt. Dreistimmig.",
+                "@n": "24"
+              },
+              {
+                "#text": "Des Buben Schützenlied, von F. Rückert.",
+                "@n": "25"
+              },
+              {
+                "#text": "Schneeglöckchen, von F. Rückert.",
+                "@n": "26"
+              },
+              {
+                "#text": "Lied Lynceus des Thürmers, aus Goethe's Faust.",
+                "@n": "27"
+              },
+              {
+                "#text": "Mignon, von Goethe.",
+                "@n": "28"
+              }
+            ]
+          },
+          "classification": {
+            "termList": {
+              "term": [
+                {
+                  "#text": "Lied",
+                  "@class": "#_4035669-3"
+                },
+                {
+                  "#text": "Vokalmusik",
+                  "@class": "#_4063783-9"
+                },
+                {
+                  "#text": "Song",
+                  "@class": "#_782.42"
+                },
+                {
+                  "#text": "Vocal music",
+                  "@class": "#_782"
+                }
+              ]
+            }
+          },
+          "itemList": {
+            "item": {
+              "physLoc": {
+                "repository": {
+                  "corpName": {
+                    "#text": "Deutsche Nationalbibliothek"
+                  },
+                  "geogName": {
+                    "#text": "Leipzig"
+                  },
+                  "identifier": {
+                    "#text": "M 1991 B\n                    2419",
+                    "@auth": "DNB",
+                    "@auth.uri": "http://d-nb.info/350613826"
+                  }
+                }
+              },
+              "classification": {
+                "termList": {
+                  "term": [
+                    {
+                      "#text": "Lied",
+                      "@class": "#_4035669-3"
+                    },
+                    {
+                      "#text": "Vokalmusik",
+                      "@class": "#_4063783-9"
+                    },
+                    {
+                      "#text": "Song",
+                      "@class": "#_782.42"
+                    },
+                    {
+                      "#text": "Vocal music",
+                      "@class": "#_782"
+                    }
+                  ]
+                }
+              },
+              "@n": "1"
+            }
+          }
+        }
+      }
+    },
+    "music": {
+      "#text": ""
+    },
+    "@xmlns:xlink": "http://www.w3.org/1999/xlink",
+    "@xmlns": "http://www.music-encoding.org/ns/mei",
+    "@meiversion": "4.0.1"
+  }
+}

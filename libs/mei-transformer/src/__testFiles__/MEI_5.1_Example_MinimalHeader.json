@@ -1,0 +1,200 @@
+{
+  "?xml": {
+    "@version": "1.0",
+    "@encoding": "UTF-8"
+  },
+  "?xml-model": [
+    {
+      "@href": "https://music-encoding.org/schema/5.1/mei-all.rng",
+      "@type": "application/xml",
+      "@schematypens": "http://relaxng.org/ns/structure/1.0"
+    },
+    {
+      "@href": "https://music-encoding.org/schema/5.1/mei-all.rng",
+      "@type": "application/xml",
+      "@schematypens": "http://purl.oclc.org/dsdl/schematron"
+    }
+  ],
+  "mei": {
+    "meiHead": {
+      "fileDesc": {
+        "titleStmt": {
+          "title": [
+            {
+              "#text": "Example of a Minimal header"
+            },
+            {
+              "#text": "Der Abendstern: an electronic transcription"
+            }
+          ],
+          "composer": {
+            "persName": {
+              "#text": "Robert Schumann",
+              "@role": "creator",
+              "@codedval": "118611666",
+              "@auth": "GND",
+              "@auth.uri": "http://d-nb.info/gnd/"
+            }
+          },
+          "respStmt": {
+            "persName": {
+              "#text": "John Doe",
+              "@role": "encoder"
+            }
+          }
+        },
+        "pubStmt": {
+          "unpub": {
+            "#text": "Incomplete!"
+          }
+        }
+      },
+      "encodingDesc": {
+        "appInfo": {
+          "application": [
+            {
+              "name": {
+                "#text": "mei40To50.xsl"
+              },
+              "ptr": {
+                "@target": "https://github.com/music-encoding/encoding-tools/blob/main/mei40To50/mei40To50.xsl"
+              },
+              "@version": "v1.0",
+              "@xml:id": "mei40To50.xsl"
+            },
+            {
+              "name": {
+                "#text": "meiLint.xsl"
+              },
+              "ptr": {
+                "@target": "https://github.com/music-encoding/encoding-tools/blob/main/meiLint/meiLint.xsl"
+              },
+              "@version": "v0.0.1-alpha",
+              "@xml:id": "meiLint_v0.0.1-alpha"
+            },
+            {
+              "name": {
+                "#text": "mei50To51.xsl"
+              },
+              "ptr": {
+                "@target": "https://github.com/music-encoding/encoding-tools/blob/main/mei50To51/mei50To51.xsl"
+              },
+              "@version": "v1.0",
+              "@xml:id": "mei50To51"
+            },
+            {
+              "name": {
+                "#text": "meiLint.xsl"
+              },
+              "ptr": {
+                "@target": "https://github.com/music-encoding/encoding-tools/blob/main/meiLint/meiLint.xsl"
+              },
+              "@version": "v1.0.0",
+              "@xml:id": "meiLint_v1.0.0"
+            }
+          ]
+        }
+      },
+      "revisionDesc": {
+        "change": [
+          {
+            "respStmt": {
+              "persName": [
+                {
+                  "#text": "Benjamin W. Bohl"
+                },
+                {
+                  "#text": "Stefan Münnich"
+                }
+              ]
+            },
+            "changeDesc": {
+              "p": {
+                "list": {
+                  "li": [
+                    {
+                      "#text": "update xml-model schema references to v4.0.1"
+                    },
+                    {
+                      "#text": "update meiversion attributes to 4.0.1"
+                    },
+                    {
+                      "#text": "add missing responsibility statements to change elements"
+                    },
+                    {
+                      "#text": "unify documentation of mei version upgrades (appInfo and revisionDesc)"
+                    },
+                    {
+                      "ref": {
+                        "#text": "meiLint.xsl",
+                        "@target": "#meiLint_v0.0.1-alpha"
+                      },
+                      "#text": "linted with"
+                    }
+                  ]
+                }
+              }
+            },
+            "date": {
+              "@isodate": "2023-07-27T17:11:38+02:00"
+            },
+            "@n": "1"
+          },
+          {
+            "changeDesc": {
+              "p": {
+                "#text": "Converted to MEI version 5.0 using mei40To50.xsl, version 1.0"
+              }
+            },
+            "date": {
+              "@isodate": "2023-07-31"
+            },
+            "@n": "2",
+            "@resp": "#mei40To50.xsl"
+          },
+          {
+            "changeDesc": {
+              "p": {
+                "#text": "Applied lint mode."
+              }
+            },
+            "date": {
+              "@isodate": "2023-07-31T15:44:21+02:00"
+            },
+            "@n": "3",
+            "@resp": "#meiLint_v0.0.1-alpha"
+          },
+          {
+            "changeDesc": {
+              "p": {
+                "#text": "Converted to MEI version 5.1 using mei50To51.xsl, version 1.0"
+              }
+            },
+            "date": {
+              "@isodate": "2025-01-17"
+            },
+            "@n": "4",
+            "@resp": "#mei50To51"
+          },
+          {
+            "changeDesc": {
+              "p": {
+                "#text": "Applied lint mode."
+              }
+            },
+            "date": {
+              "@isodate": "2025-01-17"
+            },
+            "@n": "5",
+            "@resp": "#meiLint_v1.0.0"
+          }
+        ]
+      }
+    },
+    "music": {
+      "#text": ""
+    },
+    "@xmlns": "http://www.music-encoding.org/ns/mei",
+    "@meiversion": "5.1"
+  }
+}

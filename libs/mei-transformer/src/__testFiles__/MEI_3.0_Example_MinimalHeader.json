@@ -1,0 +1,49 @@
+{
+  "?xml": {
+    "@version": "1.0",
+    "@encoding": "UTF-8",
+    "@standalone": "no"
+  },
+  "mei": {
+    "meiHead": {
+      "fileDesc": {
+        "titleStmt": {
+          "title": [
+            {
+              "#text": "Example of a Minimal header"
+            },
+            {
+              "#text": "Der Abendstern: an electronic transcription"
+            }
+          ],
+          "composer": {
+            "persName": {
+              "#text": "Robert Schumann",
+              "@role": "creator",
+              "@codedval": "118611666",
+              "@auth": "GND",
+              "@auth.uri": "http://d-nb.info/gnd/"
+            }
+          },
+          "respStmt": {
+            "persName": {
+              "#text": "John Doe",
+              "@role": "encoder"
+            }
+          }
+        },
+        "pubStmt": {
+          "unpub": {
+            "#text": "Incomplete!"
+          }
+        }
+      }
+    },
+    "music": {
+      "#text": ""
+    },
+    "@xmlns:xlink": "http://www.w3.org/1999/xlink",
+    "@xmlns": "http://www.music-encoding.org/ns/mei",
+    "@meiversion": "4.0.1"
+  }
+}

@@ -1,10 +1,10 @@
 import fs from "node:fs/promises";
-import path from "node:path";
+import { join } from "node:path";
 import { $ } from "bun";
 
-const COMPONENTS_PATH = path.join(__dirname, "components");
-// const RESULT_DIR_PATH = path.join(__dirname, "result");
-const RESULT_DIR_PATH = path.join(__dirname, "..", "src", "meiTypeValibot");
+const COMPONENTS_PATH = join(__dirname, "components");
+// const RESULT_DIR_PATH = join(__dirname, "result");
+const RESULT_DIR_PATH = join(__dirname, "..", "src", "meiTypeValibot");
 
 interface ModelMember {
 	name: string;
@@ -101,16 +101,13 @@ function generateAttributeContent(
 	// Generate class imports
 	const classImports = new Map<string, string[]>();
 	for (const className of attribute.classes) {
-		const classModule = componentToModuleMap.get(className);
-		if (!classModule) continue;
-
+		const path = getImportPath(className, currentModule);
+		if (!path) continue;
 		const classAttrName = className.replace(/^att\./, "").replace(/\./g, "_");
 		const classPascalName = classAttrName
 			.split("_")
 			.map((part) => part.charAt(0).toUpperCase() + part.slice(1))
 			.join("");
-
-		const path = classModule === currentModule ? ".." : `../../${classModule}`;
 
 		if (!classImports.has(path)) {
 			classImports.set(path, []);
@@ -200,10 +197,7 @@ async function generateIndexFile(
 	});
 
 	// Write index file
-	await fs.writeFile(
-		path.join(outputPath, "index.ts"),
-		exports.join("\n") + "\n",
-	);
+	await fs.writeFile(join(outputPath, "index.ts"), exports.join("\n") + "\n");
 }
 
 async function generateMeiJsonFile(resultPath: string): Promise<void> {
@@ -217,7 +211,7 @@ export const MeiJsonSchema = v.object({
 export type MeiJsonData = v.InferOutput<typeof MeiJsonSchema>;
 `;
 
-	await fs.writeFile(path.join(resultPath, "meiJson.ts"), content);
+	await fs.writeFile(join(resultPath, "meiJson.ts"), content);
 	console.log("Generated meiJson.ts");
 }
 
@@ -234,7 +228,7 @@ export const StandardTagSchema = v.object({
 export type StandardTagData = v.InferOutput<typeof StandardTagSchema>;
 `;
 
-	await fs.writeFile(path.join(resultPath, "common.ts"), content);
+	await fs.writeFile(join(resultPath, "common.ts"), content);
 	console.log("Generated common.ts");
 }
 
@@ -242,7 +236,7 @@ async function generateGlobalIndexFile(resultPath: string): Promise<void> {
 	const exports: string[] = [];
 
 	// Add common.ts export first
-	const commonPath = path.join(resultPath, "common.ts");
+	const commonPath = join(resultPath, "common.ts");
 	try {
 		await fs.access(commonPath);
 		exports.push(`export * from "./common";`);
@@ -255,8 +249,8 @@ async function generateGlobalIndexFile(resultPath: string): Promise<void> {
 	const modules = await fs.readdir(resultPath);
 
 	for (const module of modules) {
-		const modulePath = path.join(resultPath, module);
-		const moduleIndexPath = path.join(modulePath, "index.ts");
+		const modulePath = join(resultPath, module);
+		const moduleIndexPath = join(modulePath, "index.ts");
 
 		try {
 			// Check if it's a directory and has index.ts
@@ -272,10 +266,7 @@ async function generateGlobalIndexFile(resultPath: string): Promise<void> {
 
 	if (exports.length > 0) {
 		// Write global index file
-		await fs.writeFile(
-			path.join(resultPath, "index.ts"),
-			exports.join("\n") + "\n",
-		);
+		await fs.writeFile(join(resultPath, "index.ts"), exports.join("\n") + "\n");
 		console.log("Generated global index.ts");
 	}
 }
@@ -288,8 +279,8 @@ async function generateModuleIndexFile(
 
 	// Check each folder and add export if it exists and has an index.ts file
 	for (const folder of folders) {
-		const folderPath = path.join(moduleResultPath, folder);
-		const indexPath = path.join(folderPath, "index.ts");
+		const folderPath = join(moduleResultPath, folder);
+		const indexPath = join(folderPath, "index.ts");
 		try {
 			await fs.access(indexPath);
 			exports.push(`export * from "./${folder}";`);
@@ -301,7 +292,7 @@ async function generateModuleIndexFile(
 	if (exports.length > 0) {
 		// Write module index file
 		await fs.writeFile(
-			path.join(moduleResultPath, "index.ts"),
+			join(moduleResultPath, "index.ts"),
 			exports.join("\n") + "\n",
 		);
 		console.log("  Generated module index.ts");
@@ -321,15 +312,15 @@ async function main() {
 	await generateMeiJsonFile(RESULT_DIR_PATH);
 
 	for (const module of modules) {
-		if (!(await fs.stat(path.join(COMPONENTS_PATH, module))).isDirectory()) {
+		if (!(await fs.stat(join(COMPONENTS_PATH, module))).isDirectory()) {
 			continue;
 		}
 
-		const modulePath = path.join(COMPONENTS_PATH, module);
-		const moduleResultPath = path.join(RESULT_DIR_PATH, module);
+		const modulePath = join(COMPONENTS_PATH, module);
+		const moduleResultPath = join(RESULT_DIR_PATH, module);
 
 		// Process elements
-		const elementsPath = path.join(modulePath, "elements.json");
+		const elementsPath = join(modulePath, "elements.json");
 		try {
 			await fs.access(elementsPath);
 			const elementsContent = await fs.readFile(elementsPath, "utf8");
@@ -338,7 +329,7 @@ async function main() {
 			// Only create element directory if we have elements
 			if (elements.length > 0) {
 				// Create module element directory in result path
-				const moduleElementPath = path.join(moduleResultPath, "element");
+				const moduleElementPath = join(moduleResultPath, "element");
 				await fs.mkdir(moduleElementPath, { recursive: true });
 
 				console.log(`Processing ${module} - found ${elements.length} elements`);
@@ -349,7 +340,7 @@ async function main() {
 				// Generate element files
 				for (const element of elements) {
 					const elementFileName = `${element.name}.ts`;
-					const elementFilePath = path.join(moduleElementPath, elementFileName);
+					const elementFilePath = join(moduleElementPath, elementFileName);
 
 					try {
 						// Generate element content
@@ -381,7 +372,7 @@ async function main() {
 		}
 
 		// Process macros
-		const macrosPath = path.join(modulePath, "macros.json");
+		const macrosPath = join(modulePath, "macros.json");
 		try {
 			await fs.access(macrosPath);
 			const macrosContent = await fs.readFile(macrosPath, "utf8");
@@ -390,7 +381,7 @@ async function main() {
 			// Only create macro directory if we have macros
 			if (macros.length > 0) {
 				// Create module macro directory in result path
-				const moduleMacroPath = path.join(moduleResultPath, "macro");
+				const moduleMacroPath = join(moduleResultPath, "macro");
 				await fs.mkdir(moduleMacroPath, { recursive: true });
 
 				console.log(`Processing ${module} - found ${macros.length} macros`);
@@ -401,7 +392,7 @@ async function main() {
 				// Generate macro files
 				for (const macro of macros) {
 					const macroFileName = `${macro.name}.ts`;
-					const macroFilePath = path.join(moduleMacroPath, macroFileName);
+					const macroFilePath = join(moduleMacroPath, macroFileName);
 
 					try {
 						// Generate macro content
@@ -433,7 +424,7 @@ async function main() {
 		}
 
 		// Process models
-		const modelsPath = path.join(modulePath, "models.json");
+		const modelsPath = join(modulePath, "models.json");
 		try {
 			await fs.access(modelsPath);
 			const modelsContent = await fs.readFile(modelsPath, "utf8");
@@ -442,7 +433,7 @@ async function main() {
 			// Only create model directory if we have models
 			if (models.length > 0) {
 				// Create module model directory in result path
-				const moduleModelPath = path.join(moduleResultPath, "model");
+				const moduleModelPath = join(moduleResultPath, "model");
 				await fs.mkdir(moduleModelPath, { recursive: true });
 
 				console.log(`Processing ${module} - found ${models.length} models`);
@@ -453,7 +444,7 @@ async function main() {
 				// Generate model files
 				for (const model of models) {
 					const modelFileName = `${model.name}.ts`;
-					const modelFilePath = path.join(moduleModelPath, modelFileName);
+					const modelFilePath = join(moduleModelPath, modelFileName);
 
 					try {
 						// Generate model content
@@ -485,7 +476,7 @@ async function main() {
 		}
 
 		// Process attributes
-		const attributesPath = path.join(modulePath, "attributes.json");
+		const attributesPath = join(modulePath, "attributes.json");
 		try {
 			await fs.access(attributesPath);
 			const attributesContent = await fs.readFile(attributesPath, "utf8");
@@ -506,7 +497,7 @@ async function main() {
 			// Only create attributes directory if we have attributes
 			if (attributes.length > 0) {
 				// Create module attributes directory in result path
-				const moduleAttrPath = path.join(moduleResultPath, "attr");
+				const moduleAttrPath = join(moduleResultPath, "attr");
 				await fs.mkdir(moduleAttrPath, { recursive: true });
 
 				console.log(
@@ -520,7 +511,7 @@ async function main() {
 				for (const attribute of attributes) {
 					const attrName = attribute.name;
 					const attrFileName = `${attrName}.ts`;
-					const attrFilePath = path.join(moduleAttrPath, attrFileName);
+					const attrFilePath = join(moduleAttrPath, attrFileName);
 
 					try {
 						// Generate attribute content
@@ -611,10 +602,8 @@ function generateElementContent(
 
 	// Add class imports
 	for (const className of element.classes) {
-		const module = componentToModuleMap.get(className);
-		if (!module) continue;
-
-		const path = module === currentModule ? ".." : `../../${module}`;
+		const path = getImportPath(className, currentModule);
+		if (!path) continue;
 
 		if (className.startsWith("att.")) {
 			// For attribute references
@@ -635,8 +624,8 @@ function generateElementContent(
 			content.name.startsWith("macro.")
 		) {
 			// For model/macro references
-			const memberModule = componentToModuleMap.get(content.name);
-			if (!memberModule) continue;
+			const path = getImportPath(content.name, currentModule);
+			if (!path) continue;
 
 			const memberName = content.name
 				.replace(/^(model\.|macro\.)/, "")
@@ -646,9 +635,6 @@ function generateElementContent(
 				.map((part) => part.charAt(0).toUpperCase() + part.slice(1))
 				.join("");
 			const prefix = content.name.startsWith("model.") ? "Model" : "Macro";
-
-			const path =
-				memberModule === currentModule ? ".." : `../../${memberModule}`;
 
 			if (!contentImports.has(path)) {
 				contentImports.set(path, []);
@@ -660,8 +646,8 @@ function generateElementContent(
 			}
 		} else {
 			// For direct element references
-			const elementModule = componentToModuleMap.get(content.name);
-			if (!elementModule) continue;
+			const path = getImportPath(content.name, currentModule);
+			if (!path) continue;
 
 			const elementName = content.name;
 			const elementPascalName =
@@ -669,9 +655,6 @@ function generateElementContent(
 
 			// Only skip import if it's the same schema we're currently generating
 			if (elementName !== element.name) {
-				const path =
-					elementModule === currentModule ? "." : `../../${elementModule}`;
-
 				if (!contentImports.has(path)) {
 					contentImports.set(path, []);
 				}
@@ -749,7 +732,7 @@ function generateElementContent(
 	schemaLines.push(` * @see ${element.url}`);
 	schemaLines.push(" */");
 	schemaLines.push(
-		`export const ${schemaName}${hasSelfReference ? ": v.GenericSchema<" + typeName + ">" : ""} = v.intersect([`,
+		`export const ${schemaName}${hasSelfReference ? ": v.GenericSchema<" + typeName + ">" : ""} = v.lazy(() => v.intersect([`,
 	);
 
 	// Add base schema
@@ -789,13 +772,11 @@ function generateElementContent(
 
 			// Add the element based on relationType
 			if (content.relationType === "optional") {
-				directElements.push(
-					`    ${content.name}: v.optional(v.lazy(() => ${schemaRef})),`,
-				);
+				directElements.push(`    ${content.name}: v.optional(${schemaRef}),`);
 			} else {
 				// optionalZeroOrMany or requiredZeroOrMany
 				directElements.push(
-					`    ${content.name}: ${content.relationType === "requiredZeroOrMany" ? "" : "v.optional("}v.union([v.lazy(() => ${schemaRef}), v.array(v.lazy(() => ${schemaRef}))])${content.relationType === "requiredZeroOrMany" ? "" : ")"},`,
+					`    ${content.name}: ${content.relationType === "requiredZeroOrMany" ? "" : "v.optional("}v.union([${schemaRef}, v.array(${schemaRef})])${content.relationType === "requiredZeroOrMany" ? "" : ")"},`,
 				);
 			}
 		}
@@ -811,7 +792,7 @@ function generateElementContent(
 	// Add model/macro references
 	schemaLines.push(...modelRefs);
 
-	schemaLines.push("]);");
+	schemaLines.push("]));");
 
 	// Generate type
 	const typeLines = [];
@@ -841,15 +822,10 @@ function generateElementContent(
 						`  ${content.name}${content.relationType === "requiredZeroOrMany" ? "" : "?"}: ${elementPascalName}Data | ${elementPascalName}Data[];`,
 					);
 				}
-			}
-		}
+			} else {
+				const path = getImportPath(content.name, currentModule);
+				if (!path) continue;
 
-		// Add model/macro references
-		for (const content of element.content) {
-			if (
-				content.name.startsWith("model.") ||
-				content.name.startsWith("macro.")
-			) {
 				const memberName = content.name
 					.replace(/^(model\.|macro\.)/, "")
 					.replace(/[._-]/g, "_");
@@ -857,6 +833,7 @@ function generateElementContent(
 					.split("_")
 					.map((part) => part.charAt(0).toUpperCase() + part.slice(1))
 					.join("");
+
 				const prefix = content.name.startsWith("model.") ? "Model" : "Macro";
 				const typeName = `${prefix}${memberPascalName}Data`;
 				const schemaName = `${prefix}${memberPascalName}Schema`;
@@ -905,22 +882,18 @@ function generateMacroContent(
 	const contentImports = new Map<string, string[]>();
 	if (macro.name !== "anyXML") {
 		for (const content of macro.content) {
+			// For model references
+			const path = getImportPath(content.name, currentModule);
+			if (!path) continue;
 			if (
 				content.name.startsWith("model.") ||
 				content.name.startsWith("macro.")
 			) {
-				// For model references
-				const memberModule = componentToModuleMap.get(content.name);
-				if (!memberModule) continue;
-
 				const memberName = content.name.replace(/\./g, "_");
 				const memberPascalName = memberName
 					.split(/[._-]/g)
 					.map((part) => part.charAt(0).toUpperCase() + part.slice(1))
 					.join("");
-
-				const path =
-					memberModule === currentModule ? ".." : `../../${memberModule}`;
 
 				if (!contentImports.has(path)) {
 					contentImports.set(path, []);
@@ -932,16 +905,9 @@ function generateMacroContent(
 					imports.push(`${memberPascalName}Schema`);
 				}
 			} else {
-				// For direct element references
-				const elementModule = componentToModuleMap.get(content.name);
-				if (!elementModule) continue;
-
 				const elementName = content.name;
 				const elementPascalName =
 					elementName.charAt(0).toUpperCase() + elementName.slice(1);
-
-				const path =
-					elementModule === currentModule ? ".." : `../../${elementModule}`;
 
 				if (!contentImports.has(path)) {
 					contentImports.set(path, []);
@@ -1002,13 +968,11 @@ function generateMacroContent(
 
 			// Add the element based on relationType
 			if (content.relationType === "optional") {
-				directElements.push(
-					`  ${content.name}: v.optional(v.lazy(() => ${schemaRef})),`,
-				);
+				directElements.push(`  ${content.name}: v.optional(${schemaRef}),`);
 			} else {
 				// optionalZeroOrMany
 				directElements.push(
-					`  ${content.name}: v.optional(v.union([v.lazy(() => ${schemaRef}), v.array(v.lazy(() => ${schemaRef}))])),`,
+					`  ${content.name}: v.optional(v.union([${schemaRef}, v.array(${schemaRef})])),`,
 				);
 			}
 		}
@@ -1024,43 +988,37 @@ function generateMacroContent(
 		);
 	}
 	// If we have both direct elements and model refs, use intersect
-	else if (modelRefs.length > 0 && directElements.length > 0) {
-		schemaLines.push(
-			`export const ${schemaName}: v.GenericSchema<${typeName}> = `,
-		);
-		schemaLines.push(`v.intersect([`);
-		schemaLines.push(`  v.object({`);
-		schemaLines.push(...directElements);
-		schemaLines.push(`  }),`);
-		schemaLines.push(...modelRefs);
-		schemaLines.push(`]);`);
-	}
-	// If we only have direct elements, use object
-	else if (directElements.length > 0) {
-		schemaLines.push(
-			`export const ${schemaName}: v.GenericSchema<${typeName}> = `,
-		);
-		schemaLines.push(`v.object({`);
-		schemaLines.push(...directElements);
-		schemaLines.push(`});`);
-	}
-	// If we only have model refs, use intersect
-	else if (modelRefs.length > 0) {
-		schemaLines.push(
-			`export const ${schemaName}: v.GenericSchema<${typeName}> = `,
-		);
-		schemaLines.push(`v.intersect([`);
-		schemaLines.push(...modelRefs);
-		schemaLines.push(`]);`);
-	}
-	// If we have no content at all, use empty object
 	else {
 		schemaLines.push(
-			`export const ${schemaName}: v.GenericSchema<${typeName}> = `,
+			`export const ${schemaName}: v.GenericSchema<${typeName}> = v.lazy(() => `,
 		);
-		schemaLines.push(`v.object({`);
-		schemaLines.push("  // No content in MEI schema");
-		schemaLines.push(`});`);
+		if (modelRefs.length > 0 && directElements.length > 0) {
+			schemaLines.push(`v.intersect([`);
+			schemaLines.push(`  v.object({`);
+			schemaLines.push(...directElements);
+			schemaLines.push(`  }),`);
+			schemaLines.push(...modelRefs);
+			schemaLines.push(`])`);
+		}
+		// If we only have direct elements, use object
+		else if (directElements.length > 0) {
+			schemaLines.push(`v.object({`);
+			schemaLines.push(...directElements);
+			schemaLines.push(`})`);
+		}
+		// If we only have model refs, use intersect
+		else if (modelRefs.length > 0) {
+			schemaLines.push(`v.intersect([`);
+			schemaLines.push(...modelRefs);
+			schemaLines.push(`])`);
+		}
+		// If we have no content at all, use empty object
+		else {
+			schemaLines.push(`v.object({`);
+			schemaLines.push("  // No content in MEI schema");
+			schemaLines.push(`})`);
+		}
+		schemaLines.push(");");
 	}
 
 	// Generate type
@@ -1162,10 +1120,8 @@ function generateModelContent(
 			.map((part) => part.charAt(0).toUpperCase() + part.slice(1))
 			.join("");
 
-		const memberModule = componentToModuleMap.get(member.name);
-
-		const path =
-			memberModule === currentModule ? ".." : `../../${memberModule}`;
+		const path = getImportPath(member.name, currentModule);
+		if (!path) continue;
 
 		if (!memberImports.has(path)) {
 			memberImports.set(path, []);
@@ -1220,14 +1176,14 @@ function generateModelContent(
 				`     * ${member.description}`,
 				`     * @see ${member.url}`,
 				`     */`,
-				`    ${member.name}: v.optional(v.union([v.lazy(() => ${pascalName}Schema), v.array(v.lazy(() => ${pascalName}Schema))])),`,
+				`    ${member.name}: v.optional(v.union([${pascalName}Schema, v.array(${pascalName}Schema)])),`,
 			);
 		}
 	}
 
 	// Start schema definition
 	schemaLines.push(
-		`export const ${schemaName}: v.GenericSchema<${typeName}> = `,
+		`export const ${schemaName}: v.GenericSchema<${typeName}> = v.lazy(() => `,
 	);
 
 	// If we have both direct elements and model refs, use intersect
@@ -1237,24 +1193,25 @@ function generateModelContent(
 		schemaLines.push(...directElements);
 		schemaLines.push(`  }),`);
 		schemaLines.push(...modelRefs);
-		schemaLines.push(`]);`);
+		schemaLines.push(`])`);
 	}
 	// If we only have direct elements, use object
 	else if (directElements.length > 0) {
 		schemaLines.push(`v.object({`);
 		schemaLines.push(...directElements);
-		schemaLines.push(`});`);
+		schemaLines.push(`})`);
 	}
 	// If we only have model refs, use intersect
 	else if (modelRefs.length > 0) {
 		schemaLines.push(`v.intersect([`);
 		schemaLines.push(...modelRefs);
-		schemaLines.push(`]);`);
+		schemaLines.push(`])`);
 	}
 	// If we have no members at all, use empty object
 	else {
-		schemaLines.push(`v.object({});`);
+		schemaLines.push(`v.object({})`);
 	}
+	schemaLines.push(");");
 
 	// Generate type
 	const typeLines = ["export type " + typeName + " = "];
@@ -1323,13 +1280,11 @@ async function fillComponentToModuleMap() {
 	console.log(`Filling component to module map for ${modules.length} modules`);
 
 	for (const moduleName of modules) {
-		if (
-			!(await fs.stat(path.join(COMPONENTS_PATH, moduleName))).isDirectory()
-		) {
+		if (!(await fs.stat(join(COMPONENTS_PATH, moduleName))).isDirectory()) {
 			continue;
 		}
 
-		const modulePath = path.join(COMPONENTS_PATH, moduleName, "module.json");
+		const modulePath = join(COMPONENTS_PATH, moduleName, "module.json");
 
 		const modulesContent = await fs.readFile(modulePath, "utf8");
 		const moduleData = JSON.parse(modulesContent) as ModuleDefinition;
@@ -1348,6 +1303,24 @@ async function fillComponentToModuleMap() {
 	);
 }
 
+function getImportPath(component: string, currentModule: string) {
+	const memberModule = componentToModuleMap.get(component);
+	if (!memberModule) return null;
+
+	let path = memberModule === currentModule ? ".." : `../../${memberModule}`;
+	if (component.startsWith("att.")) {
+		path += `/attr/${component.replace(/^att\./, "")}`;
+	} else if (component.startsWith("model.")) {
+		path += `/model/${component.replace(/^model\./, "")}`;
+	} else if (component.startsWith("macro.")) {
+		path += `/macro/${component.replace(/^macro\./, "")}`;
+	} else {
+		path += `/element/${component}`;
+	}
+
+	return path;
+}
+
 await main();
 console.log("Model generation completed");
 
@@ -1355,33 +1328,17 @@ console.log("Model generation completed");
 await generateGlobalIndexFile(RESULT_DIR_PATH);
 
 // Format all generated files
-console.log("Formatting generated files...");
+console.log("Biome checking generated files...");
 try {
-	await $`bunx @biomejs/biome format --write ${RESULT_DIR_PATH}`;
+	await $`bunx @biomejs/biome check --write ${RESULT_DIR_PATH}`;
 } catch (error: unknown) {
 	if (error instanceof $.ShellError) {
-		console.error("Error formatting generated files.");
+		console.error("Error biome checking generated files.");
 		console.error("Stdout:\n", error.stdout.toString());
 		console.error("Stderr:\n", error.stderr.toString());
 		console.error("Exit code:", error.exitCode);
 	} else {
-		console.error("Error formatting generated files.", error);
+		console.error("Error biome checking generated files.", error);
 	}
 }
-console.log("Formatting completed");
-
-// Lint all generated files
-console.log("Linting generated files...");
-try {
-	await $`bunx @biomejs/biome lint --write ${RESULT_DIR_PATH}`;
-} catch (error: unknown) {
-	if (error instanceof $.ShellError) {
-		console.error("Error linting generated files.");
-		console.error("Stdout:\n", error.stdout.toString());
-		console.error("Stderr:\n", error.stderr.toString());
-		console.error("Exit code:", error.exitCode);
-	} else {
-		console.error("Error linting generated files.", error);
-	}
-}
-console.log("Linting completed");
+console.log("Biome checking completed");

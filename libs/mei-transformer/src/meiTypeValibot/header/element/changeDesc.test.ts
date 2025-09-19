@@ -8,7 +8,7 @@ describe("ChangeDescSchema", () => {
 	});
 
 	it("should be a valid schema", () => {
-		const parseResult = v.safeParse(ChangeDescSchema, {
+		const parseResult = v.parse(ChangeDescSchema, {
 			p: {
 				"#text": "tab 1",
 				"@xml:id": "p_N25CCC",
@@ -16,7 +16,6 @@ describe("ChangeDescSchema", () => {
 			"@xml:id": "changeDesc_N25CCB",
 		});
 
-		expect(parseResult.success).toBe(true);
-		expect(parseResult.output).toMatchSnapshot();
+		expect(parseResult).toMatchSnapshot();
 	});
 });

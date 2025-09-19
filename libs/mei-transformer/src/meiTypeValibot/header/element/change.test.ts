@@ -8,7 +8,7 @@ describe("ChangeSchema", () => {
 	});
 
 	it("should be a valid schema", () => {
-		const parseResult = v.safeParse(ChangeSchema, {
+		const parseResult = v.parse(ChangeSchema, {
 			respStmt: {
 				name: {
 					"#text": "ebp",
@@ -27,12 +27,11 @@ describe("ChangeSchema", () => {
 			"@xml:id": "change_d1e2460524057",
 		});
 
-		expect(parseResult.success).toBe(true);
-		expect(parseResult.output).toMatchSnapshot();
+		expect(parseResult).toMatchSnapshot();
 	});
 
 	it("should be a valid schema with optional changeDesc", () => {
-		const parseResult = v.safeParse(ChangeSchema, {
+		const parseResult = v.parse(ChangeSchema, {
 			respStmt: {
 				name: {
 					"#text": "ebp",
@@ -41,12 +40,11 @@ describe("ChangeSchema", () => {
 			},
 		});
 
-		expect(parseResult.success).toBe(true);
-		expect(parseResult.output).toMatchSnapshot();
+		expect(parseResult).toMatchSnapshot();
 	});
 
 	it("should be a valid schema with optional respStmt", () => {
-		const parseResult = v.safeParse(ChangeSchema, {
+		const parseResult = v.parse(ChangeSchema, {
 			changeDesc: {
 				p: {
 					"#text": "tab 1",
@@ -55,7 +53,6 @@ describe("ChangeSchema", () => {
 			},
 		});
 
-		expect(parseResult.success).toBe(true);
-		expect(parseResult.output).toMatchSnapshot();
+		expect(parseResult).toMatchSnapshot();
 	});
 });

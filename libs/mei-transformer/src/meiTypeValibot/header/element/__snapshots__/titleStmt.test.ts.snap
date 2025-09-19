@@ -1,0 +1,84 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`TitleStmtSchema should be a valid schema 1`] = `
+{
+  "@xml:id": "titleStmt_N203AC",
+  "title": {
+    "#text": "Sketches",
+    "@xml:id": "title_ccf1179c",
+  },
+}
+`;
+
+exports[`TitleStmtSchema should be a valid schema with optional title 1`] = `
+{
+  "@xml:id": "titleStmt_N203AC",
+}
+`;
+
+exports[`TitleStmtSchema should be valid with array of titles 1`] = `
+{
+  "composer": {
+    "persName": {
+      "#text": "Robert Schumann",
+      "@auth": "GND",
+      "@auth.uri": "http://d-nb.info/gnd/",
+      "@codedval": "118611666",
+      "@role": "creator",
+    },
+  },
+  "respStmt": {
+    "persName": {
+      "#text": "John Doe",
+      "@role": "encoder",
+    },
+  },
+  "title": [
+    {
+      "#text": "Example of a Minimal header",
+    },
+    {
+      "#text": "Der Abendstern: an electronic transcription",
+    },
+  ],
+}
+`;
+
+exports[`TitleStmtSchema should be valid with title part 1`] = `
+{
+  "composer": {
+    "persName": {
+      "#text": "Johann Sebastian Bach",
+      "@auth": "GND",
+      "@auth.uri": "http://d-nb.info/gnd/",
+      "@codedval": "1180553X",
+      "@role": "creator",
+    },
+  },
+  "respStmt": {
+    "persName": [
+      {
+        "#text": "Maja Hartwig",
+        "@role": "encoder",
+      },
+      {
+        "#text": "Kristina Richts",
+        "@role": "encoder",
+      },
+    ],
+  },
+  "title": {
+    "#text": "4. Brandenburgisches Konzert in G-Dur",
+    "titlePart": [
+      {
+        "#text": "BWV 1049",
+        "@type": "subordinate",
+      },
+      {
+        "#text": "an electronic transcription",
+        "@type": "subordinate",
+      },
+    ],
+  },
+}
+`;

@@ -1,0 +1,115 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+
+exports[`PubStmtSchema should be a valid schema 1`] = `
+{
+  "@xml:id": "pubStmt_52b56cfe",
+  "date": {
+    "#text": "2014",
+    "@isodate": "2014",
+    "@xml:id": "date_52c6d5b5",
+  },
+  "respStmt": {
+    "@xml:id": "respStmt_41a98388",
+    "corpName": {
+      "@xml:id": "corpName_8b8914bc",
+      "abbr": {
+        "#text": "DCM",
+        "@xml:id": "abbr_60411ae3",
+      },
+      "address": {
+        "@xml:id": "address_7fafd051",
+        "addrLine": [
+          {
+            "#text": "Royal Danish Library",
+            "@xml:id": "addrLine_0f6b4cc9",
+          },
+          {
+            "#text": "Søren Kierkegaards Plads 1",
+            "@xml:id": "addrLine_a5f6bc5b",
+          },
+          {
+            "#text": "P.O. Box 2149",
+            "@xml:id": "addrLine_6bf80081",
+          },
+          {
+            "#text": "DK - 1016 Copenhagen K",
+            "@xml:id": "addrLine_8a72659e",
+          },
+          {
+            "@xml:id": "addrLine_e5052d2a",
+            "ptr": {
+              "@label": "WWW",
+              "@target": "https://www.kb.dk",
+              "@xml:id": "ptr_N20271",
+            },
+          },
+          {
+            "@xml:id": "addrLine_7e8f8e90",
+            "ptr": {
+              "@label": "E-mail",
+              "@target": "mailto://kb@kb.dk",
+              "@xml:id": "ptr_N20275",
+            },
+          },
+        ],
+      },
+      "expan": {
+        "#text": "Danish Centre for Music Editing",
+        "@xml:id": "expan_18f2bec3",
+      },
+    },
+    "persName": [
+      {
+        "#text": "Niels Bo Foltmann",
+        "@role": "editor",
+        "@xml:id": "persName_5dbd1f96",
+      },
+      {
+        "#text": "Axel Teich Geertinger",
+        "@role": "editor",
+        "@xml:id": "persName_2084a9aa",
+      },
+      {
+        "#text": "Peter Hauge",
+        "@role": "editor",
+        "@xml:id": "persName_baa720f7",
+      },
+      {
+        "#text": "Niels Krabbe",
+        "@role": "editor",
+        "@xml:id": "persName_4079edc1",
+      },
+      {
+        "#text": "Bjarke Moe",
+        "@role": "editor",
+        "@xml:id": "persName_893idm140379299667856",
+      },
+      {
+        "#text": "Elly Bruunshuus Petersen",
+        "@role": "editor",
+        "@xml:id": "persName_cbe90b21",
+      },
+      {
+        "#text": "Sigfrid Lundberg",
+        "@role": "programmer",
+        "@xml:id": "persName_3e062377",
+      },
+      {
+        "#text": "Katarina Smitt Engberg",
+        "@role": "secretary",
+        "@xml:id": "persName_fb908bbb",
+      },
+      {
+        "#text": "Niclas Nørby Hundahl",
+        "@role": "secretary",
+        "@xml:id": "persName_b6563ffe",
+      },
+    ],
+    "resp": {
+      "#text": "Publisher",
+      "@xml:id": "resp_902a089b",
+    },
+  },
+}
+`;

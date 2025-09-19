@@ -776,7 +776,7 @@ function generateElementContent(
 			} else {
 				// optionalZeroOrMany or requiredZeroOrMany
 				directElements.push(
-					`    ${content.name}: ${content.relationType === "requiredZeroOrMany" ? "" : "v.optional("}v.union([v.array(${schemaRef}), ${schemaRef}])${content.relationType === "requiredZeroOrMany" ? "" : ")"},`,
+					`    ${content.name}: v.optional(v.union([v.array(${schemaRef}), ${schemaRef}])),`,
 				);
 			}
 		}
@@ -819,7 +819,7 @@ function generateElementContent(
 				} else {
 					// optionalZeroOrMany or requiredZeroOrMany
 					directElementTypes.push(
-						`  ${content.name}${content.relationType === "requiredZeroOrMany" ? "" : "?"}: ${elementPascalName}Data | ${elementPascalName}Data[];`,
+						`  ${content.name}?: ${elementPascalName}Data | ${elementPascalName}Data[];`,
 					);
 				}
 			} else {

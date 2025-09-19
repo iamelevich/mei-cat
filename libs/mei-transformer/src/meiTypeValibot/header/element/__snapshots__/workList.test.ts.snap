@@ -1,0 +1,207 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`WorkListSchema should parse a workList with a single work element 1`] = `
+{
+  "@xml:id": "workList_N2101E",
+  "work": {
+    "@xml:id": "work_N2101F",
+    "contributor": {
+      "@xml:id": "respStmt_N21041",
+      "persName": [
+        {
+          "#text": "Carl Nielsen",
+          "@role": "composer",
+          "@xml:id": "persName_469738c4",
+        },
+        {
+          "#text": "Vilhelm Andersen",
+          "@role": "author",
+          "@xml:id": "persName_aac98b1a",
+        },
+      ],
+    },
+    "creation": {
+      "@xml:id": "creation_46103232",
+      "date": {
+        "#text": "1905–06",
+        "@enddate": "1906",
+        "@startdate": "1905",
+        "@xml:id": "date_N2104E",
+      },
+    },
+    "history": {
+      "@xml:id": "history_96698b6f",
+      "p": {
+        "#text": "In the beginning of the 1890s, Carl Nielsen got the idea to base an opera on one of Ludvig Holberg's comedies. It was not until New Year 1903–04 that he began working out the structure of the opera based on Holberg's. The text by Vilhelm Andersen was finished in April 1904; Carl Nielsen did not, however, start composing the music until 1905. In October the work (with an unfinished Act Three) was handed in for evaluation, and in December 1905 it was accepted for performance at The Royal Theatre.",
+        "@xml:id": "idm1010",
+        "rend": {
+          "#text": "Mascarade",
+          "@fontstyle": "italic",
+          "@xml:id": "idm1011",
+        },
+      },
+    },
+    "identifier": [
+      {
+        "#text": "2",
+        "@label": "CNW",
+        "@xml:id": "identifier_N21022",
+      },
+      {
+        "#text": "I/1–3",
+        "@label": "CNU",
+        "@xml:id": "identifier_N21025",
+      },
+      {
+        "#text": "329",
+        "@label": "CNS",
+        "@xml:id": "identifier_N21028",
+      },
+      {
+        "#text": "39",
+        "@label": "FS",
+        "@xml:id": "identifier_N2102B",
+      },
+    ],
+    "langUsage": {
+      "@xml:id": "langUsage_N21058",
+      "language": [
+        {
+          "#text": "Danish",
+          "@xml:id": "da",
+        },
+        {
+          "#text": "English",
+          "@xml:id": "en",
+        },
+      ],
+    },
+    "title": [
+      {
+        "#text": "Maskarade",
+        "@xml:id": "title_41c4ef82",
+      },
+      {
+        "#text": "Masquerade",
+        "@xml:id": "title_80453ebe",
+      },
+      {
+        "#text": "Komisk opera i tre akter",
+        "@type": "subordinate",
+        "@xml:id": "title_a287c05d",
+      },
+      {
+        "#text": "Comic Opera in Three Acts",
+        "@type": "subordinate",
+        "@xml:id": "title_378abcba",
+      },
+    ],
+  },
+}
+`;
+
+exports[`WorkListSchema should parse a workList with multiple work elements 1`] = `
+{
+  "@xml:id": "workList_N2101E",
+  "work": [
+    {
+      "@xml:id": "work_N2101F",
+      "identifier": [
+        {
+          "#text": "2",
+          "@label": "CNW",
+          "@xml:id": "identifier_N21022",
+        },
+      ],
+      "title": [
+        {
+          "#text": "Maskarade",
+          "@xml:id": "title_41c4ef82",
+        },
+      ],
+    },
+    {
+      "@xml:id": "work_N21020",
+      "identifier": [
+        {
+          "#text": "3",
+          "@label": "CNW",
+          "@xml:id": "identifier_N21023",
+        },
+      ],
+      "title": [
+        {
+          "#text": "Another Work",
+          "@xml:id": "title_41c4ef83",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`WorkListSchema should parse a minimal workList 1`] = `
+{
+  "@xml:id": "workList_N2101E",
+  "work": {
+    "@xml:id": "work_N2101F",
+  },
+}
+`;
+
+exports[`WorkListSchema should handle workList with work containing all optional elements 1`] = `
+{
+  "@xml:id": "workList_N2101E",
+  "work": {
+    "@xml:id": "work_N2101F",
+    "contributor": {
+      "@xml:id": "respStmt_N21041",
+      "persName": [
+        {
+          "#text": "Carl Nielsen",
+          "@role": "composer",
+          "@xml:id": "persName_469738c4",
+        },
+      ],
+    },
+    "creation": {
+      "@xml:id": "creation_46103232",
+      "date": {
+        "#text": "1905–06",
+        "@enddate": "1906",
+        "@startdate": "1905",
+        "@xml:id": "date_N2104E",
+      },
+    },
+    "history": {
+      "@xml:id": "history_96698b6f",
+      "p": {
+        "#text": "Work history description.",
+        "@xml:id": "idm1010",
+      },
+    },
+    "identifier": [
+      {
+        "#text": "2",
+        "@label": "CNW",
+        "@xml:id": "identifier_N21022",
+      },
+    ],
+    "langUsage": {
+      "@xml:id": "langUsage_N21058",
+      "language": [
+        {
+          "#text": "Danish",
+          "@xml:id": "da",
+        },
+      ],
+    },
+    "title": [
+      {
+        "#text": "Maskarade",
+        "@xml:id": "title_41c4ef82",
+      },
+    ],
+  },
+}
+`;

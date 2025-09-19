@@ -1,0 +1,11 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`ChangeDescSchema should be a valid schema 1`] = `
+{
+  "@xml:id": "changeDesc_N25CCB",
+  "p": {
+    "#text": "tab 1",
+    "@xml:id": "p_N25CCC",
+  },
+}
+`;

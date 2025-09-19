@@ -1,0 +1,26 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`RespStmtSchema should be a valid schema 1`] = `
+{
+  "@xml:id": "respStmt_d8b306d3",
+  "name": {
+    "#text": "ebp",
+    "@xml:id": "resp_a27b49ae",
+  },
+}
+`;
+
+exports[`RespStmtSchema should be a valid shema with array of names 1`] = `
+{
+  "name": [
+    {
+      "#text": "ebp",
+      "@xml:id": "resp_a27b49ae",
+    },
+    {
+      "#text": "name 2",
+      "@xml:id": "name_a27b49ae",
+    },
+  ],
+}
+`;

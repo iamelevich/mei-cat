@@ -1,0 +1,44 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`ChangeSchema should be a valid schema 1`] = `
+{
+  "@isodate": "2011-09-15",
+  "@xml:id": "change_d1e2460524057",
+  "changeDesc": {
+    "@xml:id": "changeDesc_N25CCB",
+    "p": {
+      "#text": "tab 1",
+      "@xml:id": "p_N25CCC",
+    },
+  },
+  "respStmt": {
+    "@xml:id": "respStmt_d8b306d3",
+    "name": {
+      "#text": "ebp",
+      "@xml:id": "resp_a27b49ae",
+    },
+  },
+}
+`;
+
+exports[`ChangeSchema should be a valid schema with optional changeDesc 1`] = `
+{
+  "respStmt": {
+    "name": {
+      "#text": "ebp",
+      "@xml:id": "resp_a27b49ae",
+    },
+  },
+}
+`;
+
+exports[`ChangeSchema should be a valid schema with optional respStmt 1`] = `
+{
+  "changeDesc": {
+    "p": {
+      "#text": "tab 1",
+      "@xml:id": "p_N25CCC",
+    },
+  },
+}
+`;

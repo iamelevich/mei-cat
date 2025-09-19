@@ -23,7 +23,7 @@ export const SymbolTableSchema = v.lazy(() =>
 			 * Reference to element symbolDef
 			 * @see https://music-encoding.org/guidelines/v5/elements/symbolDef.html
 			 */
-			symbolDef: v.union([SymbolDefSchema, v.array(SymbolDefSchema)]),
+			symbolDef: v.union([v.array(SymbolDefSchema), SymbolDefSchema]),
 		}),
 	]),
 );

@@ -14,17 +14,17 @@ export const ModelNoteModifierLikeSchema: v.GenericSchema<ModelNoteModifierLikeD
 			 * Records a temporary alteration to the pitch of a note.
 			 * @see https://music-encoding.org/guidelines/v5/elements/accid.html
 			 */
-			accid: v.optional(v.union([AccidSchema, v.array(AccidSchema)])),
+			accid: v.optional(v.union([v.array(AccidSchema), AccidSchema])),
 			/**
 			 * An indication of how to play a note or chord.
 			 * @see https://music-encoding.org/guidelines/v5/elements/artic.html
 			 */
-			artic: v.optional(v.union([ArticSchema, v.array(ArticSchema)])),
+			artic: v.optional(v.union([v.array(ArticSchema), ArticSchema])),
 			/**
 			 * Dot of augmentation or division.
 			 * @see https://music-encoding.org/guidelines/v5/elements/dot.html
 			 */
-			dot: v.optional(v.union([DotSchema, v.array(DotSchema)])),
+			dot: v.optional(v.union([v.array(DotSchema), DotSchema])),
 		}),
 	);
 

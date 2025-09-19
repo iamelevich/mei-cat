@@ -13,7 +13,7 @@ export const ModelChordTableLikeSchema: v.GenericSchema<ModelChordTableLikeData>
 			 * @see https://music-encoding.org/guidelines/v5/elements/chordTable.html
 			 */
 			chordTable: v.optional(
-				v.union([ChordTableSchema, v.array(ChordTableSchema)]),
+				v.union([v.array(ChordTableSchema), ChordTableSchema]),
 			),
 		}),
 	);

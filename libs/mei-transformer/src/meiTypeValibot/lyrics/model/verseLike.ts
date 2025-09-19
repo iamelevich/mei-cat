@@ -13,12 +13,12 @@ export const ModelVerseLikeSchema: v.GenericSchema<ModelVerseLikeData> = v.lazy(
 			 * Recurring lyrics, especially at the end of each verse or stanza of a poem or song lyrics; a chorus.
 			 * @see https://music-encoding.org/guidelines/v5/elements/refrain.html
 			 */
-			refrain: v.optional(v.union([RefrainSchema, v.array(RefrainSchema)])),
+			refrain: v.optional(v.union([v.array(RefrainSchema), RefrainSchema])),
 			/**
 			 * Division of a poem or song lyrics, sometimes having a fixed length, meter or rhyme scheme; a stanza.
 			 * @see https://music-encoding.org/guidelines/v5/elements/verse.html
 			 */
-			verse: v.optional(v.union([VerseSchema, v.array(VerseSchema)])),
+			verse: v.optional(v.union([v.array(VerseSchema), VerseSchema])),
 		}),
 );
 

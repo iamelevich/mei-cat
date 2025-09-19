@@ -36,12 +36,12 @@ export const OssiaSchema = v.lazy(() =>
 			 * Reference to element oLayer
 			 * @see https://music-encoding.org/guidelines/v5/elements/oLayer.html
 			 */
-			oLayer: v.union([OLayerSchema, v.array(OLayerSchema)]),
+			oLayer: v.union([v.array(OLayerSchema), OLayerSchema]),
 			/**
 			 * Reference to element oStaff
 			 * @see https://music-encoding.org/guidelines/v5/elements/oStaff.html
 			 */
-			oStaff: v.union([OStaffSchema, v.array(OStaffSchema)]),
+			oStaff: v.union([v.array(OStaffSchema), OStaffSchema]),
 		}),
 		ModelLayerLikeSchema,
 		ModelStaffLikeSchema,

@@ -12,7 +12,7 @@ export const ModelTitleLikeSchema: v.GenericSchema<ModelTitleLikeData> = v.lazy(
 			 * Title of a bibliographic entity.
 			 * @see https://music-encoding.org/guidelines/v5/elements/title.html
 			 */
-			title: v.optional(v.union([TitleSchema, v.array(TitleSchema)])),
+			title: v.optional(v.union([v.array(TitleSchema), TitleSchema])),
 		}),
 );
 

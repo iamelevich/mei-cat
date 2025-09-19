@@ -12,7 +12,7 @@ export const ModelLayerDefLikeSchema: v.GenericSchema<ModelLayerDefLikeData> =
 			 * Container for layer meta-information.
 			 * @see https://music-encoding.org/guidelines/v5/elements/layerDef.html
 			 */
-			layerDef: v.optional(v.union([LayerDefSchema, v.array(LayerDefSchema)])),
+			layerDef: v.optional(v.union([v.array(LayerDefSchema), LayerDefSchema])),
 		}),
 	);
 

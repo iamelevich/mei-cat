@@ -12,7 +12,7 @@ export const ModelFoliumLikeSchema: v.GenericSchema<ModelFoliumLikeData> =
 			 * Describes a single leaf of paper.
 			 * @see https://music-encoding.org/guidelines/v5/elements/folium.html
 			 */
-			folium: v.optional(v.union([FoliumSchema, v.array(FoliumSchema)])),
+			folium: v.optional(v.union([v.array(FoliumSchema), FoliumSchema])),
 		}),
 	);
 

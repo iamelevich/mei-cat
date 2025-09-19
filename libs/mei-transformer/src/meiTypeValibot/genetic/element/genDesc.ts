@@ -33,12 +33,12 @@ export const GenDescSchema: v.GenericSchema<GenDescData> = v.lazy(() =>
 			 * Reference to element genDesc
 			 * @see https://music-encoding.org/guidelines/v5/elements/genDesc.html
 			 */
-			genDesc: v.optional(v.union([GenDescSchema, v.array(GenDescSchema)])),
+			genDesc: v.optional(v.union([v.array(GenDescSchema), GenDescSchema])),
 			/**
 			 * Reference to element genState
 			 * @see https://music-encoding.org/guidelines/v5/elements/genState.html
 			 */
-			genState: v.optional(v.union([GenStateSchema, v.array(GenStateSchema)])),
+			genState: v.optional(v.union([v.array(GenStateSchema), GenStateSchema])),
 		}),
 	]),
 );

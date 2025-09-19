@@ -16,7 +16,7 @@ export const ModelManifestationLikeSchema: v.GenericSchema<ModelManifestationLik
 			 * @see https://music-encoding.org/guidelines/v5/elements/manifestation.html
 			 */
 			manifestation: v.optional(
-				v.union([ManifestationSchema, v.array(ManifestationSchema)]),
+				v.union([v.array(ManifestationSchema), ManifestationSchema]),
 			),
 		}),
 	);

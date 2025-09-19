@@ -23,32 +23,32 @@ export const ModelImprintPartSchema: v.GenericSchema<ModelImprintPartData> =
 			 * @see https://music-encoding.org/guidelines/v5/elements/availability.html
 			 */
 			availability: v.optional(
-				v.union([AvailabilitySchema, v.array(AvailabilitySchema)]),
+				v.union([v.array(AvailabilitySchema), AvailabilitySchema]),
 			),
 			/**
 			 * Person or agency, other than a publisher, from which access (including electronic access) to a bibliographic entity may be obtained.
 			 * @see https://music-encoding.org/guidelines/v5/elements/distributor.html
 			 */
 			distributor: v.optional(
-				v.union([DistributorSchema, v.array(DistributorSchema)]),
+				v.union([v.array(DistributorSchema), DistributorSchema]),
 			),
 			/**
 			 * Name of the place where a bibliographic item was published.
 			 * @see https://music-encoding.org/guidelines/v5/elements/pubPlace.html
 			 */
-			pubPlace: v.optional(v.union([PubPlaceSchema, v.array(PubPlaceSchema)])),
+			pubPlace: v.optional(v.union([v.array(PubPlaceSchema), PubPlaceSchema])),
 			/**
 			 * Name of the organization responsible for the publication of a bibliographic item.
 			 * @see https://music-encoding.org/guidelines/v5/elements/publisher.html
 			 */
 			publisher: v.optional(
-				v.union([PublisherSchema, v.array(PublisherSchema)]),
+				v.union([v.array(PublisherSchema), PublisherSchema]),
 			),
 			/**
 			 * Used to explicitly indicate that a bibliographic resource is unpublished.
 			 * @see https://music-encoding.org/guidelines/v5/elements/unpub.html
 			 */
-			unpub: v.optional(v.union([UnpubSchema, v.array(UnpubSchema)])),
+			unpub: v.optional(v.union([v.array(UnpubSchema), UnpubSchema])),
 		}),
 	);
 

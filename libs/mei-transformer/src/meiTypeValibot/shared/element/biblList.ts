@@ -33,12 +33,12 @@ export const BiblListSchema: v.GenericSchema<BiblListData> = v.lazy(() =>
 			 * Reference to element biblList
 			 * @see https://music-encoding.org/guidelines/v5/elements/biblList.html
 			 */
-			biblList: v.optional(v.union([BiblListSchema, v.array(BiblListSchema)])),
+			biblList: v.optional(v.union([v.array(BiblListSchema), BiblListSchema])),
 			/**
 			 * Reference to element label
 			 * @see https://music-encoding.org/guidelines/v5/elements/label.html
 			 */
-			label: v.optional(v.union([LabelSchema, v.array(LabelSchema)])),
+			label: v.optional(v.union([v.array(LabelSchema), LabelSchema])),
 		}),
 		ModelBiblLikeSchema,
 		ModelHeadLikeSchema,

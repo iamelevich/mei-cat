@@ -33,7 +33,7 @@ export const TagsDeclSchema = v.lazy(() =>
 			 * @see https://music-encoding.org/guidelines/v5/elements/namespace.html
 			 */
 			namespace: v.optional(
-				v.union([NamespaceSchema, v.array(NamespaceSchema)]),
+				v.union([v.array(NamespaceSchema), NamespaceSchema]),
 			),
 		}),
 		ModelHeadLikeSchema,

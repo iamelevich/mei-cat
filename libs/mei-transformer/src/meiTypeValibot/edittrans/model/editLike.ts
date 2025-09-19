@@ -13,12 +13,12 @@ export const ModelEditLikeSchema: v.GenericSchema<ModelEditLikeData> = v.lazy(
 			 * Groups a number of alternative encodings for the same point in a text.
 			 * @see https://music-encoding.org/guidelines/v5/elements/choice.html
 			 */
-			choice: v.optional(v.union([ChoiceSchema, v.array(ChoiceSchema)])),
+			choice: v.optional(v.union([v.array(ChoiceSchema), ChoiceSchema])),
 			/**
 			 * Groups transcriptional elements when the combination is to be regarded as a single intervention in the text.
 			 * @see https://music-encoding.org/guidelines/v5/elements/subst.html
 			 */
-			subst: v.optional(v.union([SubstSchema, v.array(SubstSchema)])),
+			subst: v.optional(v.union([v.array(SubstSchema), SubstSchema])),
 		}),
 );
 

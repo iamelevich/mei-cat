@@ -33,7 +33,7 @@ export const QuoteSchema = v.lazy(() =>
 			 * Reference to element sp
 			 * @see https://music-encoding.org/guidelines/v5/elements/sp.html
 			 */
-			sp: v.optional(v.union([SpSchema, v.array(SpSchema)])),
+			sp: v.optional(v.union([v.array(SpSchema), SpSchema])),
 		}),
 		ModelParacontentPartSchema,
 		ModelPLikeSchema,

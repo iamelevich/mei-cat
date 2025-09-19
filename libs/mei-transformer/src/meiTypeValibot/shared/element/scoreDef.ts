@@ -45,7 +45,7 @@ export const ScoreDefSchema = v.lazy(() =>
 			 * Reference to element grpSym
 			 * @see https://music-encoding.org/guidelines/v5/elements/grpSym.html
 			 */
-			grpSym: v.optional(v.union([GrpSymSchema, v.array(GrpSymSchema)])),
+			grpSym: v.optional(v.union([v.array(GrpSymSchema), GrpSymSchema])),
 			/**
 			 * Reference to element instrGrp
 			 * @see https://music-encoding.org/guidelines/v5/elements/instrGrp.html
@@ -55,12 +55,12 @@ export const ScoreDefSchema = v.lazy(() =>
 			 * Reference to element pgFoot
 			 * @see https://music-encoding.org/guidelines/v5/elements/pgFoot.html
 			 */
-			pgFoot: v.optional(v.union([PgFootSchema, v.array(PgFootSchema)])),
+			pgFoot: v.optional(v.union([v.array(PgFootSchema), PgFootSchema])),
 			/**
 			 * Reference to element pgHead
 			 * @see https://music-encoding.org/guidelines/v5/elements/pgHead.html
 			 */
-			pgHead: v.optional(v.union([PgHeadSchema, v.array(PgHeadSchema)])),
+			pgHead: v.optional(v.union([v.array(PgHeadSchema), PgHeadSchema])),
 		}),
 		ModelChordTableLikeSchema,
 		ModelKeySigLikeSchema,

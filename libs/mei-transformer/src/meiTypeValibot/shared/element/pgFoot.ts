@@ -37,7 +37,7 @@ export const PgFootSchema = v.lazy(() =>
 			 * @see https://music-encoding.org/guidelines/v5/elements/anchoredText.html
 			 */
 			anchoredText: v.optional(
-				v.union([AnchoredTextSchema, v.array(AnchoredTextSchema)]),
+				v.union([v.array(AnchoredTextSchema), AnchoredTextSchema]),
 			),
 		}),
 		ModelAppLikeSchema,

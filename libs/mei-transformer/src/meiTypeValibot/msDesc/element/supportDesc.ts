@@ -40,37 +40,37 @@ export const SupportDescSchema = v.lazy(() =>
 			 * @see https://music-encoding.org/guidelines/v5/elements/collation.html
 			 */
 			collation: v.optional(
-				v.union([CollationSchema, v.array(CollationSchema)]),
+				v.union([v.array(CollationSchema), CollationSchema]),
 			),
 			/**
 			 * Reference to element condition
 			 * @see https://music-encoding.org/guidelines/v5/elements/condition.html
 			 */
 			condition: v.optional(
-				v.union([ConditionSchema, v.array(ConditionSchema)]),
+				v.union([v.array(ConditionSchema), ConditionSchema]),
 			),
 			/**
 			 * Reference to element foliation
 			 * @see https://music-encoding.org/guidelines/v5/elements/foliation.html
 			 */
 			foliation: v.optional(
-				v.union([FoliationSchema, v.array(FoliationSchema)]),
+				v.union([v.array(FoliationSchema), FoliationSchema]),
 			),
 			/**
 			 * Reference to element head
 			 * @see https://music-encoding.org/guidelines/v5/elements/head.html
 			 */
-			head: v.optional(v.union([HeadSchema, v.array(HeadSchema)])),
+			head: v.optional(v.union([v.array(HeadSchema), HeadSchema])),
 			/**
 			 * Reference to element p
 			 * @see https://music-encoding.org/guidelines/v5/elements/p.html
 			 */
-			p: v.optional(v.union([PSchema, v.array(PSchema)])),
+			p: v.optional(v.union([v.array(PSchema), PSchema])),
 			/**
 			 * Reference to element support
 			 * @see https://music-encoding.org/guidelines/v5/elements/support.html
 			 */
-			support: v.optional(v.union([SupportSchema, v.array(SupportSchema)])),
+			support: v.optional(v.union([v.array(SupportSchema), SupportSchema])),
 		}),
 		ModelTextPhraseLikeLimitedSchema,
 	]),

@@ -40,7 +40,7 @@ export const AnalyticSchema = v.lazy(() =>
 			 * @see https://music-encoding.org/guidelines/v5/elements/biblScope.html
 			 */
 			biblScope: v.optional(
-				v.union([BiblScopeSchema, v.array(BiblScopeSchema)]),
+				v.union([v.array(BiblScopeSchema), BiblScopeSchema]),
 			),
 			/**
 			 * Reference to element identifier
@@ -51,12 +51,12 @@ export const AnalyticSchema = v.lazy(() =>
 			 * Reference to element respStmt
 			 * @see https://music-encoding.org/guidelines/v5/elements/respStmt.html
 			 */
-			respStmt: v.optional(v.union([RespStmtSchema, v.array(RespStmtSchema)])),
+			respStmt: v.optional(v.union([v.array(RespStmtSchema), RespStmtSchema])),
 			/**
 			 * Reference to element title
 			 * @see https://music-encoding.org/guidelines/v5/elements/title.html
 			 */
-			title: v.optional(v.union([TitleSchema, v.array(TitleSchema)])),
+			title: v.optional(v.union([v.array(TitleSchema), TitleSchema])),
 		}),
 		ModelRespLikePartSchema,
 	]),

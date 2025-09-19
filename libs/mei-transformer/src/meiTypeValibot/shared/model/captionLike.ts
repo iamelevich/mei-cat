@@ -12,7 +12,7 @@ export const ModelCaptionLikeSchema: v.GenericSchema<ModelCaptionLikeData> =
 			 * A label which accompanies an illustration or a table.
 			 * @see https://music-encoding.org/guidelines/v5/elements/caption.html
 			 */
-			caption: v.optional(v.union([CaptionSchema, v.array(CaptionSchema)])),
+			caption: v.optional(v.union([v.array(CaptionSchema), CaptionSchema])),
 		}),
 	);
 

@@ -24,7 +24,7 @@ export const SourceDescSchema = v.lazy(() =>
 			 * Reference to element source
 			 * @see https://music-encoding.org/guidelines/v5/elements/source.html
 			 */
-			source: v.union([SourceSchema, v.array(SourceSchema)]),
+			source: v.union([v.array(SourceSchema), SourceSchema]),
 		}),
 		ModelHeadLikeSchema,
 	]),

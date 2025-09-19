@@ -14,14 +14,14 @@ export const ModelNameLikeLabelSchema: v.GenericSchema<ModelNameLikeLabelData> =
 			 * @see https://music-encoding.org/guidelines/v5/elements/periodName.html
 			 */
 			periodName: v.optional(
-				v.union([PeriodNameSchema, v.array(PeriodNameSchema)]),
+				v.union([v.array(PeriodNameSchema), PeriodNameSchema]),
 			),
 			/**
 			 * A label for a characteristic style of writing or performance, such as 'bebop' or 'rock-n-roll'.
 			 * @see https://music-encoding.org/guidelines/v5/elements/styleName.html
 			 */
 			styleName: v.optional(
-				v.union([StyleNameSchema, v.array(StyleNameSchema)]),
+				v.union([v.array(StyleNameSchema), StyleNameSchema]),
 			),
 		}),
 	);

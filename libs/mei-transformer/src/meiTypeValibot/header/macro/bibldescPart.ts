@@ -33,12 +33,12 @@ export const MacroBibldescPartSchema: v.GenericSchema<MacroBibldescPartData> =
 			 * Reference to element physDesc
 			 * @see https://music-encoding.org/guidelines/v5/elements/physDesc.html
 			 */
-			physDesc: v.optional(v.union([PhysDescSchema, v.array(PhysDescSchema)])),
+			physDesc: v.optional(v.union([v.array(PhysDescSchema), PhysDescSchema])),
 			/**
 			 * Reference to element physLoc
 			 * @see https://music-encoding.org/guidelines/v5/elements/physLoc.html
 			 */
-			physLoc: v.optional(v.union([PhysLocSchema, v.array(PhysLocSchema)])),
+			physLoc: v.optional(v.union([v.array(PhysLocSchema), PhysLocSchema])),
 			/**
 			 * Reference to element pubStmt
 			 * @see https://music-encoding.org/guidelines/v5/elements/pubStmt.html
@@ -49,7 +49,7 @@ export const MacroBibldescPartSchema: v.GenericSchema<MacroBibldescPartData> =
 			 * @see https://music-encoding.org/guidelines/v5/elements/seriesStmt.html
 			 */
 			seriesStmt: v.optional(
-				v.union([SeriesStmtSchema, v.array(SeriesStmtSchema)]),
+				v.union([v.array(SeriesStmtSchema), SeriesStmtSchema]),
 			),
 		}),
 	);

@@ -12,7 +12,7 @@ export const ModelMdivLikeSchema: v.GenericSchema<ModelMdivLikeData> = v.lazy(
 			 * Contains a subdivision of the body of a musical text.
 			 * @see https://music-encoding.org/guidelines/v5/elements/mdiv.html
 			 */
-			mdiv: v.optional(v.union([MdivSchema, v.array(MdivSchema)])),
+			mdiv: v.optional(v.union([v.array(MdivSchema), MdivSchema])),
 		}),
 );
 

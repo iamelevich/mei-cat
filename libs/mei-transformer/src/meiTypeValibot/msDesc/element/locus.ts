@@ -42,17 +42,17 @@ export const LocusSchema: v.GenericSchema<LocusData> = v.lazy(() =>
 			 * Reference to element locus
 			 * @see https://music-encoding.org/guidelines/v5/elements/locus.html
 			 */
-			locus: v.optional(v.union([LocusSchema, v.array(LocusSchema)])),
+			locus: v.optional(v.union([v.array(LocusSchema), LocusSchema])),
 			/**
 			 * Reference to element rend
 			 * @see https://music-encoding.org/guidelines/v5/elements/rend.html
 			 */
-			rend: v.optional(v.union([RendSchema, v.array(RendSchema)])),
+			rend: v.optional(v.union([v.array(RendSchema), RendSchema])),
 			/**
 			 * Reference to element symbol
 			 * @see https://music-encoding.org/guidelines/v5/elements/symbol.html
 			 */
-			symbol: v.optional(v.union([SymbolSchema, v.array(SymbolSchema)])),
+			symbol: v.optional(v.union([v.array(SymbolSchema), SymbolSchema])),
 		}),
 	]),
 );

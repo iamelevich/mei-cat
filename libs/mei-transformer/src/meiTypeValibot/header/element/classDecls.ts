@@ -26,7 +26,7 @@ export const ClassDeclsSchema = v.lazy(() =>
 			 * Reference to element taxonomy
 			 * @see https://music-encoding.org/guidelines/v5/elements/taxonomy.html
 			 */
-			taxonomy: v.optional(v.union([TaxonomySchema, v.array(TaxonomySchema)])),
+			taxonomy: v.optional(v.union([v.array(TaxonomySchema), TaxonomySchema])),
 		}),
 		ModelHeadLikeSchema,
 	]),

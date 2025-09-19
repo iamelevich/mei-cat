@@ -12,7 +12,7 @@ export const ModelFigDescLikeSchema: v.GenericSchema<ModelFigDescLikeData> =
 			 * Contains a brief prose description of the appearance or content of a graphic figure, for use when documenting an image without displaying it.
 			 * @see https://music-encoding.org/guidelines/v5/elements/figDesc.html
 			 */
-			figDesc: v.optional(v.union([FigDescSchema, v.array(FigDescSchema)])),
+			figDesc: v.optional(v.union([v.array(FigDescSchema), FigDescSchema])),
 		}),
 	);
 

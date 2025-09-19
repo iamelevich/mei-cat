@@ -12,7 +12,7 @@ export const ModelOssiaLikeSchema: v.GenericSchema<ModelOssiaLikeData> = v.lazy(
 			 * Captures original notation and a differently notated version *present in the source being transcribed* .
 			 * @see https://music-encoding.org/guidelines/v5/elements/ossia.html
 			 */
-			ossia: v.optional(v.union([OssiaSchema, v.array(OssiaSchema)])),
+			ossia: v.optional(v.union([v.array(OssiaSchema), OssiaSchema])),
 		}),
 );
 

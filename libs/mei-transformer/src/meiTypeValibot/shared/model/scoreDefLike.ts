@@ -12,7 +12,7 @@ export const ModelScoreDefLikeSchema: v.GenericSchema<ModelScoreDefLikeData> =
 			 * Container for score meta-information.
 			 * @see https://music-encoding.org/guidelines/v5/elements/scoreDef.html
 			 */
-			scoreDef: v.optional(v.union([ScoreDefSchema, v.array(ScoreDefSchema)])),
+			scoreDef: v.optional(v.union([v.array(ScoreDefSchema), ScoreDefSchema])),
 		}),
 	);
 

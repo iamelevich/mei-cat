@@ -13,7 +13,7 @@ export const ModelStartLikeCorpusSchema: v.GenericSchema<ModelStartLikeCorpusDat
 			 * @see https://music-encoding.org/guidelines/v5/elements/meiCorpus.html
 			 */
 			meiCorpus: v.optional(
-				v.union([MeiCorpusSchema, v.array(MeiCorpusSchema)]),
+				v.union([v.array(MeiCorpusSchema), MeiCorpusSchema]),
 			),
 		}),
 	);

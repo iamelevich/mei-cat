@@ -14,20 +14,20 @@ export const ModelNeumeModifierLikeSchema: v.GenericSchema<ModelNeumeModifierLik
 			 * Episema.
 			 * @see https://music-encoding.org/guidelines/v5/elements/episema.html
 			 */
-			episema: v.optional(v.union([EpisemaSchema, v.array(EpisemaSchema)])),
+			episema: v.optional(v.union([v.array(EpisemaSchema), EpisemaSchema])),
 			/**
 			 * Hispanic tick.
 			 * @see https://music-encoding.org/guidelines/v5/elements/hispanTick.html
 			 */
 			hispanTick: v.optional(
-				v.union([HispanTickSchema, v.array(HispanTickSchema)]),
+				v.union([v.array(HispanTickSchema), HispanTickSchema]),
 			),
 			/**
 			 * Significantive letter(s).
 			 * @see https://music-encoding.org/guidelines/v5/elements/signifLet.html
 			 */
 			signifLet: v.optional(
-				v.union([SignifLetSchema, v.array(SignifLetSchema)]),
+				v.union([v.array(SignifLetSchema), SignifLetSchema]),
 			),
 		}),
 	);

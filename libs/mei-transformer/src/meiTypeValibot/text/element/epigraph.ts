@@ -30,7 +30,7 @@ export const EpigraphSchema = v.lazy(() =>
 			 * Reference to element p
 			 * @see https://music-encoding.org/guidelines/v5/elements/p.html
 			 */
-			p: v.optional(v.union([PSchema, v.array(PSchema)])),
+			p: v.optional(v.union([v.array(PSchema), PSchema])),
 		}),
 		ModelParacontentPartSchema,
 	]),

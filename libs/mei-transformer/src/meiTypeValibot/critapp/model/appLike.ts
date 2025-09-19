@@ -12,7 +12,7 @@ export const ModelAppLikeSchema: v.GenericSchema<ModelAppLikeData> = v.lazy(
 			 * Contains one or more alternative encodings.
 			 * @see https://music-encoding.org/guidelines/v5/elements/app.html
 			 */
-			app: v.optional(v.union([AppSchema, v.array(AppSchema)])),
+			app: v.optional(v.union([v.array(AppSchema), AppSchema])),
 		}),
 );
 

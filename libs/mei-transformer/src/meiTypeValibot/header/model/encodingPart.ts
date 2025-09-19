@@ -24,27 +24,27 @@ export const ModelEncodingPartSchema: v.GenericSchema<ModelEncodingPartData> =
 			 * Groups information about applications which have acted upon the MEI file.
 			 * @see https://music-encoding.org/guidelines/v5/elements/appInfo.html
 			 */
-			appInfo: v.optional(v.union([AppInfoSchema, v.array(AppInfoSchema)])),
+			appInfo: v.optional(v.union([v.array(AppInfoSchema), AppInfoSchema])),
 			/**
 			 * Used to provide details of editorial principles and practices applied during the encoding of musical text.
 			 * @see https://music-encoding.org/guidelines/v5/elements/editorialDecl.html
 			 */
 			editorialDecl: v.optional(
-				v.union([EditorialDeclSchema, v.array(EditorialDeclSchema)]),
+				v.union([v.array(EditorialDeclSchema), EditorialDeclSchema]),
 			),
 			/**
 			 * Project-level meta-data describing the aim or purpose for which the electronic file was encoded, funding agencies, etc. together with any other relevant information concerning the process by which it was assembled or collected.
 			 * @see https://music-encoding.org/guidelines/v5/elements/projectDesc.html
 			 */
 			projectDesc: v.optional(
-				v.union([ProjectDescSchema, v.array(ProjectDescSchema)]),
+				v.union([v.array(ProjectDescSchema), ProjectDescSchema]),
 			),
 			/**
 			 * Contains a prose description of the rationale and methods used in sampling texts in the creation of a corpus or collection.
 			 * @see https://music-encoding.org/guidelines/v5/elements/samplingDecl.html
 			 */
 			samplingDecl: v.optional(
-				v.union([SamplingDeclSchema, v.array(SamplingDeclSchema)]),
+				v.union([v.array(SamplingDeclSchema), SamplingDeclSchema]),
 			),
 		}),
 	);

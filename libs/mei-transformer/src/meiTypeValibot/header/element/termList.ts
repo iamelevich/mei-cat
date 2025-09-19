@@ -29,12 +29,12 @@ export const TermListSchema = v.lazy(() =>
 			 * Reference to element label
 			 * @see https://music-encoding.org/guidelines/v5/elements/label.html
 			 */
-			label: v.optional(v.union([LabelSchema, v.array(LabelSchema)])),
+			label: v.optional(v.union([v.array(LabelSchema), LabelSchema])),
 			/**
 			 * Reference to element term
 			 * @see https://music-encoding.org/guidelines/v5/elements/term.html
 			 */
-			term: v.optional(v.union([TermSchema, v.array(TermSchema)])),
+			term: v.optional(v.union([v.array(TermSchema), TermSchema])),
 		}),
 		ModelHeadLikeSchema,
 	]),

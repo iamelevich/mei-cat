@@ -36,17 +36,17 @@ export const TaxonomySchema: v.GenericSchema<TaxonomyData> = v.lazy(() =>
 			 * Reference to element category
 			 * @see https://music-encoding.org/guidelines/v5/elements/category.html
 			 */
-			category: v.optional(v.union([CategorySchema, v.array(CategorySchema)])),
+			category: v.optional(v.union([v.array(CategorySchema), CategorySchema])),
 			/**
 			 * Reference to element desc
 			 * @see https://music-encoding.org/guidelines/v5/elements/desc.html
 			 */
-			desc: v.optional(v.union([DescSchema, v.array(DescSchema)])),
+			desc: v.optional(v.union([v.array(DescSchema), DescSchema])),
 			/**
 			 * Reference to element taxonomy
 			 * @see https://music-encoding.org/guidelines/v5/elements/taxonomy.html
 			 */
-			taxonomy: v.optional(v.union([TaxonomySchema, v.array(TaxonomySchema)])),
+			taxonomy: v.optional(v.union([v.array(TaxonomySchema), TaxonomySchema])),
 		}),
 		ModelBiblLikeSchema,
 		ModelHeadLikeSchema,

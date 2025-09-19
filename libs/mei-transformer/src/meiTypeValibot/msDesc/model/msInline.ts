@@ -23,46 +23,46 @@ export const ModelMsInlineSchema: v.GenericSchema<ModelMsInlineData> = v.lazy(
 			 * @see https://music-encoding.org/guidelines/v5/elements/catchwords.html
 			 */
 			catchwords: v.optional(
-				v.union([CatchwordsSchema, v.array(CatchwordsSchema)]),
+				v.union([v.array(CatchwordsSchema), CatchwordsSchema]),
 			),
 			/**
 			 * Contains a heraldic formula or phrase, typically found as part of a blazon, coat of arms, etc.
 			 * @see https://music-encoding.org/guidelines/v5/elements/heraldry.html
 			 */
-			heraldry: v.optional(v.union([HeraldrySchema, v.array(HeraldrySchema)])),
+			heraldry: v.optional(v.union([v.array(HeraldrySchema), HeraldrySchema])),
 			/**
 			 * Defines a location within a manuscript or manuscript component, usually as a (possibly discontinuous) sequence of folio references.
 			 * @see https://music-encoding.org/guidelines/v5/elements/locus.html
 			 */
-			locus: v.optional(v.union([LocusSchema, v.array(LocusSchema)])),
+			locus: v.optional(v.union([v.array(LocusSchema), LocusSchema])),
 			/**
 			 * Groups locations which together form a distinct but discontinuous item within a manuscript or manuscript part, according to a specific foliation.
 			 * @see https://music-encoding.org/guidelines/v5/elements/locusGrp.html
 			 */
-			locusGrp: v.optional(v.union([LocusGrpSchema, v.array(LocusGrpSchema)])),
+			locusGrp: v.optional(v.union([v.array(LocusGrpSchema), LocusGrpSchema])),
 			/**
 			 * Marks the word or words taken from a fixed point in a codex (typically the beginning of the second leaf) in order to provide a unique identifier for the item.
 			 * @see https://music-encoding.org/guidelines/v5/elements/secFolio.html
 			 */
-			secFolio: v.optional(v.union([SecFolioSchema, v.array(SecFolioSchema)])),
+			secFolio: v.optional(v.union([v.array(SecFolioSchema), SecFolioSchema])),
 			/**
 			 * Provides a description of the leaf or quire signatures found within a codex.
 			 * @see https://music-encoding.org/guidelines/v5/elements/signatures.html
 			 */
 			signatures: v.optional(
-				v.union([SignaturesSchema, v.array(SignaturesSchema)]),
+				v.union([v.array(SignaturesSchema), SignaturesSchema]),
 			),
 			/**
 			 * Contains a word or phrase describing an official mark indicating ownership, genuineness, validity, etc.
 			 * @see https://music-encoding.org/guidelines/v5/elements/stamp.html
 			 */
-			stamp: v.optional(v.union([StampSchema, v.array(StampSchema)])),
+			stamp: v.optional(v.union([v.array(StampSchema), StampSchema])),
 			/**
 			 * Contains a description of a watermark or similar device.
 			 * @see https://music-encoding.org/guidelines/v5/elements/watermark.html
 			 */
 			watermark: v.optional(
-				v.union([WatermarkSchema, v.array(WatermarkSchema)]),
+				v.union([v.array(WatermarkSchema), WatermarkSchema]),
 			),
 		}),
 );

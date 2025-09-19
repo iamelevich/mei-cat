@@ -12,7 +12,7 @@ export const ModelTableLikeSchema: v.GenericSchema<ModelTableLikeData> = v.lazy(
 			 * Contains text displayed in tabular form.
 			 * @see https://music-encoding.org/guidelines/v5/elements/table.html
 			 */
-			table: v.optional(v.union([TableSchema, v.array(TableSchema)])),
+			table: v.optional(v.union([v.array(TableSchema), TableSchema])),
 		}),
 );
 

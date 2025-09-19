@@ -12,7 +12,7 @@ export const ModelItemLikeSchema: v.GenericSchema<ModelItemLikeData> = v.lazy(
 			 * Single instance or exemplar of a source/manifestation.
 			 * @see https://music-encoding.org/guidelines/v5/elements/item.html
 			 */
-			item: v.optional(v.union([ItemSchema, v.array(ItemSchema)])),
+			item: v.optional(v.union([v.array(ItemSchema), ItemSchema])),
 		}),
 );
 

@@ -13,12 +13,12 @@ export const ModelPaperModLikeSchema: v.GenericSchema<ModelPaperModLikeData> =
 			 * A cutout is a section of a document sheet that has been removed and is now missing.
 			 * @see https://music-encoding.org/guidelines/v5/elements/cutout.html
 			 */
-			cutout: v.optional(v.union([CutoutSchema, v.array(CutoutSchema)])),
+			cutout: v.optional(v.union([v.array(CutoutSchema), CutoutSchema])),
 			/**
 			 * Describes a physical writing surface attached to the original document.
 			 * @see https://music-encoding.org/guidelines/v5/elements/patch.html
 			 */
-			patch: v.optional(v.union([PatchSchema, v.array(PatchSchema)])),
+			patch: v.optional(v.union([v.array(PatchSchema), PatchSchema])),
 		}),
 	);
 

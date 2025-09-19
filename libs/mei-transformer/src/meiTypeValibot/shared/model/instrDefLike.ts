@@ -12,7 +12,7 @@ export const ModelInstrDefLikeSchema: v.GenericSchema<ModelInstrDefLikeData> =
 			 * MIDI instrument declaration.
 			 * @see https://music-encoding.org/guidelines/v5/elements/instrDef.html
 			 */
-			instrDef: v.optional(v.union([InstrDefSchema, v.array(InstrDefSchema)])),
+			instrDef: v.optional(v.union([v.array(InstrDefSchema), InstrDefSchema])),
 		}),
 	);
 

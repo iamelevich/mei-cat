@@ -29,7 +29,7 @@ export const AppSchema = v.lazy(() =>
 			 * Reference to element rdg
 			 * @see https://music-encoding.org/guidelines/v5/elements/rdg.html
 			 */
-			rdg: v.optional(v.union([RdgSchema, v.array(RdgSchema)])),
+			rdg: v.optional(v.union([v.array(RdgSchema), RdgSchema])),
 		}),
 	]),
 );

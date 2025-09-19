@@ -13,12 +13,12 @@ export const ModelNeumePartSchema: v.GenericSchema<ModelNeumePartData> = v.lazy(
 			 * Sign representing a single pitched event, although the exact pitch may not be known.
 			 * @see https://music-encoding.org/guidelines/v5/elements/nc.html
 			 */
-			nc: v.optional(v.union([NcSchema, v.array(NcSchema)])),
+			nc: v.optional(v.union([v.array(NcSchema), NcSchema])),
 			/**
 			 * Collection of one or more neume components.
 			 * @see https://music-encoding.org/guidelines/v5/elements/ncGrp.html
 			 */
-			ncGrp: v.optional(v.union([NcGrpSchema, v.array(NcGrpSchema)])),
+			ncGrp: v.optional(v.union([v.array(NcGrpSchema), NcGrpSchema])),
 		}),
 );
 

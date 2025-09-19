@@ -12,7 +12,7 @@ export const ModelAnnotLikeSchema: v.GenericSchema<ModelAnnotLikeData> = v.lazy(
 			 * Provides a statement explaining the text or indicating the basis for an assertion.
 			 * @see https://music-encoding.org/guidelines/v5/elements/annot.html
 			 */
-			annot: v.optional(v.union([AnnotSchema, v.array(AnnotSchema)])),
+			annot: v.optional(v.union([v.array(AnnotSchema), AnnotSchema])),
 		}),
 );
 

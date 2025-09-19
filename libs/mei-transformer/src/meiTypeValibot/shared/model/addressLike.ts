@@ -12,7 +12,7 @@ export const ModelAddressLikeSchema: v.GenericSchema<ModelAddressLikeData> =
 			 * Contains a postal address, for example of a publisher, an organization, or an individual.
 			 * @see https://music-encoding.org/guidelines/v5/elements/address.html
 			 */
-			address: v.optional(v.union([AddressSchema, v.array(AddressSchema)])),
+			address: v.optional(v.union([v.array(AddressSchema), AddressSchema])),
 		}),
 	);
 

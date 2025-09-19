@@ -12,7 +12,7 @@ export const ModelKeySigLikeSchema: v.GenericSchema<ModelKeySigLikeData> =
 			 * Written key signature.
 			 * @see https://music-encoding.org/guidelines/v5/elements/keySig.html
 			 */
-			keySig: v.optional(v.union([KeySigSchema, v.array(KeySigSchema)])),
+			keySig: v.optional(v.union([v.array(KeySigSchema), KeySigSchema])),
 		}),
 	);
 

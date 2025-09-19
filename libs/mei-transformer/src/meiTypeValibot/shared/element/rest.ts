@@ -36,7 +36,7 @@ export const RestSchema = v.lazy(() =>
 			 * Reference to element dot
 			 * @see https://music-encoding.org/guidelines/v5/elements/dot.html
 			 */
-			dot: v.optional(v.union([DotSchema, v.array(DotSchema)])),
+			dot: v.optional(v.union([v.array(DotSchema), DotSchema])),
 		}),
 		ModelAppLikeSchema,
 		ModelEditLikeSchema,

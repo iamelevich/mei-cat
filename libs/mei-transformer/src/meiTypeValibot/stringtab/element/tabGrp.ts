@@ -38,12 +38,12 @@ export const TabGrpSchema = v.lazy(() =>
 			 * Reference to element note
 			 * @see https://music-encoding.org/guidelines/v5/elements/note.html
 			 */
-			note: v.optional(v.union([NoteSchema, v.array(NoteSchema)])),
+			note: v.optional(v.union([v.array(NoteSchema), NoteSchema])),
 			/**
 			 * Reference to element rest
 			 * @see https://music-encoding.org/guidelines/v5/elements/rest.html
 			 */
-			rest: v.optional(v.union([RestSchema, v.array(RestSchema)])),
+			rest: v.optional(v.union([v.array(RestSchema), RestSchema])),
 			/**
 			 * Reference to element tabDurSym
 			 * @see https://music-encoding.org/guidelines/v5/elements/tabDurSym.html

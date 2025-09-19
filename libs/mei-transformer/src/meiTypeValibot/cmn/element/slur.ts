@@ -33,7 +33,7 @@ export const SlurSchema = v.lazy(() =>
 			 * Reference to element curve
 			 * @see https://music-encoding.org/guidelines/v5/elements/curve.html
 			 */
-			curve: v.optional(v.union([CurveSchema, v.array(CurveSchema)])),
+			curve: v.optional(v.union([v.array(CurveSchema), CurveSchema])),
 		}),
 	]),
 );

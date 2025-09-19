@@ -13,7 +13,7 @@ export const ModelIdentifierLikeSchema: v.GenericSchema<ModelIdentifierLikeData>
 			 * @see https://music-encoding.org/guidelines/v5/elements/identifier.html
 			 */
 			identifier: v.optional(
-				v.union([IdentifierSchema, v.array(IdentifierSchema)]),
+				v.union([v.array(IdentifierSchema), IdentifierSchema]),
 			),
 		}),
 	);

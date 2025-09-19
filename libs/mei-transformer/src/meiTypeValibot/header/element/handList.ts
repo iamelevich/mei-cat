@@ -27,12 +27,12 @@ export const HandListSchema = v.lazy(() =>
 			 * Reference to element hand
 			 * @see https://music-encoding.org/guidelines/v5/elements/hand.html
 			 */
-			hand: v.optional(v.union([HandSchema, v.array(HandSchema)])),
+			hand: v.optional(v.union([v.array(HandSchema), HandSchema])),
 			/**
 			 * Reference to element label
 			 * @see https://music-encoding.org/guidelines/v5/elements/label.html
 			 */
-			label: v.optional(v.union([LabelSchema, v.array(LabelSchema)])),
+			label: v.optional(v.union([v.array(LabelSchema), LabelSchema])),
 		}),
 		ModelHeadLikeSchema,
 	]),

@@ -16,13 +16,13 @@ export const ModelMeterSigLikeSchema: v.GenericSchema<ModelMeterSigLikeData> =
 			 * Written meter signature.
 			 * @see https://music-encoding.org/guidelines/v5/elements/meterSig.html
 			 */
-			meterSig: v.optional(v.union([MeterSigSchema, v.array(MeterSigSchema)])),
+			meterSig: v.optional(v.union([v.array(MeterSigSchema), MeterSigSchema])),
 			/**
 			 * Used to capture alternating, interchanging, mixed or other non-standard meter signatures.
 			 * @see https://music-encoding.org/guidelines/v5/elements/meterSigGrp.html
 			 */
 			meterSigGrp: v.optional(
-				v.union([MeterSigGrpSchema, v.array(MeterSigGrpSchema)]),
+				v.union([v.array(MeterSigGrpSchema), MeterSigGrpSchema]),
 			),
 		}),
 	);

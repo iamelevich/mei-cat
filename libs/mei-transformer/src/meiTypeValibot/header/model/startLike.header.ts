@@ -12,7 +12,7 @@ export const ModelStartLikeHeaderSchema: v.GenericSchema<ModelStartLikeHeaderDat
 			 * Supplies the descriptive and declarative metadata prefixed to every MEI-conformant text.
 			 * @see https://music-encoding.org/guidelines/v5/elements/meiHead.html
 			 */
-			meiHead: v.optional(v.union([MeiHeadSchema, v.array(MeiHeadSchema)])),
+			meiHead: v.optional(v.union([v.array(MeiHeadSchema), MeiHeadSchema])),
 		}),
 	);
 

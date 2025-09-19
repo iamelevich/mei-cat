@@ -29,27 +29,27 @@ export const FoliaDescSchema = v.lazy(() =>
 			 * Reference to element add
 			 * @see https://music-encoding.org/guidelines/v5/elements/add.html
 			 */
-			add: v.optional(v.union([AddSchema, v.array(AddSchema)])),
+			add: v.optional(v.union([v.array(AddSchema), AddSchema])),
 			/**
 			 * Reference to element damage
 			 * @see https://music-encoding.org/guidelines/v5/elements/damage.html
 			 */
-			damage: v.optional(v.union([DamageSchema, v.array(DamageSchema)])),
+			damage: v.optional(v.union([v.array(DamageSchema), DamageSchema])),
 			/**
 			 * Reference to element del
 			 * @see https://music-encoding.org/guidelines/v5/elements/del.html
 			 */
-			del: v.optional(v.union([DelSchema, v.array(DelSchema)])),
+			del: v.optional(v.union([v.array(DelSchema), DelSchema])),
 			/**
 			 * Reference to element gap
 			 * @see https://music-encoding.org/guidelines/v5/elements/gap.html
 			 */
-			gap: v.optional(v.union([GapSchema, v.array(GapSchema)])),
+			gap: v.optional(v.union([v.array(GapSchema), GapSchema])),
 			/**
 			 * Reference to element restore
 			 * @see https://music-encoding.org/guidelines/v5/elements/restore.html
 			 */
-			restore: v.optional(v.union([RestoreSchema, v.array(RestoreSchema)])),
+			restore: v.optional(v.union([v.array(RestoreSchema), RestoreSchema])),
 		}),
 		ModelBifoliumLikeSchema,
 		ModelFoliumLikeSchema,

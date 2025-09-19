@@ -29,7 +29,7 @@ export const LocusGrpSchema = v.lazy(() =>
 			 * Reference to element locus
 			 * @see https://music-encoding.org/guidelines/v5/elements/locus.html
 			 */
-			locus: v.optional(v.union([LocusSchema, v.array(LocusSchema)])),
+			locus: v.optional(v.union([v.array(LocusSchema), LocusSchema])),
 		}),
 	]),
 );

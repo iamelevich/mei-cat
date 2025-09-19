@@ -32,23 +32,23 @@ export const DecoDescSchema = v.lazy(() =>
 			 * @see https://music-encoding.org/guidelines/v5/elements/condition.html
 			 */
 			condition: v.optional(
-				v.union([ConditionSchema, v.array(ConditionSchema)]),
+				v.union([v.array(ConditionSchema), ConditionSchema]),
 			),
 			/**
 			 * Reference to element decoNote
 			 * @see https://music-encoding.org/guidelines/v5/elements/decoNote.html
 			 */
-			decoNote: v.optional(v.union([DecoNoteSchema, v.array(DecoNoteSchema)])),
+			decoNote: v.optional(v.union([v.array(DecoNoteSchema), DecoNoteSchema])),
 			/**
 			 * Reference to element head
 			 * @see https://music-encoding.org/guidelines/v5/elements/head.html
 			 */
-			head: v.optional(v.union([HeadSchema, v.array(HeadSchema)])),
+			head: v.optional(v.union([v.array(HeadSchema), HeadSchema])),
 			/**
 			 * Reference to element p
 			 * @see https://music-encoding.org/guidelines/v5/elements/p.html
 			 */
-			p: v.optional(v.union([PSchema, v.array(PSchema)])),
+			p: v.optional(v.union([v.array(PSchema), PSchema])),
 		}),
 		ModelTextPhraseLikeLimitedSchema,
 	]),

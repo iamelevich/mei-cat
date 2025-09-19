@@ -39,7 +39,7 @@ export const StaffGrpSchema = v.lazy(() =>
 			 * Reference to element grpSym
 			 * @see https://music-encoding.org/guidelines/v5/elements/grpSym.html
 			 */
-			grpSym: v.optional(v.union([GrpSymSchema, v.array(GrpSymSchema)])),
+			grpSym: v.optional(v.union([v.array(GrpSymSchema), GrpSymSchema])),
 		}),
 		ModelInstrDefLikeSchema,
 		ModelLabelLikeSchema,

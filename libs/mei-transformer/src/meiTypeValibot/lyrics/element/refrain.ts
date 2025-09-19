@@ -43,27 +43,27 @@ export const RefrainSchema = v.lazy(() =>
 			 * Reference to element dir
 			 * @see https://music-encoding.org/guidelines/v5/elements/dir.html
 			 */
-			dir: v.optional(v.union([DirSchema, v.array(DirSchema)])),
+			dir: v.optional(v.union([v.array(DirSchema), DirSchema])),
 			/**
 			 * Reference to element dynam
 			 * @see https://music-encoding.org/guidelines/v5/elements/dynam.html
 			 */
-			dynam: v.optional(v.union([DynamSchema, v.array(DynamSchema)])),
+			dynam: v.optional(v.union([v.array(DynamSchema), DynamSchema])),
 			/**
 			 * Reference to element space
 			 * @see https://music-encoding.org/guidelines/v5/elements/space.html
 			 */
-			space: v.optional(v.union([SpaceSchema, v.array(SpaceSchema)])),
+			space: v.optional(v.union([v.array(SpaceSchema), SpaceSchema])),
 			/**
 			 * Reference to element tempo
 			 * @see https://music-encoding.org/guidelines/v5/elements/tempo.html
 			 */
-			tempo: v.optional(v.union([TempoSchema, v.array(TempoSchema)])),
+			tempo: v.optional(v.union([v.array(TempoSchema), TempoSchema])),
 			/**
 			 * Reference to element volta
 			 * @see https://music-encoding.org/guidelines/v5/elements/volta.html
 			 */
-			volta: v.union([VoltaSchema, v.array(VoltaSchema)]),
+			volta: v.union([v.array(VoltaSchema), VoltaSchema]),
 		}),
 		ModelAppLikeSchema,
 		ModelEditLikeSchema,

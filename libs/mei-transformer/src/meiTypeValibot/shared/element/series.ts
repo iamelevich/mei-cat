@@ -36,22 +36,22 @@ export const SeriesSchema = v.lazy(() =>
 			 * Reference to element editor
 			 * @see https://music-encoding.org/guidelines/v5/elements/editor.html
 			 */
-			editor: v.optional(v.union([EditorSchema, v.array(EditorSchema)])),
+			editor: v.optional(v.union([v.array(EditorSchema), EditorSchema])),
 			/**
 			 * Reference to element extent
 			 * @see https://music-encoding.org/guidelines/v5/elements/extent.html
 			 */
-			extent: v.optional(v.union([ExtentSchema, v.array(ExtentSchema)])),
+			extent: v.optional(v.union([v.array(ExtentSchema), ExtentSchema])),
 			/**
 			 * Reference to element respStmt
 			 * @see https://music-encoding.org/guidelines/v5/elements/respStmt.html
 			 */
-			respStmt: v.optional(v.union([RespStmtSchema, v.array(RespStmtSchema)])),
+			respStmt: v.optional(v.union([v.array(RespStmtSchema), RespStmtSchema])),
 			/**
 			 * Reference to element textLang
 			 * @see https://music-encoding.org/guidelines/v5/elements/textLang.html
 			 */
-			textLang: v.optional(v.union([TextLangSchema, v.array(TextLangSchema)])),
+			textLang: v.optional(v.union([v.array(TextLangSchema), TextLangSchema])),
 		}),
 		ModelIdentifierLikeSchema,
 		ModelLocrefLikeSchema,

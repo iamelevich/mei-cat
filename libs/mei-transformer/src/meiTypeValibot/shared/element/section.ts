@@ -49,7 +49,7 @@ export const SectionSchema = v.lazy(() =>
 			 * @see https://music-encoding.org/guidelines/v5/elements/expansion.html
 			 */
 			expansion: v.optional(
-				v.union([ExpansionSchema, v.array(ExpansionSchema)]),
+				v.union([v.array(ExpansionSchema), ExpansionSchema]),
 			),
 		}),
 		ModelAnnotLikeSchema,

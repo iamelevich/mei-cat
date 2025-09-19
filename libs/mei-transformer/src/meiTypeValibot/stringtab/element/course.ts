@@ -31,7 +31,7 @@ export const CourseSchema = v.lazy(() =>
 			 * Reference to element string
 			 * @see https://music-encoding.org/guidelines/v5/elements/string.html
 			 */
-			string: v.optional(v.union([StringSchema, v.array(StringSchema)])),
+			string: v.optional(v.union([v.array(StringSchema), StringSchema])),
 		}),
 	]),
 );

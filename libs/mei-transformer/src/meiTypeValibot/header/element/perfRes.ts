@@ -38,7 +38,7 @@ export const PerfResSchema: v.GenericSchema<PerfResData> = v.lazy(() =>
 			 * Reference to element perfRes
 			 * @see https://music-encoding.org/guidelines/v5/elements/perfRes.html
 			 */
-			perfRes: v.optional(v.union([PerfResSchema, v.array(PerfResSchema)])),
+			perfRes: v.optional(v.union([v.array(PerfResSchema), PerfResSchema])),
 		}),
 		ModelTextPhraseLikeLimitedSchema,
 	]),

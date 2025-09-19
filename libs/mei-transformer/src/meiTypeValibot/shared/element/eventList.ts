@@ -45,24 +45,24 @@ export const EventListSchema: v.GenericSchema<EventListData> = v.lazy(() =>
 			 * Reference to element biblList
 			 * @see https://music-encoding.org/guidelines/v5/elements/biblList.html
 			 */
-			biblList: v.optional(v.union([BiblListSchema, v.array(BiblListSchema)])),
+			biblList: v.optional(v.union([v.array(BiblListSchema), BiblListSchema])),
 			/**
 			 * Reference to element event
 			 * @see https://music-encoding.org/guidelines/v5/elements/event.html
 			 */
-			event: v.optional(v.union([EventSchema, v.array(EventSchema)])),
+			event: v.optional(v.union([v.array(EventSchema), EventSchema])),
 			/**
 			 * Reference to element eventList
 			 * @see https://music-encoding.org/guidelines/v5/elements/eventList.html
 			 */
 			eventList: v.optional(
-				v.union([EventListSchema, v.array(EventListSchema)]),
+				v.union([v.array(EventListSchema), EventListSchema]),
 			),
 			/**
 			 * Reference to element name
 			 * @see https://music-encoding.org/guidelines/v5/elements/name.html
 			 */
-			name: v.optional(v.union([NameSchema, v.array(NameSchema)])),
+			name: v.optional(v.union([v.array(NameSchema), NameSchema])),
 		}),
 		ModelAddressLikeSchema,
 		ModelDateLikeSchema,

@@ -12,7 +12,7 @@ export const ModelSectionLikeSchema: v.GenericSchema<ModelSectionLikeData> =
 			 * Segment of music data.
 			 * @see https://music-encoding.org/guidelines/v5/elements/section.html
 			 */
-			section: v.optional(v.union([SectionSchema, v.array(SectionSchema)])),
+			section: v.optional(v.union([v.array(SectionSchema), SectionSchema])),
 		}),
 	);
 

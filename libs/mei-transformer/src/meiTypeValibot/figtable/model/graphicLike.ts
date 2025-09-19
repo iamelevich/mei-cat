@@ -12,7 +12,7 @@ export const ModelGraphicLikeSchema: v.GenericSchema<ModelGraphicLikeData> =
 			 * Indicates the location of an inline graphic.
 			 * @see https://music-encoding.org/guidelines/v5/elements/graphic.html
 			 */
-			graphic: v.optional(v.union([GraphicSchema, v.array(GraphicSchema)])),
+			graphic: v.optional(v.union([v.array(GraphicSchema), GraphicSchema])),
 		}),
 	);
 

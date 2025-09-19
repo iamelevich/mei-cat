@@ -32,13 +32,13 @@ export const ChordDefSchema = v.lazy(() =>
 			 * Reference to element barre
 			 * @see https://music-encoding.org/guidelines/v5/elements/barre.html
 			 */
-			barre: v.optional(v.union([BarreSchema, v.array(BarreSchema)])),
+			barre: v.optional(v.union([v.array(BarreSchema), BarreSchema])),
 			/**
 			 * Reference to element chordMember
 			 * @see https://music-encoding.org/guidelines/v5/elements/chordMember.html
 			 */
 			chordMember: v.optional(
-				v.union([ChordMemberSchema, v.array(ChordMemberSchema)]),
+				v.union([v.array(ChordMemberSchema), ChordMemberSchema]),
 			),
 		}),
 	]),

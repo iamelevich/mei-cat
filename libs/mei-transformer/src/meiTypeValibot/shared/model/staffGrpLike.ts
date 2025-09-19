@@ -12,7 +12,7 @@ export const ModelStaffGrpLikeSchema: v.GenericSchema<ModelStaffGrpLikeData> =
 			 * A group of bracketed or braced staves.
 			 * @see https://music-encoding.org/guidelines/v5/elements/staffGrp.html
 			 */
-			staffGrp: v.optional(v.union([StaffGrpSchema, v.array(StaffGrpSchema)])),
+			staffGrp: v.optional(v.union([v.array(StaffGrpSchema), StaffGrpSchema])),
 		}),
 	);
 

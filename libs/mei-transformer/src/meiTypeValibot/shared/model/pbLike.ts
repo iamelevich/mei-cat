@@ -11,7 +11,7 @@ export const ModelPbLikeSchema: v.GenericSchema<ModelPbLikeData> = v.lazy(() =>
 		 * An empty formatting element that forces text to begin on a new page.
 		 * @see https://music-encoding.org/guidelines/v5/elements/pb.html
 		 */
-		pb: v.optional(v.union([PbSchema, v.array(PbSchema)])),
+		pb: v.optional(v.union([v.array(PbSchema), PbSchema])),
 	}),
 );
 

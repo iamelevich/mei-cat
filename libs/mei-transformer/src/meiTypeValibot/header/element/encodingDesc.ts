@@ -43,7 +43,7 @@ export const EncodingDescSchema = v.lazy(() =>
 			 * @see https://music-encoding.org/guidelines/v5/elements/domainsDecl.html
 			 */
 			domainsDecl: v.optional(
-				v.union([DomainsDeclSchema, v.array(DomainsDeclSchema)]),
+				v.union([v.array(DomainsDeclSchema), DomainsDeclSchema]),
 			),
 			/**
 			 * Reference to element editorialDecl

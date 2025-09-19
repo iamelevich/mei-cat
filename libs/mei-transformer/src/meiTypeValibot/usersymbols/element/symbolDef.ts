@@ -33,22 +33,22 @@ export const SymbolDefSchema = v.lazy(() =>
 			 * Reference to element graphic
 			 * @see https://music-encoding.org/guidelines/v5/elements/graphic.html
 			 */
-			graphic: v.optional(v.union([GraphicSchema, v.array(GraphicSchema)])),
+			graphic: v.optional(v.union([v.array(GraphicSchema), GraphicSchema])),
 			/**
 			 * Reference to element mapping
 			 * @see https://music-encoding.org/guidelines/v5/elements/mapping.html
 			 */
-			mapping: v.optional(v.union([MappingSchema, v.array(MappingSchema)])),
+			mapping: v.optional(v.union([v.array(MappingSchema), MappingSchema])),
 			/**
 			 * Reference to element svg_svg
 			 * @see https://music-encoding.org/guidelines/v5/elements/svg_svg.html
 			 */
-			svg_svg: v.optional(v.union([Svg_svgSchema, v.array(Svg_svgSchema)])),
+			svg_svg: v.optional(v.union([v.array(Svg_svgSchema), Svg_svgSchema])),
 			/**
 			 * Reference to element symbol
 			 * @see https://music-encoding.org/guidelines/v5/elements/symbol.html
 			 */
-			symbol: v.optional(v.union([SymbolSchema, v.array(SymbolSchema)])),
+			symbol: v.optional(v.union([v.array(SymbolSchema), SymbolSchema])),
 			/**
 			 * Reference to element symName
 			 * @see https://music-encoding.org/guidelines/v5/elements/symName.html
@@ -58,7 +58,7 @@ export const SymbolDefSchema = v.lazy(() =>
 			 * Reference to element symProp
 			 * @see https://music-encoding.org/guidelines/v5/elements/symProp.html
 			 */
-			symProp: v.optional(v.union([SymPropSchema, v.array(SymPropSchema)])),
+			symProp: v.optional(v.union([v.array(SymPropSchema), SymPropSchema])),
 		}),
 		ModelAnnotLikeSchema,
 		ModelGraphicPrimitiveLikeSchema,

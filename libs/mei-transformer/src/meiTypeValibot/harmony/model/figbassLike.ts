@@ -12,7 +12,7 @@ export const ModelFigbassLikeSchema: v.GenericSchema<ModelFigbassLikeData> =
 			 * Symbols added to a bass line that indicate harmony. Used to improvise a chordal accompaniment. Sometimes called Generalbass, thoroughbass, or basso continuo.
 			 * @see https://music-encoding.org/guidelines/v5/elements/fb.html
 			 */
-			fb: v.optional(v.union([FbSchema, v.array(FbSchema)])),
+			fb: v.optional(v.union([v.array(FbSchema), FbSchema])),
 		}),
 	);
 

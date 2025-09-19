@@ -50,14 +50,14 @@ export const IncipSchema = v.lazy(() =>
 			 * @see https://music-encoding.org/guidelines/v5/elements/incipCode.html
 			 */
 			incipCode: v.optional(
-				v.union([IncipCodeSchema, v.array(IncipCodeSchema)]),
+				v.union([v.array(IncipCodeSchema), IncipCodeSchema]),
 			),
 			/**
 			 * Reference to element incipText
 			 * @see https://music-encoding.org/guidelines/v5/elements/incipText.html
 			 */
 			incipText: v.optional(
-				v.union([IncipTextSchema, v.array(IncipTextSchema)]),
+				v.union([v.array(IncipTextSchema), IncipTextSchema]),
 			),
 			/**
 			 * Reference to element key

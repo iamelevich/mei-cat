@@ -12,7 +12,7 @@ export const ModelFrontLikeSchema: v.GenericSchema<ModelFrontLikeData> = v.lazy(
 			 * Bundles prefatory text found before the start of the musical text.
 			 * @see https://music-encoding.org/guidelines/v5/elements/front.html
 			 */
-			front: v.optional(v.union([FrontSchema, v.array(FrontSchema)])),
+			front: v.optional(v.union([v.array(FrontSchema), FrontSchema])),
 		}),
 );
 

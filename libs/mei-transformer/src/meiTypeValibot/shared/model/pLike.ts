@@ -11,7 +11,7 @@ export const ModelPLikeSchema: v.GenericSchema<ModelPLikeData> = v.lazy(() =>
 		 * One or more text phrases that form a logical prose passage.
 		 * @see https://music-encoding.org/guidelines/v5/elements/p.html
 		 */
-		p: v.optional(v.union([PSchema, v.array(PSchema)])),
+		p: v.optional(v.union([v.array(PSchema), PSchema])),
 	}),
 );
 

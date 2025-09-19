@@ -30,7 +30,7 @@ export const TableSchema = v.lazy(() =>
 			 * Reference to element tr
 			 * @see https://music-encoding.org/guidelines/v5/elements/tr.html
 			 */
-			tr: v.union([TrSchema, v.array(TrSchema)]),
+			tr: v.union([v.array(TrSchema), TrSchema]),
 		}),
 		ModelCaptionLikeSchema,
 	]),

@@ -44,7 +44,7 @@ export const TagUsageSchema = v.lazy(() =>
 			 * Reference to element attUsage
 			 * @see https://music-encoding.org/guidelines/v5/elements/attUsage.html
 			 */
-			attUsage: v.optional(v.union([AttUsageSchema, v.array(AttUsageSchema)])),
+			attUsage: v.optional(v.union([v.array(AttUsageSchema), AttUsageSchema])),
 			/**
 			 * Reference to element desc
 			 * @see https://music-encoding.org/guidelines/v5/elements/desc.html

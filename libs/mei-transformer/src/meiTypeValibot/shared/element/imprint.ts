@@ -30,7 +30,7 @@ export const ImprintSchema = v.lazy(() =>
 			 * Reference to element respStmt
 			 * @see https://music-encoding.org/guidelines/v5/elements/respStmt.html
 			 */
-			respStmt: v.optional(v.union([RespStmtSchema, v.array(RespStmtSchema)])),
+			respStmt: v.optional(v.union([v.array(RespStmtSchema), RespStmtSchema])),
 		}),
 		ModelImprintPartSchema,
 		ModelTextPhraseLikeSchema,

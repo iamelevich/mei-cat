@@ -16,24 +16,24 @@ export const ModelNeumeComponentModifierLikeSchema: v.GenericSchema<ModelNeumeCo
 			 * @see https://music-encoding.org/guidelines/v5/elements/liquescent.html
 			 */
 			liquescent: v.optional(
-				v.union([LiquescentSchema, v.array(LiquescentSchema)]),
+				v.union([v.array(LiquescentSchema), LiquescentSchema]),
 			),
 			/**
 			 * Oriscus.
 			 * @see https://music-encoding.org/guidelines/v5/elements/oriscus.html
 			 */
-			oriscus: v.optional(v.union([OriscusSchema, v.array(OriscusSchema)])),
+			oriscus: v.optional(v.union([v.array(OriscusSchema), OriscusSchema])),
 			/**
 			 * Quilisma.
 			 * @see https://music-encoding.org/guidelines/v5/elements/quilisma.html
 			 */
-			quilisma: v.optional(v.union([QuilismaSchema, v.array(QuilismaSchema)])),
+			quilisma: v.optional(v.union([v.array(QuilismaSchema), QuilismaSchema])),
 			/**
 			 * Strophicus.
 			 * @see https://music-encoding.org/guidelines/v5/elements/strophicus.html
 			 */
 			strophicus: v.optional(
-				v.union([StrophicusSchema, v.array(StrophicusSchema)]),
+				v.union([v.array(StrophicusSchema), StrophicusSchema]),
 			),
 		}),
 	);

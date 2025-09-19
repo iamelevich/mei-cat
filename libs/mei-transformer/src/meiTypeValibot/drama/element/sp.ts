@@ -45,12 +45,12 @@ export const SpSchema = v.lazy(() =>
 			 * Reference to element list
 			 * @see https://music-encoding.org/guidelines/v5/elements/list.html
 			 */
-			list: v.union([ListSchema, v.array(ListSchema)]),
+			list: v.union([v.array(ListSchema), ListSchema]),
 			/**
 			 * Reference to element speaker
 			 * @see https://music-encoding.org/guidelines/v5/elements/speaker.html
 			 */
-			speaker: v.optional(v.union([SpeakerSchema, v.array(SpeakerSchema)])),
+			speaker: v.optional(v.union([v.array(SpeakerSchema), SpeakerSchema])),
 		}),
 		ModelAnnotLikeSchema,
 		ModelAppLikeSchema,

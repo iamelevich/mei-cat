@@ -26,7 +26,7 @@ export const PerformanceSchema = v.lazy(() =>
 			 * @see https://music-encoding.org/guidelines/v5/elements/recording.html
 			 */
 			recording: v.optional(
-				v.union([RecordingSchema, v.array(RecordingSchema)]),
+				v.union([v.array(RecordingSchema), RecordingSchema]),
 			),
 		}),
 	]),

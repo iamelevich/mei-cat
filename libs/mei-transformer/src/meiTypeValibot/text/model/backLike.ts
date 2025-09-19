@@ -12,7 +12,7 @@ export const ModelBackLikeSchema: v.GenericSchema<ModelBackLikeData> = v.lazy(
 			 * Contains any appendixes, advertisements, indexes, etc. following the main body of a musical text.
 			 * @see https://music-encoding.org/guidelines/v5/elements/back.html
 			 */
-			back: v.optional(v.union([BackSchema, v.array(BackSchema)])),
+			back: v.optional(v.union([v.array(BackSchema), BackSchema])),
 		}),
 );
 

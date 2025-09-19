@@ -12,7 +12,7 @@ export const ModelMidiLikeSchema: v.GenericSchema<ModelMidiLikeData> = v.lazy(
 			 * Container for elements that contain information useful when generating MIDI output.
 			 * @see https://music-encoding.org/guidelines/v5/elements/midi.html
 			 */
-			midi: v.optional(v.union([MidiSchema, v.array(MidiSchema)])),
+			midi: v.optional(v.union([v.array(MidiSchema), MidiSchema])),
 		}),
 );
 

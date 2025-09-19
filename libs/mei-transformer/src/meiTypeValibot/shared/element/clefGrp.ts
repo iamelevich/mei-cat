@@ -35,7 +35,7 @@ export const ClefGrpSchema = v.lazy(() =>
 			 * Reference to element clef
 			 * @see https://music-encoding.org/guidelines/v5/elements/clef.html
 			 */
-			clef: v.union([ClefSchema, v.array(ClefSchema)]),
+			clef: v.union([v.array(ClefSchema), ClefSchema]),
 		}),
 	]),
 );

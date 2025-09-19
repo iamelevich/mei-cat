@@ -30,12 +30,12 @@ export const ModelEventPartSchema: v.GenericSchema<ModelEventPartData> = v.lazy(
 				 * Container for text that briefly describes the feature to which it is attached, including its intended usage, purpose, or application as appropriate.
 				 * @see https://music-encoding.org/guidelines/v5/elements/desc.html
 				 */
-				desc: v.optional(v.union([DescSchema, v.array(DescSchema)])),
+				desc: v.optional(v.union([v.array(DescSchema), DescSchema])),
 				/**
 				 * Proper noun or noun phrase.
 				 * @see https://music-encoding.org/guidelines/v5/elements/name.html
 				 */
-				name: v.optional(v.union([NameSchema, v.array(NameSchema)])),
+				name: v.optional(v.union([v.array(NameSchema), NameSchema])),
 			}),
 			ModelAddressLikeSchema,
 			ModelDateLikeSchema,

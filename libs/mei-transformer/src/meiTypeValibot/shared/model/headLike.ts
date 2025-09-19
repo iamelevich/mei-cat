@@ -12,7 +12,7 @@ export const ModelHeadLikeSchema: v.GenericSchema<ModelHeadLikeData> = v.lazy(
 			 * Contains any heading, for example, the title of a section of text, or the heading of a list.
 			 * @see https://music-encoding.org/guidelines/v5/elements/head.html
 			 */
-			head: v.optional(v.union([HeadSchema, v.array(HeadSchema)])),
+			head: v.optional(v.union([v.array(HeadSchema), HeadSchema])),
 		}),
 );
 

@@ -31,12 +31,12 @@ export const CastListSchema = v.lazy(() =>
 			 * Reference to element castGrp
 			 * @see https://music-encoding.org/guidelines/v5/elements/castGrp.html
 			 */
-			castGrp: v.union([CastGrpSchema, v.array(CastGrpSchema)]),
+			castGrp: v.union([v.array(CastGrpSchema), CastGrpSchema]),
 			/**
 			 * Reference to element castItem
 			 * @see https://music-encoding.org/guidelines/v5/elements/castItem.html
 			 */
-			castItem: v.union([CastItemSchema, v.array(CastItemSchema)]),
+			castItem: v.union([v.array(CastItemSchema), CastItemSchema]),
 		}),
 		ModelHeadLikeSchema,
 	]),

@@ -33,35 +33,35 @@ export const HistorySchema = v.lazy(() =>
 			 * @see https://music-encoding.org/guidelines/v5/elements/acquisition.html
 			 */
 			acquisition: v.optional(
-				v.union([AcquisitionSchema, v.array(AcquisitionSchema)]),
+				v.union([v.array(AcquisitionSchema), AcquisitionSchema]),
 			),
 			/**
 			 * Reference to element exhibHist
 			 * @see https://music-encoding.org/guidelines/v5/elements/exhibHist.html
 			 */
 			exhibHist: v.optional(
-				v.union([ExhibHistSchema, v.array(ExhibHistSchema)]),
+				v.union([v.array(ExhibHistSchema), ExhibHistSchema]),
 			),
 			/**
 			 * Reference to element provenance
 			 * @see https://music-encoding.org/guidelines/v5/elements/provenance.html
 			 */
 			provenance: v.optional(
-				v.union([ProvenanceSchema, v.array(ProvenanceSchema)]),
+				v.union([v.array(ProvenanceSchema), ProvenanceSchema]),
 			),
 			/**
 			 * Reference to element treatHist
 			 * @see https://music-encoding.org/guidelines/v5/elements/treatHist.html
 			 */
 			treatHist: v.optional(
-				v.union([TreatHistSchema, v.array(TreatHistSchema)]),
+				v.union([v.array(TreatHistSchema), TreatHistSchema]),
 			),
 			/**
 			 * Reference to element treatSched
 			 * @see https://music-encoding.org/guidelines/v5/elements/treatSched.html
 			 */
 			treatSched: v.optional(
-				v.union([TreatSchedSchema, v.array(TreatSchedSchema)]),
+				v.union([v.array(TreatSchedSchema), TreatSchedSchema]),
 			),
 		}),
 		ModelDivLikeSchema,

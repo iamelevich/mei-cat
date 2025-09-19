@@ -44,33 +44,33 @@ export const MonogrSchema = v.lazy(() =>
 			 * @see https://music-encoding.org/guidelines/v5/elements/biblScope.html
 			 */
 			biblScope: v.optional(
-				v.union([BiblScopeSchema, v.array(BiblScopeSchema)]),
+				v.union([v.array(BiblScopeSchema), BiblScopeSchema]),
 			),
 			/**
 			 * Reference to element corpName
 			 * @see https://music-encoding.org/guidelines/v5/elements/corpName.html
 			 */
-			corpName: v.optional(v.union([CorpNameSchema, v.array(CorpNameSchema)])),
+			corpName: v.optional(v.union([v.array(CorpNameSchema), CorpNameSchema])),
 			/**
 			 * Reference to element editor
 			 * @see https://music-encoding.org/guidelines/v5/elements/editor.html
 			 */
-			editor: v.union([EditorSchema, v.array(EditorSchema)]),
+			editor: v.union([v.array(EditorSchema), EditorSchema]),
 			/**
 			 * Reference to element extent
 			 * @see https://music-encoding.org/guidelines/v5/elements/extent.html
 			 */
-			extent: v.optional(v.union([ExtentSchema, v.array(ExtentSchema)])),
+			extent: v.optional(v.union([v.array(ExtentSchema), ExtentSchema])),
 			/**
 			 * Reference to element imprint
 			 * @see https://music-encoding.org/guidelines/v5/elements/imprint.html
 			 */
-			imprint: v.optional(v.union([ImprintSchema, v.array(ImprintSchema)])),
+			imprint: v.optional(v.union([v.array(ImprintSchema), ImprintSchema])),
 			/**
 			 * Reference to element respStmt
 			 * @see https://music-encoding.org/guidelines/v5/elements/respStmt.html
 			 */
-			respStmt: v.union([RespStmtSchema, v.array(RespStmtSchema)]),
+			respStmt: v.union([v.array(RespStmtSchema), RespStmtSchema]),
 		}),
 		ModelAnnotLikeSchema,
 		ModelEditionLikeSchema,

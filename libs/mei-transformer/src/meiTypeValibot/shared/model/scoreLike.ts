@@ -12,7 +12,7 @@ export const ModelScoreLikeSchema: v.GenericSchema<ModelScoreLikeData> = v.lazy(
 			 * Full score view of the musical content.
 			 * @see https://music-encoding.org/guidelines/v5/elements/score.html
 			 */
-			score: v.optional(v.union([ScoreSchema, v.array(ScoreSchema)])),
+			score: v.optional(v.union([v.array(ScoreSchema), ScoreSchema])),
 		}),
 );
 

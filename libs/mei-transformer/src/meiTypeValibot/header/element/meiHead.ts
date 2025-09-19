@@ -45,7 +45,7 @@ export const MeiHeadSchema = v.lazy(() =>
 			 * Reference to element altId
 			 * @see https://music-encoding.org/guidelines/v5/elements/altId.html
 			 */
-			altId: v.optional(v.union([AltIdSchema, v.array(AltIdSchema)])),
+			altId: v.optional(v.union([v.array(AltIdSchema), AltIdSchema])),
 			/**
 			 * Reference to element encodingDesc
 			 * @see https://music-encoding.org/guidelines/v5/elements/encodingDesc.html
@@ -55,7 +55,7 @@ export const MeiHeadSchema = v.lazy(() =>
 			 * Reference to element extMeta
 			 * @see https://music-encoding.org/guidelines/v5/elements/extMeta.html
 			 */
-			extMeta: v.optional(v.union([ExtMetaSchema, v.array(ExtMetaSchema)])),
+			extMeta: v.optional(v.union([v.array(ExtMetaSchema), ExtMetaSchema])),
 			/**
 			 * Reference to element fileDesc
 			 * @see https://music-encoding.org/guidelines/v5/elements/fileDesc.html

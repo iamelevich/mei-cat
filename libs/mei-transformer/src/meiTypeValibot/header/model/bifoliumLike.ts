@@ -12,7 +12,7 @@ export const ModelBifoliumLikeSchema: v.GenericSchema<ModelBifoliumLikeData> =
 			 * Describes a folded sheet of paper.
 			 * @see https://music-encoding.org/guidelines/v5/elements/bifolium.html
 			 */
-			bifolium: v.optional(v.union([BifoliumSchema, v.array(BifoliumSchema)])),
+			bifolium: v.optional(v.union([v.array(BifoliumSchema), BifoliumSchema])),
 		}),
 	);
 

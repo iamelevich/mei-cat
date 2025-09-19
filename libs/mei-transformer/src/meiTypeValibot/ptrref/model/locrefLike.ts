@@ -13,12 +13,12 @@ export const ModelLocrefLikeSchema: v.GenericSchema<ModelLocrefLikeData> =
 			 * Defines a traversible pointer to another location, using only attributes to describe the destination.
 			 * @see https://music-encoding.org/guidelines/v5/elements/ptr.html
 			 */
-			ptr: v.optional(v.union([PtrSchema, v.array(PtrSchema)])),
+			ptr: v.optional(v.union([v.array(PtrSchema), PtrSchema])),
 			/**
 			 * Defines a traversible reference to another location. May contain text and sub-elements that describe the destination.
 			 * @see https://music-encoding.org/guidelines/v5/elements/ref.html
 			 */
-			ref: v.optional(v.union([RefSchema, v.array(RefSchema)])),
+			ref: v.optional(v.union([v.array(RefSchema), RefSchema])),
 		}),
 	);
 

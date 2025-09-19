@@ -12,7 +12,7 @@ export const ModelHarmLikeSchema: v.GenericSchema<ModelHarmLikeData> = v.lazy(
 			 * An indication of harmony, e.g. , chord names, tablature grids, harmonic analysis, figured bass.
 			 * @see https://music-encoding.org/guidelines/v5/elements/harm.html
 			 */
-			harm: v.optional(v.union([HarmSchema, v.array(HarmSchema)])),
+			harm: v.optional(v.union([v.array(HarmSchema), HarmSchema])),
 		}),
 );
 

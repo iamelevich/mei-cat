@@ -17,13 +17,13 @@ export const ModelHeaderPartSchema: v.GenericSchema<ModelHeaderPartData> =
 			 * @see https://music-encoding.org/guidelines/v5/elements/encodingDesc.html
 			 */
 			encodingDesc: v.optional(
-				v.union([EncodingDescSchema, v.array(EncodingDescSchema)]),
+				v.union([v.array(EncodingDescSchema), EncodingDescSchema]),
 			),
 			/**
 			 * Grouping mechanism for information describing non-bibliographic aspects of a text.
 			 * @see https://music-encoding.org/guidelines/v5/elements/workList.html
 			 */
-			workList: v.optional(v.union([WorkListSchema, v.array(WorkListSchema)])),
+			workList: v.optional(v.union([v.array(WorkListSchema), WorkListSchema])),
 		}),
 	);
 

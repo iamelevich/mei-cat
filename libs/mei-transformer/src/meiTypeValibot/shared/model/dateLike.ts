@@ -12,7 +12,7 @@ export const ModelDateLikeSchema: v.GenericSchema<ModelDateLikeData> = v.lazy(
 			 * A string identifying a point in time or the time period between two such points.
 			 * @see https://music-encoding.org/guidelines/v5/elements/date.html
 			 */
-			date: v.optional(v.union([DateSchema, v.array(DateSchema)])),
+			date: v.optional(v.union([v.array(DateSchema), DateSchema])),
 		}),
 );
 

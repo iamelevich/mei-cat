@@ -74,35 +74,35 @@ export const ModelTextPhraseLikeLimitedSchema: v.GenericSchema<ModelTextPhraseLi
 				 * @see https://music-encoding.org/guidelines/v5/elements/dedicatee.html
 				 */
 				dedicatee: v.optional(
-					v.union([DedicateeSchema, v.array(DedicateeSchema)]),
+					v.union([v.array(DedicateeSchema), DedicateeSchema]),
 				),
 				/**
 				 * Information about the physical size of an entity; usually includes numerical data.
 				 * @see https://music-encoding.org/guidelines/v5/elements/dimensions.html
 				 */
 				dimensions: v.optional(
-					v.union([DimensionsSchema, v.array(DimensionsSchema)]),
+					v.union([v.array(DimensionsSchema), DimensionsSchema]),
 				),
 				/**
 				 * Used to express size in terms other than physical dimensions, such as number of pages, records, bytes, physical components, etc.
 				 * @see https://music-encoding.org/guidelines/v5/elements/extent.html
 				 */
-				extent: v.optional(v.union([ExtentSchema, v.array(ExtentSchema)])),
+				extent: v.optional(v.union([v.array(ExtentSchema), ExtentSchema])),
 				/**
 				 * represents any segmentation of text below the &#34;text component&#34; level.
 				 * @see https://music-encoding.org/guidelines/v5/elements/seg.html
 				 */
-				seg: v.optional(v.union([SegSchema, v.array(SegSchema)])),
+				seg: v.optional(v.union([v.array(SegSchema), SegSchema])),
 				/**
 				 * A reference to a previously defined symbol.
 				 * @see https://music-encoding.org/guidelines/v5/elements/symbol.html
 				 */
-				symbol: v.optional(v.union([SymbolSchema, v.array(SymbolSchema)])),
+				symbol: v.optional(v.union([v.array(SymbolSchema), SymbolSchema])),
 				/**
 				 * Keyword or phrase which describes a resource.
 				 * @see https://music-encoding.org/guidelines/v5/elements/term.html
 				 */
-				term: v.optional(v.union([TermSchema, v.array(TermSchema)])),
+				term: v.optional(v.union([v.array(TermSchema), TermSchema])),
 			}),
 			ModelAddressLikeSchema,
 			ModelAddressPartSchema,

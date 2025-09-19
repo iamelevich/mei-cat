@@ -33,7 +33,7 @@ export const SurfaceSchema = v.lazy(() =>
 			 * Reference to element zone
 			 * @see https://music-encoding.org/guidelines/v5/elements/zone.html
 			 */
-			zone: v.optional(v.union([ZoneSchema, v.array(ZoneSchema)])),
+			zone: v.optional(v.union([v.array(ZoneSchema), ZoneSchema])),
 		}),
 		ModelFigDescLikeSchema,
 		ModelGraphicLikeSchema,

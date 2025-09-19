@@ -13,12 +13,12 @@ export const ModelFingeringLikeSchema: v.GenericSchema<ModelFingeringLikeData> =
 			 * An individual finger in a fingering indication.
 			 * @see https://music-encoding.org/guidelines/v5/elements/fing.html
 			 */
-			fing: v.optional(v.union([FingSchema, v.array(FingSchema)])),
+			fing: v.optional(v.union([v.array(FingSchema), FingSchema])),
 			/**
 			 * A group of individual fingers in a fingering indication.
 			 * @see https://music-encoding.org/guidelines/v5/elements/fingGrp.html
 			 */
-			fingGrp: v.optional(v.union([FingGrpSchema, v.array(FingGrpSchema)])),
+			fingGrp: v.optional(v.union([v.array(FingGrpSchema), FingGrpSchema])),
 		}),
 	);
 

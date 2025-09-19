@@ -12,7 +12,7 @@ export const ModelMeasureLikeSchema: v.GenericSchema<ModelMeasureLikeData> =
 			 * Unit of musical time consisting of a fixed number of note values of a given type, as determined by the prevailing meter, and delimited in musical notation by bar lines.
 			 * @see https://music-encoding.org/guidelines/v5/elements/measure.html
 			 */
-			measure: v.optional(v.union([MeasureSchema, v.array(MeasureSchema)])),
+			measure: v.optional(v.union([v.array(MeasureSchema), MeasureSchema])),
 		}),
 	);
 

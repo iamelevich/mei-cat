@@ -30,12 +30,12 @@ export const ContentsSchema = v.lazy(() =>
 			 * Reference to element contentItem
 			 * @see https://music-encoding.org/guidelines/v5/elements/contentItem.html
 			 */
-			contentItem: v.union([ContentItemSchema, v.array(ContentItemSchema)]),
+			contentItem: v.union([v.array(ContentItemSchema), ContentItemSchema]),
 			/**
 			 * Reference to element label
 			 * @see https://music-encoding.org/guidelines/v5/elements/label.html
 			 */
-			label: v.union([LabelSchema, v.array(LabelSchema)]),
+			label: v.union([v.array(LabelSchema), LabelSchema]),
 		}),
 		ModelHeadLikeSchema,
 		ModelPLikeSchema,

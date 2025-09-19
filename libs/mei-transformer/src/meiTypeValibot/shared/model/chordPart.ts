@@ -13,12 +13,12 @@ export const ModelChordPartSchema: v.GenericSchema<ModelChordPartData> = v.lazy(
 			 * An indication of how to play a note or chord.
 			 * @see https://music-encoding.org/guidelines/v5/elements/artic.html
 			 */
-			artic: v.optional(v.union([ArticSchema, v.array(ArticSchema)])),
+			artic: v.optional(v.union([v.array(ArticSchema), ArticSchema])),
 			/**
 			 * A single pitched event.
 			 * @see https://music-encoding.org/guidelines/v5/elements/note.html
 			 */
-			note: v.optional(v.union([NoteSchema, v.array(NoteSchema)])),
+			note: v.optional(v.union([v.array(NoteSchema), NoteSchema])),
 		}),
 );
 

@@ -27,17 +27,17 @@ export const ModelStaffDefPartSchema: v.GenericSchema<ModelStaffDefPartData> =
 				 * Indication of the exact location of a particular note on the staff and, therefore, the other notes as well.
 				 * @see https://music-encoding.org/guidelines/v5/elements/clef.html
 				 */
-				clef: v.optional(v.union([ClefSchema, v.array(ClefSchema)])),
+				clef: v.optional(v.union([v.array(ClefSchema), ClefSchema])),
 				/**
 				 * A set of simultaneously-occurring clefs.
 				 * @see https://music-encoding.org/guidelines/v5/elements/clefGrp.html
 				 */
-				clefGrp: v.optional(v.union([ClefGrpSchema, v.array(ClefGrpSchema)])),
+				clefGrp: v.optional(v.union([v.array(ClefGrpSchema), ClefGrpSchema])),
 				/**
 				 * Describes the tuning of an instrument.
 				 * @see https://music-encoding.org/guidelines/v5/elements/tuning.html
 				 */
-				tuning: v.optional(v.union([TuningSchema, v.array(TuningSchema)])),
+				tuning: v.optional(v.union([v.array(TuningSchema), TuningSchema])),
 			}),
 			ModelKeySigLikeSchema,
 			ModelMeterSigLikeSchema,

@@ -24,24 +24,24 @@ export const ModelListLikeSchema: v.GenericSchema<ModelListLikeData> = v.lazy(
 			 * List of bibliographic references.
 			 * @see https://music-encoding.org/guidelines/v5/elements/biblList.html
 			 */
-			biblList: v.optional(v.union([BiblListSchema, v.array(BiblListSchema)])),
+			biblList: v.optional(v.union([v.array(BiblListSchema), BiblListSchema])),
 			/**
 			 * Contains a single cast list or dramatis personae.
 			 * @see https://music-encoding.org/guidelines/v5/elements/castList.html
 			 */
-			castList: v.optional(v.union([CastListSchema, v.array(CastListSchema)])),
+			castList: v.optional(v.union([v.array(CastListSchema), CastListSchema])),
 			/**
 			 * Contains historical information given as a sequence of significant past events.
 			 * @see https://music-encoding.org/guidelines/v5/elements/eventList.html
 			 */
 			eventList: v.optional(
-				v.union([EventListSchema, v.array(EventListSchema)]),
+				v.union([v.array(EventListSchema), EventListSchema]),
 			),
 			/**
 			 * A formatting element that contains a series of items separated from one another and arranged in a linear, often vertical, sequence.
 			 * @see https://music-encoding.org/guidelines/v5/elements/list.html
 			 */
-			list: v.optional(v.union([ListSchema, v.array(ListSchema)])),
+			list: v.optional(v.union([v.array(ListSchema), ListSchema])),
 		}),
 );
 

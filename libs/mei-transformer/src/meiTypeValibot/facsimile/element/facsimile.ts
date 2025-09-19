@@ -26,12 +26,12 @@ export const FacsimileSchema = v.lazy(() =>
 			 * Reference to element graphic
 			 * @see https://music-encoding.org/guidelines/v5/elements/graphic.html
 			 */
-			graphic: v.optional(v.union([GraphicSchema, v.array(GraphicSchema)])),
+			graphic: v.optional(v.union([v.array(GraphicSchema), GraphicSchema])),
 			/**
 			 * Reference to element surface
 			 * @see https://music-encoding.org/guidelines/v5/elements/surface.html
 			 */
-			surface: v.optional(v.union([SurfaceSchema, v.array(SurfaceSchema)])),
+			surface: v.optional(v.union([v.array(SurfaceSchema), SurfaceSchema])),
 		}),
 	]),
 );

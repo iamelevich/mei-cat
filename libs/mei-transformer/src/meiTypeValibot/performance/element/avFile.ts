@@ -33,7 +33,7 @@ export const AvFileSchema = v.lazy(() =>
 			 * Reference to element clip
 			 * @see https://music-encoding.org/guidelines/v5/elements/clip.html
 			 */
-			clip: v.optional(v.union([ClipSchema, v.array(ClipSchema)])),
+			clip: v.optional(v.union([v.array(ClipSchema), ClipSchema])),
 		}),
 	]),
 );

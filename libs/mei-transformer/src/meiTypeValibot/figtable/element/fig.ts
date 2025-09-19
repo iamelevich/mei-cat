@@ -34,7 +34,7 @@ export const FigSchema = v.lazy(() =>
 			 * Reference to element figDesc
 			 * @see https://music-encoding.org/guidelines/v5/elements/figDesc.html
 			 */
-			figDesc: v.optional(v.union([FigDescSchema, v.array(FigDescSchema)])),
+			figDesc: v.optional(v.union([v.array(FigDescSchema), FigDescSchema])),
 		}),
 		ModelCaptionLikeSchema,
 		ModelGraphicLikeSchema,

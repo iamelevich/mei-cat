@@ -21,19 +21,19 @@ export const ModelResourceLikeSchema: v.GenericSchema<ModelResourceLikeData> =
 			 * @see https://music-encoding.org/guidelines/v5/elements/facsimile.html
 			 */
 			facsimile: v.optional(
-				v.union([FacsimileSchema, v.array(FacsimileSchema)]),
+				v.union([v.array(FacsimileSchema), FacsimileSchema]),
 			),
 			/**
 			 * Bundles information about the textual development of a work.
 			 * @see https://music-encoding.org/guidelines/v5/elements/genDesc.html
 			 */
-			genDesc: v.optional(v.union([GenDescSchema, v.array(GenDescSchema)])),
+			genDesc: v.optional(v.union([v.array(GenDescSchema), GenDescSchema])),
 			/**
 			 * A presentation of one or more musical works.
 			 * @see https://music-encoding.org/guidelines/v5/elements/performance.html
 			 */
 			performance: v.optional(
-				v.union([PerformanceSchema, v.array(PerformanceSchema)]),
+				v.union([v.array(PerformanceSchema), PerformanceSchema]),
 			),
 		}),
 	);

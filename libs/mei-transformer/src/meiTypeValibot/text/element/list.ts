@@ -51,12 +51,12 @@ export const ListSchema = v.lazy(() =>
 			 * Reference to element label
 			 * @see https://music-encoding.org/guidelines/v5/elements/label.html
 			 */
-			label: v.optional(v.union([LabelSchema, v.array(LabelSchema)])),
+			label: v.optional(v.union([v.array(LabelSchema), LabelSchema])),
 			/**
 			 * Reference to element li
 			 * @see https://music-encoding.org/guidelines/v5/elements/li.html
 			 */
-			li: v.optional(v.union([LiSchema, v.array(LiSchema)])),
+			li: v.optional(v.union([v.array(LiSchema), LiSchema])),
 		}),
 		ModelHeadLikeSchema,
 	]),

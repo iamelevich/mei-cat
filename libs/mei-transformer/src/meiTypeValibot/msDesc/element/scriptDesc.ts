@@ -30,18 +30,18 @@ export const ScriptDescSchema = v.lazy(() =>
 			 * Reference to element head
 			 * @see https://music-encoding.org/guidelines/v5/elements/head.html
 			 */
-			head: v.optional(v.union([HeadSchema, v.array(HeadSchema)])),
+			head: v.optional(v.union([v.array(HeadSchema), HeadSchema])),
 			/**
 			 * Reference to element p
 			 * @see https://music-encoding.org/guidelines/v5/elements/p.html
 			 */
-			p: v.optional(v.union([PSchema, v.array(PSchema)])),
+			p: v.optional(v.union([v.array(PSchema), PSchema])),
 			/**
 			 * Reference to element scriptNote
 			 * @see https://music-encoding.org/guidelines/v5/elements/scriptNote.html
 			 */
 			scriptNote: v.optional(
-				v.union([ScriptNoteSchema, v.array(ScriptNoteSchema)]),
+				v.union([v.array(ScriptNoteSchema), ScriptNoteSchema]),
 			),
 		}),
 		ModelTextPhraseLikeLimitedSchema,

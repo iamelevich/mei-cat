@@ -18,7 +18,7 @@ export const ModelRespLikeSchema: v.GenericSchema<ModelRespLikeData> = v.lazy(
 				 * @see https://music-encoding.org/guidelines/v5/elements/respStmt.html
 				 */
 				respStmt: v.optional(
-					v.union([RespStmtSchema, v.array(RespStmtSchema)]),
+					v.union([v.array(RespStmtSchema), RespStmtSchema]),
 				),
 			}),
 			ModelRespLikePartSchema,

@@ -19,8 +19,11 @@ export function meiXmlToJson(xml: string): MeiJsonData {
 		// },
 		ignoreAttributes: false,
 		attributeNamePrefix: "@",
+		alwaysCreateTextNode: true,
 	});
 	const doc = parser.parse(xml);
+
+	return doc;
 
 	const parsedMei = v.parse(MeiJsonSchema, doc);
 

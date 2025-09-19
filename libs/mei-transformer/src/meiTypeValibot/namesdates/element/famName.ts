@@ -36,7 +36,7 @@ export const FamNameSchema = v.lazy(() =>
 			 * Reference to element nameLink
 			 * @see https://music-encoding.org/guidelines/v5/elements/nameLink.html
 			 */
-			nameLink: v.optional(v.union([NameLinkSchema, v.array(NameLinkSchema)])),
+			nameLink: v.optional(v.union([v.array(NameLinkSchema), NameLinkSchema])),
 		}),
 		ModelEditLikeSchema,
 		ModelTextPhraseLikeSchema,

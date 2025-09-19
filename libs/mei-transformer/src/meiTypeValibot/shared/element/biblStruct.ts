@@ -40,27 +40,27 @@ export const BiblStructSchema = v.lazy(() =>
 			 * Reference to element analytic
 			 * @see https://music-encoding.org/guidelines/v5/elements/analytic.html
 			 */
-			analytic: v.union([AnalyticSchema, v.array(AnalyticSchema)]),
+			analytic: v.union([v.array(AnalyticSchema), AnalyticSchema]),
 			/**
 			 * Reference to element identifier
 			 * @see https://music-encoding.org/guidelines/v5/elements/identifier.html
 			 */
-			identifier: v.union([IdentifierSchema, v.array(IdentifierSchema)]),
+			identifier: v.union([v.array(IdentifierSchema), IdentifierSchema]),
 			/**
 			 * Reference to element monogr
 			 * @see https://music-encoding.org/guidelines/v5/elements/monogr.html
 			 */
-			monogr: v.union([MonogrSchema, v.array(MonogrSchema)]),
+			monogr: v.union([v.array(MonogrSchema), MonogrSchema]),
 			/**
 			 * Reference to element relatedItem
 			 * @see https://music-encoding.org/guidelines/v5/elements/relatedItem.html
 			 */
-			relatedItem: v.union([RelatedItemSchema, v.array(RelatedItemSchema)]),
+			relatedItem: v.union([v.array(RelatedItemSchema), RelatedItemSchema]),
 			/**
 			 * Reference to element series
 			 * @see https://music-encoding.org/guidelines/v5/elements/series.html
 			 */
-			series: v.union([SeriesSchema, v.array(SeriesSchema)]),
+			series: v.union([v.array(SeriesSchema), SeriesSchema]),
 		}),
 		ModelAnnotLikeSchema,
 	]),

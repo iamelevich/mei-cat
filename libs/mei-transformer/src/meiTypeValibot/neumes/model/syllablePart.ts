@@ -34,12 +34,12 @@ export const ModelSyllablePartSchema: v.GenericSchema<ModelSyllablePartData> =
 				 * Records a temporary alteration to the pitch of a note.
 				 * @see https://music-encoding.org/guidelines/v5/elements/accid.html
 				 */
-				accid: v.optional(v.union([AccidSchema, v.array(AccidSchema)])),
+				accid: v.optional(v.union([v.array(AccidSchema), AccidSchema])),
 				/**
 				 * Indication of the exact location of a particular note on the staff and, therefore, the other notes as well.
 				 * @see https://music-encoding.org/guidelines/v5/elements/clef.html
 				 */
-				clef: v.optional(v.union([ClefSchema, v.array(ClefSchema)])),
+				clef: v.optional(v.union([v.array(ClefSchema), ClefSchema])),
 			}),
 			ModelControlEventLikeSchema,
 			ModelEventLikeNeumesSchema,

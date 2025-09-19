@@ -16,7 +16,7 @@ export const ModelSymbolTableLikeSchema: v.GenericSchema<ModelSymbolTableLikeDat
 			 * @see https://music-encoding.org/guidelines/v5/elements/symbolTable.html
 			 */
 			symbolTable: v.optional(
-				v.union([SymbolTableSchema, v.array(SymbolTableSchema)]),
+				v.union([v.array(SymbolTableSchema), SymbolTableSchema]),
 			),
 		}),
 	);

@@ -17,33 +17,33 @@ export const ModelGeogNamePartSchema: v.GenericSchema<ModelGeogNamePartData> =
 			 * Contains the name of a geopolitical unit consisting of two or more nation states or countries.
 			 * @see https://music-encoding.org/guidelines/v5/elements/bloc.html
 			 */
-			bloc: v.optional(v.union([BlocSchema, v.array(BlocSchema)])),
+			bloc: v.optional(v.union([v.array(BlocSchema), BlocSchema])),
 			/**
 			 * Contains the name of a geopolitical unit, such as a nation, country, colony, or commonwealth, larger than or administratively superior to a region and smaller than a bloc.
 			 * @see https://music-encoding.org/guidelines/v5/elements/country.html
 			 */
-			country: v.optional(v.union([CountrySchema, v.array(CountrySchema)])),
+			country: v.optional(v.union([v.array(CountrySchema), CountrySchema])),
 			/**
 			 * Contains the name of any kind of subdivision of a settlement, such as a parish, ward, or other administrative or geographic unit.
 			 * @see https://music-encoding.org/guidelines/v5/elements/district.html
 			 */
-			district: v.optional(v.union([DistrictSchema, v.array(DistrictSchema)])),
+			district: v.optional(v.union([v.array(DistrictSchema), DistrictSchema])),
 			/**
 			 * Contains a common noun identifying a geographical feature.
 			 * @see https://music-encoding.org/guidelines/v5/elements/geogFeat.html
 			 */
-			geogFeat: v.optional(v.union([GeogFeatSchema, v.array(GeogFeatSchema)])),
+			geogFeat: v.optional(v.union([v.array(GeogFeatSchema), GeogFeatSchema])),
 			/**
 			 * Contains the name of an administrative unit such as a state, province, or county, larger than a settlement, but smaller than a country.
 			 * @see https://music-encoding.org/guidelines/v5/elements/region.html
 			 */
-			region: v.optional(v.union([RegionSchema, v.array(RegionSchema)])),
+			region: v.optional(v.union([v.array(RegionSchema), RegionSchema])),
 			/**
 			 * Contains the name of a settlement such as a city, town, or village identified as a single geopolitical or administrative unit.
 			 * @see https://music-encoding.org/guidelines/v5/elements/settlement.html
 			 */
 			settlement: v.optional(
-				v.union([SettlementSchema, v.array(SettlementSchema)]),
+				v.union([v.array(SettlementSchema), SettlementSchema]),
 			),
 		}),
 	);

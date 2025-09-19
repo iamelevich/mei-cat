@@ -11,7 +11,7 @@ export const ModelFLikeSchema: v.GenericSchema<ModelFLikeData> = v.lazy(() =>
 		 * Single element of a figured bass indication.
 		 * @see https://music-encoding.org/guidelines/v5/elements/f.html
 		 */
-		f: v.optional(v.union([FSchema, v.array(FSchema)])),
+		f: v.optional(v.union([v.array(FSchema), FSchema])),
 	}),
 );
 

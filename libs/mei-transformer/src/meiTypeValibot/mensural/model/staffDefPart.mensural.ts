@@ -13,12 +13,12 @@ export const ModelStaffDefPartMensuralSchema: v.GenericSchema<ModelStaffDefPartM
 			 * Collects information about the metrical relationship between a note value and the next smaller value; that is, either triple or duple.
 			 * @see https://music-encoding.org/guidelines/v5/elements/mensur.html
 			 */
-			mensur: v.optional(v.union([MensurSchema, v.array(MensurSchema)])),
+			mensur: v.optional(v.union([v.array(MensurSchema), MensurSchema])),
 			/**
 			 * Description of note duration as arithmetic ratio.
 			 * @see https://music-encoding.org/guidelines/v5/elements/proport.html
 			 */
-			proport: v.optional(v.union([ProportSchema, v.array(ProportSchema)])),
+			proport: v.optional(v.union([v.array(ProportSchema), ProportSchema])),
 		}),
 	);
 

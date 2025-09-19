@@ -40,12 +40,12 @@ export const SourceSchema = v.lazy(() =>
 			 * Reference to element locus
 			 * @see https://music-encoding.org/guidelines/v5/elements/locus.html
 			 */
-			locus: v.optional(v.union([LocusSchema, v.array(LocusSchema)])),
+			locus: v.optional(v.union([v.array(LocusSchema), LocusSchema])),
 			/**
 			 * Reference to element locusGrp
 			 * @see https://music-encoding.org/guidelines/v5/elements/locusGrp.html
 			 */
-			locusGrp: v.optional(v.union([LocusGrpSchema, v.array(LocusGrpSchema)])),
+			locusGrp: v.optional(v.union([v.array(LocusGrpSchema), LocusGrpSchema])),
 		}),
 		ModelBiblLikeSchema,
 		ModelHeadLikeSchema,

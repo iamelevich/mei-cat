@@ -33,7 +33,7 @@ export const TreatHistSchema = v.lazy(() =>
 			 * @see https://music-encoding.org/guidelines/v5/elements/eventList.html
 			 */
 			eventList: v.optional(
-				v.union([EventListSchema, v.array(EventListSchema)]),
+				v.union([v.array(EventListSchema), EventListSchema]),
 			),
 		}),
 		ModelHeadLikeSchema,

@@ -47,7 +47,7 @@ export const WhenSchema = v.lazy(() =>
 			 * Reference to element extData
 			 * @see https://music-encoding.org/guidelines/v5/elements/extData.html
 			 */
-			extData: v.optional(v.union([ExtDataSchema, v.array(ExtDataSchema)])),
+			extData: v.optional(v.union([v.array(ExtDataSchema), ExtDataSchema])),
 		}),
 	]),
 );

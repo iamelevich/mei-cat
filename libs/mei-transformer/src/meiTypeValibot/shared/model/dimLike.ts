@@ -15,22 +15,22 @@ export const ModelDimLikeSchema: v.GenericSchema<ModelDimLikeData> = v.lazy(
 			 * Description of a measurement taken through a three-dimensional object.
 			 * @see https://music-encoding.org/guidelines/v5/elements/depth.html
 			 */
-			depth: v.optional(v.union([DepthSchema, v.array(DepthSchema)])),
+			depth: v.optional(v.union([v.array(DepthSchema), DepthSchema])),
 			/**
 			 * Any single dimensional specification.
 			 * @see https://music-encoding.org/guidelines/v5/elements/dim.html
 			 */
-			dim: v.optional(v.union([DimSchema, v.array(DimSchema)])),
+			dim: v.optional(v.union([v.array(DimSchema), DimSchema])),
 			/**
 			 * Description of the vertical size of an object.
 			 * @see https://music-encoding.org/guidelines/v5/elements/height.html
 			 */
-			height: v.optional(v.union([HeightSchema, v.array(HeightSchema)])),
+			height: v.optional(v.union([v.array(HeightSchema), HeightSchema])),
 			/**
 			 * Description of the horizontal size of an object.
 			 * @see https://music-encoding.org/guidelines/v5/elements/width.html
 			 */
-			width: v.optional(v.union([WidthSchema, v.array(WidthSchema)])),
+			width: v.optional(v.union([v.array(WidthSchema), WidthSchema])),
 		}),
 );
 

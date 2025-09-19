@@ -34,27 +34,27 @@ export const CategorySchema: v.GenericSchema<CategoryData> = v.lazy(() =>
 			 * Reference to element altId
 			 * @see https://music-encoding.org/guidelines/v5/elements/altId.html
 			 */
-			altId: v.optional(v.union([AltIdSchema, v.array(AltIdSchema)])),
+			altId: v.optional(v.union([v.array(AltIdSchema), AltIdSchema])),
 			/**
 			 * Reference to element category
 			 * @see https://music-encoding.org/guidelines/v5/elements/category.html
 			 */
-			category: v.optional(v.union([CategorySchema, v.array(CategorySchema)])),
+			category: v.optional(v.union([v.array(CategorySchema), CategorySchema])),
 			/**
 			 * Reference to element catRel
 			 * @see https://music-encoding.org/guidelines/v5/elements/catRel.html
 			 */
-			catRel: v.optional(v.union([CatRelSchema, v.array(CatRelSchema)])),
+			catRel: v.optional(v.union([v.array(CatRelSchema), CatRelSchema])),
 			/**
 			 * Reference to element desc
 			 * @see https://music-encoding.org/guidelines/v5/elements/desc.html
 			 */
-			desc: v.optional(v.union([DescSchema, v.array(DescSchema)])),
+			desc: v.optional(v.union([v.array(DescSchema), DescSchema])),
 			/**
 			 * Reference to element label
 			 * @see https://music-encoding.org/guidelines/v5/elements/label.html
 			 */
-			label: v.optional(v.union([LabelSchema, v.array(LabelSchema)])),
+			label: v.optional(v.union([v.array(LabelSchema), LabelSchema])),
 		}),
 	]),
 );

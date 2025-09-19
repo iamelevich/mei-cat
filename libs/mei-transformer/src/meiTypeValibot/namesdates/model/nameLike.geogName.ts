@@ -12,7 +12,7 @@ export const ModelNameLikeGeogNameSchema: v.GenericSchema<ModelNameLikeGeogNameD
 			 * The proper noun designation for a place, natural feature, or political jurisdiction.
 			 * @see https://music-encoding.org/guidelines/v5/elements/geogName.html
 			 */
-			geogName: v.optional(v.union([GeogNameSchema, v.array(GeogNameSchema)])),
+			geogName: v.optional(v.union([v.array(GeogNameSchema), GeogNameSchema])),
 		}),
 	);
 

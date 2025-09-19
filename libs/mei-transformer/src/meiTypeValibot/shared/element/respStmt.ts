@@ -30,12 +30,12 @@ export const RespStmtSchema = v.lazy(() =>
 			 * Reference to element name
 			 * @see https://music-encoding.org/guidelines/v5/elements/name.html
 			 */
-			name: v.optional(v.union([NameSchema, v.array(NameSchema)])),
+			name: v.optional(v.union([v.array(NameSchema), NameSchema])),
 			/**
 			 * Reference to element resp
 			 * @see https://music-encoding.org/guidelines/v5/elements/resp.html
 			 */
-			resp: v.optional(v.union([RespSchema, v.array(RespSchema)])),
+			resp: v.optional(v.union([v.array(RespSchema), RespSchema])),
 		}),
 		ModelHeadLikeSchema,
 		ModelNameLikeAgentSchema,

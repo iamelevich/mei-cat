@@ -25,7 +25,7 @@ export const AppInfoSchema = v.lazy(() =>
 			 * @see https://music-encoding.org/guidelines/v5/elements/application.html
 			 */
 			application: v.optional(
-				v.union([ApplicationSchema, v.array(ApplicationSchema)]),
+				v.union([v.array(ApplicationSchema), ApplicationSchema]),
 			),
 		}),
 		ModelHeadLikeSchema,

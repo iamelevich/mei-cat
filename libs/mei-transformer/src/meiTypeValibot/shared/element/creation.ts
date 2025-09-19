@@ -34,7 +34,7 @@ export const CreationSchema = v.lazy(() =>
 			 * @see https://music-encoding.org/guidelines/v5/elements/dedication.html
 			 */
 			dedication: v.optional(
-				v.union([DedicationSchema, v.array(DedicationSchema)]),
+				v.union([v.array(DedicationSchema), DedicationSchema]),
 			),
 		}),
 		ModelHeadLikeSchema,

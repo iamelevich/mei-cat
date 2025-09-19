@@ -32,22 +32,22 @@ export const CastItemSchema = v.lazy(() =>
 			 * Reference to element actor
 			 * @see https://music-encoding.org/guidelines/v5/elements/actor.html
 			 */
-			actor: v.union([ActorSchema, v.array(ActorSchema)]),
+			actor: v.union([v.array(ActorSchema), ActorSchema]),
 			/**
 			 * Reference to element perfRes
 			 * @see https://music-encoding.org/guidelines/v5/elements/perfRes.html
 			 */
-			perfRes: v.union([PerfResSchema, v.array(PerfResSchema)]),
+			perfRes: v.union([v.array(PerfResSchema), PerfResSchema]),
 			/**
 			 * Reference to element role
 			 * @see https://music-encoding.org/guidelines/v5/elements/role.html
 			 */
-			role: v.union([RoleSchema, v.array(RoleSchema)]),
+			role: v.union([v.array(RoleSchema), RoleSchema]),
 			/**
 			 * Reference to element roleDesc
 			 * @see https://music-encoding.org/guidelines/v5/elements/roleDesc.html
 			 */
-			roleDesc: v.union([RoleDescSchema, v.array(RoleDescSchema)]),
+			roleDesc: v.union([v.array(RoleDescSchema), RoleDescSchema]),
 		}),
 	]),
 );

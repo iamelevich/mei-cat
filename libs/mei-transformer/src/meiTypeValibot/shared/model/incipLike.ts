@@ -12,7 +12,7 @@ export const ModelIncipLikeSchema: v.GenericSchema<ModelIncipLikeData> = v.lazy(
 			 * The opening music and/or words of a musical or textual work.
 			 * @see https://music-encoding.org/guidelines/v5/elements/incip.html
 			 */
-			incip: v.optional(v.union([IncipSchema, v.array(IncipSchema)])),
+			incip: v.optional(v.union([v.array(IncipSchema), IncipSchema])),
 		}),
 );
 

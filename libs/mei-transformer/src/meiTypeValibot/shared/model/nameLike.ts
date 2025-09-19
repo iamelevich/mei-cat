@@ -21,7 +21,7 @@ export const ModelNameLikeSchema: v.GenericSchema<ModelNameLikeData> = v.lazy(
 				 * Proper noun or noun phrase.
 				 * @see https://music-encoding.org/guidelines/v5/elements/name.html
 				 */
-				name: v.optional(v.union([NameSchema, v.array(NameSchema)])),
+				name: v.optional(v.union([v.array(NameSchema), NameSchema])),
 			}),
 			ModelNameLikeAgentSchema,
 			ModelNameLikePlaceSchema,

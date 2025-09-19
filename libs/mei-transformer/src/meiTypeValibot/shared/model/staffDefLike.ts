@@ -12,7 +12,7 @@ export const ModelStaffDefLikeSchema: v.GenericSchema<ModelStaffDefLikeData> =
 			 * Container for staff meta-information.
 			 * @see https://music-encoding.org/guidelines/v5/elements/staffDef.html
 			 */
-			staffDef: v.optional(v.union([StaffDefSchema, v.array(StaffDefSchema)])),
+			staffDef: v.optional(v.union([v.array(StaffDefSchema), StaffDefSchema])),
 		}),
 	);
 

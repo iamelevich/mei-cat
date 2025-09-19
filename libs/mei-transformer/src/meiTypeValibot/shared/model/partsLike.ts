@@ -12,7 +12,7 @@ export const ModelPartsLikeSchema: v.GenericSchema<ModelPartsLikeData> = v.lazy(
 			 * Provides a container for performers' parts.
 			 * @see https://music-encoding.org/guidelines/v5/elements/parts.html
 			 */
-			parts: v.optional(v.union([PartsSchema, v.array(PartsSchema)])),
+			parts: v.optional(v.union([v.array(PartsSchema), PartsSchema])),
 		}),
 );
 

@@ -42,72 +42,72 @@ export const MidiSchema = v.lazy(() =>
 			 * Reference to element cc
 			 * @see https://music-encoding.org/guidelines/v5/elements/cc.html
 			 */
-			cc: v.optional(v.union([CcSchema, v.array(CcSchema)])),
+			cc: v.optional(v.union([v.array(CcSchema), CcSchema])),
 			/**
 			 * Reference to element chan
 			 * @see https://music-encoding.org/guidelines/v5/elements/chan.html
 			 */
-			chan: v.optional(v.union([ChanSchema, v.array(ChanSchema)])),
+			chan: v.optional(v.union([v.array(ChanSchema), ChanSchema])),
 			/**
 			 * Reference to element chanPr
 			 * @see https://music-encoding.org/guidelines/v5/elements/chanPr.html
 			 */
-			chanPr: v.optional(v.union([ChanPrSchema, v.array(ChanPrSchema)])),
+			chanPr: v.optional(v.union([v.array(ChanPrSchema), ChanPrSchema])),
 			/**
 			 * Reference to element cue
 			 * @see https://music-encoding.org/guidelines/v5/elements/cue.html
 			 */
-			cue: v.optional(v.union([CueSchema, v.array(CueSchema)])),
+			cue: v.optional(v.union([v.array(CueSchema), CueSchema])),
 			/**
 			 * Reference to element hex
 			 * @see https://music-encoding.org/guidelines/v5/elements/hex.html
 			 */
-			hex: v.optional(v.union([HexSchema, v.array(HexSchema)])),
+			hex: v.optional(v.union([v.array(HexSchema), HexSchema])),
 			/**
 			 * Reference to element marker
 			 * @see https://music-encoding.org/guidelines/v5/elements/marker.html
 			 */
-			marker: v.optional(v.union([MarkerSchema, v.array(MarkerSchema)])),
+			marker: v.optional(v.union([v.array(MarkerSchema), MarkerSchema])),
 			/**
 			 * Reference to element metaText
 			 * @see https://music-encoding.org/guidelines/v5/elements/metaText.html
 			 */
-			metaText: v.optional(v.union([MetaTextSchema, v.array(MetaTextSchema)])),
+			metaText: v.optional(v.union([v.array(MetaTextSchema), MetaTextSchema])),
 			/**
 			 * Reference to element noteOff
 			 * @see https://music-encoding.org/guidelines/v5/elements/noteOff.html
 			 */
-			noteOff: v.optional(v.union([NoteOffSchema, v.array(NoteOffSchema)])),
+			noteOff: v.optional(v.union([v.array(NoteOffSchema), NoteOffSchema])),
 			/**
 			 * Reference to element noteOn
 			 * @see https://music-encoding.org/guidelines/v5/elements/noteOn.html
 			 */
-			noteOn: v.optional(v.union([NoteOnSchema, v.array(NoteOnSchema)])),
+			noteOn: v.optional(v.union([v.array(NoteOnSchema), NoteOnSchema])),
 			/**
 			 * Reference to element port
 			 * @see https://music-encoding.org/guidelines/v5/elements/port.html
 			 */
-			port: v.optional(v.union([PortSchema, v.array(PortSchema)])),
+			port: v.optional(v.union([v.array(PortSchema), PortSchema])),
 			/**
 			 * Reference to element prog
 			 * @see https://music-encoding.org/guidelines/v5/elements/prog.html
 			 */
-			prog: v.optional(v.union([ProgSchema, v.array(ProgSchema)])),
+			prog: v.optional(v.union([v.array(ProgSchema), ProgSchema])),
 			/**
 			 * Reference to element seqNum
 			 * @see https://music-encoding.org/guidelines/v5/elements/seqNum.html
 			 */
-			seqNum: v.optional(v.union([SeqNumSchema, v.array(SeqNumSchema)])),
+			seqNum: v.optional(v.union([v.array(SeqNumSchema), SeqNumSchema])),
 			/**
 			 * Reference to element trkName
 			 * @see https://music-encoding.org/guidelines/v5/elements/trkName.html
 			 */
-			trkName: v.optional(v.union([TrkNameSchema, v.array(TrkNameSchema)])),
+			trkName: v.optional(v.union([v.array(TrkNameSchema), TrkNameSchema])),
 			/**
 			 * Reference to element vel
 			 * @see https://music-encoding.org/guidelines/v5/elements/vel.html
 			 */
-			vel: v.optional(v.union([VelSchema, v.array(VelSchema)])),
+			vel: v.optional(v.union([v.array(VelSchema), VelSchema])),
 		}),
 	]),
 );

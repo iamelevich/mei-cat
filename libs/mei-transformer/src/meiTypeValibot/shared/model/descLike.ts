@@ -12,7 +12,7 @@ export const ModelDescLikeSchema: v.GenericSchema<ModelDescLikeData> = v.lazy(
 			 * Container for text that briefly describes the feature to which it is attached, including its intended usage, purpose, or application as appropriate.
 			 * @see https://music-encoding.org/guidelines/v5/elements/desc.html
 			 */
-			desc: v.optional(v.union([DescSchema, v.array(DescSchema)])),
+			desc: v.optional(v.union([v.array(DescSchema), DescSchema])),
 		}),
 );
 

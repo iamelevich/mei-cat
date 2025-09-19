@@ -23,7 +23,7 @@ export const ChordTableSchema = v.lazy(() =>
 			 * Reference to element chordDef
 			 * @see https://music-encoding.org/guidelines/v5/elements/chordDef.html
 			 */
-			chordDef: v.union([ChordDefSchema, v.array(ChordDefSchema)]),
+			chordDef: v.union([v.array(ChordDefSchema), ChordDefSchema]),
 		}),
 	]),
 );

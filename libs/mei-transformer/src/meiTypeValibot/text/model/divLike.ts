@@ -12,7 +12,7 @@ export const ModelDivLikeSchema: v.GenericSchema<ModelDivLikeData> = v.lazy(
 			 * Major structural division of text, such as a preface, chapter or section.
 			 * @see https://music-encoding.org/guidelines/v5/elements/div.html
 			 */
-			div: v.optional(v.union([DivSchema, v.array(DivSchema)])),
+			div: v.optional(v.union([v.array(DivSchema), DivSchema])),
 		}),
 );
 

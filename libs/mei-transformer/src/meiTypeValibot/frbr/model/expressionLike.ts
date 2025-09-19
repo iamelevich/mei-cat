@@ -13,7 +13,7 @@ export const ModelExpressionLikeSchema: v.GenericSchema<ModelExpressionLikeData>
 			 * @see https://music-encoding.org/guidelines/v5/elements/expression.html
 			 */
 			expression: v.optional(
-				v.union([ExpressionSchema, v.array(ExpressionSchema)]),
+				v.union([v.array(ExpressionSchema), ExpressionSchema]),
 			),
 		}),
 	);

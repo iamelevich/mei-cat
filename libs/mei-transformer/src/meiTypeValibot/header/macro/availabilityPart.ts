@@ -43,31 +43,31 @@ export const MacroAvailabilityPartSchema: v.GenericSchema<MacroAvailabilityPartD
 				 * @see https://music-encoding.org/guidelines/v5/elements/accessRestrict.html
 				 */
 				accessRestrict: v.optional(
-					v.union([AccessRestrictSchema, v.array(AccessRestrictSchema)]),
+					v.union([v.array(AccessRestrictSchema), AccessRestrictSchema]),
 				),
 				/**
 				 * Reference to element distributor
 				 * @see https://music-encoding.org/guidelines/v5/elements/distributor.html
 				 */
 				distributor: v.optional(
-					v.union([DistributorSchema, v.array(DistributorSchema)]),
+					v.union([v.array(DistributorSchema), DistributorSchema]),
 				),
 				/**
 				 * Reference to element price
 				 * @see https://music-encoding.org/guidelines/v5/elements/price.html
 				 */
-				price: v.optional(v.union([PriceSchema, v.array(PriceSchema)])),
+				price: v.optional(v.union([v.array(PriceSchema), PriceSchema])),
 				/**
 				 * Reference to element sysReq
 				 * @see https://music-encoding.org/guidelines/v5/elements/sysReq.html
 				 */
-				sysReq: v.optional(v.union([SysReqSchema, v.array(SysReqSchema)])),
+				sysReq: v.optional(v.union([v.array(SysReqSchema), SysReqSchema])),
 				/**
 				 * Reference to element useRestrict
 				 * @see https://music-encoding.org/guidelines/v5/elements/useRestrict.html
 				 */
 				useRestrict: v.optional(
-					v.union([UseRestrictSchema, v.array(UseRestrictSchema)]),
+					v.union([v.array(UseRestrictSchema), UseRestrictSchema]),
 				),
 			}),
 			ModelAddressLikeSchema,

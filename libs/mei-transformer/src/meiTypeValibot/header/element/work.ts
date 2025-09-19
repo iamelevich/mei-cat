@@ -58,7 +58,7 @@ export const WorkSchema = v.lazy(() =>
 			 * Reference to element biblList
 			 * @see https://music-encoding.org/guidelines/v5/elements/biblList.html
 			 */
-			biblList: v.optional(v.union([BiblListSchema, v.array(BiblListSchema)])),
+			biblList: v.optional(v.union([v.array(BiblListSchema), BiblListSchema])),
 			/**
 			 * Reference to element classification
 			 * @see https://music-encoding.org/guidelines/v5/elements/classification.html
@@ -93,7 +93,7 @@ export const WorkSchema = v.lazy(() =>
 			 * Reference to element extMeta
 			 * @see https://music-encoding.org/guidelines/v5/elements/extMeta.html
 			 */
-			extMeta: v.optional(v.union([ExtMetaSchema, v.array(ExtMetaSchema)])),
+			extMeta: v.optional(v.union([v.array(ExtMetaSchema), ExtMetaSchema])),
 			/**
 			 * Reference to element history
 			 * @see https://music-encoding.org/guidelines/v5/elements/history.html
@@ -114,7 +114,7 @@ export const WorkSchema = v.lazy(() =>
 			 * @see https://music-encoding.org/guidelines/v5/elements/otherChar.html
 			 */
 			otherChar: v.optional(
-				v.union([OtherCharSchema, v.array(OtherCharSchema)]),
+				v.union([v.array(OtherCharSchema), OtherCharSchema]),
 			),
 			/**
 			 * Reference to element perfDuration

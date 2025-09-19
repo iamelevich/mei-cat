@@ -29,7 +29,7 @@ export const ModelEditTransPartMusicSchema: v.GenericSchema<ModelEditTransPartMu
 				 * Sung text for a specific iteration of a repeated section of music.
 				 * @see https://music-encoding.org/guidelines/v5/elements/volta.html
 				 */
-				volta: v.optional(v.union([VoltaSchema, v.array(VoltaSchema)])),
+				volta: v.optional(v.union([v.array(VoltaSchema), VoltaSchema])),
 			}),
 			ModelControlEventLikeSchema,
 			ModelControlEventLikeCmnSchema,

@@ -57,7 +57,7 @@ export const TitleSchema = v.lazy(() =>
 			 * @see https://music-encoding.org/guidelines/v5/elements/titlePart.html
 			 */
 			titlePart: v.optional(
-				v.union([TitlePartSchema, v.array(TitlePartSchema)]),
+				v.union([v.array(TitlePartSchema), TitlePartSchema]),
 			),
 		}),
 		MacroTitlePartSchema,

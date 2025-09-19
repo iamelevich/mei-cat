@@ -11,7 +11,7 @@ export const ModelLLikeSchema: v.GenericSchema<ModelLLikeData> = v.lazy(() =>
 		 * Contains a single line of text within a line group.
 		 * @see https://music-encoding.org/guidelines/v5/elements/l.html
 		 */
-		l: v.optional(v.union([LSchema, v.array(LSchema)])),
+		l: v.optional(v.union([v.array(LSchema), LSchema])),
 	}),
 );
 

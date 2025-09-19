@@ -16,7 +16,7 @@ export const ModelFrontAndBackPartSchema: v.GenericSchema<ModelFrontAndBackPartD
 			 * @see https://music-encoding.org/guidelines/v5/elements/titlePage.html
 			 */
 			titlePage: v.optional(
-				v.union([TitlePageSchema, v.array(TitlePageSchema)]),
+				v.union([v.array(TitlePageSchema), TitlePageSchema]),
 			),
 		}),
 	);

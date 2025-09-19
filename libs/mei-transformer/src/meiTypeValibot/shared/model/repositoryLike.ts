@@ -13,7 +13,7 @@ export const ModelRepositoryLikeSchema: v.GenericSchema<ModelRepositoryLikeData>
 			 * @see https://music-encoding.org/guidelines/v5/elements/repository.html
 			 */
 			repository: v.optional(
-				v.union([RepositorySchema, v.array(RepositorySchema)]),
+				v.union([v.array(RepositorySchema), RepositorySchema]),
 			),
 		}),
 	);

@@ -13,12 +13,12 @@ export const ModelEventLikeNeumesSchema: v.GenericSchema<ModelEventLikeNeumesDat
 			 * Represents a division (divisio) in neume notation. Divisions indicate short, medium, or long pauses similar to breath marks in modern notation.
 			 * @see https://music-encoding.org/guidelines/v5/elements/divLine.html
 			 */
-			divLine: v.optional(v.union([DivLineSchema, v.array(DivLineSchema)])),
+			divLine: v.optional(v.union([v.array(DivLineSchema), DivLineSchema])),
 			/**
 			 * Sign representing one or more musical pitches.
 			 * @see https://music-encoding.org/guidelines/v5/elements/neume.html
 			 */
-			neume: v.optional(v.union([NeumeSchema, v.array(NeumeSchema)])),
+			neume: v.optional(v.union([v.array(NeumeSchema), NeumeSchema])),
 		}),
 	);
 

@@ -42,12 +42,12 @@ export const CatRelSchema = v.lazy(() =>
 			 * Reference to element desc
 			 * @see https://music-encoding.org/guidelines/v5/elements/desc.html
 			 */
-			desc: v.optional(v.union([DescSchema, v.array(DescSchema)])),
+			desc: v.optional(v.union([v.array(DescSchema), DescSchema])),
 			/**
 			 * Reference to element label
 			 * @see https://music-encoding.org/guidelines/v5/elements/label.html
 			 */
-			label: v.optional(v.union([LabelSchema, v.array(LabelSchema)])),
+			label: v.optional(v.union([v.array(LabelSchema), LabelSchema])),
 		}),
 	]),
 );

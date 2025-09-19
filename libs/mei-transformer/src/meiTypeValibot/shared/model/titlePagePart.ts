@@ -70,102 +70,102 @@ export const ModelTitlePagePartSchema: v.GenericSchema<ModelTitlePagePartData> =
 				 * @see https://music-encoding.org/guidelines/v5/elements/accessRestrict.html
 				 */
 				accessRestrict: v.optional(
-					v.union([AccessRestrictSchema, v.array(AccessRestrictSchema)]),
+					v.union([v.array(AccessRestrictSchema), AccessRestrictSchema]),
 				),
 				/**
 				 * Contains a formal list or prose description of topics addressed.
 				 * @see https://music-encoding.org/guidelines/v5/elements/argument.html
 				 */
 				argument: v.optional(
-					v.union([ArgumentSchema, v.array(ArgumentSchema)]),
+					v.union([v.array(ArgumentSchema), ArgumentSchema]),
 				),
 				/**
 				 * Contains the primary statement of responsibility given for a work on its title page.
 				 * @see https://music-encoding.org/guidelines/v5/elements/byline.html
 				 */
-				byline: v.optional(v.union([BylineSchema, v.array(BylineSchema)])),
+				byline: v.optional(v.union([v.array(BylineSchema), BylineSchema])),
 				/**
 				 * List of the material contained within a resource.
 				 * @see https://music-encoding.org/guidelines/v5/elements/contents.html
 				 */
 				contents: v.optional(
-					v.union([ContentsSchema, v.array(ContentsSchema)]),
+					v.union([v.array(ContentsSchema), ContentsSchema]),
 				),
 				/**
 				 * Contains a dedicatory statement.
 				 * @see https://music-encoding.org/guidelines/v5/elements/dedication.html
 				 */
 				dedication: v.optional(
-					v.union([DedicationSchema, v.array(DedicationSchema)]),
+					v.union([v.array(DedicationSchema), DedicationSchema]),
 				),
 				/**
 				 * Contains a quotation, anonymous or attributed, appearing on a title page.
 				 * @see https://music-encoding.org/guidelines/v5/elements/epigraph.html
 				 */
 				epigraph: v.optional(
-					v.union([EpigraphSchema, v.array(EpigraphSchema)]),
+					v.union([v.array(EpigraphSchema), EpigraphSchema]),
 				),
 				/**
 				 * Contains a formal statement authorizing the publication of a work, sometimes required to appear on a title page or its verso.
 				 * @see https://music-encoding.org/guidelines/v5/elements/imprimatur.html
 				 */
 				imprimatur: v.optional(
-					v.union([ImprimaturSchema, v.array(ImprimaturSchema)]),
+					v.union([v.array(ImprimaturSchema), ImprimaturSchema]),
 				),
 				/**
 				 * Information relating to the publication or distribution of a bibliographic item.
 				 * @see https://music-encoding.org/guidelines/v5/elements/imprint.html
 				 */
-				imprint: v.optional(v.union([ImprintSchema, v.array(ImprintSchema)])),
+				imprint: v.optional(v.union([v.array(ImprintSchema), ImprintSchema])),
 				/**
 				 * Used to express the duration of performance of printed or manuscript music or the playing time for a sound recording, videorecording, etc.
 				 * @see https://music-encoding.org/guidelines/v5/elements/perfDuration.html
 				 */
 				perfDuration: v.optional(
-					v.union([PerfDurationSchema, v.array(PerfDurationSchema)]),
+					v.union([v.array(PerfDurationSchema), PerfDurationSchema]),
 				),
 				/**
 				 * Indicates the number and character of the performing forces used in a musical composition.
 				 * @see https://music-encoding.org/guidelines/v5/elements/perfMedium.html
 				 */
 				perfMedium: v.optional(
-					v.union([PerfMediumSchema, v.array(PerfMediumSchema)]),
+					v.union([v.array(PerfMediumSchema), PerfMediumSchema]),
 				),
 				/**
 				 * Designation assigned to a resource by a music publisher, usually printed at the bottom of each page, and sometimes appearing also on the title page.
 				 * @see https://music-encoding.org/guidelines/v5/elements/plateNum.html
 				 */
 				plateNum: v.optional(
-					v.union([PlateNumSchema, v.array(PlateNumSchema)]),
+					v.union([v.array(PlateNumSchema), PlateNumSchema]),
 				),
 				/**
 				 * The cost of access to a bibliographic item.
 				 * @see https://music-encoding.org/guidelines/v5/elements/price.html
 				 */
-				price: v.optional(v.union([PriceSchema, v.array(PriceSchema)])),
+				price: v.optional(v.union([v.array(PriceSchema), PriceSchema])),
 				/**
 				 * Contains information about the serial publication in which a bibliographic item has appeared.
 				 * @see https://music-encoding.org/guidelines/v5/elements/series.html
 				 */
-				series: v.optional(v.union([SeriesSchema, v.array(SeriesSchema)])),
+				series: v.optional(v.union([v.array(SeriesSchema), SeriesSchema])),
 				/**
 				 * System requirements for using the electronic item.
 				 * @see https://music-encoding.org/guidelines/v5/elements/sysReq.html
 				 */
-				sysReq: v.optional(v.union([SysReqSchema, v.array(SysReqSchema)])),
+				sysReq: v.optional(v.union([v.array(SysReqSchema), SysReqSchema])),
 				/**
 				 * Contains a subsection or division of the title of a bibliographic entity.
 				 * @see https://music-encoding.org/guidelines/v5/elements/titlePart.html
 				 */
 				titlePart: v.optional(
-					v.union([TitlePartSchema, v.array(TitlePartSchema)]),
+					v.union([v.array(TitlePartSchema), TitlePartSchema]),
 				),
 				/**
 				 * Container for information about the conditions that affect use of a bibliographic item after access has been granted.
 				 * @see https://music-encoding.org/guidelines/v5/elements/useRestrict.html
 				 */
 				useRestrict: v.optional(
-					v.union([UseRestrictSchema, v.array(UseRestrictSchema)]),
+					v.union([v.array(UseRestrictSchema), UseRestrictSchema]),
 				),
 			}),
 			ModelDateLikeSchema,

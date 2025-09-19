@@ -26,7 +26,7 @@ export const RevisionDescSchema = v.lazy(() =>
 			 * Reference to element change
 			 * @see https://music-encoding.org/guidelines/v5/elements/change.html
 			 */
-			change: v.union([ChangeSchema, v.array(ChangeSchema)]),
+			change: v.union([v.array(ChangeSchema), ChangeSchema]),
 		}),
 		ModelHeadLikeSchema,
 	]),

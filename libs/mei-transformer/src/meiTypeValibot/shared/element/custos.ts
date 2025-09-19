@@ -35,7 +35,7 @@ export const CustosSchema = v.lazy(() =>
 			 * Reference to element accid
 			 * @see https://music-encoding.org/guidelines/v5/elements/accid.html
 			 */
-			accid: v.optional(v.union([AccidSchema, v.array(AccidSchema)])),
+			accid: v.optional(v.union([v.array(AccidSchema), AccidSchema])),
 		}),
 	]),
 );

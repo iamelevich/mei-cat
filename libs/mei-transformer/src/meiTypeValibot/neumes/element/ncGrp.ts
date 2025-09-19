@@ -51,12 +51,12 @@ export const NcGrpSchema: v.GenericSchema<NcGrpData> = v.lazy(() =>
 			 * Reference to element nc
 			 * @see https://music-encoding.org/guidelines/v5/elements/nc.html
 			 */
-			nc: v.optional(v.union([NcSchema, v.array(NcSchema)])),
+			nc: v.optional(v.union([v.array(NcSchema), NcSchema])),
 			/**
 			 * Reference to element ncGrp
 			 * @see https://music-encoding.org/guidelines/v5/elements/ncGrp.html
 			 */
-			ncGrp: v.optional(v.union([NcGrpSchema, v.array(NcGrpSchema)])),
+			ncGrp: v.optional(v.union([v.array(NcGrpSchema), NcGrpSchema])),
 		}),
 		ModelAppLikeSchema,
 		ModelEditLikeSchema,

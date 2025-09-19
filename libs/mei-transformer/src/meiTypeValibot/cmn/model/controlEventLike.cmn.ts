@@ -34,84 +34,84 @@ export const ModelControlEventLikeCmnSchema: v.GenericSchema<ModelControlEventLi
 				 * Indicates that the notes of a chord are to be performed successively rather than simultaneously, usually from lowest to highest. Sometimes called a &#34;roll&#34;.
 				 * @see https://music-encoding.org/guidelines/v5/elements/arpeg.html
 				 */
-				arpeg: v.optional(v.union([ArpegSchema, v.array(ArpegSchema)])),
+				arpeg: v.optional(v.union([v.array(ArpegSchema), ArpegSchema])),
 				/**
 				 * An instruction to begin the next section or movement of a composition without pause.
 				 * @see https://music-encoding.org/guidelines/v5/elements/attacca.html
 				 */
-				attacca: v.optional(v.union([AttaccaSchema, v.array(AttaccaSchema)])),
+				attacca: v.optional(v.union([v.array(AttaccaSchema), AttaccaSchema])),
 				/**
 				 * Alternative element for explicitly encoding beams, particularly those which extend across bar lines.
 				 * @see https://music-encoding.org/guidelines/v5/elements/beamSpan.html
 				 */
 				beamSpan: v.optional(
-					v.union([BeamSpanSchema, v.array(BeamSpanSchema)]),
+					v.union([v.array(BeamSpanSchema), BeamSpanSchema]),
 				),
 				/**
 				 * Marks a sequence of notational events grouped by a bracket.
 				 * @see https://music-encoding.org/guidelines/v5/elements/bracketSpan.html
 				 */
 				bracketSpan: v.optional(
-					v.union([BracketSpanSchema, v.array(BracketSpanSchema)]),
+					v.union([v.array(BracketSpanSchema), BracketSpanSchema]),
 				),
 				/**
 				 * An indication of a point at which the performer on an instrument requiring breath (including the voice) may breathe.
 				 * @see https://music-encoding.org/guidelines/v5/elements/breath.html
 				 */
-				breath: v.optional(v.union([BreathSchema, v.array(BreathSchema)])),
+				breath: v.optional(v.union([v.array(BreathSchema), BreathSchema])),
 				/**
 				 * An indication placed over a note or rest to indicate that it should be held longer than its written value. May also occur over a bar line to indicate the end of a phrase or section. Sometimes called a 'hold' or 'pause'.
 				 * @see https://music-encoding.org/guidelines/v5/elements/fermata.html
 				 */
-				fermata: v.optional(v.union([FermataSchema, v.array(FermataSchema)])),
+				fermata: v.optional(v.union([v.array(FermataSchema), FermataSchema])),
 				/**
 				 * Indicates continuous dynamics expressed on the score as wedge-shaped graphics, e.g. , < and &gt;.
 				 * @see https://music-encoding.org/guidelines/v5/elements/hairpin.html
 				 */
-				hairpin: v.optional(v.union([HairpinSchema, v.array(HairpinSchema)])),
+				hairpin: v.optional(v.union([v.array(HairpinSchema), HairpinSchema])),
 				/**
 				 * Harp pedal diagram.
 				 * @see https://music-encoding.org/guidelines/v5/elements/harpPedal.html
 				 */
 				harpPedal: v.optional(
-					v.union([HarpPedalSchema, v.array(HarpPedalSchema)]),
+					v.union([v.array(HarpPedalSchema), HarpPedalSchema]),
 				),
 				/**
 				 * A &#34;tie-like&#34; indication that a note should ring beyond its written duration.
 				 * @see https://music-encoding.org/guidelines/v5/elements/lv.html
 				 */
-				lv: v.optional(v.union([LvSchema, v.array(LvSchema)])),
+				lv: v.optional(v.union([v.array(LvSchema), LvSchema])),
 				/**
 				 * An indication that a passage should be performed one or more octaves above or below its written pitch.
 				 * @see https://music-encoding.org/guidelines/v5/elements/octave.html
 				 */
-				octave: v.optional(v.union([OctaveSchema, v.array(OctaveSchema)])),
+				octave: v.optional(v.union([v.array(OctaveSchema), OctaveSchema])),
 				/**
 				 * Piano pedal mark.
 				 * @see https://music-encoding.org/guidelines/v5/elements/pedal.html
 				 */
-				pedal: v.optional(v.union([PedalSchema, v.array(PedalSchema)])),
+				pedal: v.optional(v.union([v.array(PedalSchema), PedalSchema])),
 				/**
 				 * In an orchestral score and its corresponding parts, a mark indicating a convenient point from which to resume rehearsal after a break.
 				 * @see https://music-encoding.org/guidelines/v5/elements/reh.html
 				 */
-				reh: v.optional(v.union([RehSchema, v.array(RehSchema)])),
+				reh: v.optional(v.union([v.array(RehSchema), RehSchema])),
 				/**
 				 * Indication of 1) a &#34;unified melodic idea&#34; or 2) performance technique.
 				 * @see https://music-encoding.org/guidelines/v5/elements/slur.html
 				 */
-				slur: v.optional(v.union([SlurSchema, v.array(SlurSchema)])),
+				slur: v.optional(v.union([v.array(SlurSchema), SlurSchema])),
 				/**
 				 * An indication that two notes of the same pitch form a single note with their combined rhythmic values.
 				 * @see https://music-encoding.org/guidelines/v5/elements/tie.html
 				 */
-				tie: v.optional(v.union([TieSchema, v.array(TieSchema)])),
+				tie: v.optional(v.union([v.array(TieSchema), TieSchema])),
 				/**
 				 * Alternative element for encoding tuplets, especially useful for tuplets that extend across bar lines.
 				 * @see https://music-encoding.org/guidelines/v5/elements/tupletSpan.html
 				 */
 				tupletSpan: v.optional(
-					v.union([TupletSpanSchema, v.array(TupletSpanSchema)]),
+					v.union([v.array(TupletSpanSchema), TupletSpanSchema]),
 				),
 			}),
 			ModelOrnamentLikeCmnSchema,

@@ -13,12 +13,12 @@ export const ModelNameLikeAgentSchema: v.GenericSchema<ModelNameLikeAgentData> =
 			 * Identifies an organization or group of people that acts as a single entity.
 			 * @see https://music-encoding.org/guidelines/v5/elements/corpName.html
 			 */
-			corpName: v.optional(v.union([CorpNameSchema, v.array(CorpNameSchema)])),
+			corpName: v.optional(v.union([v.array(CorpNameSchema), CorpNameSchema])),
 			/**
 			 * Designation for an individual, including any or all of that individual's forenames, surnames, honorific titles, and added names.
 			 * @see https://music-encoding.org/guidelines/v5/elements/persName.html
 			 */
-			persName: v.optional(v.union([PersNameSchema, v.array(PersNameSchema)])),
+			persName: v.optional(v.union([v.array(PersNameSchema), PersNameSchema])),
 		}),
 	);
 

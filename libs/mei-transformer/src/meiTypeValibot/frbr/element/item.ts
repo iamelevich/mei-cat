@@ -58,7 +58,7 @@ export const ItemSchema = v.lazy(() =>
 			 * Reference to element extMeta
 			 * @see https://music-encoding.org/guidelines/v5/elements/extMeta.html
 			 */
-			extMeta: v.optional(v.union([ExtMetaSchema, v.array(ExtMetaSchema)])),
+			extMeta: v.optional(v.union([v.array(ExtMetaSchema), ExtMetaSchema])),
 			/**
 			 * Reference to element history
 			 * @see https://music-encoding.org/guidelines/v5/elements/history.html

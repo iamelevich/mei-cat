@@ -27,12 +27,12 @@ export const GroupSchema: v.GenericSchema<GroupData> = v.lazy(() =>
 			 * Reference to element group
 			 * @see https://music-encoding.org/guidelines/v5/elements/group.html
 			 */
-			group: v.optional(v.union([GroupSchema, v.array(GroupSchema)])),
+			group: v.optional(v.union([v.array(GroupSchema), GroupSchema])),
 			/**
 			 * Reference to element music
 			 * @see https://music-encoding.org/guidelines/v5/elements/music.html
 			 */
-			music: v.optional(v.union([MusicSchema, v.array(MusicSchema)])),
+			music: v.optional(v.union([v.array(MusicSchema), MusicSchema])),
 		}),
 	]),
 );

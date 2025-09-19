@@ -18,18 +18,18 @@ export const ModelGraphicPrimitiveLikeSchema: v.GenericSchema<ModelGraphicPrimit
 			 * @see https://music-encoding.org/guidelines/v5/elements/anchoredText.html
 			 */
 			anchoredText: v.optional(
-				v.union([AnchoredTextSchema, v.array(AnchoredTextSchema)]),
+				v.union([v.array(AnchoredTextSchema), AnchoredTextSchema]),
 			),
 			/**
 			 * A curved line that cannot be represented by a more specific element, such as a slur.
 			 * @see https://music-encoding.org/guidelines/v5/elements/curve.html
 			 */
-			curve: v.optional(v.union([CurveSchema, v.array(CurveSchema)])),
+			curve: v.optional(v.union([v.array(CurveSchema), CurveSchema])),
 			/**
 			 * A visual line that cannot be represented by a more specific; i.e. , semantic, element.
 			 * @see https://music-encoding.org/guidelines/v5/elements/line.html
 			 */
-			line: v.optional(v.union([LineSchema, v.array(LineSchema)])),
+			line: v.optional(v.union([v.array(LineSchema), LineSchema])),
 		}),
 	);
 

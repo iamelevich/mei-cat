@@ -16,19 +16,19 @@ export const ModelMilestoneLikeMusicSchema: v.GenericSchema<ModelMilestoneLikeMu
 				 * An empty formatting element that forces text to begin in a new column.
 				 * @see https://music-encoding.org/guidelines/v5/elements/cb.html
 				 */
-				cb: v.optional(v.union([CbSchema, v.array(CbSchema)])),
+				cb: v.optional(v.union([v.array(CbSchema), CbSchema])),
 				/**
 				 * An empty formatting element that signals the start of columnar layout.
 				 * @see https://music-encoding.org/guidelines/v5/elements/colLayout.html
 				 */
 				colLayout: v.optional(
-					v.union([ColLayoutSchema, v.array(ColLayoutSchema)]),
+					v.union([v.array(ColLayoutSchema), ColLayoutSchema]),
 				),
 				/**
 				 * An empty formatting element that forces musical notation to begin on a new line.
 				 * @see https://music-encoding.org/guidelines/v5/elements/sb.html
 				 */
-				sb: v.optional(v.union([SbSchema, v.array(SbSchema)])),
+				sb: v.optional(v.union([v.array(SbSchema), SbSchema])),
 			}),
 			ModelPbLikeSchema,
 		]),

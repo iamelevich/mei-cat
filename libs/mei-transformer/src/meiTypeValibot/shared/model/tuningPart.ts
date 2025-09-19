@@ -12,7 +12,7 @@ export const ModelTuningPartSchema: v.GenericSchema<ModelTuningPartData> =
 			 * Describes the tuning of a course on a stringed instrument ( e.g. , guitar, lute).
 			 * @see https://music-encoding.org/guidelines/v5/elements/course.html
 			 */
-			course: v.optional(v.union([CourseSchema, v.array(CourseSchema)])),
+			course: v.optional(v.union([v.array(CourseSchema), CourseSchema])),
 		}),
 	);
 

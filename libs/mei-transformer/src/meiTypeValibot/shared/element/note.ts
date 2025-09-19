@@ -40,12 +40,12 @@ export const NoteSchema = v.lazy(() =>
 			 * Reference to element plica
 			 * @see https://music-encoding.org/guidelines/v5/elements/plica.html
 			 */
-			plica: v.optional(v.union([PlicaSchema, v.array(PlicaSchema)])),
+			plica: v.optional(v.union([v.array(PlicaSchema), PlicaSchema])),
 			/**
 			 * Reference to element stem
 			 * @see https://music-encoding.org/guidelines/v5/elements/stem.html
 			 */
-			stem: v.optional(v.union([StemSchema, v.array(StemSchema)])),
+			stem: v.optional(v.union([v.array(StemSchema), StemSchema])),
 		}),
 		ModelAppLikeSchema,
 		ModelEditLikeSchema,

@@ -12,7 +12,7 @@ export const ModelFigureLikeSchema: v.GenericSchema<ModelFigureLikeData> =
 			 * Groups elements representing or containing graphic information such as an illustration or figure.
 			 * @see https://music-encoding.org/guidelines/v5/elements/fig.html
 			 */
-			fig: v.optional(v.union([FigSchema, v.array(FigSchema)])),
+			fig: v.optional(v.union([v.array(FigSchema), FigSchema])),
 		}),
 	);
 

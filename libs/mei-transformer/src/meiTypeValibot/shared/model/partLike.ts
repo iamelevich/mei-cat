@@ -12,7 +12,7 @@ export const ModelPartLikeSchema: v.GenericSchema<ModelPartLikeData> = v.lazy(
 			 * An alternative visual rendition of the score from the point of view of a particular performer (or group of performers).
 			 * @see https://music-encoding.org/guidelines/v5/elements/part.html
 			 */
-			part: v.optional(v.union([PartSchema, v.array(PartSchema)])),
+			part: v.optional(v.union([v.array(PartSchema), PartSchema])),
 		}),
 );
 

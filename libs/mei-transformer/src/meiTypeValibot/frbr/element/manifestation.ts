@@ -59,7 +59,7 @@ export const ManifestationSchema = v.lazy(() =>
 			 * Reference to element biblList
 			 * @see https://music-encoding.org/guidelines/v5/elements/biblList.html
 			 */
-			biblList: v.optional(v.union([BiblListSchema, v.array(BiblListSchema)])),
+			biblList: v.optional(v.union([v.array(BiblListSchema), BiblListSchema])),
 			/**
 			 * Reference to element classification
 			 * @see https://music-encoding.org/guidelines/v5/elements/classification.html
@@ -84,7 +84,7 @@ export const ManifestationSchema = v.lazy(() =>
 			 * Reference to element extMeta
 			 * @see https://music-encoding.org/guidelines/v5/elements/extMeta.html
 			 */
-			extMeta: v.optional(v.union([ExtMetaSchema, v.array(ExtMetaSchema)])),
+			extMeta: v.optional(v.union([v.array(ExtMetaSchema), ExtMetaSchema])),
 			/**
 			 * Reference to element history
 			 * @see https://music-encoding.org/guidelines/v5/elements/history.html
@@ -104,12 +104,12 @@ export const ManifestationSchema = v.lazy(() =>
 			 * Reference to element locus
 			 * @see https://music-encoding.org/guidelines/v5/elements/locus.html
 			 */
-			locus: v.optional(v.union([LocusSchema, v.array(LocusSchema)])),
+			locus: v.optional(v.union([v.array(LocusSchema), LocusSchema])),
 			/**
 			 * Reference to element locusGrp
 			 * @see https://music-encoding.org/guidelines/v5/elements/locusGrp.html
 			 */
-			locusGrp: v.optional(v.union([LocusGrpSchema, v.array(LocusGrpSchema)])),
+			locusGrp: v.optional(v.union([v.array(LocusGrpSchema), LocusGrpSchema])),
 			/**
 			 * Reference to element notesStmt
 			 * @see https://music-encoding.org/guidelines/v5/elements/notesStmt.html

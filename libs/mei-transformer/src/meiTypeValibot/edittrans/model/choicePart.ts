@@ -22,27 +22,27 @@ export const ModelChoicePartSchema: v.GenericSchema<ModelChoicePartData> =
 				 * Contains the correct form of an apparent erroneous passage.
 				 * @see https://music-encoding.org/guidelines/v5/elements/corr.html
 				 */
-				corr: v.optional(v.union([CorrSchema, v.array(CorrSchema)])),
+				corr: v.optional(v.union([v.array(CorrSchema), CorrSchema])),
 				/**
 				 * Contains material which is marked as following the original, rather than being normalized or corrected.
 				 * @see https://music-encoding.org/guidelines/v5/elements/orig.html
 				 */
-				orig: v.optional(v.union([OrigSchema, v.array(OrigSchema)])),
+				orig: v.optional(v.union([v.array(OrigSchema), OrigSchema])),
 				/**
 				 * Contains material which has been regularized or normalized in some sense.
 				 * @see https://music-encoding.org/guidelines/v5/elements/reg.html
 				 */
-				reg: v.optional(v.union([RegSchema, v.array(RegSchema)])),
+				reg: v.optional(v.union([v.array(RegSchema), RegSchema])),
 				/**
 				 * Contains apparently incorrect or inaccurate material.
 				 * @see https://music-encoding.org/guidelines/v5/elements/sic.html
 				 */
-				sic: v.optional(v.union([SicSchema, v.array(SicSchema)])),
+				sic: v.optional(v.union([v.array(SicSchema), SicSchema])),
 				/**
 				 * Contains material that cannot be transcribed with certainty because it is illegible or inaudible in the source.
 				 * @see https://music-encoding.org/guidelines/v5/elements/unclear.html
 				 */
-				unclear: v.optional(v.union([UnclearSchema, v.array(UnclearSchema)])),
+				unclear: v.optional(v.union([v.array(UnclearSchema), UnclearSchema])),
 			}),
 			ModelEditLikeSchema,
 			ModelEditorialLikeSchema,

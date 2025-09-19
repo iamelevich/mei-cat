@@ -52,7 +52,7 @@ export const LayerSchema = v.lazy(() =>
 			 * Reference to element divLine
 			 * @see https://music-encoding.org/guidelines/v5/elements/divLine.html
 			 */
-			divLine: v.optional(v.union([DivLineSchema, v.array(DivLineSchema)])),
+			divLine: v.optional(v.union([v.array(DivLineSchema), DivLineSchema])),
 		}),
 		ModelAnnotLikeSchema,
 		ModelAppLikeSchema,

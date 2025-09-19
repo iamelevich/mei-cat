@@ -11,7 +11,7 @@ export const ModelLbLikeSchema: v.GenericSchema<ModelLbLikeData> = v.lazy(() =>
 		 * An empty formatting element that forces text to begin on a new line.
 		 * @see https://music-encoding.org/guidelines/v5/elements/lb.html
 		 */
-		lb: v.optional(v.union([LbSchema, v.array(LbSchema)])),
+		lb: v.optional(v.union([v.array(LbSchema), LbSchema])),
 	}),
 );
 

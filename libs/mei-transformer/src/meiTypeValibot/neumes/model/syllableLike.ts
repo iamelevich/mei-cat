@@ -12,7 +12,7 @@ export const ModelSyllableLikeSchema: v.GenericSchema<ModelSyllableLikeData> =
 			 * Neume notation can be thought of as &#34;neumed text&#34;. Therefore, the syllable element provides high-level organization in this repertoire.
 			 * @see https://music-encoding.org/guidelines/v5/elements/syllable.html
 			 */
-			syllable: v.optional(v.union([SyllableSchema, v.array(SyllableSchema)])),
+			syllable: v.optional(v.union([v.array(SyllableSchema), SyllableSchema])),
 		}),
 	);
 

@@ -17,34 +17,34 @@ export const ModelEventLikeMeasureFillingSchema: v.GenericSchema<ModelEventLikeM
 			 * Complete measure rest in any meter.
 			 * @see https://music-encoding.org/guidelines/v5/elements/mRest.html
 			 */
-			mRest: v.optional(v.union([MRestSchema, v.array(MRestSchema)])),
+			mRest: v.optional(v.union([v.array(MRestSchema), MRestSchema])),
 			/**
 			 * An indication that the previous measure should be repeated.
 			 * @see https://music-encoding.org/guidelines/v5/elements/mRpt.html
 			 */
-			mRpt: v.optional(v.union([MRptSchema, v.array(MRptSchema)])),
+			mRpt: v.optional(v.union([v.array(MRptSchema), MRptSchema])),
 			/**
 			 * An indication that the previous two measures should be repeated.
 			 * @see https://music-encoding.org/guidelines/v5/elements/mRpt2.html
 			 */
-			mRpt2: v.optional(v.union([MRpt2Schema, v.array(MRpt2Schema)])),
+			mRpt2: v.optional(v.union([v.array(MRpt2Schema), MRpt2Schema])),
 			/**
 			 * A measure containing only empty space in any meter.
 			 * @see https://music-encoding.org/guidelines/v5/elements/mSpace.html
 			 */
-			mSpace: v.optional(v.union([MSpaceSchema, v.array(MSpaceSchema)])),
+			mSpace: v.optional(v.union([v.array(MSpaceSchema), MSpaceSchema])),
 			/**
 			 * Multiple full measure rests compressed into a single bar, frequently found in performer parts.
 			 * @see https://music-encoding.org/guidelines/v5/elements/multiRest.html
 			 */
 			multiRest: v.optional(
-				v.union([MultiRestSchema, v.array(MultiRestSchema)]),
+				v.union([v.array(MultiRestSchema), MultiRestSchema]),
 			),
 			/**
 			 * Multiple repeated measures.
 			 * @see https://music-encoding.org/guidelines/v5/elements/multiRpt.html
 			 */
-			multiRpt: v.optional(v.union([MultiRptSchema, v.array(MultiRptSchema)])),
+			multiRpt: v.optional(v.union([v.array(MultiRptSchema), MultiRptSchema])),
 		}),
 	);
 

@@ -42,66 +42,66 @@ export const ModelControlEventLikeSchema: v.GenericSchema<ModelControlEventLikeD
 				 * A variation in pitch (often micro-tonal) upwards or downwards during the course of a note.
 				 * @see https://music-encoding.org/guidelines/v5/elements/bend.html
 				 */
-				bend: v.optional(v.union([BendSchema, v.array(BendSchema)])),
+				bend: v.optional(v.union([v.array(BendSchema), BendSchema])),
 				/**
 				 * Break, pause, or interruption in the normal tempo of a composition. Typically indicated by &#34;railroad tracks&#34;, i.e. , two diagonal slashes.
 				 * @see https://music-encoding.org/guidelines/v5/elements/caesura.html
 				 */
-				caesura: v.optional(v.union([CaesuraSchema, v.array(CaesuraSchema)])),
+				caesura: v.optional(v.union([v.array(CaesuraSchema), CaesuraSchema])),
 				/**
 				 * A verbal or graphical indication to copy musical material written elsewhere.
 				 * @see https://music-encoding.org/guidelines/v5/elements/cpMark.html
 				 */
-				cpMark: v.optional(v.union([CpMarkSchema, v.array(CpMarkSchema)])),
+				cpMark: v.optional(v.union([v.array(CpMarkSchema), CpMarkSchema])),
 				/**
 				 * An instruction expressed as a combination of text and symbols, typically above, below, or between staves, but not on the staff — that is not encoded elsewhere in more specific elements, like tempo , dynam or repeatMark .
 				 * @see https://music-encoding.org/guidelines/v5/elements/dir.html
 				 */
-				dir: v.optional(v.union([DirSchema, v.array(DirSchema)])),
+				dir: v.optional(v.union([v.array(DirSchema), DirSchema])),
 				/**
 				 * Indication of the volume of a note, phrase, or section of music.
 				 * @see https://music-encoding.org/guidelines/v5/elements/dynam.html
 				 */
-				dynam: v.optional(v.union([DynamSchema, v.array(DynamSchema)])),
+				dynam: v.optional(v.union([v.array(DynamSchema), DynamSchema])),
 				/**
 				 * A continuous or sliding movement from one pitch to another, usually indicated by a straight or wavy line.
 				 * @see https://music-encoding.org/guidelines/v5/elements/gliss.html
 				 */
-				gliss: v.optional(v.union([GlissSchema, v.array(GlissSchema)])),
+				gliss: v.optional(v.union([v.array(GlissSchema), GlissSchema])),
 				/**
 				 * A graphical or textual statement with additional / explanatory information about the musical text. The textual consequences of this intervention are encoded independently via other means; that is, with elements such as add , del , etc.
 				 * @see https://music-encoding.org/guidelines/v5/elements/metaMark.html
 				 */
 				metaMark: v.optional(
-					v.union([MetaMarkSchema, v.array(MetaMarkSchema)]),
+					v.union([v.array(MetaMarkSchema), MetaMarkSchema]),
 				),
 				/**
 				 * An element indicating an ornament that is not a mordent, turn, or trill.
 				 * @see https://music-encoding.org/guidelines/v5/elements/ornam.html
 				 */
-				ornam: v.optional(v.union([OrnamSchema, v.array(OrnamSchema)])),
+				ornam: v.optional(v.union([v.array(OrnamSchema), OrnamSchema])),
 				/**
 				 * Indication of 1) a &#34;unified melodic idea&#34; or 2) performance technique.
 				 * @see https://music-encoding.org/guidelines/v5/elements/phrase.html
 				 */
-				phrase: v.optional(v.union([PhraseSchema, v.array(PhraseSchema)])),
+				phrase: v.optional(v.union([v.array(PhraseSchema), PhraseSchema])),
 				/**
 				 * An instruction expressed as a combination of text and symbols – segno and coda – typically above, below, or between staves, but not on the staff.
 				 * @see https://music-encoding.org/guidelines/v5/elements/repeatMark.html
 				 */
 				repeatMark: v.optional(
-					v.union([RepeatMarkSchema, v.array(RepeatMarkSchema)]),
+					v.union([v.array(RepeatMarkSchema), RepeatMarkSchema]),
 				),
 				/**
 				 * Contains an individual speech in a performance text.
 				 * @see https://music-encoding.org/guidelines/v5/elements/sp.html
 				 */
-				sp: v.optional(v.union([SpSchema, v.array(SpSchema)])),
+				sp: v.optional(v.union([v.array(SpSchema), SpSchema])),
 				/**
 				 * Text and symbols descriptive of tempo, mood, or style, e.g. , &#34;allarg.&#34;, &#34;a tempo&#34;, &#34;cantabile&#34;, &#34;Moderato&#34;, &#34;♩=60&#34;, &#34;Moderato ♩ =60&#34;).
 				 * @see https://music-encoding.org/guidelines/v5/elements/tempo.html
 				 */
-				tempo: v.optional(v.union([TempoSchema, v.array(TempoSchema)])),
+				tempo: v.optional(v.union([v.array(TempoSchema), TempoSchema])),
 			}),
 			ModelControlEventLikeHarmonySchema,
 			ModelFingeringLikeSchema,

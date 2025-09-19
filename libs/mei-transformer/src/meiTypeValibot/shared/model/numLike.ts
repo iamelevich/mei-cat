@@ -12,7 +12,7 @@ export const ModelNumLikeSchema: v.GenericSchema<ModelNumLikeData> = v.lazy(
 			 * Numeric information in any form.
 			 * @see https://music-encoding.org/guidelines/v5/elements/num.html
 			 */
-			num: v.optional(v.union([NumSchema, v.array(NumSchema)])),
+			num: v.optional(v.union([v.array(NumSchema), NumSchema])),
 		}),
 );
 

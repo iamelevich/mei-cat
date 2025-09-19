@@ -26,34 +26,34 @@ export const ModelEditorialDeclPartSchema: v.GenericSchema<ModelEditorialDeclPar
 			 * @see https://music-encoding.org/guidelines/v5/elements/correction.html
 			 */
 			correction: v.optional(
-				v.union([CorrectionSchema, v.array(CorrectionSchema)]),
+				v.union([v.array(CorrectionSchema), CorrectionSchema]),
 			),
 			/**
 			 * Describes the scope of any analytic or interpretive information added to the transcription of the music.
 			 * @see https://music-encoding.org/guidelines/v5/elements/interpretation.html
 			 */
 			interpretation: v.optional(
-				v.union([InterpretationSchema, v.array(InterpretationSchema)]),
+				v.union([v.array(InterpretationSchema), InterpretationSchema]),
 			),
 			/**
 			 * Indicates the extent of normalization or regularization of the original source carried out in converting it to electronic form.
 			 * @see https://music-encoding.org/guidelines/v5/elements/normalization.html
 			 */
 			normalization: v.optional(
-				v.union([NormalizationSchema, v.array(NormalizationSchema)]),
+				v.union([v.array(NormalizationSchema), NormalizationSchema]),
 			),
 			/**
 			 * Describes the principles according to which the musical text has been segmented, for example into movements, sections, etc.
 			 * @see https://music-encoding.org/guidelines/v5/elements/segmentation.html
 			 */
 			segmentation: v.optional(
-				v.union([SegmentationSchema, v.array(SegmentationSchema)]),
+				v.union([v.array(SegmentationSchema), SegmentationSchema]),
 			),
 			/**
 			 * Specifies the format used when standardized date or number values are supplied.
 			 * @see https://music-encoding.org/guidelines/v5/elements/stdVals.html
 			 */
-			stdVals: v.optional(v.union([StdValsSchema, v.array(StdValsSchema)])),
+			stdVals: v.optional(v.union([v.array(StdValsSchema), StdValsSchema])),
 		}),
 	);
 

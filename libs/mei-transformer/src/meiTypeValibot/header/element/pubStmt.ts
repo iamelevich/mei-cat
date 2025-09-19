@@ -27,7 +27,7 @@ export const PubStmtSchema = v.lazy(() =>
 			 * Reference to element unpub
 			 * @see https://music-encoding.org/guidelines/v5/elements/unpub.html
 			 */
-			unpub: v.optional(v.union([UnpubSchema, v.array(UnpubSchema)])),
+			unpub: v.optional(v.union([v.array(UnpubSchema), UnpubSchema])),
 		}),
 		ModelHeadLikeSchema,
 		ModelPubStmtPartSchema,

@@ -16,13 +16,13 @@ export const ModelRelationLikeSchema: v.GenericSchema<ModelRelationLikeData> =
 			 * Describes a relationship or linkage amongst entities.
 			 * @see https://music-encoding.org/guidelines/v5/elements/relation.html
 			 */
-			relation: v.optional(v.union([RelationSchema, v.array(RelationSchema)])),
+			relation: v.optional(v.union([v.array(RelationSchema), RelationSchema])),
 			/**
 			 * Gathers relation elements.
 			 * @see https://music-encoding.org/guidelines/v5/elements/relationList.html
 			 */
 			relationList: v.optional(
-				v.union([RelationListSchema, v.array(RelationListSchema)]),
+				v.union([v.array(RelationListSchema), RelationListSchema]),
 			),
 		}),
 	);

@@ -35,12 +35,12 @@ export const GenStateSchema = v.lazy(() =>
 			 * Reference to element desc
 			 * @see https://music-encoding.org/guidelines/v5/elements/desc.html
 			 */
-			desc: v.optional(v.union([DescSchema, v.array(DescSchema)])),
+			desc: v.optional(v.union([v.array(DescSchema), DescSchema])),
 			/**
 			 * Reference to element respStmt
 			 * @see https://music-encoding.org/guidelines/v5/elements/respStmt.html
 			 */
-			respStmt: v.optional(v.union([RespStmtSchema, v.array(RespStmtSchema)])),
+			respStmt: v.optional(v.union([v.array(RespStmtSchema), RespStmtSchema])),
 		}),
 		ModelDateLikeSchema,
 	]),

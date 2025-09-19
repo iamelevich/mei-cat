@@ -13,13 +13,13 @@ export const ModelBiblLikeSchema: v.GenericSchema<ModelBiblLikeData> = v.lazy(
 			 * Provides a loosely-structured bibliographic citation in which the sub-components may or may not be explicitly marked.
 			 * @see https://music-encoding.org/guidelines/v5/elements/bibl.html
 			 */
-			bibl: v.optional(v.union([BiblSchema, v.array(BiblSchema)])),
+			bibl: v.optional(v.union([v.array(BiblSchema), BiblSchema])),
 			/**
 			 * Contains a bibliographic citation in which bibliographic sub-elements must appear in a specified order.
 			 * @see https://music-encoding.org/guidelines/v5/elements/biblStruct.html
 			 */
 			biblStruct: v.optional(
-				v.union([BiblStructSchema, v.array(BiblStructSchema)]),
+				v.union([v.array(BiblStructSchema), BiblStructSchema]),
 			),
 		}),
 );

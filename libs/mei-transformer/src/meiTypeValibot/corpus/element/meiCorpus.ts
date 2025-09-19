@@ -26,7 +26,7 @@ export const MeiCorpusSchema = v.lazy(() =>
 			 * Reference to element mei
 			 * @see https://music-encoding.org/guidelines/v5/elements/mei.html
 			 */
-			mei: v.optional(v.union([MeiSchema, v.array(MeiSchema)])),
+			mei: v.optional(v.union([v.array(MeiSchema), MeiSchema])),
 			/**
 			 * Reference to element meiHead
 			 * @see https://music-encoding.org/guidelines/v5/elements/meiHead.html

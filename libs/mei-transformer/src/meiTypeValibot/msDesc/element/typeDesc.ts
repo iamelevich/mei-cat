@@ -30,17 +30,17 @@ export const TypeDescSchema = v.lazy(() =>
 			 * Reference to element head
 			 * @see https://music-encoding.org/guidelines/v5/elements/head.html
 			 */
-			head: v.optional(v.union([HeadSchema, v.array(HeadSchema)])),
+			head: v.optional(v.union([v.array(HeadSchema), HeadSchema])),
 			/**
 			 * Reference to element p
 			 * @see https://music-encoding.org/guidelines/v5/elements/p.html
 			 */
-			p: v.optional(v.union([PSchema, v.array(PSchema)])),
+			p: v.optional(v.union([v.array(PSchema), PSchema])),
 			/**
 			 * Reference to element typeNote
 			 * @see https://music-encoding.org/guidelines/v5/elements/typeNote.html
 			 */
-			typeNote: v.optional(v.union([TypeNoteSchema, v.array(TypeNoteSchema)])),
+			typeNote: v.optional(v.union([v.array(TypeNoteSchema), TypeNoteSchema])),
 		}),
 		ModelTextPhraseLikeLimitedSchema,
 	]),

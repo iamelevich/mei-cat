@@ -52,24 +52,24 @@ export const SeriesStmtSchema: v.GenericSchema<SeriesStmtData> = v.lazy(() =>
 			 * @see https://music-encoding.org/guidelines/v5/elements/biblScope.html
 			 */
 			biblScope: v.optional(
-				v.union([BiblScopeSchema, v.array(BiblScopeSchema)]),
+				v.union([v.array(BiblScopeSchema), BiblScopeSchema]),
 			),
 			/**
 			 * Reference to element contents
 			 * @see https://music-encoding.org/guidelines/v5/elements/contents.html
 			 */
-			contents: v.optional(v.union([ContentsSchema, v.array(ContentsSchema)])),
+			contents: v.optional(v.union([v.array(ContentsSchema), ContentsSchema])),
 			/**
 			 * Reference to element respStmt
 			 * @see https://music-encoding.org/guidelines/v5/elements/respStmt.html
 			 */
-			respStmt: v.optional(v.union([RespStmtSchema, v.array(RespStmtSchema)])),
+			respStmt: v.optional(v.union([v.array(RespStmtSchema), RespStmtSchema])),
 			/**
 			 * Reference to element seriesStmt
 			 * @see https://music-encoding.org/guidelines/v5/elements/seriesStmt.html
 			 */
 			seriesStmt: v.optional(
-				v.union([SeriesStmtSchema, v.array(SeriesStmtSchema)]),
+				v.union([v.array(SeriesStmtSchema), SeriesStmtSchema]),
 			),
 		}),
 		ModelHeadLikeSchema,

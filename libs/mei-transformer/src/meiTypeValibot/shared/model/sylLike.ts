@@ -12,7 +12,7 @@ export const ModelSylLikeSchema: v.GenericSchema<ModelSylLikeData> = v.lazy(
 			 * Individual lyric syllable.
 			 * @see https://music-encoding.org/guidelines/v5/elements/syl.html
 			 */
-			syl: v.optional(v.union([SylSchema, v.array(SylSchema)])),
+			syl: v.optional(v.union([v.array(SylSchema), SylSchema])),
 		}),
 );
 

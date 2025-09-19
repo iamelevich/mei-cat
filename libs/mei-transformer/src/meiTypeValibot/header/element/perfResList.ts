@@ -40,18 +40,18 @@ export const PerfResListSchema: v.GenericSchema<PerfResListData> = v.lazy(() =>
 			 * Reference to element annot
 			 * @see https://music-encoding.org/guidelines/v5/elements/annot.html
 			 */
-			annot: v.optional(v.union([AnnotSchema, v.array(AnnotSchema)])),
+			annot: v.optional(v.union([v.array(AnnotSchema), AnnotSchema])),
 			/**
 			 * Reference to element perfRes
 			 * @see https://music-encoding.org/guidelines/v5/elements/perfRes.html
 			 */
-			perfRes: v.optional(v.union([PerfResSchema, v.array(PerfResSchema)])),
+			perfRes: v.optional(v.union([v.array(PerfResSchema), PerfResSchema])),
 			/**
 			 * Reference to element perfResList
 			 * @see https://music-encoding.org/guidelines/v5/elements/perfResList.html
 			 */
 			perfResList: v.optional(
-				v.union([PerfResListSchema, v.array(PerfResListSchema)]),
+				v.union([v.array(PerfResListSchema), PerfResListSchema]),
 			),
 		}),
 		ModelHeadLikeSchema,

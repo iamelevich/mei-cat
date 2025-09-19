@@ -30,12 +30,12 @@ export const TrSchema = v.lazy(() =>
 			 * Reference to element td
 			 * @see https://music-encoding.org/guidelines/v5/elements/td.html
 			 */
-			td: v.optional(v.union([TdSchema, v.array(TdSchema)])),
+			td: v.optional(v.union([v.array(TdSchema), TdSchema])),
 			/**
 			 * Reference to element th
 			 * @see https://music-encoding.org/guidelines/v5/elements/th.html
 			 */
-			th: v.optional(v.union([ThSchema, v.array(ThSchema)])),
+			th: v.optional(v.union([v.array(ThSchema), ThSchema])),
 		}),
 	]),
 );

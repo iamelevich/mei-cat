@@ -55,7 +55,7 @@ export const MacroTitlePartSchema: v.GenericSchema<MacroTitlePartData> = v.lazy(
 				 * Reference to element symbol
 				 * @see https://music-encoding.org/guidelines/v5/elements/symbol.html
 				 */
-				symbol: v.optional(v.union([SymbolSchema, v.array(SymbolSchema)])),
+				symbol: v.optional(v.union([v.array(SymbolSchema), SymbolSchema])),
 			}),
 			ModelAddressLikeSchema,
 			ModelAddressPartSchema,

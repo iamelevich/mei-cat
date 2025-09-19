@@ -6,7 +6,7 @@ import {
 	writeFileSync,
 } from "node:fs";
 import { extname, join, relative } from "node:path";
-import { meiXmlTo51, meiXmlToJson } from "../src/meiToJSON";
+import { meiXmlTo51, meiXmlToJsonWithoutValidation } from "../src/meiToJSON";
 
 const inputs: [string, string][] = [
 	[
@@ -76,7 +76,7 @@ for (const [path, newName] of files) {
 		const xmlContent = readFileSync(xmlPath, "utf-8");
 		const mei51 = await meiXmlTo51(xmlContent);
 		writeFileSync(join(resultDir, `${newName}.mei51.xml`), mei51, "utf-8");
-		const json = meiXmlToJson(mei51);
+		const json = meiXmlToJsonWithoutValidation(mei51);
 		const jsonPath = join(resultDir, `${newName}.json`);
 		writeFileSync(jsonPath, JSON.stringify(json, null, 2), "utf-8");
 		console.log(`Converted ${relativePath} -> result/${newName}.json`);

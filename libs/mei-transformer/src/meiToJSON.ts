@@ -4,11 +4,11 @@ import * as v from "valibot";
 import { type MeiJsonData, MeiJsonSchema } from "./meiTypeValibot";
 
 /**
- * Transforms MEI XML string to JSON.
+ * Transforms MEI XML string to JSON without validation.
  * @param xml - MEI XML as string
  * @returns JSON representation of MEI XML
  */
-export function meiXmlToJson(xml: string): MeiJsonData {
+export function meiXmlToJsonWithoutValidation(xml: string): any {
 	const parser = new XMLParser({
 		// ignoreAttributes: (attrName: string, jPath: string) => {
 		// 	if (attrName === "xml:id") {
@@ -20,10 +20,41 @@ export function meiXmlToJson(xml: string): MeiJsonData {
 		ignoreAttributes: false,
 		attributeNamePrefix: "@",
 		alwaysCreateTextNode: true,
-	});
-	const doc = parser.parse(xml);
+		parseTagValue: false,
+		updateTag: (
+			tagName: string,
+			_jPath: string,
+			attrs: { [k: string]: string },
+		) => {
+			let newTagName = tagName;
+			if (newTagName.startsWith("m:")) {
+				// console.log(
+				// 	`Updating tag name ${tagName} to ${tagName.replace("m:", "")}`,
+				// );
+				// No need to keep the xmlns:m attribute
+				delete attrs["@xmlns:m"];
+				newTagName = newTagName.replace("m:", "");
+			}
 
-	return doc;
+			// Somehow for some files we have @key.sig attribute instead of @keysig
+			if (newTagName === "staffDef" && attrs["@key.sig"]) {
+				attrs["@keysig"] = attrs["@key.sig"];
+				delete attrs["@key.sig"];
+			}
+
+			return newTagName;
+		},
+	});
+	return parser.parse(xml);
+}
+
+/**
+ * Transforms MEI XML string to JSON.
+ * @param xml - MEI XML as string
+ * @returns JSON representation of MEI XML
+ */
+export function meiXmlToJson(xml: string): MeiJsonData {
+	const doc = meiXmlToJsonWithoutValidation(xml);
 
 	const parsedMei = v.parse(MeiJsonSchema, doc);
 

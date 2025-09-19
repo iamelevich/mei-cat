@@ -28,7 +28,7 @@ export const LangUsageSchema = v.lazy(() =>
 			 * Reference to element language
 			 * @see https://music-encoding.org/guidelines/v5/elements/language.html
 			 */
-			language: v.union([v.array(LanguageSchema), LanguageSchema]),
+			language: v.optional(v.union([v.array(LanguageSchema), LanguageSchema])),
 		}),
 		ModelHeadLikeSchema,
 	]),

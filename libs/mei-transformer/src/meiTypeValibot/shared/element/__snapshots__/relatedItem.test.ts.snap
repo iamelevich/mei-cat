@@ -1,0 +1,65 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`RelatedItemSchema should parse a relatedItem with bibl containing title and biblScope 1`] = `
+{
+  "@rel": "host",
+  "@xml:id": "relatedItem_N21078",
+  "bibl": {
+    "@label": "",
+    "@xml:id": "bibl_d1e55065405",
+    "biblScope": {
+      "#text": "II/325",
+      "@xml:id": "biblScope_N2107F",
+    },
+    "title": {
+      "#text": "CNB",
+      "@xml:id": "title_N2107D",
+    },
+  },
+}
+`;
+
+exports[`RelatedItemSchema should parse a relatedItem with different relation type 1`] = `
+{
+  "@rel": "isReferencedBy",
+  "@xml:id": "relatedItem_N21081",
+  "bibl": {
+    "@xml:id": "bibl_d1e55185417",
+    "biblScope": {
+      "#text": "58",
+      "@xml:id": "biblScope_N21088",
+    },
+    "title": {
+      "#text": "M & M",
+      "@xml:id": "title_N21086",
+    },
+  },
+}
+`;
+
+exports[`RelatedItemSchema should parse a relatedItem with minimal bibl 1`] = `
+{
+  "@rel": "host",
+  "@xml:id": "relatedItem_9378970ef092",
+  "bibl": {
+    "@xml:id": "bibl_9378db1bae0b",
+    "title": {
+      "#text": "CNL",
+      "@xml:id": "title_93788bc5b3cd",
+    },
+  },
+}
+`;
+
+exports[`RelatedItemSchema should parse a relatedItem with just title 1`] = `
+{
+  "@xml:id": "relatedItem_ref001",
+  "bibl": {
+    "@xml:id": "bibl_ref001",
+    "title": {
+      "#text": "Reference Work",
+      "@xml:id": "title_ref001",
+    },
+  },
+}
+`;

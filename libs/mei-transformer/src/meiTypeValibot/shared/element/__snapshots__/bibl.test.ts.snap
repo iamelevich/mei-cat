@@ -1,0 +1,202 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`BiblSchema should parse a bibl with genre and author 1`] = `
+{
+  "@xml:id": "bibl_d1e54725372",
+  "author": {
+    "#text": "Carl Nielsen",
+    "@xml:id": "author_N21068",
+  },
+  "genre": {
+    "#text": "letter",
+    "@xml:id": "genre_N21066",
+  },
+}
+`;
+
+exports[`BiblSchema should parse a bibl with recipient 1`] = `
+{
+  "@xml:id": "bibl_d1e54725372",
+  "recipient": {
+    "#text": "Henrik Knudsen",
+    "@xml:id": "recipient_N2106A",
+  },
+}
+`;
+
+exports[`BiblSchema should parse a bibl with creation date 1`] = `
+{
+  "@xml:id": "bibl_d1e54725372",
+  "creation": {
+    "@xml:id": "creation_N2106C",
+    "date": {
+      "#text": "1904-02-02",
+      "@isodate": "1904-02-02",
+      "@xml:id": "date_N2106D",
+    },
+  },
+}
+`;
+
+exports[`BiblSchema should parse a minimal bibl 1`] = `
+{
+  "@xml:id": "bibl_d1e54725372",
+}
+`;
+
+exports[`BiblSchema should parse a bibl with biblScope 1`] = `
+{
+  "@xml:id": "bibl_d1e54725372",
+  "biblScope": {
+    "#text": "II/325",
+    "@xml:id": "biblScope_N2107F",
+  },
+}
+`;
+
+exports[`BiblSchema should parse a bibl with title 1`] = `
+{
+  "@xml:id": "bibl_d1e54725372",
+  "title": {
+    "#text": "CNB",
+    "@xml:id": "title_N2107D",
+  },
+}
+`;
+
+exports[`BiblSchema should parse a bibl with label attribute 1`] = `
+{
+  "@label": "Primary source",
+  "@xml:id": "bibl_d1e54725372",
+}
+`;
+
+exports[`BiblSchema should parse a bible from cnw0002 1`] = `
+{
+  "@label": "",
+  "@xml:id": "bibl_782866b5",
+  "author": {
+    "#text": "Hagen Hohlenberg",
+    "@xml:id": "author_N24B6C",
+  },
+  "biblScope": [
+    {
+      "#text": "23",
+      "@unit": "vol",
+      "@xml:id": "biblScope_N24B75",
+    },
+    {
+      "#text": "1007–11",
+      "@unit": "page",
+      "@xml:id": "biblScope_N24B7A",
+    },
+  ],
+  "genre": [
+    {
+      "#text": "article",
+      "@xml:id": "genre_N24B68",
+    },
+    {
+      "#text": "journal",
+      "@xml:id": "genre_N24B6A",
+    },
+  ],
+  "imprint": {
+    "@xml:id": "imprint_N24B7D",
+    "date": {
+      "#text": "1906",
+      "@isodate": "1906",
+      "@xml:id": "date_N24B7E",
+    },
+  },
+  "title": [
+    {
+      "#text": "Carl Nielsen: "Maskarade"",
+      "@level": "a",
+      "@xml:id": "title_N24B6E",
+    },
+    {
+      "#text": "Tilskueren",
+      "@level": "j",
+      "@xml:id": "title_N24B71",
+    },
+  ],
+}
+`;
+
+exports[`BiblSchema should parse a bible from cnw0002 2`] = `
+{
+  "@label": "",
+  "@xml:id": "bibl_d1e60295916",
+  "author": {
+    "#text": "Anne Marie Carl-Nielsen",
+    "@xml:id": "author_N211DE",
+  },
+  "creation": {
+    "@xml:id": "creation_N211E2",
+    "date": {
+      "#text": "1905-01-22",
+      "@isodate": "1905-01-22",
+      "@xml:id": "date_N211E3",
+    },
+  },
+  "genre": {
+    "#text": "letter",
+    "@xml:id": "genre_N211DC",
+  },
+  "physLoc": {
+    "@xml:id": "physLoc_N211E6",
+    "identifier": {
+      "#text": "CNA IAa1",
+      "@xml:id": "identifier_N211EC",
+    },
+    "repository": {
+      "@xml:id": "repository_N211E7",
+      "identifier": {
+        "#text": "DK-Kk",
+        "@auth": "RISM",
+        "@auth.uri": "http://www.rism.info/",
+        "@xml:id": "identifier_N211E8",
+      },
+    },
+  },
+  "recipient": {
+    "#text": "Carl Nielsen",
+    "@xml:id": "recipient_N211E0",
+  },
+  "relatedItem": [
+    {
+      "@rel": "host",
+      "@xml:id": "relatedItem_N211EE",
+      "bibl": {
+        "@label": "",
+        "@xml:id": "bibl_d1e60635949",
+        "biblScope": {
+          "#text": "II/416",
+          "@xml:id": "biblScope_N211F5",
+        },
+        "title": {
+          "#text": "CNB",
+          "@xml:id": "title_N211F3",
+        },
+      },
+    },
+    {
+      "@rel": "host",
+      "@xml:id": "relatedItem_N211F7",
+      "bibl": {
+        "@label": "",
+        "@xml:id": "bibl_d1e60755961",
+        "biblScope": {
+          "#text": "200",
+          "@xml:id": "biblScope_N211FE",
+        },
+        "title": {
+          "#text": "T Sch",
+          "@xml:id": "title_N211FC",
+        },
+      },
+    },
+  ],
+}
+`;

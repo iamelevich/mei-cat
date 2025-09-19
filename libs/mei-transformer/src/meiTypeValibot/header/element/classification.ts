@@ -28,7 +28,7 @@ export const ClassificationSchema = v.lazy(() =>
 			 * Reference to element termList
 			 * @see https://music-encoding.org/guidelines/v5/elements/termList.html
 			 */
-			termList: v.union([v.array(TermListSchema), TermListSchema]),
+			termList: v.optional(v.union([v.array(TermListSchema), TermListSchema])),
 		}),
 		ModelHeadLikeSchema,
 	]),

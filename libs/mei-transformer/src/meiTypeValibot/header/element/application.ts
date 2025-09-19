@@ -33,7 +33,7 @@ export const ApplicationSchema = v.lazy(() =>
 			 * Reference to element name
 			 * @see https://music-encoding.org/guidelines/v5/elements/name.html
 			 */
-			name: v.union([v.array(NameSchema), NameSchema]),
+			name: v.optional(v.union([v.array(NameSchema), NameSchema])),
 		}),
 		ModelLocrefLikeSchema,
 		ModelPLikeSchema,

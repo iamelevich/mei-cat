@@ -1,0 +1,38 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`NotesStmtSchema should be a valid schema for cnw0002 1`] = `
+{
+  "@xml:id": "notesStmt_N2505A",
+  "annot": {
+    "@label": "",
+    "@type": "links",
+    "@xml:id": "annot_3ca9f3c0",
+    "ptr": [
+      {
+        "@label": "Carl Nielsen Edition (Act 1)",
+        "@mimetype": "",
+        "@target": "/dcm/assets/cnu/pdf/CNU_I_01_E_maskarade_1.pdf",
+        "@xml:id": "ptr_d2feb4f8",
+      },
+      {
+        "@label": "Carl Nielsen Edition (Act 2)",
+        "@mimetype": "",
+        "@target": "/dcm/assets/cnu/pdf/CNU_I_02_E_maskarade_2.pdf",
+        "@xml:id": "ptr_d0eb1e0d",
+      },
+      {
+        "@label": "Carl Nielsen Edition (Act 3)",
+        "@mimetype": "",
+        "@target": "/dcm/assets/cnu/pdf/CNU_I_03_E_maskarade_3.pdf",
+        "@xml:id": "ptr_1977910a",
+      },
+      {
+        "@label": "Carl Nielsen Edition (Critical Commentary)",
+        "@mimetype": "",
+        "@target": "/dcm/assets/cnu/pdf/CNU_I_01-03_maskarade_critical_commentary.pdf",
+        "@xml:id": "ptr_d4a1f0fd",
+      },
+    ],
+  },
+}
+`;

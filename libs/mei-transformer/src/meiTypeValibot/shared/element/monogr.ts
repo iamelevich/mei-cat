@@ -55,7 +55,7 @@ export const MonogrSchema = v.lazy(() =>
 			 * Reference to element editor
 			 * @see https://music-encoding.org/guidelines/v5/elements/editor.html
 			 */
-			editor: v.union([v.array(EditorSchema), EditorSchema]),
+			editor: v.optional(v.union([v.array(EditorSchema), EditorSchema])),
 			/**
 			 * Reference to element extent
 			 * @see https://music-encoding.org/guidelines/v5/elements/extent.html
@@ -70,7 +70,7 @@ export const MonogrSchema = v.lazy(() =>
 			 * Reference to element respStmt
 			 * @see https://music-encoding.org/guidelines/v5/elements/respStmt.html
 			 */
-			respStmt: v.union([v.array(RespStmtSchema), RespStmtSchema]),
+			respStmt: v.optional(v.union([v.array(RespStmtSchema), RespStmtSchema])),
 		}),
 		ModelAnnotLikeSchema,
 		ModelEditionLikeSchema,

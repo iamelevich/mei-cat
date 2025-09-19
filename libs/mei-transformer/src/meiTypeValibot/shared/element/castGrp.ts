@@ -30,23 +30,23 @@ export const CastGrpSchema: v.GenericSchema<CastGrpData> = v.lazy(() =>
 			 * Reference to element castGrp
 			 * @see https://music-encoding.org/guidelines/v5/elements/castGrp.html
 			 */
-			castGrp: v.union([v.array(CastGrpSchema), CastGrpSchema]),
+			castGrp: v.optional(v.union([v.array(CastGrpSchema), CastGrpSchema])),
 			/**
 			 * Reference to element castItem
 			 * @see https://music-encoding.org/guidelines/v5/elements/castItem.html
 			 */
-			castItem: v.union([v.array(CastItemSchema), CastItemSchema]),
+			castItem: v.optional(v.union([v.array(CastItemSchema), CastItemSchema])),
 			/**
 			 * Reference to element roleDesc
 			 * @see https://music-encoding.org/guidelines/v5/elements/roleDesc.html
 			 */
-			roleDesc: v.union([v.array(RoleDescSchema), RoleDescSchema]),
+			roleDesc: v.optional(v.union([v.array(RoleDescSchema), RoleDescSchema])),
 		}),
 	]),
 );
 
 export type CastGrpData = CastGrpBaseData & {
-	castGrp: CastGrpData | CastGrpData[];
-	castItem: CastItemData | CastItemData[];
-	roleDesc: RoleDescData | RoleDescData[];
+	castGrp?: CastGrpData | CastGrpData[];
+	castItem?: CastItemData | CastItemData[];
+	roleDesc?: RoleDescData | RoleDescData[];
 };

@@ -37,7 +37,7 @@ export const NamespaceSchema = v.lazy(() =>
 			 * Reference to element attUsage
 			 * @see https://music-encoding.org/guidelines/v5/elements/attUsage.html
 			 */
-			attUsage: v.union([v.array(AttUsageSchema), AttUsageSchema]),
+			attUsage: v.optional(v.union([v.array(AttUsageSchema), AttUsageSchema])),
 			/**
 			 * Reference to element desc
 			 * @see https://music-encoding.org/guidelines/v5/elements/desc.html
@@ -47,7 +47,7 @@ export const NamespaceSchema = v.lazy(() =>
 			 * Reference to element tagUsage
 			 * @see https://music-encoding.org/guidelines/v5/elements/tagUsage.html
 			 */
-			tagUsage: v.union([v.array(TagUsageSchema), TagUsageSchema]),
+			tagUsage: v.optional(v.union([v.array(TagUsageSchema), TagUsageSchema])),
 		}),
 	]),
 );

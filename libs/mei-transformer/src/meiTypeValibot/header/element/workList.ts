@@ -24,7 +24,7 @@ export const WorkListSchema = v.lazy(() =>
 			 * Reference to element work
 			 * @see https://music-encoding.org/guidelines/v5/elements/work.html
 			 */
-			work: v.union([v.array(WorkSchema), WorkSchema]),
+			work: v.optional(v.union([v.array(WorkSchema), WorkSchema])),
 		}),
 		ModelHeadLikeSchema,
 	]),

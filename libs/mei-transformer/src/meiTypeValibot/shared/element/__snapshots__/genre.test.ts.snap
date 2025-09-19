@@ -1,0 +1,39 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`GenreSchema should parse a genre element with text content 1`] = `
+{
+  "#text": "letter",
+  "@xml:id": "genre_N21066",
+}
+`;
+
+exports[`GenreSchema should parse a genre element with different text 1`] = `
+{
+  "#text": "opera",
+  "@xml:id": "genre_N21067",
+}
+`;
+
+exports[`GenreSchema should parse a genre element with auth attribute 1`] = `
+{
+  "#text": "symphony",
+  "@auth": "LCSH",
+  "@xml:id": "genre_N21068",
+}
+`;
+
+exports[`GenreSchema should parse a genre element with auth.uri attribute 1`] = `
+{
+  "#text": "concerto",
+  "@auth": "LCSH",
+  "@auth.uri": "http://id.loc.gov/authorities/subjects/",
+  "@xml:id": "genre_N21069",
+}
+`;
+
+exports[`GenreSchema should parse a minimal genre element 1`] = `
+{
+  "#text": "chamber music",
+  "@xml:id": "genre_N2106A",
+}
+`;

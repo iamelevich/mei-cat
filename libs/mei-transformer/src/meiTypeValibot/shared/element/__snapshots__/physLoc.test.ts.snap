@@ -1,0 +1,66 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`PhysLocSchema should parse a physLoc with repository and identifier 1`] = `
+{
+  "@xml:id": "physLoc_N21070",
+  "identifier": {
+    "#text": "CNA IAc",
+    "@xml:id": "identifier_N21076",
+  },
+  "repository": {
+    "@xml:id": "repository_N21071",
+    "identifier": {
+      "#text": "DK-Kk",
+      "@auth": "RISM",
+      "@auth.uri": "http://www.rism.info/",
+      "@xml:id": "identifier_N21072",
+    },
+  },
+}
+`;
+
+exports[`PhysLocSchema should parse a physLoc with just repository 1`] = `
+{
+  "@xml:id": "physLoc_N21070",
+  "repository": {
+    "@xml:id": "repository_N21071",
+    "identifier": {
+      "#text": "DK-Kk",
+      "@auth": "RISM",
+      "@xml:id": "identifier_N21072",
+    },
+  },
+}
+`;
+
+exports[`PhysLocSchema should parse a physLoc with just identifier 1`] = `
+{
+  "@xml:id": "physLoc_N21070",
+  "identifier": {
+    "#text": "CNA IAc",
+    "@xml:id": "identifier_N21076",
+  },
+}
+`;
+
+exports[`PhysLocSchema should parse a minimal physLoc 1`] = `
+{
+  "@xml:id": "physLoc_N21070",
+}
+`;
+
+exports[`PhysLocSchema should parse a physLoc with multiple identifiers 1`] = `
+{
+  "@xml:id": "physLoc_N21070",
+  "identifier": [
+    {
+      "#text": "CNA IAc",
+      "@xml:id": "identifier_N21076",
+    },
+    {
+      "#text": "NKS 5155, 4°",
+      "@xml:id": "identifier_N2109D",
+    },
+  ],
+}
+`;

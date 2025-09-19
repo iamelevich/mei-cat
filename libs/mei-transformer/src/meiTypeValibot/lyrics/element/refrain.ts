@@ -63,7 +63,7 @@ export const RefrainSchema = v.lazy(() =>
 			 * Reference to element volta
 			 * @see https://music-encoding.org/guidelines/v5/elements/volta.html
 			 */
-			volta: v.union([v.array(VoltaSchema), VoltaSchema]),
+			volta: v.optional(v.union([v.array(VoltaSchema), VoltaSchema])),
 		}),
 		ModelAppLikeSchema,
 		ModelEditLikeSchema,

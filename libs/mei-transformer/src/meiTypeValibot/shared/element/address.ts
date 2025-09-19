@@ -28,7 +28,7 @@ export const AddressSchema = v.lazy(() =>
 			 * Reference to element addrLine
 			 * @see https://music-encoding.org/guidelines/v5/elements/addrLine.html
 			 */
-			addrLine: v.union([v.array(AddrLineSchema), AddrLineSchema]),
+			addrLine: v.optional(v.union([v.array(AddrLineSchema), AddrLineSchema])),
 		}),
 		ModelAddressPartSchema,
 	]),

@@ -1,0 +1,96 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`BiblListSchema should parse a biblList with head and single bibl 1`] = `
+{
+  "@xml:id": "biblList_N21060",
+  "bibl": {
+    "@xml:id": "bibl_d1e54725372",
+    "author": {
+      "#text": "Carl Nielsen",
+      "@xml:id": "author_N21068",
+    },
+    "genre": {
+      "#text": "letter",
+      "@xml:id": "genre_N21066",
+    },
+  },
+  "head": {
+    "#text": "Documents",
+    "@xml:id": "head_N21061",
+  },
+}
+`;
+
+exports[`BiblListSchema should parse a biblList with multiple bibl elements 1`] = `
+{
+  "@xml:id": "biblList_N21060",
+  "bibl": [
+    {
+      "@xml:id": "bibl_d1e54725372",
+      "author": {
+        "#text": "Carl Nielsen",
+        "@xml:id": "author_N21068",
+      },
+      "genre": {
+        "#text": "letter",
+        "@xml:id": "genre_N21066",
+      },
+    },
+    {
+      "@xml:id": "bibl_d1e55295428",
+      "author": {
+        "#text": "Carl Nielsen",
+        "@xml:id": "author_N2108F",
+      },
+      "genre": {
+        "#text": "letter",
+        "@xml:id": "genre_N2108D",
+      },
+    },
+  ],
+  "head": {
+    "#text": "Documents",
+    "@xml:id": "head_N21061",
+  },
+}
+`;
+
+exports[`BiblListSchema should parse a minimal biblList 1`] = `
+{
+  "@xml:id": "biblList_N21060",
+}
+`;
+
+exports[`BiblListSchema should parse a biblList with label 1`] = `
+{
+  "@xml:id": "biblList_N21060",
+  "label": {
+    "#text": "Bibliography",
+    "@xml:id": "label_N21061",
+  },
+}
+`;
+
+exports[`BiblListSchema should parse nested biblList structures 1`] = `
+{
+  "@xml:id": "biblList_N21060",
+  "biblList": {
+    "@xml:id": "biblList_N21063",
+    "bibl": {
+      "@xml:id": "bibl_d1e54725372",
+      "genre": {
+        "#text": "letter",
+        "@xml:id": "genre_N21066",
+      },
+    },
+    "head": {
+      "#text": "Sub-documents",
+      "@xml:id": "head_N21062",
+    },
+  },
+  "head": {
+    "#text": "Documents",
+    "@xml:id": "head_N21061",
+  },
+}
+`;

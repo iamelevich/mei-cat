@@ -1,0 +1,20 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`ClassificationSchema should be a valid schema for cnw0002 1`] = `
+{
+  "@xml:id": "classification_N25072",
+  "termList": {
+    "@xml:id": "termList_N25085",
+    "term": [
+      {
+        "#text": "Stage music",
+        "@xml:id": "term_N25086",
+      },
+      {
+        "#text": "Opera",
+        "@xml:id": "term_N25088",
+      },
+    ],
+  },
+}
+`;

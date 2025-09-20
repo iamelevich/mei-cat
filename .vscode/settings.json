@@ -12,5 +12,8 @@
   },
   "files.associations": {
     "*.css": "tailwindcss"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
   }
 }

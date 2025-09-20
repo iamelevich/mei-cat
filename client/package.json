@@ -3,35 +3,28 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "bunx --bun vite",
-    "build": "tsc -b && vite build",
-    "format": "biome format",
-    "format:write": "biome format --write",
-    "lint": "biome lint",
-    "lint:write": "biome lint --write",
-    "check": "biome check",
-    "preview": "vite preview"
+    "build": "react-router build",
+    "dev": "react-router dev",
+    "start": "react-router-serve ./build/server/index.js",
+    "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
-    "@elysiajs/eden": "^1.4.1",
-    "@tailwindcss/vite": "^4.1.13",
-    "@mei-cat/server": "workspace:*",
-    "lucide-react": "^0.544.0",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "sonner": "^2.0.7",
-    "tailwindcss": "^4.1.13",
-    "zustand": "^5.0.8"
+    "@react-router/node": "^7.7.1",
+    "@react-router/serve": "^7.7.1",
+    "isbot": "^5.1.27",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router": "^7.7.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.2",
-    "@types/react": "^19.1.13",
-    "@types/react-dom": "^19.1.9",
-    "@vitejs/plugin-react": "^4.7.0",
-    "typescript": "^5.9.2",
-    "vite": "^7.1.6"
-  },
-  "trustedDependencies": [
-    "@biomejs/biome"
-  ]
+    "@react-router/dev": "^7.7.1",
+    "@tailwindcss/vite": "^4.1.4",
+    "@types/node": "^20",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "tailwindcss": "^4.1.4",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.3",
+    "vite-tsconfig-paths": "^5.1.4"
+  }
 }

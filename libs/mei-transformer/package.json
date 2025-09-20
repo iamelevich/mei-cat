@@ -3,10 +3,14 @@
 	"version": "0.0.1",
 	"module": "index.ts",
 	"type": "module",
+	"exports": {
+		".": "./dist/index.js"
+	},
+  "types": "./dist/index.d.ts",
 	"scripts": {
 		"transform": "bun run files/transform.ts",
-		"manage-modules": "bun run scripts/manage-modules.ts",
-		"generate-tree": "bun run scripts/generate-tree.ts",
+    "build": "bun run build.ts && bun run build:types",
+    "build:types": "tsc ./src/index.ts --declaration --emitDeclarationOnly --outDir ./dist",
 		"check": "biome check",
 		"format": "biome format",
 		"format:write": "biome format --write .",
@@ -27,7 +31,7 @@
 	"dependencies": {
 		"fast-xml-parser": "^5.2.5",
 		"saxon-js": "^2.7.0",
-		"typebox": "^1.0.7",
-		"valibot": "^1.1.0"
+		"@mei-cat/mei-schema-valibot": "workspace:*",
+    "valibot": "^1.1.0"
 	}
 }

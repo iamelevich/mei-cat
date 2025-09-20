@@ -29,19 +29,6 @@ const json = meiXmlToJson(xml); // Will be validated against the MEI schema. Thr
 @mei-cat/mei-transformer/
 ├── src/                                    # Main source code
 │   ├── meiToJSON.ts                       # Core MEI to JSON transformation logic
-│   ├── meiTypeValibot/                    # MEI schema definitions using Valibot
-│   ├── utils/                            # Utility functions
-│   │   └── typebox.ts                    # TypeBox utilities
-│   └── __testFiles__/                    # Test data files
-├── scripts/                               # Build and generation scripts. Mostly used for development.
-│   ├── components/                       # MEI component definitions (JSON). Created by the generate-json-def.ts script.
-│   │   ├── analytical/                   # Analytical components
-│   │   ├── cmn/                          # CMN components
-│   │   ├── header/                       # Header components
-│   │   └── ...                           # Other MEI modules
-│   ├── generate-json-def.ts              # Generate JSON definitions
-│   ├── generate-valibot.ts               # Generate Valibot schemas
-│   └── manage-modules.ts                 # Module management utilities
 ├── files/                                 # Test and sample files
 │   ├── input/                            # Input MEI files for testing
 │   │   ├── cnw0002.xml
@@ -56,14 +43,6 @@ const json = meiXmlToJson(xml); // Will be validated against the MEI schema. Thr
 ```
 
 ### Key Directories
-
-- **`src/meiTypeValibot/`**: Contains TypeScript type definitions for all MEI elements, organized by MEI modules. Each module contains:
-  - `attr/`: Attribute definitions
-  - `element/`: Element definitions
-  - `model/`: Content model definitions
-  - `index.ts`: Module exports
-
-- **`scripts/components/`**: JSON definitions of MEI components used to generate the TypeScript types. Created by the generate-json-def.ts script.
 
 - **`encoding-tools/`**: XSLT transformation tools for converting between different music notation formats and MEI versions
 

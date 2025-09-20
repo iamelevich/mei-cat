@@ -1,8 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { join } from "node:path";
-import { eq } from "drizzle-orm";
 import { db } from "../db";
-import { meiFiles } from "../db/schema";
 import { env } from "../env";
 import { MeiFile } from "./meiFiles";
 

@@ -95,7 +95,7 @@ export class MeiFile {
 	/** The converted MEI 5.1 XML as string. */
 	#convertedMei51: string | null = null;
 	/** The converted MEI JSON as object. */
-	// @ts-expect-error - MeiJsonData is too deep
+	// @ts-ignore - MeiJsonData is too deep
 	#convertedJson: MeiJsonData | null = null;
 	/** The id of the MEI file. */
 	#hash: string | null = null;

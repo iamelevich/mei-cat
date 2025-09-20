@@ -9,7 +9,7 @@ describe("MeiJsonSchema", async () => {
 		expect(MeiJsonSchema).toBeDefined();
 	});
 
-	const files = await readdir(join(__dirname, "..", "__testFiles__"));
+	const files = await readdir(join(__dirname, "__testFiles__"));
 
 	test.each(files)("should be a valid schema for %s", async (file) => {
 		const fileContent = await readFile(

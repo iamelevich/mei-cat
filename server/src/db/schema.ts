@@ -9,13 +9,17 @@ import {
 	uuid,
 } from "drizzle-orm/pg-core";
 
+export * from "./authSchema";
+
 export const storageTypeEnum = pgEnum("storage_type", ["local", "s3"]);
 
 export const meiFiles = pgTable("mei_files", {
 	id: uuid("id").defaultRandom().primaryKey(),
 
 	/** The hash of the MEI 5.1 XML. */
-	hash: text("hash").unique().notNull(),
+	hash: text("hash")
+		.unique()
+		.notNull(),
 
 	/** The original file name of the MEI file. */
 	originalFileName: text("original_file_name").notNull(),

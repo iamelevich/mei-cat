@@ -32,13 +32,28 @@
         "vite": "^7.1.5",
       },
     },
+    "libs/mei-schema-valibot": {
+      "name": "@mei-cat/mei-schema-valibot",
+      "version": "0.0.1",
+      "dependencies": {
+        "valibot": "^1.1.0",
+      },
+      "devDependencies": {
+        "@biomejs/biome": "2.2.2",
+        "@types/bun": "latest",
+        "ts-expect": "^1.3.0",
+      },
+      "peerDependencies": {
+        "typescript": "^5.9.2",
+      },
+    },
     "libs/mei-transformer": {
       "name": "@mei-cat/mei-transformer",
       "version": "0.0.1",
       "dependencies": {
+        "@mei-cat/mei-schema-valibot": "workspace:*",
         "fast-xml-parser": "^5.2.5",
         "saxon-js": "^2.7.0",
-        "typebox": "^1.0.7",
         "valibot": "^1.1.0",
       },
       "devDependencies": {
@@ -59,13 +74,14 @@
       "dependencies": {
         "@elysiajs/cors": "^1.4.0",
         "@elysiajs/swagger": "^1.3.1",
+        "@mei-cat/mei-schema-valibot": "workspace:*",
+        "@mei-cat/mei-transformer": "workspace:*",
         "@tqman/nice-logger": "^1.1.1",
         "drizzle-orm": "^0.44.5",
         "drizzle-typebox": "^0.3.3",
         "elysia": "^1.4.5",
         "pg": "^8.16.3",
         "picocolors": "^1.1.1",
-        "typebox": "^1.0.7",
       },
       "devDependencies": {
         "@biomejs/biome": "2.2.2",
@@ -221,6 +237,8 @@
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.25", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ=="],
 
     "@mei-cat/client": ["@mei-cat/client@workspace:client"],
+
+    "@mei-cat/mei-schema-valibot": ["@mei-cat/mei-schema-valibot@workspace:libs/mei-schema-valibot"],
 
     "@mei-cat/mei-transformer": ["@mei-cat/mei-transformer@workspace:libs/mei-transformer"],
 
@@ -697,8 +715,6 @@
     "turbo-windows-arm64": ["turbo-windows-arm64@2.5.6", "", { "os": "win32", "cpu": "arm64" }, "sha512-j/tWu8cMeQ7HPpKri6jvKtyXg9K1gRyhdK4tKrrchH8GNHscPX/F71zax58yYtLRWTiK04zNzPcUJuoS0+v/+Q=="],
 
     "type-fest": ["type-fest@4.41.0", "", {}, "sha512-TeTSQ6H5YHvpqVwBRcnLDCBnDOHWYu7IvGbHT6N8AOymcr9PJGjc1GTtiWZTYg0NCgYwvnYWEkVChQAr9bjfwA=="],
-
-    "typebox": ["typebox@1.0.7", "", {}, "sha512-25YRpYAzWPLaY1C05W6XUHLAWosfg7NBpYf37yvhbGMZ8pyulce5DviT6fTU+1HlG9lGII/W+MZYveBI9udRog=="],
 
     "typescript": ["typescript@5.9.2", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-CWBzXQrc/qOkhidw1OzBTQuYRbfyxDXJMVJ1XNwUHGROVmuaeiEm3OslpZ1RV96d7SKKjZKrSJu3+t/xlw3R9A=="],
 

@@ -1,10 +1,8 @@
+import type { MeiJsonData, TitleData } from "@mei-cat/mei-schema-valibot";
 import {
-	type FileDescData,
 	getMeiXmlVersion,
-	type MeiJsonData,
 	meiXmlTo51,
 	meiXmlToJson,
-	type TitleData,
 } from "@mei-cat/mei-transformer";
 import type { BunFile } from "bun";
 import Elysia from "elysia";
@@ -97,6 +95,7 @@ export class MeiFile {
 	/** The converted MEI 5.1 XML as string. */
 	#convertedMei51: string | null = null;
 	/** The converted MEI JSON as object. */
+	// @ts-expect-error - MeiJsonData is too deep
 	#convertedJson: MeiJsonData | null = null;
 	/** The id of the MEI file. */
 	#hash: string | null = null;
@@ -252,7 +251,7 @@ export class MeiFile {
 	 */
 	private async fillFileDesc(file: MeiFileSelect) {
 		const json = await this.json;
-		const fileDescElement: FileDescData = json.mei.meiHead.fileDesc;
+		const fileDescElement = json.mei.meiHead.fileDesc;
 
 		const [fileDescItem] = await db
 			.insert(fileDesc)
@@ -281,6 +280,7 @@ export class MeiFile {
 				.returning();
 		}
 
+		// Fill the respStmt table with the MEI file data.
 		for (const respStmtLikeEnumValue of respStmtLikeEnum.enumValues) {
 			const respStmtElement = titleStmtElement[respStmtLikeEnumValue];
 			if (!respStmtElement) continue;

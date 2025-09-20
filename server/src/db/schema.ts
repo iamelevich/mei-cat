@@ -1,3 +1,4 @@
+import type { ModelRespLikeData } from "@mei-cat/mei-schema-valibot";
 import { relations } from "drizzle-orm";
 import {
 	json,
@@ -114,7 +115,9 @@ export const respStmt = pgTable("resp_stmt", {
 
 	type: respStmtLikeEnum().notNull(),
 
-	data: json("data").notNull(),
+	data: json("data")
+		.$type<ModelRespLikeData[keyof ModelRespLikeData]>()
+		.notNull(),
 
 	createdAt: timestamp("created_at", { withTimezone: false })
 		.notNull()

@@ -37,7 +37,7 @@ describe("meiFilesRoutes", () => {
 	it("should return 404 if the mei file does not exist", async () => {
 		const response = await api
 			.mei({
-				id: "test1",
+				id: "832992c8-6805-4379-5fea-7069e8e2e123",
 			})
 			.get();
 		expect(response.status).toBe(404);
@@ -57,7 +57,7 @@ describe("meiFilesRoutes", () => {
 			meiFiles: {
 				columns: {
 					id: funcs.valuesFromArray({
-						values: ["test1"],
+						values: ["832992c8-6805-4379-5fea-7069e8e2e123"],
 					}),
 				},
 			},
@@ -65,7 +65,7 @@ describe("meiFilesRoutes", () => {
 
 		const response = await api
 			.mei({
-				id: "test1",
+				id: "832992c8-6805-4379-5fea-7069e8e2e123",
 			})
 			.get();
 
@@ -92,7 +92,7 @@ describe("meiFilesRoutes", () => {
 		expect(response.data).toEqual({
 			id: expect.any(String),
 			convertedFileName: "mei_idm139988010758416.mei51.xml",
-			hash: "139988010758416",
+			hash: "1ee1513faac4e760",
 			originalFileName: "mei_idm139988010758416.xml",
 			originalMeiVersion: "4.0.1",
 			storagePath: env.STORAGE_PATH,

@@ -1,3 +1,4 @@
+import { count } from "drizzle-orm";
 import Elysia, { t } from "elysia";
 import { db } from "../db";
 import { meiFiles } from "../db/schema";
@@ -12,10 +13,49 @@ const createMeiFile = t.Object({
 
 export const meiRoutes = new Elysia({ prefix: ROUTE_PREFIX })
 	.use(meiFilesService)
-	// List all MEI files
-	.get("/", async () => {
-		return db.select().from(meiFiles);
-	})
+	// List all MEI files with pagination
+	.get(
+		"/",
+		async ({ query }) => {
+			const page = query.page ?? 1;
+			const limit = query.limit ?? 10;
+			const offset = (page - 1) * limit;
+
+			// Get total count
+			const totalCountResult = await db
+				.select({ count: count() })
+				.from(meiFiles);
+			const totalCount = totalCountResult[0]?.count ?? 0;
+
+			// Get paginated results
+			const files = await db
+				.select()
+				.from(meiFiles)
+				.orderBy(meiFiles.createdAt)
+				.limit(limit)
+				.offset(offset);
+
+			const totalPages = Math.ceil(totalCount / limit);
+
+			return {
+				data: files,
+				pagination: {
+					page,
+					limit,
+					totalCount,
+					totalPages,
+					hasNextPage: page < totalPages,
+					hasPrevPage: page > 1,
+				},
+			};
+		},
+		{
+			query: t.Object({
+				page: t.Optional(t.Number({ minimum: 1 })),
+				limit: t.Optional(t.Number({ minimum: 1, maximum: 100 })),
+			}),
+		},
+	)
 	// Get MEI file by id
 	.get("/:id", async ({ params, status }) => {
 		const file = await db.query.meiFiles.findFirst({

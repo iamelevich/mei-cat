@@ -15,7 +15,7 @@ export const meiFiles = pgTable("mei_files", {
 	id: uuid("id").defaultRandom().primaryKey(),
 
 	/** The hash of the MEI 5.1 XML. */
-	hash: text("hash").notNull(),
+	hash: text("hash").unique().notNull(),
 
 	/** The original file name of the MEI file. */
 	originalFileName: text("original_file_name").notNull(),
@@ -48,10 +48,12 @@ export const meiFilesRelations = relations(meiFiles, ({ one }) => ({
 export const fileDesc = pgTable("file_desc", {
 	id: uuid("id").defaultRandom().primaryKey(),
 
-	fileId: uuid("file_id").references(() => meiFiles.id),
+	fileId: uuid("file_id").references(() => meiFiles.id, {
+		onDelete: "cascade",
+	}),
 });
 
-export const fileDescRelations = relations(fileDesc, ({ many, one }) => ({
+export const fileDescRelations = relations(fileDesc, ({ one }) => ({
 	titleStmt: one(titleStmt, {
 		fields: [fileDesc.id],
 		references: [titleStmt.fileDescId],
@@ -64,7 +66,9 @@ export const fileDescRelations = relations(fileDesc, ({ many, one }) => ({
 
 export const titleStmt = pgTable("title_stmt", {
 	id: uuid("id").defaultRandom().primaryKey(),
-	fileDescId: uuid("file_desc_id").references(() => fileDesc.id),
+	fileDescId: uuid("file_desc_id").references(() => fileDesc.id, {
+		onDelete: "cascade",
+	}),
 
 	createdAt: timestamp("created_at", { withTimezone: false })
 		.notNull()
@@ -85,7 +89,9 @@ export const titleStmtRelations = relations(titleStmt, ({ one, many }) => ({
 
 export const title = pgTable("title", {
 	id: uuid("id").defaultRandom().primaryKey(),
-	titleStmtId: uuid("title_stmt_id").references(() => titleStmt.id),
+	titleStmtId: uuid("title_stmt_id").references(() => titleStmt.id, {
+		onDelete: "cascade",
+	}),
 	title: text("title").notNull(),
 	language: text("language"),
 });
@@ -111,7 +117,9 @@ export const respStmtLikeEnum = pgEnum("resp_stmt_like_enum", [
 
 export const respStmt = pgTable("resp_stmt", {
 	id: uuid("id").defaultRandom().primaryKey(),
-	titleStmtId: uuid("title_stmt_id").references(() => titleStmt.id),
+	titleStmtId: uuid("title_stmt_id").references(() => titleStmt.id, {
+		onDelete: "cascade",
+	}),
 
 	type: respStmtLikeEnum().notNull(),
 

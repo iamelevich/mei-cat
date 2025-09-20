@@ -1,4 +1,4 @@
-import { describe, expect, it } from "bun:test";
+import { afterEach, describe, expect, it } from "bun:test";
 import { join } from "node:path";
 import { treaty } from "@elysiajs/eden";
 import { seed } from "drizzle-seed";
@@ -10,12 +10,16 @@ import { meiRoutes } from "./mei";
 const api = treaty(meiRoutes);
 
 describe("meiFilesRoutes", () => {
+	afterEach(async () => {
+		await db.delete(meiFiles);
+	});
+
 	it("should be defined", () => {
 		expect(meiRoutes).toBeDefined();
 		expect(api).toBeDefined();
 	});
 
-	it("should get all mei files", async () => {
+	it("should get all mei files with pagination", async () => {
 		await seed(
 			db,
 			{
@@ -31,7 +35,104 @@ describe("meiFilesRoutes", () => {
 		expect(response.data).not.toBeNull();
 		expect(response.status).toBe(200);
 
-		expect(response.data?.length).toBeGreaterThanOrEqual(2);
+		// Check pagination structure
+		expect(response.data).toHaveProperty("data");
+		expect(response.data).toHaveProperty("pagination");
+		expect(response.data?.data).toBeInstanceOf(Array);
+		expect(response.data?.data.length).toBeGreaterThanOrEqual(2);
+
+		// Check pagination metadata
+		expect(response.data?.pagination).toEqual({
+			page: 1,
+			limit: 10,
+			totalCount: 2,
+			totalPages: 1,
+			hasNextPage: false,
+			hasPrevPage: false,
+		});
+	});
+
+	it("should handle pagination parameters correctly", async () => {
+		await seed(
+			db,
+			{
+				meiFiles,
+			},
+			{
+				count: 15,
+			},
+		);
+
+		// Test first page with limit 5
+		const response1 = await api.mei.get({
+			query: { page: 1, limit: 5 },
+		});
+
+		expect(response1.data).not.toBeNull();
+		expect(response1.status).toBe(200);
+		expect(response1.data?.data.length).toBe(5);
+		expect(response1.data?.pagination).toEqual({
+			page: 1,
+			limit: 5,
+			totalCount: 15,
+			totalPages: 3,
+			hasNextPage: true,
+			hasPrevPage: false,
+		});
+
+		// Test second page
+		const response2 = await api.mei.get({
+			query: { page: 2, limit: 5 },
+		});
+
+		expect(response2.data).not.toBeNull();
+		expect(response2.status).toBe(200);
+		expect(response2.data?.data.length).toBe(5);
+		expect(response2.data?.pagination).toEqual({
+			page: 2,
+			limit: 5,
+			totalCount: 15,
+			totalPages: 3,
+			hasNextPage: true,
+			hasPrevPage: true,
+		});
+
+		// Test last page
+		const response3 = await api.mei.get({
+			query: { page: 3, limit: 5 },
+		});
+
+		expect(response3.data).not.toBeNull();
+		expect(response3.status).toBe(200);
+		expect(response3.data?.data.length).toBe(5);
+		expect(response3.data?.pagination).toEqual({
+			page: 3,
+			limit: 5,
+			totalCount: 15,
+			totalPages: 3,
+			hasNextPage: false,
+			hasPrevPage: true,
+		});
+	});
+
+	it("should handle invalid pagination parameters", async () => {
+		// Test negative page
+		const response1 = await api.mei.get({
+			query: { page: -1, limit: 10 },
+		});
+		expect(response1.status).toBe(422);
+
+		// Test zero limit
+		const response2 = await api.mei.get({
+			query: { page: 1, limit: 0 },
+		});
+		expect(response2.status).toBe(422);
+
+		// Test limit exceeding maximum
+		const response3 = await api.mei.get({
+			query: { page: 1, limit: 101 },
+		});
+		expect(response3.status).toBe(422);
 	});
 
 	it("should return 404 if the mei file does not exist", async () => {

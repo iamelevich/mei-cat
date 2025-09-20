@@ -1,0 +1,1 @@
+ALTER TABLE "mei_files" ADD CONSTRAINT "mei_files_hash_unique" UNIQUE("hash");

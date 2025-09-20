@@ -38,12 +38,12 @@ export const MeiSchema = v.lazy(() =>
 			 * Reference to element meiHead
 			 * @see https://music-encoding.org/guidelines/v5/elements/meiHead.html
 			 */
-			meiHead: v.optional(MeiHeadSchema),
+			meiHead: MeiHeadSchema,
 			/**
 			 * Reference to element music
 			 * @see https://music-encoding.org/guidelines/v5/elements/music.html
 			 */
-			music: v.optional(MusicSchema),
+			music: MusicSchema,
 		}),
 	]),
 );

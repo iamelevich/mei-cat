@@ -1,11 +1,24 @@
 import {
+	type FileDescData,
 	getMeiXmlVersion,
-	type MeiJSON,
+	type MeiJsonData,
 	meiXmlTo51,
 	meiXmlToJson,
+	type TitleData,
 } from "@mei-cat/mei-transformer";
+import type { BunFile } from "bun";
 import Elysia from "elysia";
+import { db } from "../db";
+import {
+	fileDesc,
+	meiFiles,
+	respStmt,
+	respStmtLikeEnum,
+	title,
+	titleStmt,
+} from "../db/schema";
 import { env } from "../env";
+import type { MeiFileSelect } from "../exports";
 import {
 	MeiFileDownloadError,
 	MeiFileInvalidContentTypeError,
@@ -68,13 +81,25 @@ export class MeiFile {
 		}
 	}
 
+	/**
+	 * Create a MeiFile object from a File object.
+	 * @param file - The File object.
+	 * @returns A MeiFile object.
+	 */
+	static async fromFile(file: BunFile) {
+		const xml = await file.text();
+		return new MeiFile(xml);
+	}
+
 	/** The original MEI XML version. */
 	public readonly version: string;
 
 	/** The converted MEI 5.1 XML as string. */
 	#convertedMei51: string | null = null;
 	/** The converted MEI JSON as object. */
-	#convertedJson: MeiJSON | null = null;
+	#convertedJson: MeiJsonData | null = null;
+	/** The id of the MEI file. */
+	#hash: string | null = null;
 
 	/**
 	 * @param xml - MEI XML as string
@@ -97,7 +122,7 @@ export class MeiFile {
 	/**
 	 * The converted MEI JSON as object.
 	 */
-	get json(): Promise<MeiJSON> {
+	get json(): Promise<MeiJsonData> {
 		if (this.#convertedJson) return Promise.resolve(this.#convertedJson);
 		return this.mei51.then((xml) => {
 			this.#convertedJson = meiXmlToJson(xml);
@@ -106,19 +131,29 @@ export class MeiFile {
 	}
 
 	/**
+	 * The hash of the MEI 5.1 XML.
+	 */
+	get hash(): string {
+		if (this.#hash) return this.#hash;
+		if (!this.#convertedMei51) throw new Error("MEI 5.1 XML not converted");
+		this.#hash = Bun.hash(this.#convertedMei51).toString(16);
+		return this.#hash;
+	}
+
+	/**
 	 * The MEI XML ID.
 	 */
-	get id() {
-		if (!this.#convertedJson) throw new Error("MEI JSON not converted");
-		const id = this.#convertedJson.mei["@xml:id"];
-		if (!id) throw new Error("MEI XML ID not found");
-		return id;
+	get id(): string {
+		if (this.#convertedJson?.mei["@xml:id"]) {
+			return this.#convertedJson.mei["@xml:id"];
+		}
+		return this.hash;
 	}
 
 	/**
 	 * Save the MEI file to the storage.
 	 */
-	async save() {
+	async saveFiles() {
 		const mei = await this.mei51;
 		const id = this.id;
 		const originalFileName = `${id}.xml`;
@@ -141,5 +176,127 @@ export class MeiFile {
 			storagePath,
 			storageType: env.STORAGE_TYPE,
 		};
+	}
+
+	/**
+	 *
+	 * @returns True if the files were deleted, false otherwise.
+	 */
+	async deleteFiles() {
+		const id = this.id;
+		const originalFileName = `${id}.xml`;
+		const convertedFileName = `${id}.mei51.xml`;
+		let storagePath: string;
+
+		try {
+			switch (env.STORAGE_TYPE) {
+				case "local":
+					storagePath = env.STORAGE_PATH;
+					await Bun.file(`${storagePath}/${originalFileName}`).delete();
+					await Bun.file(`${storagePath}/${convertedFileName}`).delete();
+					break;
+				default:
+					throw new Error(`Unsupported storage type: ${env.STORAGE_TYPE}`);
+			}
+		} catch (error) {
+			console.error("Failed to delete MEI file", error);
+			return false;
+		}
+		return true;
+	}
+
+	/** Fill the database with the MEI file data */
+	async fillDB() {
+		try {
+			// Convert the MEI file to JSON to fill all fields.
+			// Need to be done before saving the files to the database.
+			await this.json;
+
+			// Check if file already exists in the DB by hash
+			const existingFile = await db.query.meiFiles.findFirst({
+				where: (file, { eq }) => eq(file.hash, this.hash),
+			});
+			if (existingFile) {
+				throw new Error("MEI file already exists in the DB");
+			}
+
+			const { originalFileName, convertedFileName, storageType, storagePath } =
+				await this.saveFiles();
+			const [file] = await db
+				.insert(meiFiles)
+				.values({
+					hash: this.hash,
+					originalFileName,
+					convertedFileName,
+					originalMeiVersion: this.version,
+					storageType,
+					storagePath,
+				})
+				.returning();
+
+			await this.fillFileDesc(file);
+
+			return file;
+		} catch (error) {
+			console.error("Failed to fill database with MEI file data", error);
+			if (this.#convertedMei51) {
+				await this.deleteFiles();
+			}
+			throw error;
+		}
+	}
+
+	/**
+	 * Fill the fileDesc table with the MEI file data.
+	 * @param file - The MEI file object.
+	 */
+	private async fillFileDesc(file: MeiFileSelect) {
+		const json = await this.json;
+		const fileDescElement: FileDescData = json.mei.meiHead.fileDesc;
+
+		const [fileDescItem] = await db
+			.insert(fileDesc)
+			.values({ fileId: file.id })
+			.returning();
+
+		const titleStmtElement = fileDescElement.titleStmt;
+
+		const [titleStmtItem] = await db
+			.insert(titleStmt)
+			.values({ fileDescId: fileDescItem.id })
+			.returning();
+
+		if (!titleStmtElement.title) throw new Error("Title element not found");
+		const titleElements: TitleData[] = Array.isArray(titleStmtElement.title)
+			? titleStmtElement.title
+			: [titleStmtElement.title];
+		for (const titleElement of titleElements) {
+			if (!titleElement["#text"])
+				throw new Error("Title element text not found");
+			const titleText = titleElement["#text"];
+			const language = titleElement["@xml:lang"] ?? null;
+			await db
+				.insert(title)
+				.values({ titleStmtId: titleStmtItem.id, title: titleText, language })
+				.returning();
+		}
+
+		for (const respStmtLikeEnumValue of respStmtLikeEnum.enumValues) {
+			const respStmtElement = titleStmtElement[respStmtLikeEnumValue];
+			if (!respStmtElement) continue;
+			const respStmtElements = Array.isArray(respStmtElement)
+				? respStmtElement
+				: [respStmtElement];
+			for (const respStmtElement of respStmtElements) {
+				await db
+					.insert(respStmt)
+					.values({
+						titleStmtId: titleStmtItem.id,
+						type: respStmtLikeEnumValue,
+						data: respStmtElement,
+					})
+					.returning();
+			}
+		}
 	}
 }

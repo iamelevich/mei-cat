@@ -36,55 +36,10 @@ export const meiRoutes = new Elysia({ prefix: ROUTE_PREFIX })
 				// Download MEI XML from URL
 				const meiFile = await meiFilesService.fromURL(body.url);
 
-				// Convert to JSON
-				const json = await meiFile.json;
-
-				// Extract metadata from JSON
-				// id: json.mei["xml:id"]
-				// title: json.mei.meiHead.fileDesc.titleStmt.title (string or first element if array)
-				// language: json.mei.meiHead.fileDesc.titleStmt.title["xml:lang"]
-				// originalFileName: `${id}.xml`
-				// convertedFileName: generated (e.g. `${id}.mei51.xml`)
-
-				const id = meiFile.id;
-				let title = "Untitled";
-				let language = "und";
-				try {
-					const mei = json.mei;
-					let titleNode = mei.meiHead.fileDesc.titleStmt.title;
-					if (Array.isArray(titleNode)) {
-						titleNode = titleNode[0];
-					}
-					title = titleNode["#text"] ?? "Untitled";
-					language = titleNode["@xml:lang"] ?? "und";
-				} catch (error) {
-					console.error("Failed to extract metadata from MEI file", error);
-				}
-				const {
-					originalFileName,
-					convertedFileName,
-					storagePath,
-					storageType,
-				} = await meiFile.save();
-
 				// Insert into DB
 				try {
-					const [file] = await db
-						.insert(meiFiles)
-						.values({
-							id,
-							originalFileName,
-							convertedFileName,
-							originalMeiVersion: meiFile.version,
-							storageType,
-							storagePath,
-							title,
-							language,
-						})
-						.returning();
-					return file;
+					return meiFile.fillDB();
 				} catch (error) {
-					console.error("Failed to insert MEI file into DB", error);
 					return status(500, {
 						error: "Failed to insert MEI file into DB",
 						cause: error instanceof Error ? error.cause : undefined,

@@ -46,7 +46,7 @@ export const FileDescSchema = v.lazy(() =>
 			 * Reference to element pubStmt
 			 * @see https://music-encoding.org/guidelines/v5/elements/pubStmt.html
 			 */
-			pubStmt: v.optional(PubStmtSchema),
+			pubStmt: PubStmtSchema,
 			/**
 			 * Reference to element seriesStmt
 			 * @see https://music-encoding.org/guidelines/v5/elements/seriesStmt.html
@@ -61,7 +61,7 @@ export const FileDescSchema = v.lazy(() =>
 			 * Reference to element titleStmt
 			 * @see https://music-encoding.org/guidelines/v5/elements/titleStmt.html
 			 */
-			titleStmt: v.optional(TitleStmtSchema),
+			titleStmt: TitleStmtSchema,
 		}),
 	]),
 );

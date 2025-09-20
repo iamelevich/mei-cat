@@ -60,7 +60,7 @@ export const MeiHeadSchema = v.lazy(() =>
 			 * Reference to element fileDesc
 			 * @see https://music-encoding.org/guidelines/v5/elements/fileDesc.html
 			 */
-			fileDesc: v.optional(FileDescSchema),
+			fileDesc: FileDescSchema,
 			/**
 			 * Reference to element manifestationList
 			 * @see https://music-encoding.org/guidelines/v5/elements/manifestationList.html

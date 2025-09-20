@@ -1,25 +1,11 @@
-import { beforeAll, describe, expect, it } from "bun:test";
+import { describe, expect, it } from "bun:test";
 import { join } from "node:path";
 import { treaty } from "@elysiajs/eden";
 import { seed } from "drizzle-seed";
-import { rimraf } from "rimraf";
 import { db } from "../db";
-import { migrateDB } from "../db/migrate";
 import { meiFiles } from "../db/schema";
 import { env } from "../env";
 import { meiRoutes } from "./mei";
-
-// Run migrations before all tests to ensure the database is in a clean state
-beforeAll(async (done) => {
-	// Migrate and reset the database before all tests
-	await migrateDB(true);
-
-	// Clean up storage before all tests
-	console.log(`Cleaning storage ${env.STORAGE_PATH}`);
-	await rimraf(env.STORAGE_PATH);
-
-	done();
-});
 
 const api = treaty(meiRoutes);
 
@@ -104,24 +90,23 @@ describe("meiFilesRoutes", () => {
 		expect(response.status).toBe(200);
 
 		expect(response.data).toEqual({
+			id: expect.any(String),
 			convertedFileName: "mei_idm139988010758416.mei51.xml",
-			id: "mei_idm139988010758416",
-			language: "da",
+			hash: "139988010758416",
 			originalFileName: "mei_idm139988010758416.xml",
 			originalMeiVersion: "4.0.1",
 			storagePath: env.STORAGE_PATH,
 			storageType: env.STORAGE_TYPE,
-			title: "Maskarade",
-			createdAt: expect.any(String),
-			updatedAt: expect.any(String),
+			createdAt: expect.any(Date),
+			updatedAt: expect.any(Date),
 		});
 
 		const inputFile = Bun.file(inputFilePath);
 		const outputFile = Bun.file(
 			join(env.STORAGE_PATH, response.data?.originalFileName ?? ""),
 		);
-		expect(await outputFile.exists()).toBe(true);
-		expect(await inputFile.exists()).toBe(true);
+		expect(await outputFile.exists(), "Output file does not exist").toBe(true);
+		expect(await inputFile.exists(), "Input file does not exist").toBe(true);
 
 		// Read contents of input and output files
 		const inputContent = await inputFile.text();

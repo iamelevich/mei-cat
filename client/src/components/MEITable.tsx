@@ -60,12 +60,7 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
-import {
-	invalidateMeiFiles,
-	MEI_QUERY_KEY,
-	type MeiFile,
-	useMeiFiles,
-} from "@/data/mei";
+import { invalidateMeiFiles, type MeiFile, useMeiFiles } from "@/data/mei";
 import { app } from "@/lib/app";
 import { saveAsXML } from "@/lib/file-utils";
 import { UploadMeiFileDialog } from "./UploadMeiFileDialog";
@@ -297,6 +292,7 @@ export function MEITable() {
 		[],
 	);
 	const [sorting, setSorting] = React.useState<SortingState>([]);
+	const [isBatchDeleting, setIsBatchDeleting] = React.useState(false);
 
 	const dataIds = React.useMemo<UniqueIdentifier[]>(
 		() => data?.data.map(({ id }) => id) || [],
@@ -329,6 +325,57 @@ export function MEITable() {
 		getFacetedRowModel: getFacetedRowModel(),
 		getFacetedUniqueValues: getFacetedUniqueValues(),
 	});
+
+	const selectedRows = table.getFilteredSelectedRowModel().rows;
+	const selectedCount = selectedRows.length;
+	const hasMultipleSelected = selectedCount >= 1;
+
+	const queryClient = useQueryClient();
+
+	const handleBatchDelete = async () => {
+		if (selectedCount === 0) return;
+
+		setIsBatchDeleting(true);
+
+		try {
+			const selectedIds = selectedRows.map((row) => row.original.id);
+			const response = await app.api.mei.batch.delete({
+				ids: selectedIds,
+			});
+
+			if (response.status === 200 && response.data) {
+				const { successCount, errorCount, errors } = response.data;
+
+				if (errorCount === 0) {
+					toast.success(`Successfully deleted ${successCount} MEI file(s)`);
+				} else if (successCount > 0) {
+					toast.warning(
+						`Deleted ${successCount} file(s), ${errorCount} failed`,
+					);
+					// Show specific errors
+					errors.forEach(({ id, error }: { id: string; error: string }) => {
+						toast.error(`Failed to delete ${id}: ${error}`);
+					});
+				} else {
+					toast.error("Failed to delete all selected files");
+					errors.forEach(({ id, error }: { id: string; error: string }) => {
+						toast.error(`Failed to delete ${id}: ${error}`);
+					});
+				}
+
+				// Clear selection and refresh data
+				setRowSelection({});
+				invalidateMeiFiles(queryClient);
+			} else {
+				toast.error("Failed to delete selected files");
+			}
+		} catch (error) {
+			toast.error("Failed to delete selected files");
+			console.error("Batch delete error:", error);
+		} finally {
+			setIsBatchDeleting(false);
+		}
+	};
 
 	// biome-ignore lint/correctness/noNestedComponentDefinitions: Just ignore here
 	const TableContent = () => {
@@ -507,6 +554,45 @@ export function MEITable() {
 								})}
 						</DropdownMenuContent>
 					</DropdownMenu>
+					{hasMultipleSelected && (
+						<AlertDialog>
+							<AlertDialogTrigger asChild>
+								<Button
+									variant="destructive"
+									size="sm"
+									disabled={isLoading || isBatchDeleting}
+									className="min-w-8 duration-200 ease-linear"
+								>
+									<IconTrash />
+									<span className="hidden lg:inline ml-2">
+										Delete Selected ({selectedCount})
+									</span>
+								</Button>
+							</AlertDialogTrigger>
+							<AlertDialogContent>
+								<AlertDialogHeader>
+									<AlertDialogTitle>
+										Delete {selectedCount} MEI files?
+									</AlertDialogTitle>
+									<AlertDialogDescription>
+										This action cannot be undone. This will permanently delete{" "}
+										{selectedCount} MEI file(s) and remove them from our
+										servers.
+									</AlertDialogDescription>
+								</AlertDialogHeader>
+								<AlertDialogFooter>
+									<AlertDialogCancel>Cancel</AlertDialogCancel>
+									<AlertDialogAction
+										variant="destructive"
+										onClick={handleBatchDelete}
+										disabled={isBatchDeleting}
+									>
+										{isBatchDeleting ? "Deleting..." : "Delete"}
+									</AlertDialogAction>
+								</AlertDialogFooter>
+							</AlertDialogContent>
+						</AlertDialog>
+					)}
 					<UploadMeiFileDialog>
 						<Button
 							variant="outline"

@@ -50,4 +50,25 @@ describe("MeiFile", () => {
 		expect(fileInDB?.fileDesc?.titleStmt.title).toBeArrayOfSize(2);
 		expect(fileInDB?.fileDesc?.titleStmt.respStmt).toBeArrayOfSize(2);
 	});
+
+	test("should handle batch delete with valid and invalid IDs", async () => {
+		// Test batch delete with only invalid IDs first (using valid UUID format)
+		const invalidIds = [
+			"550e8400-e29b-41d4-a716-446655440001",
+			"550e8400-e29b-41d4-a716-446655440002",
+		];
+		const batchResultsInvalid = await MeiFile.deleteBatch(invalidIds);
+
+		expect(batchResultsInvalid.successCount).toBe(0);
+		expect(batchResultsInvalid.errorCount).toBe(2);
+		expect(batchResultsInvalid.errors).toHaveLength(2);
+		expect(batchResultsInvalid.errors[0].error).toBe("MEI file not found");
+		expect(batchResultsInvalid.errors[1].error).toBe("MEI file not found");
+
+		// Test batch delete with empty array
+		const emptyResults = await MeiFile.deleteBatch([]);
+		expect(emptyResults.successCount).toBe(0);
+		expect(emptyResults.errorCount).toBe(0);
+		expect(emptyResults.errors).toHaveLength(0);
+	});
 });

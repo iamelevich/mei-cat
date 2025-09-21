@@ -49,6 +49,9 @@ export const meiFilesService = new Elysia({ name: "meiFilesService" }).decorate(
 		delete: (meiFile: MeiFileSelect) => {
 			return MeiFile.delete(meiFile);
 		},
+		deleteBatch: (ids: string[]) => {
+			return MeiFile.deleteBatch(ids);
+		},
 	},
 );
 
@@ -145,6 +148,50 @@ export class MeiFile {
 			console.error("Failed to delete MEI file entity", error);
 			return false;
 		}
+	}
+
+	/**
+	 * Delete multiple MEI files by their IDs.
+	 * @param ids - Array of MEI file IDs to delete.
+	 * @returns Object with success count and any errors that occurred.
+	 */
+	static async deleteBatch(ids: string[]) {
+		const results = {
+			successCount: 0,
+			errorCount: 0,
+			errors: [] as Array<{ id: string; error: string }>,
+		};
+
+		// Get all MEI files first to avoid deleting files that don't exist
+		const meiFilesToDelete = await db.query.meiFiles.findMany({
+			where: (meiFiles, { inArray }) => inArray(meiFiles.id, ids),
+		});
+
+		// Track which IDs were found
+		const foundIds = new Set(meiFilesToDelete.map((file) => file.id));
+
+		// Add errors for IDs that don't exist
+		for (const id of ids) {
+			if (!foundIds.has(id)) {
+				results.errors.push({ id, error: "MEI file not found" });
+				results.errorCount++;
+			}
+		}
+
+		// Delete each MEI file
+		for (const meiFile of meiFilesToDelete) {
+			try {
+				await MeiFile.delete(meiFile);
+				results.successCount++;
+			} catch (error) {
+				const errorMessage =
+					error instanceof Error ? error.message : "Unknown error";
+				results.errors.push({ id: meiFile.id, error: errorMessage });
+				results.errorCount++;
+			}
+		}
+
+		return results;
 	}
 
 	/** The original MEI XML version. */

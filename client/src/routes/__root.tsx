@@ -6,6 +6,7 @@ import {
 	redirect,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
+import { NotFound } from "@/components/NotFound";
 import { Toaster } from "@/components/ui/sonner";
 import { authClient } from "@/lib/auth-client";
 import TanStackQueryDevtools from "../integrations/tanstack-query/devtools";
@@ -24,6 +25,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 		}
 	},
 	component: Layout,
+	notFoundComponent: NotFound,
 });
 
 function Layout() {

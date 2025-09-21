@@ -3,4 +3,8 @@ import { meiRoutes } from "./routes/mei";
 
 export const api = new Elysia({
 	prefix: "/api",
-}).use(meiRoutes);
+})
+	.get("/health", () => {
+		return { status: "ok" };
+	})
+	.use(meiRoutes);

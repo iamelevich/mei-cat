@@ -73,6 +73,17 @@ export class APINotFoundError extends APIError {
 }
 
 /**
+ * Error thrown when a validation error occurs.
+ */
+export class APIValidationError extends APIError {
+	constructor(message: string, options?: ErrorOptions) {
+		super(StatusCodes.BAD_REQUEST, message, options);
+
+		this.name = "APIValidationError";
+	}
+}
+
+/**
  * Common error response schema.
  */
 export const ErrorResponseSchema = t.Object({

@@ -287,6 +287,7 @@ export class MeiFile {
 	/** The converted MEI 5.1 XML as string. */
 	#convertedMei51: string | null = null;
 	/** The converted MEI JSON as object. */
+	// @ts-expect-error - Too complex type.
 	#convertedJson: MeiJsonData | null = null;
 	/** The id of the MEI file. */
 	#hash: string | null = null;

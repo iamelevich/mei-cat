@@ -6,6 +6,7 @@
     "libs/*"
   ],
   "scripts": {
+    "start": "bun run ./dist/index.js",
     "dev": "turbo run dev",
     "check": "turbo run check",
     "build": "turbo run build",

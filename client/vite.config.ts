@@ -8,22 +8,6 @@ import { defineConfig } from "vite";
 export default defineConfig({
   server: {
     port: 3001,
-  },
-	plugins: [
-		tanstackRouter({ autoCodeSplitting: true }),
-		viteReact(),
-		tailwindcss(),
-	],
-	test: {
-		globals: true,
-		environment: "jsdom",
-	},
-	resolve: {
-		alias: {
-			"@": resolve(__dirname, "./src"),
-		},
-	},
-	server: {
 		proxy: {
 			"/api": {
 				target: "http://localhost:3000",
@@ -33,6 +17,16 @@ export default defineConfig({
         target: "http://localhost:3000",
         changeOrigin: true,
       },
+		},
+  },
+	plugins: [
+		tanstackRouter({ autoCodeSplitting: true }),
+		viteReact(),
+		tailwindcss(),
+	],
+	resolve: {
+		alias: {
+			"@": resolve(__dirname, "./src"),
 		},
 	},
   build: {

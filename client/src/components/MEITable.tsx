@@ -11,7 +11,9 @@ import {
 	IconChevronsRight,
 	IconDotsVertical,
 	IconDownload,
+	IconEye,
 	IconLayoutColumns,
+	IconPencil,
 	IconRefresh,
 	IconTrash,
 	IconUpload,
@@ -76,6 +78,7 @@ import {
 	AlertDialogTitle,
 	AlertDialogTrigger,
 } from "./ui/alert-dialog";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 const columns: ColumnDef<MeiFile>[] = [
 	{
@@ -126,6 +129,47 @@ const columns: ColumnDef<MeiFile>[] = [
 		enableHiding: false,
 	},
 	{
+		accessorKey: "publishers",
+		header: "Publishers",
+		cell: ({ row }) => {
+			const publishers = row.original.publishers ?? [];
+			return (
+				<div className="flex flex-col">
+					{publishers.map((publisher) => {
+						if (publisher.isUnpub) {
+							return <div key={publisher.pubStmtId}>Unpublished</div>;
+						}
+						const companyElement = () => {
+							const companyName = publisher.company?.abbr?.["#text"];
+							const fullName = publisher.company?.expan?.["#text"];
+							if (companyName && fullName) {
+								return (
+									<span>
+										by{" "}
+										<Tooltip>
+											<TooltipTrigger>{companyName}</TooltipTrigger>
+											<TooltipContent>{fullName}</TooltipContent>
+										</Tooltip>
+									</span>
+								);
+							} else if (companyName) {
+								return <span> by {companyName}</span>;
+							} else if (fullName) {
+								return <span> by {fullName}</span>;
+							}
+							return "";
+						};
+						return (
+							<div key={publisher.pubStmtId}>
+								{publisher.date} {companyElement()}
+							</div>
+						);
+					})}
+				</div>
+			);
+		},
+	},
+	{
 		accessorKey: "createdAt",
 		header: "Created",
 		cell: ({ row }) => (
@@ -163,8 +207,13 @@ const columns: ColumnDef<MeiFile>[] = [
 								</Button>
 							</DropdownMenuTrigger>
 							<DropdownMenuContent align="end" className="w-32">
-								<DropdownMenuItem>View Details</DropdownMenuItem>
-								<DropdownMenuItem>Edit</DropdownMenuItem>
+								<DropdownMenuItem>
+									<IconEye /> View
+								</DropdownMenuItem>
+								<DropdownMenuItem disabled>
+									<IconPencil />
+									Edit
+								</DropdownMenuItem>
 								<DropdownMenuSeparator />
 								<DropdownMenuItem
 									onClick={async () => {

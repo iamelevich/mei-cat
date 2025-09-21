@@ -28,6 +28,24 @@ export const MeiListItemSchema = t.Object({
 		}),
 		{ description: "Array of titles" },
 	),
+	publishers: t.Array(
+		t.Object({
+			pubStmtId: t.String({ description: "Publisher ID" }),
+			isUnpub: t.Boolean({
+				description: "Whether the publisher is unpublished",
+			}),
+			company: t.Nullable(t.Any({ description: "Company of the publisher" })),
+			date: t.Nullable(t.String({ description: "Date of the publisher" })),
+			persons: t.Array(
+				t.Object({
+					name: t.String({ description: "Name of the person" }),
+					role: t.String({ description: "Role of the person" }),
+				}),
+				{ description: "Array of persons" },
+			),
+		}),
+		{ description: "Array of publishers" },
+	),
 	createdAt: t.Date({
 		description: "Timestamp when the file was first processed",
 	}),
@@ -72,6 +90,16 @@ export const meiListRoutes = new Elysia({}) // List all MEI files with paginatio
 									},
 								},
 							},
+							pubStmt: {
+								with: {
+									person: {
+										columns: {
+											name: true,
+											role: true,
+										},
+									},
+								},
+							},
 						},
 					},
 				},
@@ -83,6 +111,16 @@ export const meiListRoutes = new Elysia({}) // List all MEI files with paginatio
 				data: files.map((file) => ({
 					id: file.id,
 					title: file.fileDesc?.titleStmt?.title ?? [],
+					publishers: file.fileDesc?.pubStmt?.map((pubStmt) => ({
+						pubStmtId: pubStmt.id,
+						isUnpub: pubStmt.isUnpub,
+						company: pubStmt.company,
+						date: pubStmt.date,
+						persons: pubStmt.person.map((person) => ({
+							name: person.name,
+							role: person.role,
+						})),
+					})),
 					createdAt: file.createdAt,
 					updatedAt: file.updatedAt,
 				})),

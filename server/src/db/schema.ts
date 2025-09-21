@@ -59,11 +59,12 @@ export const fileDesc = pgTable("file_desc", {
 	}),
 });
 
-export const fileDescRelations = relations(fileDesc, ({ one }) => ({
+export const fileDescRelations = relations(fileDesc, ({ one, many }) => ({
 	titleStmt: one(titleStmt, {
 		fields: [fileDesc.id],
 		references: [titleStmt.fileDescId],
 	}),
+	pubStmt: many(pubStmt),
 	file: one(meiFiles, {
 		fields: [fileDesc.fileId],
 		references: [meiFiles.id],
@@ -166,11 +167,12 @@ export const pubStmt = pgTable("pub_stmt", {
 		.defaultNow(),
 });
 
-export const pubStmtRelations = relations(pubStmt, ({ one }) => ({
+export const pubStmtRelations = relations(pubStmt, ({ one, many }) => ({
 	fileDesc: one(fileDesc, {
 		fields: [pubStmt.fileDescId],
 		references: [fileDesc.id],
 	}),
+	person: many(person),
 }));
 
 export const person = pgTable("person", {

@@ -1,4 +1,4 @@
-import { type Static, t } from "elysia";
+import { t } from "elysia";
 import { StatusCodes } from "http-status-codes";
 
 /**

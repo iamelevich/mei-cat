@@ -16,7 +16,10 @@
     "@biomejs/biome": "2.2.2"
   },
   "trustedDependencies": [
-    "@biomejs/biome"
+    "@biomejs/biome",
+    "@tailwindcss/oxide",
+    "esbuild",
+    "msw"
   ],
   "dependencies": {
     "turbo": "^2.5.6"

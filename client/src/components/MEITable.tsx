@@ -313,6 +313,8 @@ export function MEITable() {
 			columnFilters,
 			pagination,
 		},
+		rowCount: data?.pagination.totalCount,
+		manualPagination: true,
 		getRowId: (row) => row.id,
 		enableRowSelection: true,
 		onRowSelectionChange: setRowSelection,
@@ -378,7 +380,8 @@ export function MEITable() {
 				<div className="flex items-center justify-between px-4">
 					<div className="text-muted-foreground hidden flex-1 text-sm lg:flex">
 						{table.getFilteredSelectedRowModel().rows.length} of{" "}
-						{table.getFilteredRowModel().rows.length} row(s) selected.
+						{table.getFilteredRowModel().rows.length} row(s) selected. Total{" "}
+						{data?.pagination.totalCount} rows.
 					</div>
 					<div className="flex w-full items-center gap-8 lg:w-fit">
 						<div className="hidden items-center gap-2 lg:flex">
@@ -407,7 +410,7 @@ export function MEITable() {
 						</div>
 						<div className="flex w-fit items-center justify-center text-sm font-medium">
 							Page {table.getState().pagination.pageIndex + 1} of{" "}
-							{table.getPageCount()}
+							{table.getPageCount()}.
 						</div>
 						<div className="ml-auto flex items-center gap-2 lg:ml-0">
 							<Button

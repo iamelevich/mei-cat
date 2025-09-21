@@ -1,4 +1,8 @@
-import { type QueryClient, useQuery } from "@tanstack/react-query";
+import {
+	keepPreviousData,
+	type QueryClient,
+	useQuery,
+} from "@tanstack/react-query";
 import { app } from "@/lib/app";
 
 export const MEI_QUERY_KEY = "mei-files";
@@ -33,6 +37,7 @@ export const useMeiFiles = ({
 			}
 			return data;
 		},
+		placeholderData: keepPreviousData,
 	});
 };
 

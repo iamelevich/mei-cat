@@ -19,7 +19,7 @@ const paginationSchema = t.Object({
 	}),
 });
 
-const MeiListItemSchema = t.Object({
+export const MeiListItemSchema = t.Object({
 	id: t.String({ description: "MEI file ID" }),
 	title: t.Array(
 		t.Object({

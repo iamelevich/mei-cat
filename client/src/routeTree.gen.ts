@@ -9,40 +9,75 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as DemoRouteImport } from './routes/demo'
+import { Route as AuthRouteRouteImport } from './routes/auth/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DemoTanstackQueryRouteImport } from './routes/demo.tanstack-query'
 import { Route as DemoTableRouteImport } from './routes/demo.table'
+import { Route as AuthSingInRouteImport } from './routes/auth/sing-in'
+import { Route as AuthSignUpRouteImport } from './routes/auth/sign-up'
+import { Route as AuthForgotPasswordRouteImport } from './routes/auth/forgot-password'
 import { Route as DemoFormSimpleRouteImport } from './routes/demo.form.simple'
 import { Route as DemoFormAddressRouteImport } from './routes/demo.form.address'
 
+const DemoRoute = DemoRouteImport.update({
+  id: '/demo',
+  path: '/demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRouteRoute = AuthRouteRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DemoTanstackQueryRoute = DemoTanstackQueryRouteImport.update({
-  id: '/demo/tanstack-query',
-  path: '/demo/tanstack-query',
-  getParentRoute: () => rootRouteImport,
+  id: '/tanstack-query',
+  path: '/tanstack-query',
+  getParentRoute: () => DemoRoute,
 } as any)
 const DemoTableRoute = DemoTableRouteImport.update({
-  id: '/demo/table',
-  path: '/demo/table',
-  getParentRoute: () => rootRouteImport,
+  id: '/table',
+  path: '/table',
+  getParentRoute: () => DemoRoute,
+} as any)
+const AuthSingInRoute = AuthSingInRouteImport.update({
+  id: '/sing-in',
+  path: '/sing-in',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
+const AuthSignUpRoute = AuthSignUpRouteImport.update({
+  id: '/sign-up',
+  path: '/sign-up',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
+const AuthForgotPasswordRoute = AuthForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => AuthRouteRoute,
 } as any)
 const DemoFormSimpleRoute = DemoFormSimpleRouteImport.update({
-  id: '/demo/form/simple',
-  path: '/demo/form/simple',
-  getParentRoute: () => rootRouteImport,
+  id: '/form/simple',
+  path: '/form/simple',
+  getParentRoute: () => DemoRoute,
 } as any)
 const DemoFormAddressRoute = DemoFormAddressRouteImport.update({
-  id: '/demo/form/address',
-  path: '/demo/form/address',
-  getParentRoute: () => rootRouteImport,
+  id: '/form/address',
+  path: '/form/address',
+  getParentRoute: () => DemoRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRouteRouteWithChildren
+  '/demo': typeof DemoRouteWithChildren
+  '/auth/forgot-password': typeof AuthForgotPasswordRoute
+  '/auth/sign-up': typeof AuthSignUpRoute
+  '/auth/sing-in': typeof AuthSingInRoute
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/demo/form/address': typeof DemoFormAddressRoute
@@ -50,6 +85,11 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRouteRouteWithChildren
+  '/demo': typeof DemoRouteWithChildren
+  '/auth/forgot-password': typeof AuthForgotPasswordRoute
+  '/auth/sign-up': typeof AuthSignUpRoute
+  '/auth/sing-in': typeof AuthSingInRoute
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/demo/form/address': typeof DemoFormAddressRoute
@@ -58,6 +98,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth': typeof AuthRouteRouteWithChildren
+  '/demo': typeof DemoRouteWithChildren
+  '/auth/forgot-password': typeof AuthForgotPasswordRoute
+  '/auth/sign-up': typeof AuthSignUpRoute
+  '/auth/sing-in': typeof AuthSingInRoute
   '/demo/table': typeof DemoTableRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/demo/form/address': typeof DemoFormAddressRoute
@@ -67,6 +112,11 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/auth'
+    | '/demo'
+    | '/auth/forgot-password'
+    | '/auth/sign-up'
+    | '/auth/sing-in'
     | '/demo/table'
     | '/demo/tanstack-query'
     | '/demo/form/address'
@@ -74,6 +124,11 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/auth'
+    | '/demo'
+    | '/auth/forgot-password'
+    | '/auth/sign-up'
+    | '/auth/sing-in'
     | '/demo/table'
     | '/demo/tanstack-query'
     | '/demo/form/address'
@@ -81,6 +136,11 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/auth'
+    | '/demo'
+    | '/auth/forgot-password'
+    | '/auth/sign-up'
+    | '/auth/sing-in'
     | '/demo/table'
     | '/demo/tanstack-query'
     | '/demo/form/address'
@@ -89,14 +149,26 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  DemoTableRoute: typeof DemoTableRoute
-  DemoTanstackQueryRoute: typeof DemoTanstackQueryRoute
-  DemoFormAddressRoute: typeof DemoFormAddressRoute
-  DemoFormSimpleRoute: typeof DemoFormSimpleRoute
+  AuthRouteRoute: typeof AuthRouteRouteWithChildren
+  DemoRoute: typeof DemoRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/demo': {
+      id: '/demo'
+      path: '/demo'
+      fullPath: '/demo'
+      preLoaderRoute: typeof DemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -106,41 +178,92 @@ declare module '@tanstack/react-router' {
     }
     '/demo/tanstack-query': {
       id: '/demo/tanstack-query'
-      path: '/demo/tanstack-query'
+      path: '/tanstack-query'
       fullPath: '/demo/tanstack-query'
       preLoaderRoute: typeof DemoTanstackQueryRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof DemoRoute
     }
     '/demo/table': {
       id: '/demo/table'
-      path: '/demo/table'
+      path: '/table'
       fullPath: '/demo/table'
       preLoaderRoute: typeof DemoTableRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof DemoRoute
+    }
+    '/auth/sing-in': {
+      id: '/auth/sing-in'
+      path: '/sing-in'
+      fullPath: '/auth/sing-in'
+      preLoaderRoute: typeof AuthSingInRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
+    '/auth/sign-up': {
+      id: '/auth/sign-up'
+      path: '/sign-up'
+      fullPath: '/auth/sign-up'
+      preLoaderRoute: typeof AuthSignUpRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
+    '/auth/forgot-password': {
+      id: '/auth/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/auth/forgot-password'
+      preLoaderRoute: typeof AuthForgotPasswordRouteImport
+      parentRoute: typeof AuthRouteRoute
     }
     '/demo/form/simple': {
       id: '/demo/form/simple'
-      path: '/demo/form/simple'
+      path: '/form/simple'
       fullPath: '/demo/form/simple'
       preLoaderRoute: typeof DemoFormSimpleRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof DemoRoute
     }
     '/demo/form/address': {
       id: '/demo/form/address'
-      path: '/demo/form/address'
+      path: '/form/address'
       fullPath: '/demo/form/address'
       preLoaderRoute: typeof DemoFormAddressRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof DemoRoute
     }
   }
 }
 
-const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+interface AuthRouteRouteChildren {
+  AuthForgotPasswordRoute: typeof AuthForgotPasswordRoute
+  AuthSignUpRoute: typeof AuthSignUpRoute
+  AuthSingInRoute: typeof AuthSingInRoute
+}
+
+const AuthRouteRouteChildren: AuthRouteRouteChildren = {
+  AuthForgotPasswordRoute: AuthForgotPasswordRoute,
+  AuthSignUpRoute: AuthSignUpRoute,
+  AuthSingInRoute: AuthSingInRoute,
+}
+
+const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
+  AuthRouteRouteChildren,
+)
+
+interface DemoRouteChildren {
+  DemoTableRoute: typeof DemoTableRoute
+  DemoTanstackQueryRoute: typeof DemoTanstackQueryRoute
+  DemoFormAddressRoute: typeof DemoFormAddressRoute
+  DemoFormSimpleRoute: typeof DemoFormSimpleRoute
+}
+
+const DemoRouteChildren: DemoRouteChildren = {
   DemoTableRoute: DemoTableRoute,
   DemoTanstackQueryRoute: DemoTanstackQueryRoute,
   DemoFormAddressRoute: DemoFormAddressRoute,
   DemoFormSimpleRoute: DemoFormSimpleRoute,
+}
+
+const DemoRouteWithChildren = DemoRoute._addFileChildren(DemoRouteChildren)
+
+const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
+  AuthRouteRoute: AuthRouteRouteWithChildren,
+  DemoRoute: DemoRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

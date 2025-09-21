@@ -2,6 +2,7 @@ import {
 	DefaultErrorFunction,
 	SetErrorFunction,
 } from "@sinclair/typebox/errors";
+import type { InferInsertModel, InferSelectModel } from "drizzle-orm";
 import { createInsertSchema, createSelectSchema } from "drizzle-typebox";
 import { t } from "elysia";
 import { meiFiles } from "./schema";
@@ -13,6 +14,9 @@ SetErrorFunction((e) => {
 	}
 	return DefaultErrorFunction(e);
 });
+
+export type MeiFileSelect = InferSelectModel<typeof meiFiles>;
+export type MeiFileInsert = InferInsertModel<typeof meiFiles>;
 
 export const MeiFileInsertSchema = createInsertSchema(meiFiles);
 export const MeiFileSelectSchema = createSelectSchema(meiFiles, {

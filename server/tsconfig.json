@@ -24,7 +24,7 @@
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false,
     // Declarations
-    "declaration": true,
-    "declarationDir": "./dist",
+    "declaration": false,
+    "declarationMap": false
   }
 }

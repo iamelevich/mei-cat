@@ -7,6 +7,7 @@ import {
 import type { BunFile } from "bun";
 import Elysia from "elysia";
 import { db } from "../db";
+import type { MeiFileSelect } from "../db/models";
 import {
 	fileDesc,
 	meiFiles,
@@ -16,7 +17,6 @@ import {
 	titleStmt,
 } from "../db/schema";
 import { env } from "../env";
-import type { MeiFileSelect } from "../exports";
 import {
 	MeiFileDownloadError,
 	MeiFileInvalidContentTypeError,

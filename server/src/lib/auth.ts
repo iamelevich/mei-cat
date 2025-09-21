@@ -10,7 +10,11 @@ export const auth = betterAuth({
 	emailAndPassword: {
 		enabled: true,
 	},
-	plugins: [openAPI()],
+	plugins: [
+		openAPI({
+			disableDefaultReference: true,
+		}),
+	],
 	trustedOrigins: ["http://localhost:3000", "http://localhost:3001"],
 });
 

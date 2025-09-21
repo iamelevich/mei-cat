@@ -207,7 +207,7 @@ const columns: ColumnDef<MeiFile>[] = [
 								</Button>
 							</DropdownMenuTrigger>
 							<DropdownMenuContent align="end" className="w-32">
-								<DropdownMenuItem>
+								<DropdownMenuItem disabled>
 									<IconEye /> View
 								</DropdownMenuItem>
 								<DropdownMenuItem disabled>
@@ -629,7 +629,7 @@ export function MEITable() {
 		<div className="w-full flex-col justify-start gap-6">
 			<div className="flex items-center justify-between px-4 lg:px-6 mb-2">
 				<div className="flex items-center gap-2">
-					<Input
+					{/* <Input
 						placeholder="Filter by title..."
 						value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
 						disabled={isLoading}
@@ -637,7 +637,7 @@ export function MEITable() {
 							table.getColumn("title")?.setFilterValue(event.target.value)
 						}
 						className="max-w-sm"
-					/>
+					/> */}
 				</div>
 				<div className="flex items-center gap-2">
 					<DropdownMenu>

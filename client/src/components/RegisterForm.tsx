@@ -1,4 +1,6 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { Terminal } from "lucide-react";
+import { toast } from "sonner";
 import * as v from "valibot";
 import {
 	Card,
@@ -8,7 +10,9 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import { useAppForm } from "@/hooks/form";
+import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
+import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 
 const SignUpSchema = v.pipe(
 	v.object({
@@ -49,6 +53,7 @@ export function RegisterForm({
 	className,
 	...props
 }: React.ComponentProps<"div">) {
+	const navigate = useNavigate();
 	const form = useAppForm({
 		defaultValues: {
 			name: "",
@@ -59,13 +64,21 @@ export function RegisterForm({
 		validators: {
 			onChange: SignUpSchema,
 		},
-		onSubmit: ({ value }) => {
-			console.log(value);
-			return new Promise((resolve) => {
-				setTimeout(() => {
-					resolve(true);
-				}, 3000);
+		onSubmit: async ({ value }) => {
+			const result = await authClient.signUp.email({
+				email: value.email,
+				password: value.password,
+				name: value.name,
 			});
+
+			if (result.error) {
+				toast.error(`${result.error.status}: ${result.error.statusText}`, {
+					description: result.error.message,
+				});
+			} else {
+				toast.success("Account created successfully");
+				navigate({ to: "/" });
+			}
 		},
 	});
 	return (
@@ -87,7 +100,9 @@ export function RegisterForm({
 					>
 						<div className="flex flex-col gap-6">
 							<form.AppField name="name">
-								{(field) => <field.TextField label="Name" />}
+								{(field) => (
+									<field.TextField label="Name" placeholder="John Doe" />
+								)}
 							</form.AppField>
 							<form.AppField name="email">
 								{(field) => (
@@ -124,7 +139,7 @@ export function RegisterForm({
 						</div>
 						<div className="mt-4 text-center text-sm">
 							Already have an account?{" "}
-							<Link to="/auth/sing-in" className="underline underline-offset-4">
+							<Link to="/auth/sign-in" className="underline underline-offset-4">
 								Sign in
 							</Link>
 						</div>

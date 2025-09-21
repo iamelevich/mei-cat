@@ -2,6 +2,7 @@ import { TanstackDevtools } from "@tanstack/react-devtools";
 import type { QueryClient } from "@tanstack/react-query";
 import { createRootRouteWithContext, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
+import { Toaster } from "@/components/ui/sonner";
 import TanStackQueryDevtools from "../integrations/tanstack-query/devtools";
 
 interface MyRouterContext {
@@ -9,9 +10,14 @@ interface MyRouterContext {
 }
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({
-	component: () => (
+	component: Layout,
+});
+
+function Layout() {
+	return (
 		<>
 			<Outlet />
+			<Toaster />
 			<TanstackDevtools
 				config={{
 					position: "bottom-left",
@@ -25,5 +31,5 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 				]}
 			/>
 		</>
-	),
-});
+	);
+}

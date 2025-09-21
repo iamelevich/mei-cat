@@ -10,8 +10,8 @@ export const auth = betterAuth({
 	emailAndPassword: {
 		enabled: true,
 	},
-	basePath: "/api",
 	plugins: [openAPI()],
+	trustedOrigins: ["http://localhost:3000", "http://localhost:3001"],
 });
 
 let _schema: ReturnType<typeof auth.api.generateOpenAPISchema>;

@@ -1,4 +1,5 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { toast } from "sonner";
 import * as v from "valibot";
 import {
 	Card,
@@ -8,6 +9,7 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import { useAppForm } from "@/hooks/form";
+import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 
 const SignInSchema = v.pipe(
@@ -29,6 +31,7 @@ export function LoginForm({
 	className,
 	...props
 }: React.ComponentProps<"div">) {
+	const navigate = useNavigate();
 	const form = useAppForm({
 		defaultValues: {
 			email: "",
@@ -37,13 +40,21 @@ export function LoginForm({
 		validators: {
 			onChange: SignInSchema,
 		},
-		onSubmit: ({ value }) => {
-			console.log(value);
-			return new Promise((resolve) => {
-				setTimeout(() => {
-					resolve(true);
-				}, 3000);
+		onSubmit: async ({ value }) => {
+			const result = await authClient.signIn.email({
+				email: value.email,
+				password: value.password,
 			});
+
+			if (result.error) {
+				toast.error(`${result.error.status}: ${result.error.statusText}`, {
+					description: result.error.message,
+				});
+				return;
+			}
+
+			toast.success("Logged in successfully");
+			navigate({ to: "/" });
 		},
 	});
 	return (

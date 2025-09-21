@@ -1,6 +1,5 @@
 import {
 	IconApi,
-	IconBrandOpenai,
 	IconInnerShadowTop,
 	IconMusic,
 	IconSchema,

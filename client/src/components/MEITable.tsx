@@ -1,23 +1,8 @@
+import type { UniqueIdentifier } from "@dnd-kit/core";
 import {
-	closestCenter,
-	DndContext,
-	type DragEndEvent,
-	KeyboardSensor,
-	MouseSensor,
-	TouchSensor,
-	type UniqueIdentifier,
-	useSensor,
-	useSensors,
-} from "@dnd-kit/core";
-import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
-import {
-	arrayMove,
 	SortableContext,
-	useSortable,
 	verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
-import type { MeiListItem } from "@mei-cat/server";
 import {
 	IconChevronDown,
 	IconChevronLeft,
@@ -26,12 +11,9 @@ import {
 	IconChevronsRight,
 	IconDotsVertical,
 	IconDownload,
-	IconGripVertical,
 	IconLayoutColumns,
-	IconPlus,
 	IconUpload,
 } from "@tabler/icons-react";
-import { useQuery } from "@tanstack/react-query";
 import {
 	type ColumnDef,
 	type ColumnFiltersState,
@@ -49,7 +31,6 @@ import {
 } from "@tanstack/react-table";
 import * as React from "react";
 import { toast } from "sonner";
-import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -77,38 +58,12 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
-import { useMeiFiles } from "@/data/mei";
+import { type MeiFile, useMeiFiles } from "@/data/mei";
 import { app } from "@/lib/app";
+import { saveAsXML } from "@/lib/file-utils";
 import { UploadMeiFileDialog } from "./UploadMeiFileDialog";
 
-export type MeiFile = MeiListItem;
-
-// Create a separate component for the drag handle
-function DragHandle({ id }: { id: string }) {
-	const { attributes, listeners } = useSortable({
-		id,
-	});
-
-	return (
-		<Button
-			{...attributes}
-			{...listeners}
-			variant="ghost"
-			size="icon"
-			className="text-muted-foreground size-7 hover:bg-transparent"
-		>
-			<IconGripVertical className="text-muted-foreground size-3" />
-			<span className="sr-only">Drag to reorder</span>
-		</Button>
-	);
-}
-
 const columns: ColumnDef<MeiFile>[] = [
-	{
-		id: "drag",
-		header: () => null,
-		cell: ({ row }) => <DragHandle id={row.original.id} />,
-	},
 	{
 		id: "select",
 		header: ({ table }) => (
@@ -191,17 +146,10 @@ const columns: ColumnDef<MeiFile>[] = [
 								.original.get();
 							if (response.data) {
 								// Create download link
-								const blob = new Blob([response.data], {
-									type: "application/xml",
-								});
-								const url = URL.createObjectURL(blob);
-								const a = document.createElement("a");
-								a.href = url;
-								a.download = `${row.original.title[0].title}_original.xml`;
-								document.body.appendChild(a);
-								a.click();
-								document.body.removeChild(a);
-								URL.revokeObjectURL(url);
+								saveAsXML(
+									response.data,
+									`${row.original.title[0].title}_original.xml`,
+								);
 								toast.success("Original file downloaded");
 							}
 						} catch (error) {
@@ -225,17 +173,10 @@ const columns: ColumnDef<MeiFile>[] = [
 								.converted.get();
 							if (response.data) {
 								// Create download link
-								const blob = new Blob([response.data], {
-									type: "application/xml",
-								});
-								const url = URL.createObjectURL(blob);
-								const a = document.createElement("a");
-								a.href = url;
-								a.download = `${row.original.title[0].title}_converted.mei51.xml`;
-								document.body.appendChild(a);
-								a.click();
-								document.body.removeChild(a);
-								URL.revokeObjectURL(url);
+								saveAsXML(
+									response.data,
+									`${row.original.title[0].title}_converted.mei51.xml`,
+								);
 								toast.success("Converted file downloaded");
 							}
 						} catch (error) {
@@ -270,22 +211,9 @@ const columns: ColumnDef<MeiFile>[] = [
 	},
 ];
 
-function DraggableRow({ row }: { row: Row<MeiFile> }) {
-	const { transform, transition, setNodeRef, isDragging } = useSortable({
-		id: row.original.id,
-	});
-
+function SelectableRow({ row }: { row: Row<MeiFile> }) {
 	return (
-		<TableRow
-			data-state={row.getIsSelected() && "selected"}
-			data-dragging={isDragging}
-			ref={setNodeRef}
-			className="relative z-0 data-[dragging=true]:z-10 data-[dragging=true]:opacity-80"
-			style={{
-				transform: CSS.Transform.toString(transform),
-				transition: transition,
-			}}
-		>
+		<TableRow data-state={row.getIsSelected() && "selected"}>
 			{row.getVisibleCells().map((cell) => (
 				<TableCell key={cell.id}>
 					{flexRender(cell.column.columnDef.cell, cell.getContext())}
@@ -311,12 +239,6 @@ export function MEITable() {
 		[],
 	);
 	const [sorting, setSorting] = React.useState<SortingState>([]);
-	const sortableId = React.useId();
-	const sensors = useSensors(
-		useSensor(MouseSensor, {}),
-		useSensor(TouchSensor, {}),
-		useSensor(KeyboardSensor, {}),
-	);
 
 	const dataIds = React.useMemo<UniqueIdentifier[]>(
 		() => data?.data.map(({ id }) => id) || [],
@@ -348,71 +270,52 @@ export function MEITable() {
 		getFacetedUniqueValues: getFacetedUniqueValues(),
 	});
 
-	// function handleDragEnd(event: DragEndEvent) {
-	// 	const { active, over } = event;
-	// 	if (active && over && active.id !== over.id) {
-	// 		setData((data) => {
-	// 			const oldIndex = dataIds.indexOf(active.id);
-	// 			const newIndex = dataIds.indexOf(over.id);
-	// 			return arrayMove(data, oldIndex, newIndex);
-	// 		});
-	// 	}
-	// }
-
 	// biome-ignore lint/correctness/noNestedComponentDefinitions: Just ignore here
 	const TableContent = () => {
 		return (
 			<div className="relative flex flex-col gap-4 overflow-auto px-4 lg:px-6">
 				<div className="overflow-hidden rounded-lg border">
-					<DndContext
-						collisionDetection={closestCenter}
-						modifiers={[restrictToVerticalAxis]}
-						// onDragEnd={handleDragEnd}
-						sensors={sensors}
-						id={sortableId}
-					>
-						<Table>
-							<TableHeader className="bg-muted sticky top-0 z-10">
-								{table.getHeaderGroups().map((headerGroup) => (
-									<TableRow key={headerGroup.id}>
-										{headerGroup.headers.map((header) => {
-											return (
-												<TableHead key={header.id} colSpan={header.colSpan}>
-													{header.isPlaceholder
-														? null
-														: flexRender(
-																header.column.columnDef.header,
-																header.getContext(),
-															)}
-												</TableHead>
-											);
-										})}
-									</TableRow>
-								))}
-							</TableHeader>
-							<TableBody className="**:data-[slot=table-cell]:first:w-8">
-								{table.getRowModel().rows?.length ? (
-									<SortableContext
-										items={dataIds}
-										strategy={verticalListSortingStrategy}
+					<Table>
+						<TableHeader className="bg-muted sticky top-0 z-10">
+							{table.getHeaderGroups().map((headerGroup) => (
+								<TableRow key={headerGroup.id}>
+									{headerGroup.headers.map((header) => {
+										return (
+											<TableHead key={header.id} colSpan={header.colSpan}>
+												{header.isPlaceholder
+													? null
+													: flexRender(
+															header.column.columnDef.header,
+															header.getContext(),
+														)}
+											</TableHead>
+										);
+									})}
+								</TableRow>
+							))}
+						</TableHeader>
+						<TableBody className="**:data-[slot=table-cell]:first:w-8">
+							{table.getRowModel().rows?.length ? (
+								<SortableContext
+									items={dataIds}
+									strategy={verticalListSortingStrategy}
+								>
+									{table.getRowModel().rows.map((row) => (
+										<SelectableRow key={row.id} row={row} />
+									))}
+								</SortableContext>
+							) : (
+								<TableRow>
+									<TableCell
+										colSpan={columns.length}
+										className="h-24 text-center"
 									>
-										{table.getRowModel().rows.map((row) => (
-											<DraggableRow key={row.id} row={row} />
-										))}
-									</SortableContext>
-								) : (
-									<TableRow>
-										<TableCell
-											colSpan={columns.length}
-											className="h-24 text-center"
-										>
-											No MEI files found.
-										</TableCell>
-									</TableRow>
-								)}
-							</TableBody>
-						</Table>
-					</DndContext>
+										No MEI files found.
+									</TableCell>
+								</TableRow>
+							)}
+						</TableBody>
+					</Table>
 				</div>
 				<div className="flex items-center justify-between px-4">
 					<div className="text-muted-foreground hidden flex-1 text-sm lg:flex">

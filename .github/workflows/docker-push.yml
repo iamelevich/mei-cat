@@ -1,0 +1,104 @@
+name: Build and Push Docker Image
+
+on:
+  workflow_call:
+    outputs:
+      image-tag:
+        description: 'The Docker image tag that was pushed'
+        value: ${{ jobs.docker.outputs.image-tag }}
+      commit-sha:
+        description: 'The commit SHA that was pushed'
+        value: ${{ jobs.docker.outputs.commit-sha }}
+
+permissions:
+  packages: write
+  contents: read
+
+jobs:
+  docker:
+    name: Docker Build
+    runs-on: ubuntu-latest
+    outputs:
+      image-tag: ${{ steps.tags.outputs.image-tag }}
+      commit-sha: ${{ steps.tags.outputs.commit-sha }}
+    env:
+      IMAGE_NAME: mei-cat
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # Fetch only the latest commit for faster checkout
+          fetch-depth: 1
+
+      - name: GitHub Refs
+        uses: rlespinasse/github-slug-action@v5
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          # Enable BuildKit for better performance
+          driver-opts: |
+            image=moby/buildkit:v0.12.0
+          # Use GitHub Actions cache for buildx
+          buildkitd-flags: --debug
+
+      - name: Log into registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate tags
+        id: tags
+        run: |
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
+          IMAGE_ID=$(echo "$IMAGE_ID" | tr '[A-Z]' '[a-z]')
+          COMMIT_SHA=$(echo "${GITHUB_SHA}" | cut -c1-7)
+
+          TAGS="$IMAGE_ID:$COMMIT_SHA"
+          echo "commit-sha=$COMMIT_SHA" >> $GITHUB_OUTPUT
+
+          if [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+            TAG_SLUG="${GITHUB_REF_NAME_SLUG:-}"
+            TAGS="$TAGS,$IMAGE_ID:$TAG_SLUG,$IMAGE_ID:latest"
+            echo "image-tag=$TAG_SLUG" >> $GITHUB_OUTPUT
+          elif [ -n "${GITHUB_HEAD_REF_SLUG:-${GITHUB_REF_NAME_SLUG:-}}" ]; then
+            BRANCH_SLUG="${GITHUB_HEAD_REF_SLUG:-${GITHUB_REF_NAME_SLUG:-}}"
+            TAGS="$TAGS,$IMAGE_ID:$BRANCH_SLUG"
+            echo "image-tag=$COMMIT_SHA" >> $GITHUB_OUTPUT
+          else
+            echo "image-tag=$COMMIT_SHA" >> $GITHUB_OUTPUT
+          fi
+
+          echo "tags=$TAGS" >> $GITHUB_OUTPUT
+          echo "image-id=$IMAGE_ID" >> $GITHUB_OUTPUT
+
+      - name: Build and push image
+        id: push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./docker/Dockerfile
+          push: true
+          tags: ${{ steps.tags.outputs.tags }}
+          labels: |
+            runnumber=${{ github.run_id }}
+            org.opencontainers.image.created=${{ github.event.head_commit.timestamp }}
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.version=${{ steps.tags.outputs.image-tag }}
+          # Enhanced caching strategy
+          # cache-from: |
+          #   type=gha
+          #   type=registry,ref=${{ steps.tags.outputs.image-id }}:cache
+          # cache-to: |
+          #   type=gha,mode=max
+          #   type=registry,ref=${{ steps.tags.outputs.image-id }}:cache,mode=max
+          # Build optimizations
+          platforms: linux/amd64
+          provenance: false
+          sbom: false
+          # Build arguments for optimization
+          build-args: |
+            BUILDKIT_INLINE_CACHE=1
+
+

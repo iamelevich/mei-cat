@@ -1,0 +1,19 @@
+name: Deploy
+
+on:
+  push:
+    tags:
+      - 'v*'
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+  packages: write
+
+jobs:
+  call-docker:
+    name: Build and Push Docker Image
+    uses: ./.github/workflows/docker-push.yml
+    secrets: inherit

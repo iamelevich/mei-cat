@@ -35,6 +35,12 @@ export const meiFilesService = new Elysia({ name: "meiFilesService" }).decorate(
 		) => {
 			return MeiFile.fromURL(url, options);
 		},
+		fromFile: (file: BunFile) => {
+			return MeiFile.fromFile(file);
+		},
+		fromText: (text: string) => {
+			return MeiFile.fromText(text);
+		},
 	},
 );
 
@@ -89,13 +95,22 @@ export class MeiFile {
 		return new MeiFile(xml);
 	}
 
+	/**
+	 * Create a MeiFile object from a text string.
+	 * @param text - The text string.
+	 * @returns A MeiFile object.
+	 */
+	static async fromText(text: string) {
+		return new MeiFile(text);
+	}
+
 	/** The original MEI XML version. */
 	public readonly version: string;
 
 	/** The converted MEI 5.1 XML as string. */
 	#convertedMei51: string | null = null;
 	/** The converted MEI JSON as object. */
-	// @ts-ignore - MeiJsonData is too deep
+	// @ts-expect-error - MeiJsonData is too deep
 	#convertedJson: MeiJsonData | null = null;
 	/** The id of the MEI file. */
 	#hash: string | null = null;

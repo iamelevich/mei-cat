@@ -9,12 +9,19 @@ import { MeiFileDownloadError } from "../shared/errors";
 const ROUTE_PREFIX = "/mei";
 
 // Request schemas
-const createMeiFile = t.Object({
-	url: t.String({
-		format: "uri",
-		description: "URL of the MEI file to download and process",
+const createMeiFile = t.Union([
+	t.Object({
+		url: t.String({
+			format: "uri",
+			description: "URL of the MEI file to download and process",
+		}),
 	}),
-});
+	t.Object({
+		file: t.File({
+			description: "Bun file of the MEI file to process",
+		}),
+	}),
+]);
 
 const paginationSchema = t.Object({
 	page: t.Number({ description: "Current page number" }),
@@ -38,9 +45,11 @@ const meiFilesListResponse = t.Object({
 
 const errorResponse = t.Object({
 	error: t.String({ description: "Error message describing what went wrong" }),
-	cause: t.Optional(t.Any({
-    description: "Additional error details or cause",
-  })),
+	cause: t.Optional(
+		t.Any({
+			description: "Additional error details or cause",
+		}),
+	),
 });
 
 const notFoundResponse = t.Object({
@@ -108,7 +117,7 @@ export const meiRoutes = new Elysia({ prefix: ROUTE_PREFIX })
 				summary: "List MEI files",
 				description:
 					"Retrieve a paginated list of all MEI files in the system. Files are ordered by creation date (oldest first).",
-				tags: ["MEI Files"]
+				tags: ["MEI Files"],
 			},
 		},
 	)
@@ -151,7 +160,10 @@ export const meiRoutes = new Elysia({ prefix: ROUTE_PREFIX })
 		async ({ body, meiFilesService, status }) => {
 			try {
 				// Download MEI XML from URL
-				const meiFile = await meiFilesService.fromURL(body.url);
+				const meiFile =
+					"url" in body
+						? await meiFilesService.fromURL(body.url)
+						: await meiFilesService.fromText(await body.file.text());
 
 				// Insert into DB
 				try {
@@ -178,6 +190,7 @@ export const meiRoutes = new Elysia({ prefix: ROUTE_PREFIX })
 		},
 		{
 			body: createMeiFile,
+			type: "multipart/form-data",
 			response: {
 				200: MeiFileSelectSchema,
 				400: errorResponse,
@@ -188,6 +201,6 @@ export const meiRoutes = new Elysia({ prefix: ROUTE_PREFIX })
 				description:
 					"Download and process a MEI file from a provided URL. The file will be automatically converted to MEI 5.1 format, validated, and stored in the system. Returns the created MEI file metadata.",
 				tags: ["MEI Files"],
-      }
+			},
 		},
 	);

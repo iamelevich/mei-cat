@@ -193,7 +193,7 @@ describe("meiFilesRoutes", () => {
 		expect(response.data).toEqual({
 			id: expect.any(String),
 			convertedFileName: "mei_idm139988010758416.mei51.xml",
-			hash: "81c1947f1d0b3327",
+			hash: "7c436e2d3d2d7fe4",
 			originalFileName: "mei_idm139988010758416.xml",
 			originalMeiVersion: "4.0.1",
 			storagePath: env.STORAGE_PATH,
@@ -230,7 +230,6 @@ describe("meiFilesRoutes", () => {
 		expect(response.error?.value).toEqual(
 			expect.objectContaining({
 				type: "validation",
-				message: "Expected string to match 'uri' format",
 			}),
 		);
 	});

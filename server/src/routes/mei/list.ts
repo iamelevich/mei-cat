@@ -2,7 +2,7 @@ import { count } from "drizzle-orm";
 import Elysia, { t } from "elysia";
 import { db } from "../../db";
 import { MeiFileSelectSchema } from "../../db/models";
-import { meiFiles } from "../../db/schema";
+import { meiFiles, title } from "../../db/schema";
 
 const paginationSchema = t.Object({
 	page: t.Number({ description: "Current page number" }),
@@ -19,8 +19,25 @@ const paginationSchema = t.Object({
 	}),
 });
 
+const MeiListItemSchema = t.Object({
+	id: t.String({ description: "MEI file ID" }),
+	title: t.Array(
+		t.Object({
+			title: t.String({ description: "Title of the MEI file" }),
+			language: t.Nullable(t.String({ description: "Language of the title" })),
+		}),
+		{ description: "Array of titles" },
+	),
+	createdAt: t.Date({
+		description: "Timestamp when the file was first processed",
+	}),
+	updatedAt: t.Date({
+		description: "Timestamp when the file was last updated",
+	}),
+});
+
 const meiFilesListResponse = t.Object({
-	data: t.Array(MeiFileSelectSchema, { description: "Array of MEI files" }),
+	data: t.Array(MeiListItemSchema, { description: "Array of MEI files" }),
 	pagination: paginationSchema,
 });
 
@@ -39,17 +56,36 @@ export const meiListRoutes = new Elysia({}) // List all MEI files with paginatio
 			const totalCount = totalCountResult[0]?.count ?? 0;
 
 			// Get paginated results
-			const files = await db
-				.select()
-				.from(meiFiles)
-				.orderBy(meiFiles.createdAt)
-				.limit(limit)
-				.offset(offset);
+			const files = await db.query.meiFiles.findMany({
+				limit,
+				offset,
+				with: {
+					fileDesc: {
+						with: {
+							titleStmt: {
+								with: {
+									title: {
+										columns: {
+											title: true,
+											language: true,
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			});
 
 			const totalPages = Math.ceil(totalCount / limit);
 
 			return {
-				data: files,
+				data: files.map((file) => ({
+					id: file.id,
+					title: file.fileDesc.titleStmt.title,
+					createdAt: file.createdAt,
+					updatedAt: file.updatedAt,
+				})),
 				pagination: {
 					page,
 					limit,

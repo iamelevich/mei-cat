@@ -2,6 +2,7 @@ import { eq } from "drizzle-orm";
 import Elysia, { t } from "elysia";
 import { db } from "../../db";
 import { meiFiles } from "../../db/schema";
+import { APINotFoundError, ErrorResponseSchema } from "../../shared/errors";
 
 export const meiDownloadRoutes = new Elysia({})
 	// Download original MEI file
@@ -16,27 +17,20 @@ export const meiDownloadRoutes = new Elysia({})
 			});
 
 			if (!file) {
-				set.status = 404;
-				return { error: "MEI file not found" };
+				throw new APINotFoundError("MEI file not found");
 			}
 
-			try {
-				// Read the original file from storage
-				const filePath = `${file.storagePath}/${file.originalFileName}`;
-				const fileContent = await Bun.file(filePath).text();
+			// Read the original file from storage
+			const filePath = `${file.storagePath}/${file.originalFileName}`;
+			const fileContent = await Bun.file(filePath).text();
 
-				// Set appropriate headers for XML download
-				set.headers = {
-					"Content-Type": "application/xml",
-					"Content-Disposition": `attachment; filename="${file.originalFileName}"`,
-				};
+			// Set appropriate headers for XML download
+			set.headers = {
+				"Content-Type": "application/xml",
+				"Content-Disposition": `attachment; filename="${file.originalFileName}"`,
+			};
 
-				return fileContent;
-			} catch (error) {
-				console.error("Failed to read original MEI file:", error);
-				set.status = 500;
-				return { error: "Failed to read original MEI file" };
-			}
+			return fileContent;
 		},
 		{
 			params: t.Object({
@@ -44,12 +38,8 @@ export const meiDownloadRoutes = new Elysia({})
 			}),
 			response: {
 				200: t.String({ description: "Original MEI XML content" }),
-				404: t.Object({
-					error: t.String({ description: "Error message" }),
-				}),
-				500: t.Object({
-					error: t.String({ description: "Error message" }),
-				}),
+				404: ErrorResponseSchema,
+				500: ErrorResponseSchema,
 			},
 			detail: {
 				summary: "Download original MEI file",
@@ -71,27 +61,20 @@ export const meiDownloadRoutes = new Elysia({})
 			});
 
 			if (!file) {
-				set.status = 404;
-				return { error: "MEI file not found" };
+				throw new APINotFoundError("MEI file not found");
 			}
 
-			try {
-				// Read the converted file from storage
-				const filePath = `${file.storagePath}/${file.convertedFileName}`;
-				const fileContent = await Bun.file(filePath).text();
+			// Read the converted file from storage
+			const filePath = `${file.storagePath}/${file.convertedFileName}`;
+			const fileContent = await Bun.file(filePath).text();
 
-				// Set appropriate headers for XML download
-				set.headers = {
-					"Content-Type": "application/xml",
-					"Content-Disposition": `attachment; filename="${file.convertedFileName}"`,
-				};
+			// Set appropriate headers for XML download
+			set.headers = {
+				"Content-Type": "application/xml",
+				"Content-Disposition": `attachment; filename="${file.convertedFileName}"`,
+			};
 
-				return fileContent;
-			} catch (error) {
-				console.error("Failed to read converted MEI file:", error);
-				set.status = 500;
-				return { error: "Failed to read converted MEI file" };
-			}
+			return fileContent;
 		},
 		{
 			params: t.Object({
@@ -99,12 +82,8 @@ export const meiDownloadRoutes = new Elysia({})
 			}),
 			response: {
 				200: t.String({ description: "Converted MEI 5.1 XML content" }),
-				404: t.Object({
-					error: t.String({ description: "Error message" }),
-				}),
-				500: t.Object({
-					error: t.String({ description: "Error message" }),
-				}),
+				404: ErrorResponseSchema,
+				500: ErrorResponseSchema,
 			},
 			detail: {
 				summary: "Download converted MEI 5.1 file",

@@ -1,8 +1,8 @@
 import { count } from "drizzle-orm";
 import Elysia, { t } from "elysia";
 import { db } from "../../db";
-import { MeiFileSelectSchema } from "../../db/models";
-import { meiFiles, title } from "../../db/schema";
+import { meiFiles } from "../../db/schema";
+import { ErrorResponseSchema } from "../../shared/errors";
 
 const paginationSchema = t.Object({
 	page: t.Number({ description: "Current page number" }),
@@ -82,7 +82,7 @@ export const meiListRoutes = new Elysia({}) // List all MEI files with paginatio
 			return {
 				data: files.map((file) => ({
 					id: file.id,
-					title: file.fileDesc.titleStmt.title,
+					title: file.fileDesc?.titleStmt?.title ?? [],
 					createdAt: file.createdAt,
 					updatedAt: file.updatedAt,
 				})),
@@ -114,6 +114,7 @@ export const meiListRoutes = new Elysia({}) // List all MEI files with paginatio
 			}),
 			response: {
 				200: meiFilesListResponse,
+				500: ErrorResponseSchema,
 			},
 			detail: {
 				summary: "List MEI files",

@@ -1,7 +1,7 @@
 import Elysia, { t } from "elysia";
 import { MeiFileSelectSchema } from "../../db/models";
 import { meiFilesService } from "../../services/meiFiles";
-import { MeiFileDownloadError } from "../../shared/errors";
+import { ErrorResponseSchema } from "../../shared/errors";
 
 // Request schemas
 const createMeiFile = t.Object({
@@ -17,49 +17,26 @@ const createMeiFileFromURL = t.Object({
 	}),
 });
 
-const errorResponse = t.Object({
-	error: t.String({ description: "Error message describing what went wrong" }),
-	cause: t.Optional(
-		t.Any({
-			description: "Additional error details or cause",
-		}),
-	),
-});
-
 export const meiAddRoutes = new Elysia({})
 	.use(meiFilesService)
 	// Add new MEI file
 	.post(
 		"/",
-		async ({ body, meiFilesService, status }) => {
-			try {
-				// Download MEI XML from URL
-				const meiFile = await meiFilesService.fromText(await body.file.text());
+		async ({ body, meiFilesService }) => {
+			// Download MEI XML from URL
+			const meiFile = await meiFilesService.fromText(await body.file.text());
 
-				// Insert into DB
-				try {
-					return meiFile.fillDB();
-				} catch (error) {
-					return status(500, {
-						error: "Failed to insert MEI file into DB",
-						cause: error instanceof Error ? error.cause : undefined,
-					});
-				}
-			} catch (error) {
-				console.error("Failed to process MEI file", error);
-				return status(500, {
-					error: "Failed to process MEI file",
-					cause: error instanceof Error ? error : undefined,
-				});
-			}
+			// Insert into DB
+			return meiFile.fillDB();
 		},
 		{
 			body: createMeiFile,
 			type: "multipart/form-data",
 			response: {
 				200: MeiFileSelectSchema,
-				400: errorResponse,
-				500: errorResponse,
+				400: ErrorResponseSchema,
+				415: ErrorResponseSchema,
+				500: ErrorResponseSchema,
 			},
 			detail: {
 				summary: "Create MEI file",
@@ -72,40 +49,19 @@ export const meiAddRoutes = new Elysia({})
 	// Add new MEI file from file
 	.post(
 		"/url",
-		async ({ body, meiFilesService, status }) => {
-			try {
-				// Download MEI XML from URL
-				const meiFile = await meiFilesService.fromURL(body.url);
+		async ({ body, meiFilesService }) => {
+			// Download MEI XML from URL
+			const meiFile = await meiFilesService.fromURL(body.url);
 
-				// Insert into DB
-				try {
-					return meiFile.fillDB();
-				} catch (error) {
-					return status(500, {
-						error: "Failed to insert MEI file into DB",
-						cause: error instanceof Error ? error.cause : undefined,
-					});
-				}
-			} catch (error) {
-				if (error instanceof MeiFileDownloadError) {
-					return status(400, {
-						error: "Failed to download MEI file",
-						cause: error.cause,
-					});
-				}
-				console.error("Failed to process MEI file", error);
-				return status(500, {
-					error: "Failed to process MEI file",
-					cause: error instanceof Error ? error : undefined,
-				});
-			}
+			return meiFile.fillDB();
 		},
 		{
 			body: createMeiFileFromURL,
 			response: {
 				200: MeiFileSelectSchema,
-				400: errorResponse,
-				500: errorResponse,
+				400: ErrorResponseSchema,
+				415: ErrorResponseSchema,
+				500: ErrorResponseSchema,
 			},
 			detail: {
 				summary: "Create MEI file from URL",

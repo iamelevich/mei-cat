@@ -5,7 +5,9 @@ import {
 	meiXmlToJson,
 } from "@mei-cat/mei-transformer";
 import type { BunFile } from "bun";
+import { eq } from "drizzle-orm";
 import Elysia from "elysia";
+import { StatusCodes } from "http-status-codes";
 import { db } from "../db";
 import type { MeiFileSelect } from "../db/models";
 import {
@@ -18,8 +20,11 @@ import {
 } from "../db/schema";
 import { env } from "../env";
 import {
-	MeiFileDownloadError,
-	MeiFileInvalidContentTypeError,
+	APIAlreadyExistsError,
+	APIError,
+	APIFileDownloadError,
+	APIInvalidContentTypeError,
+	APINotFoundError,
 } from "../shared/errors";
 
 export type MeiFileFromURLOptions = {
@@ -41,6 +46,9 @@ export const meiFilesService = new Elysia({ name: "meiFilesService" }).decorate(
 		fromText: (text: string) => {
 			return MeiFile.fromText(text);
 		},
+		delete: (meiFile: MeiFileSelect) => {
+			return MeiFile.delete(meiFile);
+		},
 	},
 );
 
@@ -61,9 +69,9 @@ export class MeiFile {
 				signal: AbortSignal.timeout(options.timeout),
 			});
 			if (!response.ok)
-				throw new MeiFileDownloadError("Failed to download MEI file");
+				throw new APIFileDownloadError("Failed to download MEI file");
 			if (response.headers.get("content-type") !== "application/xml")
-				throw new MeiFileInvalidContentTypeError(
+				throw new APIInvalidContentTypeError(
 					"Invalid content type. Expected application/xml, but got " +
 						response.headers.get("content-type"),
 				);
@@ -74,12 +82,12 @@ export class MeiFile {
 				error instanceof Error &&
 				(error.name === "AbortError" || error.name === "TimeoutError")
 			) {
-				throw new MeiFileDownloadError("Download timed out");
+				throw new APIFileDownloadError("Download timed out");
 			}
-			if (error instanceof MeiFileInvalidContentTypeError) {
+			if (error instanceof APIError) {
 				throw error;
 			}
-			throw new MeiFileDownloadError("Failed to download MEI file", {
+			throw new APIFileDownloadError("Failed to download MEI file", {
 				cause: error,
 			});
 		}
@@ -102,6 +110,37 @@ export class MeiFile {
 	 */
 	static async fromText(text: string) {
 		return new MeiFile(text);
+	}
+
+	/**
+	 * Delete the files from the storage and entity from the database.
+	 * @param meiFile - The MEI file object.
+	 * @returns True if the files and entity were deleted, false otherwise.
+	 */
+	static async delete(meiFile: MeiFileSelect) {
+		try {
+			await db.delete(meiFiles).where(eq(meiFiles.id, meiFile.id));
+			const storagePath: string = meiFile.storagePath;
+
+			switch (meiFile.storageType) {
+				case "local":
+					await Bun.file(`${storagePath}/${meiFile.originalFileName}`).delete();
+					await Bun.file(
+						`${storagePath}/${meiFile.convertedFileName}`,
+					).delete();
+					break;
+				default:
+					throw new APIError(
+						StatusCodes.NOT_IMPLEMENTED,
+						`Unsupported storage type: ${meiFile.storageType}`,
+					);
+			}
+
+			return true;
+		} catch (error) {
+			console.error("Failed to delete MEI file entity", error);
+			return false;
+		}
 	}
 
 	/** The original MEI XML version. */
@@ -149,7 +188,11 @@ export class MeiFile {
 	 */
 	get hash(): string {
 		if (this.#hash) return this.#hash;
-		if (!this.#convertedMei51) throw new Error("MEI 5.1 XML not converted");
+		if (!this.#convertedMei51)
+			throw new APIError(
+				StatusCodes.INTERNAL_SERVER_ERROR,
+				"MEI 5.1 XML not converted",
+			);
 		this.#hash = Bun.hash(this.#convertedMei51).toString(16);
 		return this.#hash;
 	}
@@ -181,7 +224,10 @@ export class MeiFile {
 				await Bun.write(`${storagePath}/${convertedFileName}`, mei);
 				break;
 			default:
-				throw new Error(`Unsupported storage type: ${env.STORAGE_TYPE}`);
+				throw new APIError(
+					StatusCodes.NOT_IMPLEMENTED,
+					`Unsupported storage type: ${env.STORAGE_TYPE}`,
+				);
 		}
 
 		return {
@@ -210,7 +256,10 @@ export class MeiFile {
 					await Bun.file(`${storagePath}/${convertedFileName}`).delete();
 					break;
 				default:
-					throw new Error(`Unsupported storage type: ${env.STORAGE_TYPE}`);
+					throw new APIError(
+						StatusCodes.NOT_IMPLEMENTED,
+						`Unsupported storage type: ${env.STORAGE_TYPE}`,
+					);
 			}
 		} catch (error) {
 			console.error("Failed to delete MEI file", error);
@@ -231,7 +280,7 @@ export class MeiFile {
 				where: (file, { eq }) => eq(file.hash, this.hash),
 			});
 			if (existingFile) {
-				throw new Error("MEI file already exists in the DB");
+				throw new APIAlreadyExistsError("MEI file already exists in the DB");
 			}
 
 			const { originalFileName, convertedFileName, storageType, storagePath } =
@@ -280,13 +329,14 @@ export class MeiFile {
 			.values({ fileDescId: fileDescItem.id })
 			.returning();
 
-		if (!titleStmtElement.title) throw new Error("Title element not found");
+		if (!titleStmtElement.title)
+			throw new APINotFoundError("Title element not found");
 		const titleElements: TitleData[] = Array.isArray(titleStmtElement.title)
 			? titleStmtElement.title
 			: [titleStmtElement.title];
 		for (const titleElement of titleElements) {
 			if (!titleElement["#text"])
-				throw new Error("Title element text not found");
+				throw new APINotFoundError("Title element text not found");
 			const titleText = titleElement["#text"];
 			const language = titleElement["@xml:lang"] ?? null;
 			await db

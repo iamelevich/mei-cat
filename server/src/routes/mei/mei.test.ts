@@ -32,6 +32,7 @@ describe("meiFilesRoutes", () => {
 
 		const response = await api.mei.get();
 
+		expect(response.error).toBeNull();
 		expect(response.data).not.toBeNull();
 		expect(response.status).toBe(200);
 
@@ -68,6 +69,7 @@ describe("meiFilesRoutes", () => {
 			query: { page: 1, limit: 5 },
 		});
 
+		expect(response1.error).toBeNull();
 		expect(response1.data).not.toBeNull();
 		expect(response1.status).toBe(200);
 		expect(response1.data?.data.length).toBe(5);
@@ -243,7 +245,8 @@ describe("meiFilesRoutes", () => {
 		expect(response.error).toBeDefined();
 		expect(response.error?.value).toEqual(
 			expect.objectContaining({
-				type: "validation",
+				name: "VALIDATION",
+				message: "Property 'url' should be uri",
 			}),
 		);
 	});
@@ -253,30 +256,27 @@ describe("meiFilesRoutes", () => {
 			url: "https://invalid-url.invalid",
 		});
 		expect(response.error?.value).toEqual({
-			error: "Failed to download MEI file",
+			name: "APIFileDownloadError",
+			message: "Failed to download MEI file",
 			cause: {
-				code: "ConnectionRefused",
-				errno: 0,
-				path: "https://invalid-url.invalid/",
+				name: "Error",
+				message: "Unable to connect. Is the computer able to access the url?",
 			},
 		});
 		expect(response.status).toBe(400);
 	});
 
-	it("should return 400 if the mei file is invalid", async () => {
+	it("should return 415 if the mei file is invalid", async () => {
 		const response = await api.mei.url.post({
 			url: Bun.pathToFileURL(
 				join(__dirname, "..", "..", "test", "invalid-file.json"),
 			).toString(),
 		});
 		expect(response.error?.value).toEqual({
-			error: "Failed to process MEI file",
-			cause: {
-				name: "MeiFileInvalidContentTypeError",
-				message:
-					"Invalid content type. Expected application/xml, but got application/json;charset=utf-8",
-			},
+			name: "APIInvalidContentTypeError",
+			message:
+				"Invalid content type. Expected application/xml, but got application/json;charset=utf-8",
 		});
-		expect(response.status).toBe(500);
+		expect(response.status).toBe(415);
 	});
 });

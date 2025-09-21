@@ -6,6 +6,7 @@ import { version } from "../package.json";
 import { api } from "./api";
 import { OpenAPI } from "./lib/auth";
 import { betterAuth } from "./middleware/auth";
+import { errorMiddleware } from "./middleware/error";
 
 export const app = new Elysia()
 	.use(
@@ -23,5 +24,6 @@ export const app = new Elysia()
 	)
 	.use(cors())
 	.use(logger())
-  .use(betterAuth)
+	.use(betterAuth)
+	.use(errorMiddleware)
 	.use(api);

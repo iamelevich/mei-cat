@@ -12,8 +12,10 @@ import {
 	IconDotsVertical,
 	IconDownload,
 	IconLayoutColumns,
+	IconTrash,
 	IconUpload,
 } from "@tabler/icons-react";
+import { useQueryClient } from "@tanstack/react-query";
 import {
 	type ColumnDef,
 	type ColumnFiltersState,
@@ -58,10 +60,26 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/components/ui/table";
-import { type MeiFile, useMeiFiles } from "@/data/mei";
+import {
+	invalidateMeiFiles,
+	MEI_QUERY_KEY,
+	type MeiFile,
+	useMeiFiles,
+} from "@/data/mei";
 import { app } from "@/lib/app";
 import { saveAsXML } from "@/lib/file-utils";
 import { UploadMeiFileDialog } from "./UploadMeiFileDialog";
+import {
+	AlertDialog,
+	AlertDialogAction,
+	AlertDialogCancel,
+	AlertDialogContent,
+	AlertDialogDescription,
+	AlertDialogFooter,
+	AlertDialogHeader,
+	AlertDialogTitle,
+	AlertDialogTrigger,
+} from "./ui/alert-dialog";
 
 const columns: ColumnDef<MeiFile>[] = [
 	{
@@ -132,82 +150,122 @@ const columns: ColumnDef<MeiFile>[] = [
 	{
 		id: "actions",
 		header: () => <div className="w-full text-right">Actions</div>,
-		cell: ({ row }) => (
-			<div className="flex items-center justify-end gap-2">
-				<Button
-					variant="outline"
-					size="sm"
-					onClick={async () => {
-						try {
-							const response = await app.api
-								.mei({
-									id: row.original.id,
-								})
-								.original.get();
-							if (response.data) {
-								// Create download link
-								saveAsXML(
-									response.data,
-									`${row.original.title[0].title}_original.xml`,
-								);
-								toast.success("Original file downloaded");
-							}
-						} catch (error) {
-							toast.error("Failed to download original file");
-							console.error(error);
-						}
-					}}
-				>
-					<IconDownload className="size-4" />
-					<span className="hidden sm:inline">Original</span>
-				</Button>
-				<Button
-					variant="outline"
-					size="sm"
-					onClick={async () => {
-						try {
-							const response = await app.api
-								.mei({
-									id: row.original.id,
-								})
-								.converted.get();
-							if (response.data) {
-								// Create download link
-								saveAsXML(
-									response.data,
-									`${row.original.title[0].title}_converted.mei51.xml`,
-								);
-								toast.success("Converted file downloaded");
-							}
-						} catch (error) {
-							toast.error("Failed to download converted file");
-							console.error(error);
-						}
-					}}
-				>
-					<IconDownload className="size-4" />
-					<span className="hidden sm:inline">MEI 5.1</span>
-				</Button>
-				<DropdownMenu>
-					<DropdownMenuTrigger asChild>
-						<Button
-							variant="ghost"
-							className="data-[state=open]:bg-muted text-muted-foreground flex size-8"
-							size="icon"
-						>
-							<IconDotsVertical />
-							<span className="sr-only">Open menu</span>
-						</Button>
-					</DropdownMenuTrigger>
-					<DropdownMenuContent align="end" className="w-32">
-						<DropdownMenuItem>View Details</DropdownMenuItem>
-						<DropdownMenuItem>Edit</DropdownMenuItem>
-						<DropdownMenuSeparator />
-						<DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
-					</DropdownMenuContent>
-				</DropdownMenu>
-			</div>
-		),
+		cell: ({ row }) => {
+			const queryClient = useQueryClient();
+			return (
+				<div className="flex items-center justify-end gap-2">
+					<AlertDialog>
+						<DropdownMenu>
+							<DropdownMenuTrigger asChild>
+								<Button
+									variant="ghost"
+									className="data-[state=open]:bg-muted text-muted-foreground flex size-8"
+									size="icon"
+								>
+									<IconDotsVertical />
+									<span className="sr-only">Open menu</span>
+								</Button>
+							</DropdownMenuTrigger>
+							<DropdownMenuContent align="end" className="w-32">
+								<DropdownMenuItem>View Details</DropdownMenuItem>
+								<DropdownMenuItem>Edit</DropdownMenuItem>
+								<DropdownMenuSeparator />
+								<DropdownMenuItem
+									onClick={async () => {
+										try {
+											const response = await app.api
+												.mei({
+													id: row.original.id,
+												})
+												.original.get();
+											if (response.data) {
+												// Create download link
+												saveAsXML(
+													response.data,
+													`${row.original.title[0].title}_original.xml`,
+												);
+												toast.success("Original file downloaded");
+											}
+										} catch (error) {
+											toast.error("Failed to download original file");
+											console.error(error);
+										}
+									}}
+								>
+									<IconDownload /> Original
+								</DropdownMenuItem>
+								<DropdownMenuItem
+									onClick={async () => {
+										try {
+											const response = await app.api
+												.mei({
+													id: row.original.id,
+												})
+												.converted.get();
+											if (response.data) {
+												// Create download link
+												saveAsXML(
+													response.data,
+													`${row.original.title[0].title}_converted.mei51.xml`,
+												);
+												toast.success("Converted file downloaded");
+											}
+										} catch (error) {
+											toast.error("Failed to download converted file");
+											console.error(error);
+										}
+									}}
+								>
+									<IconDownload /> Converted
+								</DropdownMenuItem>
+								<DropdownMenuSeparator />
+								<AlertDialogTrigger asChild>
+									<DropdownMenuItem variant="destructive">
+										<IconTrash /> Delete
+									</DropdownMenuItem>
+								</AlertDialogTrigger>
+							</DropdownMenuContent>
+						</DropdownMenu>
+						{/* Delete MEI file dialog */}
+						<AlertDialogContent>
+							<AlertDialogHeader>
+								<AlertDialogTitle>
+									Are really want to delete this MEI file?
+								</AlertDialogTitle>
+								<AlertDialogDescription>
+									This action cannot be undone. This will permanently delete the
+									MEI file and remove it from our servers.
+								</AlertDialogDescription>
+							</AlertDialogHeader>
+							<AlertDialogFooter>
+								<AlertDialogCancel>Cancel</AlertDialogCancel>
+								<AlertDialogAction
+									variant="destructive"
+									onClick={async () => {
+										try {
+											const response = await app.api
+												.mei({ id: row.original.id })
+												.delete();
+											if (response.status === 200) {
+												toast.success("MEI file deleted");
+												invalidateMeiFiles(queryClient);
+											} else {
+												toast.error("Failed to delete MEI file");
+											}
+										} catch (error) {
+											toast.error("Failed to delete MEI file");
+											console.error(error);
+										}
+									}}
+								>
+									Delete
+								</AlertDialogAction>
+							</AlertDialogFooter>
+						</AlertDialogContent>
+					</AlertDialog>
+				</div>
+			);
+		},
 	},
 ];
 

@@ -359,64 +359,9 @@ export function MEITable() {
 	// 	}
 	// }
 
-	return (
-		<div className="w-full flex-col justify-start gap-6">
-			<div className="flex items-center justify-between px-4 lg:px-6 mb-2">
-				<div className="flex items-center gap-2">
-					<Input
-						placeholder="Filter by title..."
-						value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
-						onChange={(event) =>
-							table.getColumn("title")?.setFilterValue(event.target.value)
-						}
-						className="max-w-sm"
-					/>
-				</div>
-				<div className="flex items-center gap-2">
-					<DropdownMenu>
-						<DropdownMenuTrigger asChild>
-							<Button variant="outline" size="sm">
-								<IconLayoutColumns />
-								<span className="hidden lg:inline">Customize Columns</span>
-								<span className="lg:hidden">Columns</span>
-								<IconChevronDown />
-							</Button>
-						</DropdownMenuTrigger>
-						<DropdownMenuContent align="end" className="w-56">
-							{table
-								.getAllColumns()
-								.filter(
-									(column) =>
-										typeof column.accessorFn !== "undefined" &&
-										column.getCanHide(),
-								)
-								.map((column) => {
-									return (
-										<DropdownMenuCheckboxItem
-											key={column.id}
-											className="capitalize"
-											checked={column.getIsVisible()}
-											onCheckedChange={(value) =>
-												column.toggleVisibility(!!value)
-											}
-										>
-											{column.id}
-										</DropdownMenuCheckboxItem>
-									);
-								})}
-						</DropdownMenuContent>
-					</DropdownMenu>
-					<UploadMeiFileDialog>
-						<Button
-							variant="outline"
-							size="sm"
-							className="bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground min-w-8 duration-200 ease-linear"
-						>
-							<IconUpload />
-						</Button>
-					</UploadMeiFileDialog>
-				</div>
-			</div>
+	// biome-ignore lint/correctness/noNestedComponentDefinitions: Just ignore here
+	const TableContent = () => {
+		return (
 			<div className="relative flex flex-col gap-4 overflow-auto px-4 lg:px-6">
 				<div className="overflow-hidden rounded-lg border">
 					<DndContext
@@ -547,6 +492,76 @@ export function MEITable() {
 					</div>
 				</div>
 			</div>
+		);
+	};
+
+	return (
+		<div className="w-full flex-col justify-start gap-6">
+			<div className="flex items-center justify-between px-4 lg:px-6 mb-2">
+				<div className="flex items-center gap-2">
+					<Input
+						placeholder="Filter by title..."
+						value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
+						disabled={isLoading}
+						onChange={(event) =>
+							table.getColumn("title")?.setFilterValue(event.target.value)
+						}
+						className="max-w-sm"
+					/>
+				</div>
+				<div className="flex items-center gap-2">
+					<DropdownMenu>
+						<DropdownMenuTrigger asChild>
+							<Button variant="outline" size="sm" disabled={isLoading}>
+								<IconLayoutColumns />
+								<span className="hidden lg:inline">Customize Columns</span>
+								<span className="lg:hidden">Columns</span>
+								<IconChevronDown />
+							</Button>
+						</DropdownMenuTrigger>
+						<DropdownMenuContent align="end" className="w-56">
+							{table
+								.getAllColumns()
+								.filter(
+									(column) =>
+										typeof column.accessorFn !== "undefined" &&
+										column.getCanHide(),
+								)
+								.map((column) => {
+									return (
+										<DropdownMenuCheckboxItem
+											key={column.id}
+											className="capitalize"
+											checked={column.getIsVisible()}
+											onCheckedChange={(value) =>
+												column.toggleVisibility(!!value)
+											}
+										>
+											{column.id}
+										</DropdownMenuCheckboxItem>
+									);
+								})}
+						</DropdownMenuContent>
+					</DropdownMenu>
+					<UploadMeiFileDialog>
+						<Button
+							variant="outline"
+							size="sm"
+							disabled={isLoading}
+							className="bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground min-w-8 duration-200 ease-linear"
+						>
+							<IconUpload />
+						</Button>
+					</UploadMeiFileDialog>
+				</div>
+			</div>
+			{isLoading ? (
+				<div className="flex items-center justify-center">
+					<div className="text-muted-foreground">Loading MEI files...</div>
+				</div>
+			) : (
+				<TableContent />
+			)}
 		</div>
 	);
 }

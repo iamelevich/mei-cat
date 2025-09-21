@@ -13,6 +13,8 @@ import type { MeiFileSelect } from "../db/models";
 import {
 	fileDesc,
 	meiFiles,
+	person,
+	pubStmt,
 	respStmt,
 	respStmtLikeEnum,
 	title,
@@ -509,6 +511,56 @@ export class MeiFile {
 						data: respStmtElement,
 					})
 					.returning();
+			}
+		}
+
+		// Fill the pubStmt table with the MEI file data.
+		const pubStmtElement = fileDescElement.pubStmt;
+		if (pubStmtElement) {
+			const pubStmtElements = Array.isArray(pubStmtElement)
+				? pubStmtElement
+				: [pubStmtElement];
+			for (const pubStmtElement of pubStmtElements) {
+				// If the pubStmt element has an unpub element, set the isUnpub flag to true.
+				if (pubStmtElement.unpub) {
+					await db.insert(pubStmt).values({
+						fileDescId: fileDescItem.id,
+						isUnpub: true,
+					});
+					continue;
+				}
+
+				const date = pubStmtElement.date?.["#text"] ?? null;
+				const respStmtElements = pubStmtElement.respStmt;
+				const respStmtElementsArray = Array.isArray(respStmtElements)
+					? respStmtElements
+					: [respStmtElements];
+				for (const respStmtElement of respStmtElementsArray) {
+					const [pubStmtItem] = await db
+						.insert(pubStmt)
+						.values({
+							fileDescId: fileDescItem.id,
+							date,
+							company: respStmtElement.corpName ?? null,
+						})
+						.returning();
+
+					const personElement = respStmtElement.persName;
+					const personElements = Array.isArray(personElement)
+						? personElement
+						: [personElement];
+					for (const personElement of personElements) {
+						if (!personElement["#text"] || !personElement["@role"]) continue;
+						await db
+							.insert(person)
+							.values({
+								pubStmtId: pubStmtItem.id,
+								name: personElement["#text"],
+								role: personElement["@role"],
+							})
+							.returning();
+					}
+				}
 			}
 		}
 	}

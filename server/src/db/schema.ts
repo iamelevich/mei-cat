@@ -1,6 +1,10 @@
-import type { ModelRespLikeData } from "@mei-cat/mei-schema-valibot";
+import type {
+	ModelRespLikeData,
+	RespStmtData,
+} from "@mei-cat/mei-schema-valibot";
 import { relations } from "drizzle-orm";
 import {
+	boolean,
 	json,
 	pgEnum,
 	pgTable,
@@ -141,5 +145,54 @@ export const respStmtRelations = relations(respStmt, ({ one }) => ({
 	titleStmt: one(titleStmt, {
 		fields: [respStmt.titleStmtId],
 		references: [titleStmt.id],
+	}),
+}));
+
+export const pubStmt = pgTable("pub_stmt", {
+	id: uuid("id").defaultRandom().primaryKey(),
+	fileDescId: uuid("file_desc_id").references(() => fileDesc.id, {
+		onDelete: "cascade",
+	}),
+
+	date: text("date"),
+	company: json("company").$type<RespStmtData["corpName"]>(),
+	isUnpub: boolean("is_unpub").notNull().default(false),
+
+	createdAt: timestamp("created_at", { withTimezone: false })
+		.notNull()
+		.defaultNow(),
+	updatedAt: timestamp("updated_at", { withTimezone: false })
+		.notNull()
+		.defaultNow(),
+});
+
+export const pubStmtRelations = relations(pubStmt, ({ one }) => ({
+	fileDesc: one(fileDesc, {
+		fields: [pubStmt.fileDescId],
+		references: [fileDesc.id],
+	}),
+}));
+
+export const person = pgTable("person", {
+	id: uuid("id").defaultRandom().primaryKey(),
+	pubStmtId: uuid("pub_stmt_id").references(() => pubStmt.id, {
+		onDelete: "cascade",
+	}),
+
+	name: text("name").notNull(),
+	role: text("role").notNull().default("unknown"),
+
+	createdAt: timestamp("created_at", { withTimezone: false })
+		.notNull()
+		.defaultNow(),
+	updatedAt: timestamp("updated_at", { withTimezone: false })
+		.notNull()
+		.defaultNow(),
+});
+
+export const personRelations = relations(person, ({ one }) => ({
+	pubStmt: one(pubStmt, {
+		fields: [person.pubStmtId],
+		references: [pubStmt.id],
 	}),
 }));

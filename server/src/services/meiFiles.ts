@@ -52,6 +52,12 @@ export const meiFilesService = new Elysia({ name: "meiFilesService" }).decorate(
 		deleteBatch: (ids: string[]) => {
 			return MeiFile.deleteBatch(ids);
 		},
+		reimport: (id: string) => {
+			return MeiFile.reimport(id);
+		},
+		reimportBatch: (ids: string[]) => {
+			return MeiFile.reimportBatch(ids);
+		},
 	},
 );
 
@@ -194,13 +200,91 @@ export class MeiFile {
 		return results;
 	}
 
+	/**
+	 * Reimport a MEI file by ID - deletes connected data and re-imports.
+	 * @param id - The ID of the MEI file to reimport.
+	 * @returns The updated MEI file object.
+	 */
+	static async reimport(id: string) {
+		// Get the MEI file from database
+		const meiFile = await db.query.meiFiles.findFirst({
+			where: (meiFiles, { eq }) => eq(meiFiles.id, id),
+		});
+
+		if (!meiFile) {
+			throw new APINotFoundError("MEI file not found");
+		}
+
+		// Read the original XML file
+		const originalFilePath = `${meiFile.storagePath}/${meiFile.originalFileName}`;
+		const originalFile = Bun.file(originalFilePath);
+		if (!originalFile.exists()) {
+			throw new APINotFoundError("Original MEI file not found");
+		}
+		const originalXml = await originalFile.text();
+
+		// Create a new MeiFile instance from the original XML
+		const meiFileInstance = new MeiFile(originalXml);
+
+		// Delete connected data (fileDesc and its children) but keep the meiFiles entity
+		await db.delete(fileDesc).where(eq(fileDesc.fileId, id));
+
+		// Re-import the data using fillDB
+		const updatedFile = await meiFileInstance.fillDB(true);
+
+		return updatedFile;
+	}
+
+	/**
+	 * Reimport multiple MEI files by their IDs.
+	 * @param ids - Array of MEI file IDs to reimport.
+	 * @returns Object with success count and any errors that occurred.
+	 */
+	static async reimportBatch(ids: string[]) {
+		const results = {
+			successCount: 0,
+			errorCount: 0,
+			errors: [] as Array<{ id: string; error: string }>,
+		};
+
+		// Get all MEI files first to avoid processing files that don't exist
+		const meiFilesToReimport = await db.query.meiFiles.findMany({
+			where: (meiFiles, { inArray }) => inArray(meiFiles.id, ids),
+		});
+
+		// Track which IDs were found
+		const foundIds = new Set(meiFilesToReimport.map((file) => file.id));
+
+		// Add errors for IDs that don't exist
+		for (const id of ids) {
+			if (!foundIds.has(id)) {
+				results.errors.push({ id, error: "MEI file not found" });
+				results.errorCount++;
+			}
+		}
+
+		// Reimport each MEI file
+		for (const meiFile of meiFilesToReimport) {
+			try {
+				await MeiFile.reimport(meiFile.id);
+				results.successCount++;
+			} catch (error) {
+				const errorMessage =
+					error instanceof Error ? error.message : "Unknown error";
+				results.errors.push({ id: meiFile.id, error: errorMessage });
+				results.errorCount++;
+			}
+		}
+
+		return results;
+	}
+
 	/** The original MEI XML version. */
 	public readonly version: string;
 
 	/** The converted MEI 5.1 XML as string. */
 	#convertedMei51: string | null = null;
 	/** The converted MEI JSON as object. */
-	// @ts-expect-error - MeiJsonData is too deep
 	#convertedJson: MeiJsonData | null = null;
 	/** The id of the MEI file. */
 	#hash: string | null = null;
@@ -320,7 +404,7 @@ export class MeiFile {
 	}
 
 	/** Fill the database with the MEI file data */
-	async fillDB() {
+	async fillDB(isReimport: boolean = false) {
 		// Convert the MEI file to JSON to fill all fields.
 		// Need to be done before saving the files to the database.
 		await this.json;
@@ -329,8 +413,15 @@ export class MeiFile {
 		const existingFile = await db.query.meiFiles.findFirst({
 			where: (file, { eq }) => eq(file.hash, this.hash),
 		});
-		if (existingFile) {
+		if (existingFile && !isReimport) {
 			throw new APIAlreadyExistsError("MEI file already exists in the DB");
+		}
+		if (!existingFile && isReimport) {
+			throw new APINotFoundError("MEI file not found in the DB");
+		}
+		if (isReimport) {
+			await this.fillFileDesc(existingFile!);
+			return existingFile!;
 		}
 		try {
 			const { originalFileName, convertedFileName, storageType, storagePath } =
@@ -367,6 +458,7 @@ export class MeiFile {
 		const json = await this.json;
 		const fileDescElement = json.mei.meiHead.fileDesc;
 
+		console.log(`Writing fileDesc to database for file ${file.id}`);
 		const [fileDescItem] = await db
 			.insert(fileDesc)
 			.values({ fileId: file.id })
@@ -374,6 +466,9 @@ export class MeiFile {
 
 		const titleStmtElement = fileDescElement.titleStmt;
 
+		console.log(
+			`Writing titleStmt to database for file ${file.id} and fileDesc ${fileDescItem.id}`,
+		);
 		const [titleStmtItem] = await db
 			.insert(titleStmt)
 			.values({ fileDescId: fileDescItem.id })
@@ -384,6 +479,9 @@ export class MeiFile {
 		const titleElements: TitleData[] = Array.isArray(titleStmtElement.title)
 			? titleStmtElement.title
 			: [titleStmtElement.title];
+		console.log(
+			`Writing ${titleElements.length} titles to database for file ${file.id} and titleStmt ${titleStmtItem.id}`,
+		);
 		for (const titleElement of titleElements) {
 			if (!titleElement["#text"])
 				throw new APINotFoundError("Title element text not found");

@@ -12,6 +12,7 @@ import {
 	IconDotsVertical,
 	IconDownload,
 	IconLayoutColumns,
+	IconRefresh,
 	IconTrash,
 	IconUpload,
 } from "@tabler/icons-react";
@@ -111,7 +112,7 @@ const columns: ColumnDef<MeiFile>[] = [
 			const primaryTitle = titles.find((t) => !t.language) || titles[0];
 			return (
 				<div className="flex flex-col">
-					<span className="font-medium">
+					<span className="font-medium text-wrap">
 						{primaryTitle?.title || "Untitled"}
 					</span>
 					{titles.length > 1 && (
@@ -214,6 +215,29 @@ const columns: ColumnDef<MeiFile>[] = [
 									<IconDownload /> Converted
 								</DropdownMenuItem>
 								<DropdownMenuSeparator />
+								<DropdownMenuItem
+									onClick={async () => {
+										try {
+											const response = await app.api.mei
+												.reimport({
+													id: row.original.id,
+												})
+												.post();
+											if (response.status === 200) {
+												toast.success("MEI file reimported successfully");
+												invalidateMeiFiles(queryClient);
+											} else {
+												toast.error("Failed to reimport MEI file");
+											}
+										} catch (error) {
+											toast.error("Failed to reimport MEI file");
+											console.error(error);
+										}
+									}}
+								>
+									<IconRefresh /> Reimport
+								</DropdownMenuItem>
+								<DropdownMenuSeparator />
 								<AlertDialogTrigger asChild>
 									<DropdownMenuItem variant="destructive">
 										<IconTrash /> Delete
@@ -293,6 +317,7 @@ export function MEITable() {
 	);
 	const [sorting, setSorting] = React.useState<SortingState>([]);
 	const [isBatchDeleting, setIsBatchDeleting] = React.useState(false);
+	const [isBatchReimporting, setIsBatchReimporting] = React.useState(false);
 
 	const dataIds = React.useMemo<UniqueIdentifier[]>(
 		() => data?.data.map(({ id }) => id) || [],
@@ -374,6 +399,51 @@ export function MEITable() {
 			console.error("Batch delete error:", error);
 		} finally {
 			setIsBatchDeleting(false);
+		}
+	};
+
+	const handleBatchReimport = async () => {
+		if (selectedCount === 0) return;
+
+		setIsBatchReimporting(true);
+
+		try {
+			const selectedIds = selectedRows.map((row) => row.original.id);
+			const response = await app.api.mei.reimport.batch.post({
+				ids: selectedIds,
+			});
+
+			if (response.status === 200 && response.data) {
+				const { successCount, errorCount, errors } = response.data.data;
+
+				if (errorCount === 0) {
+					toast.success(`Successfully reimported ${successCount} MEI file(s)`);
+				} else if (successCount > 0) {
+					toast.warning(
+						`Reimported ${successCount} file(s), ${errorCount} failed`,
+					);
+					// Show specific errors
+					errors.forEach(({ id, error }: { id: string; error: string }) => {
+						toast.error(`Failed to reimport ${id}: ${error}`);
+					});
+				} else {
+					toast.error("Failed to reimport all selected files");
+					errors.forEach(({ id, error }: { id: string; error: string }) => {
+						toast.error(`Failed to reimport ${id}: ${error}`);
+					});
+				}
+
+				// Clear selection and refresh data
+				setRowSelection({});
+				invalidateMeiFiles(queryClient);
+			} else {
+				toast.error("Failed to reimport selected files");
+			}
+		} catch (error) {
+			toast.error("Failed to reimport selected files");
+			console.error("Batch reimport error:", error);
+		} finally {
+			setIsBatchReimporting(false);
 		}
 	};
 
@@ -555,43 +625,57 @@ export function MEITable() {
 						</DropdownMenuContent>
 					</DropdownMenu>
 					{hasMultipleSelected && (
-						<AlertDialog>
-							<AlertDialogTrigger asChild>
-								<Button
-									variant="destructive"
-									size="sm"
-									disabled={isLoading || isBatchDeleting}
-									className="min-w-8 duration-200 ease-linear"
-								>
-									<IconTrash />
-									<span className="hidden lg:inline ml-2">
-										Delete Selected ({selectedCount})
-									</span>
-								</Button>
-							</AlertDialogTrigger>
-							<AlertDialogContent>
-								<AlertDialogHeader>
-									<AlertDialogTitle>
-										Delete {selectedCount} MEI files?
-									</AlertDialogTitle>
-									<AlertDialogDescription>
-										This action cannot be undone. This will permanently delete{" "}
-										{selectedCount} MEI file(s) and remove them from our
-										servers.
-									</AlertDialogDescription>
-								</AlertDialogHeader>
-								<AlertDialogFooter>
-									<AlertDialogCancel>Cancel</AlertDialogCancel>
-									<AlertDialogAction
+						<>
+							<Button
+								variant="outline"
+								size="sm"
+								disabled={isLoading || isBatchReimporting}
+								onClick={handleBatchReimport}
+								className="min-w-8 duration-200 ease-linear"
+							>
+								<IconRefresh />
+								<span className="hidden lg:inline ml-2">
+									Reimport Selected ({selectedCount})
+								</span>
+							</Button>
+							<AlertDialog>
+								<AlertDialogTrigger asChild>
+									<Button
 										variant="destructive"
-										onClick={handleBatchDelete}
-										disabled={isBatchDeleting}
+										size="sm"
+										disabled={isLoading || isBatchDeleting}
+										className="min-w-8 duration-200 ease-linear"
 									>
-										{isBatchDeleting ? "Deleting..." : "Delete"}
-									</AlertDialogAction>
-								</AlertDialogFooter>
-							</AlertDialogContent>
-						</AlertDialog>
+										<IconTrash />
+										<span className="hidden lg:inline ml-2">
+											Delete Selected ({selectedCount})
+										</span>
+									</Button>
+								</AlertDialogTrigger>
+								<AlertDialogContent>
+									<AlertDialogHeader>
+										<AlertDialogTitle>
+											Delete {selectedCount} MEI files?
+										</AlertDialogTitle>
+										<AlertDialogDescription>
+											This action cannot be undone. This will permanently delete{" "}
+											{selectedCount} MEI file(s) and remove them from our
+											servers.
+										</AlertDialogDescription>
+									</AlertDialogHeader>
+									<AlertDialogFooter>
+										<AlertDialogCancel>Cancel</AlertDialogCancel>
+										<AlertDialogAction
+											variant="destructive"
+											onClick={handleBatchDelete}
+											disabled={isBatchDeleting}
+										>
+											{isBatchDeleting ? "Deleting..." : "Delete"}
+										</AlertDialogAction>
+									</AlertDialogFooter>
+								</AlertDialogContent>
+							</AlertDialog>
+						</>
 					)}
 					<UploadMeiFileDialog>
 						<Button

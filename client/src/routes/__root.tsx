@@ -17,8 +17,12 @@ interface MyRouterContext {
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({
 	beforeLoad: async ({ location }) => {
+		// Skip auth routes
+		if (location.pathname.startsWith("/auth")) {
+			return;
+		}
 		const { data: session, error } = await authClient.getSession();
-		if (error || (!session && !location.pathname.startsWith("/auth"))) {
+		if (error || !session) {
 			throw redirect({
 				to: "/auth/sign-in",
 			});

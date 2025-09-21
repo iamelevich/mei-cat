@@ -5,6 +5,7 @@ import { meiDeleteRoutes } from "./delete";
 import { meiDownloadRoutes } from "./download";
 import { meiListRoutes } from "./list";
 import { meiParseCatalogRoutes } from "./parse-catalog";
+import { meiReimportRoutes } from "./reimport";
 
 export const meiRoutes = new Elysia({ prefix: "/mei" })
 	.use(errorMiddleware)
@@ -12,4 +13,5 @@ export const meiRoutes = new Elysia({ prefix: "/mei" })
 	.use(meiAddRoutes)
 	.use(meiDownloadRoutes)
 	.use(meiDeleteRoutes)
-	.use(meiParseCatalogRoutes);
+	.use(meiParseCatalogRoutes)
+	.use(meiReimportRoutes);

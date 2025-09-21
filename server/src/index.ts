@@ -1,6 +1,7 @@
 import pc from "picocolors";
 
 import { app } from "./app";
+// import { migrateDB } from "./db/migrate";
 import { env } from "./env";
 
 const ELYSIA_VERSION = import.meta.require("elysia/package.json").version;
@@ -9,6 +10,8 @@ const startTime = performance.now();
 
 // clear screen
 process.stdout.write("\x1Bc\n");
+
+// await migrateDB(false);
 
 app.listen(
 	{

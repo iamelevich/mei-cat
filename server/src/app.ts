@@ -33,7 +33,7 @@ export const app = new Elysia()
 if (isProd) {
 	app.use(
 		staticPlugin({
-			assets: import.meta.dir + "/client",
+			assets: `${import.meta.dir}/client`,
 			prefix: "/",
 			indexHTML: true,
 		}),

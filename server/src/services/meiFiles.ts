@@ -419,12 +419,11 @@ export class MeiFile {
 		if (existingFile && !isReimport) {
 			throw new APIAlreadyExistsError("MEI file already exists in the DB");
 		}
-		if (!existingFile && isReimport) {
+		if (isReimport && existingFile) {
+			await this.fillFileDesc(existingFile);
+			return existingFile;
+		} else if (!existingFile && isReimport) {
 			throw new APINotFoundError("MEI file not found in the DB");
-		}
-		if (isReimport) {
-			await this.fillFileDesc(existingFile!);
-			return existingFile!;
 		}
 		try {
 			const { originalFileName, convertedFileName, storageType, storagePath } =

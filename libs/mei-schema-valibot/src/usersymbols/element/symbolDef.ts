@@ -73,6 +73,7 @@ export const SymbolDefSchema: v.GenericSchema<SymbolDefData> = v.lazy(() =>
 export type SymbolDefData = SymbolDefBaseData & {
 	graphic?: GraphicData | GraphicData[];
 	mapping?: MappingData | MappingData[];
+	/** biome-ignore lint/suspicious/noExplicitAny: No definition in MEI schema */
 	svg_svg?: any;
 	symbol?: SymbolData | SymbolData[];
 	symName?: SymNameData;

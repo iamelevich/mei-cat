@@ -3,12 +3,6 @@
 	"$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
 	"extends": "//",
 	"files": {
-		"includes": [
-			"**",
-			"!**/files/result",
-			"!**/sample-encodings",
-			"!**/files/input",
-			"!**/encoding-tools"
-		]
+		"includes": ["**", "!dist", "!src/__testFiles__"]
 	}
 }

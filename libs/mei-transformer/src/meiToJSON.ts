@@ -8,7 +8,7 @@ import * as v from "valibot";
  * @param xml - MEI XML as string
  * @returns JSON representation of MEI XML
  */
-export function meiXmlToJsonWithoutValidation(xml: string): any {
+export function meiXmlToJsonWithoutValidation(xml: string) {
 	const parser = new XMLParser({
 		// ignoreAttributes: (attrName: string, jPath: string) => {
 		// 	if (attrName === "xml:id") {

@@ -274,19 +274,18 @@ export class MeiFile {
 
 	/** Fill the database with the MEI file data */
 	async fillDB() {
+		// Convert the MEI file to JSON to fill all fields.
+		// Need to be done before saving the files to the database.
+		await this.json;
+
+		// Check if file already exists in the DB by hash
+		const existingFile = await db.query.meiFiles.findFirst({
+			where: (file, { eq }) => eq(file.hash, this.hash),
+		});
+		if (existingFile) {
+			throw new APIAlreadyExistsError("MEI file already exists in the DB");
+		}
 		try {
-			// Convert the MEI file to JSON to fill all fields.
-			// Need to be done before saving the files to the database.
-			await this.json;
-
-			// Check if file already exists in the DB by hash
-			const existingFile = await db.query.meiFiles.findFirst({
-				where: (file, { eq }) => eq(file.hash, this.hash),
-			});
-			if (existingFile) {
-				throw new APIAlreadyExistsError("MEI file already exists in the DB");
-			}
-
 			const { originalFileName, convertedFileName, storageType, storagePath } =
 				await this.saveFiles();
 			const [file] = await db

@@ -1,27 +1,12 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "vcs": {
-    "enabled": false,
-    "clientKind": "git",
-    "useIgnoreFile": false
-  },
+  "$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
+  "extends": "//",
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["src/routeTree.gen.ts"],
-    "include": ["src/*", ".vscode/*", "index.html", "vite.config.js"]
-  },
-  "formatter": {
-    "enabled": true,
-    "indentStyle": "tab"
-  },
-  "organizeImports": {
-    "enabled": true
+    "includes": ["src/**/*", ".vscode/*", "index.html", "vite.config.js", "!src/routeTree.gen.ts"]
   },
   "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true
-    }
+    "includes": ["src/**/*", ".vscode/*", "index.html", "vite.config.js", "!src/routeTree.gen.ts", "!src/**/*.css"]
   },
   "javascript": {
     "formatter": {

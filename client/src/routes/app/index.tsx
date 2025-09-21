@@ -1,9 +1,9 @@
+import type { MeiListItem } from "@mei-cat/server";
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { MeiTable } from "@/components/MEITable";
+import { MEITable } from "@/components/MEITable";
 import { SiteHeader } from "@/components/SiteHeader";
 import { app } from "@/lib/app";
-import type { MeiListItem } from "@mei-cat/server";
 
 export const Route = createFileRoute("/app/")({
 	component: RouteComponent,
@@ -66,7 +66,7 @@ function RouteComponent() {
 			<div className="flex flex-1 flex-col">
 				<div className="@container/main flex flex-1 flex-col gap-2">
 					<div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
-						<MeiTable data={meiFiles} />
+						<MEITable data={meiFiles} />
 					</div>
 				</div>
 			</div>

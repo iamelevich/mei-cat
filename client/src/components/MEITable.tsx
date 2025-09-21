@@ -295,7 +295,7 @@ function DraggableRow({ row }: { row: Row<MeiFile> }) {
 	);
 }
 
-export function MeiTable() {
+export function MEITable() {
 	const [pagination, setPagination] = React.useState({
 		pageIndex: 0,
 		pageSize: 10,

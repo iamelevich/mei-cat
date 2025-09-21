@@ -70,10 +70,14 @@ export class MeiFile {
 			});
 			if (!response.ok)
 				throw new APIFileDownloadError("Failed to download MEI file");
-			if (response.headers.get("content-type") !== "application/xml")
+			const contentType = response.headers.get("content-type");
+			if (
+				!contentType?.startsWith("application/xml") &&
+				!contentType?.startsWith("text/xml")
+			)
 				throw new APIInvalidContentTypeError(
-					"Invalid content type. Expected application/xml, but got " +
-						response.headers.get("content-type"),
+					"Invalid content type. Expected application/xml or text/xml, but got " +
+						contentType,
 				);
 			const xml = await response.text();
 			return new MeiFile(xml);

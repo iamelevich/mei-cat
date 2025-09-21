@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "@tanstack/react-router";
-import { Terminal } from "lucide-react";
 import { toast } from "sonner";
 import * as v from "valibot";
 import {
@@ -12,7 +11,6 @@ import {
 import { useAppForm } from "@/hooks/form";
 import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
-import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 
 const SignUpSchema = v.pipe(
 	v.object({

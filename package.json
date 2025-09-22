@@ -9,7 +9,7 @@
     "start": "bun run ./dist/index.js",
     "dev": "turbo run dev",
     "check": "turbo run check",
-    "build": "turbo run build",
+    "build": "rm -rf dist && turbo run build",
     "docker:up": "docker compose -f docker/docker-compose.yml up -d",
     "docker:down": "docker compose -f docker/docker-compose.yml down",
     "docker:logs": "docker compose -f docker/docker-compose.yml logs -f"

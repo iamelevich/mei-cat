@@ -1,6 +1,7 @@
 import { Value } from "@sinclair/typebox/value";
-import Elysia from "elysia";
+import Elysia, { file } from "elysia";
 import { StatusCodes } from "http-status-codes";
+import { env } from "../env";
 import { APIError, ErrorResponseSchema } from "../shared/errors";
 
 export const errorMiddleware = new Elysia({ name: "error" })
@@ -13,10 +14,22 @@ export const errorMiddleware = new Elysia({ name: "error" })
 		set.status = StatusCodes.INTERNAL_SERVER_ERROR;
 
 		switch (code) {
-			case "NOT_FOUND":
+			case "NOT_FOUND": {
+				const url = new URL(request.url);
+				if (
+					env.NODE_ENV === "production" &&
+					request.method === "GET" &&
+					!url.pathname.startsWith("/api")
+				) {
+					console.log(
+						` ✗ Looks like client route (${url.pathname}). Returning ${import.meta.dir}/client/index.html`,
+					);
+					return file(`${import.meta.dir}/client/index.html`);
+				}
 				set.status = StatusCodes.NOT_FOUND;
 				message = `${request.method} ${request.url} is not a valid endpoint.`;
 				break;
+			}
 			case "PARSE":
 				set.status = error.status;
 				message = error.message;

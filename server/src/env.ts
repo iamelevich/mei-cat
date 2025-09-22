@@ -46,7 +46,6 @@ const EnvDTO = Type.Object({
 	DATABASE_URL: Type.String({
 		default: "postgres://mei-cat:mypassword@localhost:5432/mei-cat",
 	}),
-	DATABASE_AUTH_TOKEN: Type.Optional(Type.String()),
 	STORAGE_TYPE: Type.Enum(
 		{
 			local: "local",
@@ -58,5 +57,4 @@ const EnvDTO = Type.Object({
 	MEI_FILE_DOWNLOAD_TIMEOUT: Type.Number({ default: 5000 }),
 });
 
-export const isProd = process.env.NODE_ENV === "production";
 export const env = transformEnv(parseEnv(EnvDTO, process.env));

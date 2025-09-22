@@ -29,7 +29,15 @@ app.listen(
 		);
 		console.log(
 			`${pc.green(" ➜ ")} ${pc.bold("Database")}: ${pc.cyan(env.DATABASE_URL)}`,
-			"\n",
 		);
+
+		// Print all app.routes
+		// Each route is an object with properties like path, method, etc.
+		console.log(`${pc.green(" ➜ ")} ${pc.bold("Routes")}:`);
+		for (const route of app.routes) {
+			console.log(
+				`   ${pc.cyan(route.method.toUpperCase().padEnd(6))} ${pc.bold(route.path)}`,
+			);
+		}
 	},
 );

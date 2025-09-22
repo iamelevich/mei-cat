@@ -1,16 +1,48 @@
 version: '3.8'
 
 services:
+  mei-cat:
+    image: mei-cat
+    container_name: mei-cat
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+      target: production
+    restart: always
+    env_file:
+      - ../.env
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+      - DATABASE_URL=postgres://mei-cat:mypassword@postgres:5432/mei-cat
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../storage:/app/storage
+    networks:
+      - mei-cat-network
+    depends_on:
+      - postgres
+
   postgres:
     image: postgres:16
     container_name: postgres
     restart: always
-    env_file:
-      - ../.env
+    environment:
+      - POSTGRES_USER=mei-cat
+      - POSTGRES_PASSWORD=mypassword
+      - POSTGRES_DB=mei-cat
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - mei-cat-network
+
+networks:
+  mei-cat-network:
+    driver: bridge
 
 volumes:
   postgres_data:
